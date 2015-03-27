@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="CloudBreadDBConString-Web.config Connection String" description="CloudBreadDBConString 데이터베이스에 액세스하기 위해 응용 프로그램에 의해 web.config에 사용된 연결 문자열입니다." defaultValue="Data Source=(local);Initial Catalog=CloudBreadDB;Integrated Security=True;MultipleActiveResultSets=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\documents\\visual\ studio\ 2013\\Projects\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadDBConString']/@connectionString" />
+  </parameter>
+  <parameter name="CloudBreadStorageConString-Web.config Connection String" description="CloudBreadStorageConString 데이터베이스에 액세스하기 위해 응용 프로그램에 의해 web.config에 사용된 연결 문자열입니다." defaultValue="DefaultEndpointsProtocol=https;AccountName=cloudbreadstorage;AccountKey=DOlxbd507Dzf2LhHIAFxc5veAuSOtGot4P5Ty76d6/OTgfO5KRgegYDGqrgOT/pB7IJPyRXVgdQsiqMIDWjI+Q==;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\documents\\visual\ studio\ 2013\\Projects\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadStorageConString']/@connectionString" />
+  </parameter>
+  <parameter name="AzureTable-Web.config Connection String" description="AzureTable 데이터베이스에 액세스하기 위해 응용 프로그램에 의해 web.config에 사용된 연결 문자열입니다." defaultValue="DefaultEndpointsProtocol=https;AccountName=cloudbreadstorage;AccountKey=DOlxbd507Dzf2LhHIAFxc5veAuSOtGot4P5Ty76d6/OTgfO5KRgegYDGqrgOT/pB7IJPyRXVgdQsiqMIDWjI+Q==;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\documents\\visual\ studio\ 2013\\Projects\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AzureTable']/@connectionString" />
+  </parameter>
+  <parameter name="MyConnectionString-Web.config Connection String" description="MyConnectionString 데이터베이스에 액세스하기 위해 응용 프로그램에 의해 web.config에 사용된 연결 문자열입니다." defaultValue="metadata=res://*/Model.Model.csdl|res://*/Model.Model.ssdl|res://*/Model.Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=tcp:o8kl08297p.database.windows.net,1433;Database=CloudBreadDB;User ID=konan@o8kl08297p;Password=!rjfejrthl94;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\documents\\visual\ studio\ 2013\\Projects\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="CloudBread.CloudBreadDBContext-Web.config Connection String" description="CloudBread.CloudBreadDBContext 데이터베이스에 액세스하기 위해 응용 프로그램에 의해 web.config에 사용된 연결 문자열입니다." defaultValue="CloudBread.CloudBreadDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\documents\\visual\ studio\ 2013\\Projects\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBread.CloudBreadDBContext']/@connectionString" />
+  </parameter>
+</parameters>
