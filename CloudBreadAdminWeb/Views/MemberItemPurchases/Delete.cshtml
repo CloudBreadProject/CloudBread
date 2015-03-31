@@ -1,0 +1,321 @@
+﻿@model CloudBreadAdminWeb.MemberItemPurchases
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>정말 삭제 하시겠습니까?</h3>
+<div>
+    <h4>MemberItemPurchases</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemListID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemListID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PGinfo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PGinfo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PGinfo2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PGinfo2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PGinfo3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PGinfo3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PGinfo4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PGinfo4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PGinfo5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PGinfo5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDeviceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDeviceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDeviceIPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDeviceIPAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDeviceMACAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDeviceMACAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelYN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelYN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelingStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelingStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelReturnedAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelReturnedAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelDeviceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelDeviceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelDeviceIPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelDeviceIPAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelDeviceMACAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelDeviceMACAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HideYN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HideYN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteYN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteYN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseCancelConfirmAdminMemberID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseCancelConfirmAdminMemberID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegionDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegionDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="삭제" class="btn btn-default" /> |
+            @Html.ActionLink("리스트", "Index")
+        </div>
+    }
+</div>

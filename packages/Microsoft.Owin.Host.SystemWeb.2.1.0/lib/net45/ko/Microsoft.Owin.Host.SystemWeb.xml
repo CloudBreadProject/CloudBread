@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Host.SystemWeb</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.AuthenticationResult">
+      <summary>OWIN 인증 결과를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.AuthenticationResult.#ctor(System.Security.Principal.IIdentity,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+      <summary>
+        <see cref="T:Microsoft.Owin.Host.SystemWeb.AuthenticationResult" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="identity">결과 ID입니다.</param>
+      <param name="extra">추가 인증입니다.</param>
+      <param name="properties">인증 결과의 속성입니다.</param>
+    </member>
+    <member name="P:Microsoft.Owin.Host.SystemWeb.AuthenticationResult.Extra">
+      <summary>추가 인증을 가져옵니다.</summary>
+      <returns>추가 인증입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Host.SystemWeb.AuthenticationResult.Identity">
+      <summary>결과 ID를 가져옵니다.</summary>
+      <returns>결과 ID입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Host.SystemWeb.AuthenticationResult.Properties">
+      <summary>인증 결과의 속성을 가져옵니다.</summary>
+      <returns>인증 결과의 속성입니다.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler">
+      <summary>
+        <see cref="T:System.Web" /> 요청을 OWIN 요청으로 처리합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.BeginProcessRequest(System.Web.HttpContextBase,System.AsyncCallback,System.Object)">
+      <summary>HTTP 처리기에 대한 비동기 호출을 시작합니다.</summary>
+      <returns>프로세스의 상태에 대한 정보를 포함하는 <see cref="T:System.IAsyncResult" />입니다.</returns>
+      <param name="httpContext">HTTP 요청을 처리하는 데 사용되는 내장 서버 개체(예: Request, Response, Session 및 Server)에 대한 참조를 제공하는 <see cref="T:System.Web.HttpContextBase" /> 개체입니다.</param>
+      <param name="callback">비동기 메서드 호출 완료 시 호출하는 <see cref="T:System.AsyncCallback" />입니다.콜백이 null이면 대리자가 호출되지 않습니다.</param>
+      <param name="extraData">요청 처리에 필요한 추가 데이터입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.EndProcessRequest(System.IAsyncResult)">
+      <summary>끝을 처리할 때 비동기 프로세스 End  메서드를 제공합니다.</summary>
+      <param name="result">프로세스의 상태에 대한 정보를 포함하는 <see cref="T:System.IAsyncResult" />입니다.</param>
+    </member>
+    <member name="P:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.IsReusable">
+      <summary>다른 요청에서 <see cref="T:System.Web.IHttpHandler" /> 인스턴스를 사용할 수 있는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>true를 반환합니다.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.System#Web#IHttpAsyncHandler#BeginProcessRequest(System.Web.HttpContext,System.AsyncCallback,System.Object)">
+      <summary>HTTP 처리기에 대한 비동기 호출을 시작합니다.</summary>
+      <returns>프로세스의 상태에 대한 정보를 포함하는 <see cref="T:System.IAsyncResult" />입니다.</returns>
+      <param name="context">HTTP 요청을 처리하는 데 사용되는 내장 서버 개체(예: Request, Response, Session 및 Server)에 대한 참조를 제공하는 <see cref="T:System.Web.HttpContext" /> 개체입니다.</param>
+      <param name="cb">비동기 메서드 호출 완료 시 호출하는 <see cref="T:System.AsyncCallback" />입니다.콜백이 null이면 대리자가 호출되지 않습니다.</param>
+      <param name="extraData">요청 처리에 필요한 추가 데이터입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.System#Web#IHttpHandler#ProcessRequest(System.Web.HttpContext)">
+      <summary>HTTP 처리기에 대한 요청을 처리합니다.</summary>
+      <param name="context">컨텍스트입니다.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler">
+      <summary>OWIN 파이프라인을 통해 경로를 처리합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.#ctor(System.Action{Owin.IAppBuilder})">
+      <summary>OwinRouteHandler를 초기화합니다.</summary>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+      <summary>요청을 처리하는 개체를 제공합니다.</summary>
+      <returns>요청을 처리하는 개체입니다.</returns>
+      <param name="requestContext">요청에 대한 정보를 캡슐화하는 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.System#Web#Routing#IRouteHandler#GetHttpHandler(System.Web.Routing.RequestContext)">
+      <summary>요청을 처리하는 개체를 제공합니다.</summary>
+      <returns>요청을 처리하는 개체입니다.</returns>
+      <param name="requestContext">요청에 대한 정보를 캡슐화하는 개체입니다.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.PreApplicationStart">
+      <summary>응용 프로그램 시작 시 OWIN 요청 처리 모듈을 등록합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.PreApplicationStart.Initialize">
+      <summary>OWIN 요청 처리 모듈을 등록합니다.</summary>
+    </member>
+    <member name="T:System.Web.HttpContextBaseExtensions">
+      <summary>
+        <see cref="T:System.Web.HttpContextBase" />에 대한 확장 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:System.Web.HttpContextBaseExtensions.GetOwinContext(System.Web.HttpContextBase)"></member>
+    <member name="M:System.Web.HttpContextBaseExtensions.GetOwinContext(System.Web.HttpRequestBase)"></member>
+    <member name="T:System.Web.HttpContextExtensions">
+      <summary>
+        <see cref="T:System.Web.HttpContext" />에 대한 확장 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:System.Web.HttpContextExtensions.GetOwinContext(System.Web.HttpContext)"></member>
+    <member name="M:System.Web.HttpContextExtensions.GetOwinContext(System.Web.HttpRequest)"></member>
+    <member name="T:System.Web.Routing.RouteCollectionExtensions">
+      <summary>OWIN 응용 프로그램을 System.Web 경로로 등록하기 위한 확장 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String)">
+      <summary>기본 OWIN 응용 프로그램 경로를 등록합니다.</summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="pathBase">기본 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.Action{Owin.IAppBuilder})">
+      <summary>System.Action 시작 대리자를 호출하여 OWIN 응용 프로그램을 빌드한 다음, 지정된 경로에서 해당 응용 프로그램에 대한 경로를 등록합니다.</summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="pathBase">지정된 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+      <param name="startup">OWIN 응용 프로그램을 빌드하기 위해 호출된 System.Action 대리자입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.String)">
+      <summary> 기본 OWIN 응용 프로그램 경로를 등록합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="name">경로의 지정된 이름입니다.</param>
+      <param name="pathBase">기본 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.String,System.Action{Owin.IAppBuilder})">
+      <summary> System.Action 시작 대리자를 호출하여 OWIN 응용 프로그램을 빌드한 다음, 지정된 경로에서 해당 응용 프로그램에 대한 경로를 등록합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="name">경로의 지정된 이름입니다.</param>
+      <param name="pathBase">지정된 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+      <param name="startup">OWIN 응용 프로그램을 빌드하기 위해 호출된 System.Action 대리자입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath``1(System.Web.Routing.RouteCollection,System.String,System.String,``0)">
+      <summary> 특정 OWIN 응용 프로그램 진입점 경로를 등록합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="name">경로의 지정된 이름입니다.</param>
+      <param name="pathBase">지정된 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+      <param name="app">OWIN 응용 프로그램 진입점입니다.</param>
+      <typeparam name="TApp">OWIN 응용 프로그램 진입점 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath``1(System.Web.Routing.RouteCollection,System.String,``0)">
+      <summary> 특정 OWIN 응용 프로그램 진입점 경로를 등록합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="pathBase">지정된 OWIN 응용 프로그램에 매핑할 경로입니다.</param>
+      <param name="app">OWIN 응용 프로그램 진입점입니다.</param>
+      <typeparam name="TApp">OWIN 응용 프로그램 진입점 형식입니다.</typeparam>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Action{Owin.IAppBuilder})">
+      <summary>OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다.</summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeName">경로의 이름입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeName">경로의 이름입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeName">경로의 이름입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="constraints">URL 매개 변수에 대해 유효한 값을 지정하는 정규식입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeName">경로의 이름입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="constraints">URL 매개 변수에 대해 유효한 값을 지정하는 정규식입니다.</param>
+      <param name="dataTokens">경로 처리기에 전달되지만 경로가 특정 URL 패턴과 일치하는지 여부를 확인하는 데 사용되지 않는 사용자 지정 값입니다.이러한 값은 경로 처리기에 전달되어 요청 처리에 사용될 수 있습니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="constraints">URL 매개 변수에 대해 유효한 값을 지정하는 정규식입니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN 파이프라인에 대한 경로를 정의하는 방법을 제공합니다. </summary>
+      <returns>만들어진 경로입니다.</returns>
+      <param name="routes">경로 컬렉션입니다.</param>
+      <param name="routeUrl">경로의 URL  패턴입니다.</param>
+      <param name="defaults">URL에 일부 매개 변수만 포함된 경우 사용하는 값입니다.</param>
+      <param name="constraints">URL 매개 변수에 대해 유효한 값을 지정하는 정규식입니다.</param>
+      <param name="dataTokens">경로 처리기에 전달되지만 경로가 특정 URL 패턴과 일치하는지 여부를 확인하는 데 사용되지 않는 사용자 지정 값입니다.이러한 값은 경로 처리기에 전달되어 요청 처리에 사용될 수 있습니다.</param>
+      <param name="startup">경로 요청을 처리하는 파이프라인을 초기화하는 메서드입니다.</param>
+    </member>
+  </members>
+</doc>

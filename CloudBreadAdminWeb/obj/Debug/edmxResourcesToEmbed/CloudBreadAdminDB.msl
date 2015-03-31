@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CloudBreadDBModelStoreContainer" CdmEntityContainer="CloudBreadDBAdminEntities">
+    <EntitySetMapping Name="AdminMembers">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.AdminMembers">
+        <MappingFragment StoreEntitySet="AdminMembers">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="LastLogoutDT" ColumnName="LastLogoutDT" />
+          <ScalarProperty Name="LastLoginDT" ColumnName="LastLoginDT" />
+          <ScalarProperty Name="LastIPaddress" ColumnName="LastIPaddress" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Name3" ColumnName="Name3" />
+          <ScalarProperty Name="Name2" ColumnName="Name2" />
+          <ScalarProperty Name="Name1" ColumnName="Name1" />
+          <ScalarProperty Name="PINumber" ColumnName="PINumber" />
+          <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+          <ScalarProperty Name="AdminGroup" ColumnName="AdminGroup" />
+          <ScalarProperty Name="IDCreateAdminMember" ColumnName="IDCreateAdminMember" />
+          <ScalarProperty Name="AdminMemberEmail" ColumnName="AdminMemberEmail" />
+          <ScalarProperty Name="AdminMemberPWD" ColumnName="AdminMemberPWD" />
+          <ScalarProperty Name="AdminMemberID" ColumnName="AdminMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemLists">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.ItemLists">
+        <MappingFragment StoreEntitySet="ItemLists">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="IteamUpdateAdminID" ColumnName="IteamUpdateAdminID" />
+          <ScalarProperty Name="IteamCreateAdminID" ColumnName="IteamCreateAdminID" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="ItemCategory3" ColumnName="ItemCategory3" />
+          <ScalarProperty Name="ItemCategory2" ColumnName="ItemCategory2" />
+          <ScalarProperty Name="ItemCategory1" ColumnName="ItemCategory1" />
+          <ScalarProperty Name="ItemSellPrice" ColumnName="ItemSellPrice" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatsData">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.StatsData">
+        <MappingFragment StoreEntitySet="StatsData">
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Fields" ColumnName="Fields" />
+          <ScalarProperty Name="CountNum" ColumnName="CountNum" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="StatID" ColumnName="StatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberItems">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.MemberItems">
+        <MappingFragment StoreEntitySet="MemberItems">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberItemID" ColumnName="MemberItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coupon">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.Coupon">
+        <MappingFragment StoreEntitySet="Coupon">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="CreateAdminID" ColumnName="CreateAdminID" />
+          <ScalarProperty Name="CouponDurationTo" ColumnName="CouponDurationTo" />
+          <ScalarProperty Name="CouponDurationFrom" ColumnName="CouponDurationFrom" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="DupeYN" ColumnName="DupeYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TargetDevice" ColumnName="TargetDevice" />
+          <ScalarProperty Name="TargetOS" ColumnName="TargetOS" />
+          <ScalarProperty Name="TargetGroup" ColumnName="TargetGroup" />
+          <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+          <ScalarProperty Name="CouponCategory3" ColumnName="CouponCategory3" />
+          <ScalarProperty Name="CouponCategory2" ColumnName="CouponCategory2" />
+          <ScalarProperty Name="CouponCategory1" ColumnName="CouponCategory1" />
+          <ScalarProperty Name="CouponID" ColumnName="CouponID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponMember">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.CouponMember">
+        <MappingFragment StoreEntitySet="CouponMember">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="CouponID" ColumnName="CouponID" />
+          <ScalarProperty Name="CouponMemberID" ColumnName="CouponMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameEventMember">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.GameEventMember">
+        <MappingFragment StoreEntitySet="GameEventMember">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="GameEventMemberID" ColumnName="GameEventMemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameEvents">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.GameEvents">
+        <MappingFragment StoreEntitySet="GameEvents">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="CreateAdminID" ColumnName="CreateAdminID" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="EventDurationTo" ColumnName="EventDurationTo" />
+          <ScalarProperty Name="EventDurationFrom" ColumnName="EventDurationFrom" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EventImageLink" ColumnName="EventImageLink" />
+          <ScalarProperty Name="TargetDevice" ColumnName="TargetDevice" />
+          <ScalarProperty Name="TargetOS" ColumnName="TargetOS" />
+          <ScalarProperty Name="TargetGroup" ColumnName="TargetGroup" />
+          <ScalarProperty Name="Itemstatus" ColumnName="Itemstatus" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+          <ScalarProperty Name="EventCategory3" ColumnName="EventCategory3" />
+          <ScalarProperty Name="EventCategory2" ColumnName="EventCategory2" />
+          <ScalarProperty Name="EventCategory1" ColumnName="EventCategory1" />
+          <ScalarProperty Name="GameEventID" ColumnName="GameEventID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftDepositories">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.GiftDepositories">
+        <MappingFragment StoreEntitySet="GiftDepositories">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="SentMemberYN" ColumnName="SentMemberYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="ToMemberID" ColumnName="ToMemberID" />
+          <ScalarProperty Name="FromMemberID" ColumnName="FromMemberID" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+          <ScalarProperty Name="GiftDepositoryID" ColumnName="GiftDepositoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberAccountBlockLog">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.MemberAccountBlockLog">
+        <MappingFragment StoreEntitySet="MemberAccountBlockLog">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="CreateAdminID" ColumnName="CreateAdminID" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="MemberAccountBlockProcess" ColumnName="MemberAccountBlockProcess" />
+          <ScalarProperty Name="MemberAccountBlockReason" ColumnName="MemberAccountBlockReason" />
+          <ScalarProperty Name="MemberAccountBlockReasonCategory3" ColumnName="MemberAccountBlockReasonCategory3" />
+          <ScalarProperty Name="MemberAccountBlockReasonCategory2" ColumnName="MemberAccountBlockReasonCategory2" />
+          <ScalarProperty Name="MemberAccountBlockReasonCategory1" ColumnName="MemberAccountBlockReasonCategory1" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberAccountBlockID" ColumnName="MemberAccountBlockID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberGameInfoes">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.MemberGameInfoes">
+        <MappingFragment StoreEntitySet="MemberGameInfoes">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="UserSTAT10" ColumnName="UserSTAT10" />
+          <ScalarProperty Name="UserSTAT9" ColumnName="UserSTAT9" />
+          <ScalarProperty Name="UserSTAT8" ColumnName="UserSTAT8" />
+          <ScalarProperty Name="UserSTAT7" ColumnName="UserSTAT7" />
+          <ScalarProperty Name="UserSTAT6" ColumnName="UserSTAT6" />
+          <ScalarProperty Name="UserSTAT5" ColumnName="UserSTAT5" />
+          <ScalarProperty Name="UserSTAT4" ColumnName="UserSTAT4" />
+          <ScalarProperty Name="UserSTAT3" ColumnName="UserSTAT3" />
+          <ScalarProperty Name="UserSTAT2" ColumnName="UserSTAT2" />
+          <ScalarProperty Name="UserSTAT1" ColumnName="UserSTAT1" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Exps" ColumnName="Exps" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberGameInfoStages">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.MemberGameInfoStages">
+        <MappingFragment StoreEntitySet="MemberGameInfoStages">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="StageStat5" ColumnName="StageStat5" />
+          <ScalarProperty Name="StageStat4" ColumnName="StageStat4" />
+          <ScalarProperty Name="StageStat3" ColumnName="StageStat3" />
+          <ScalarProperty Name="StageStat2" ColumnName="StageStat2" />
+          <ScalarProperty Name="StageStat1" ColumnName="StageStat1" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Mission5" ColumnName="Mission5" />
+          <ScalarProperty Name="Mission4" ColumnName="Mission4" />
+          <ScalarProperty Name="Mission3" ColumnName="Mission3" />
+          <ScalarProperty Name="Mission2" ColumnName="Mission2" />
+          <ScalarProperty Name="Mission1" ColumnName="Mission1" />
+          <ScalarProperty Name="Category3" ColumnName="Category3" />
+          <ScalarProperty Name="Category2" ColumnName="Category2" />
+          <ScalarProperty Name="Category1" ColumnName="Category1" />
+          <ScalarProperty Name="StageStatus" ColumnName="StageStatus" />
+          <ScalarProperty Name="StageName" ColumnName="StageName" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberGameInfoStageID" ColumnName="MemberGameInfoStageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberItemPurchases">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.MemberItemPurchases">
+        <MappingFragment StoreEntitySet="MemberItemPurchases">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="PurchaseCancelConfirmAdminMemberID" ColumnName="PurchaseCancelConfirmAdminMemberID" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="PurchaseCancelDeviceMACAddress" ColumnName="PurchaseCancelDeviceMACAddress" />
+          <ScalarProperty Name="PurchaseCancelDeviceIPAddress" ColumnName="PurchaseCancelDeviceIPAddress" />
+          <ScalarProperty Name="PurchaseCancelDeviceID" ColumnName="PurchaseCancelDeviceID" />
+          <ScalarProperty Name="PurchaseCancelReturnedAmount" ColumnName="PurchaseCancelReturnedAmount" />
+          <ScalarProperty Name="PurchaseCancelingStatus" ColumnName="PurchaseCancelingStatus" />
+          <ScalarProperty Name="PurchaseCancelDT" ColumnName="PurchaseCancelDT" />
+          <ScalarProperty Name="PurchaseCancelYN" ColumnName="PurchaseCancelYN" />
+          <ScalarProperty Name="PurchaseDT" ColumnName="PurchaseDT" />
+          <ScalarProperty Name="PurchaseDeviceMACAddress" ColumnName="PurchaseDeviceMACAddress" />
+          <ScalarProperty Name="PurchaseDeviceIPAddress" ColumnName="PurchaseDeviceIPAddress" />
+          <ScalarProperty Name="PurchaseDeviceID" ColumnName="PurchaseDeviceID" />
+          <ScalarProperty Name="PGinfo5" ColumnName="PGinfo5" />
+          <ScalarProperty Name="PGinfo4" ColumnName="PGinfo4" />
+          <ScalarProperty Name="PGinfo3" ColumnName="PGinfo3" />
+          <ScalarProperty Name="PGinfo2" ColumnName="PGinfo2" />
+          <ScalarProperty Name="PGinfo1" ColumnName="PGinfo1" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="PurchaseQuantity" ColumnName="PurchaseQuantity" />
+          <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberItemPurchaseID" ColumnName="MemberItemPurchaseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.Members">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="PushNotificationGroup" ColumnName="PushNotificationGroup" />
+          <ScalarProperty Name="PushNotificationProvider" ColumnName="PushNotificationProvider" />
+          <ScalarProperty Name="PushNotificationID" ColumnName="PushNotificationID" />
+          <ScalarProperty Name="C3rdAuthParam" ColumnName="3rdAuthParam" />
+          <ScalarProperty Name="C3rdAuthID" ColumnName="3rdAuthID" />
+          <ScalarProperty Name="C3rdAuthProvider" ColumnName="3rdAuthProvider" />
+          <ScalarProperty Name="AnonymousYN" ColumnName="AnonymousYN" />
+          <ScalarProperty Name="AccountBlockEndDT" ColumnName="AccountBlockEndDT" />
+          <ScalarProperty Name="AccountBlockYN" ColumnName="AccountBlockYN" />
+          <ScalarProperty Name="LastMACAddress" ColumnName="LastMACAddress" />
+          <ScalarProperty Name="LastLogoutDT" ColumnName="LastLogoutDT" />
+          <ScalarProperty Name="LastLoginDT" ColumnName="LastLoginDT" />
+          <ScalarProperty Name="LastIPaddress" ColumnName="LastIPaddress" />
+          <ScalarProperty Name="LastDeviceID" ColumnName="LastDeviceID" />
+          <ScalarProperty Name="MemberGroup" ColumnName="MemberGroup" />
+          <ScalarProperty Name="RecommenderID" ColumnName="RecommenderID" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Name3" ColumnName="Name3" />
+          <ScalarProperty Name="Name2" ColumnName="Name2" />
+          <ScalarProperty Name="Name1" ColumnName="Name1" />
+          <ScalarProperty Name="PINumber" ColumnName="PINumber" />
+          <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+          <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+          <ScalarProperty Name="EmailConfirmedYN" ColumnName="EmailConfirmedYN" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MemberPWD" ColumnName="MemberPWD" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.Notices">
+        <MappingFragment StoreEntitySet="Notices">
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="DeleteYN" ColumnName="DeleteYN" />
+          <ScalarProperty Name="HideYN" ColumnName="HideYN" />
+          <ScalarProperty Name="CreateAdminID" ColumnName="CreateAdminID" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="NoticeDurationTo" ColumnName="NoticeDurationTo" />
+          <ScalarProperty Name="NoticeDurationFrom" ColumnName="NoticeDurationFrom" />
+          <ScalarProperty Name="sCol10" ColumnName="sCol10" />
+          <ScalarProperty Name="sCol9" ColumnName="sCol9" />
+          <ScalarProperty Name="sCol8" ColumnName="sCol8" />
+          <ScalarProperty Name="sCol7" ColumnName="sCol7" />
+          <ScalarProperty Name="sCol6" ColumnName="sCol6" />
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="NoticeImageLink" ColumnName="NoticeImageLink" />
+          <ScalarProperty Name="TargetDevice" ColumnName="TargetDevice" />
+          <ScalarProperty Name="TargetOS" ColumnName="TargetOS" />
+          <ScalarProperty Name="TargetGroup" ColumnName="TargetGroup" />
+          <ScalarProperty Name="NoticeCategory3" ColumnName="NoticeCategory3" />
+          <ScalarProperty Name="NoticeCategory2" ColumnName="NoticeCategory2" />
+          <ScalarProperty Name="NoticeCategory1" ColumnName="NoticeCategory1" />
+          <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerInfo">
+      <EntityTypeMapping TypeName="CloudBreadDBModel.ServerInfo">
+        <MappingFragment StoreEntitySet="ServerInfo">
+          <ScalarProperty Name="sCol5" ColumnName="sCol5" />
+          <ScalarProperty Name="sCol4" ColumnName="sCol4" />
+          <ScalarProperty Name="sCol3" ColumnName="sCol3" />
+          <ScalarProperty Name="sCol2" ColumnName="sCol2" />
+          <ScalarProperty Name="sCol1" ColumnName="sCol1" />
+          <ScalarProperty Name="SocketServerLists" ColumnName="SocketServerLists" />
+          <ScalarProperty Name="FEServerLists" ColumnName="FEServerLists" />
+          <ScalarProperty Name="DataFromRegionDT" ColumnName="DataFromRegionDT" />
+          <ScalarProperty Name="DataFromRegion" ColumnName="DataFromRegion" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="EULAText" ColumnName="EULAText" />
+          <ScalarProperty Name="ResourceLink" ColumnName="ResourceLink" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InfoID" ColumnName="InfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

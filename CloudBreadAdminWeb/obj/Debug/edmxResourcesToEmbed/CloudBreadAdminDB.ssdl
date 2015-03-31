@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CloudBreadDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminMembers">
+    <Key>
+      <PropertyRef Name="AdminMemberID" />
+    </Key>
+    <Property Name="AdminMemberID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="AdminMemberPWD" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="AdminMemberEmail" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="IDCreateAdminMember" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="AdminGroup" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="TimeZoneID" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="PINumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="LastIPaddress" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="LastLoginDT" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="LastLogoutDT" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coupon">
+    <Key>
+      <PropertyRef Name="CouponID" />
+    </Key>
+    <Property Name="CouponID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CouponCategory1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CouponCategory2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CouponCategory3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemCount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetOS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetDevice" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DupeYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="CouponDurationFrom" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="CouponDurationTo" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="CreateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CouponMember">
+    <Key>
+      <PropertyRef Name="CouponMemberID" />
+    </Key>
+    <Property Name="CouponMemberID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CouponID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameEventMember">
+    <Key>
+      <PropertyRef Name="GameEventMemberID" />
+    </Key>
+    <Property Name="GameEventMemberID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="eventID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameEvents">
+    <Key>
+      <PropertyRef Name="GameEventID" />
+    </Key>
+    <Property Name="GameEventID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="EventCategory1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EventCategory2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EventCategory3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemCount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Itemstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetOS" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="TargetDevice" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="EventImageLink" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventDurationFrom" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="EventDurationTo" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="CreateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GiftDepositories">
+    <Key>
+      <PropertyRef Name="GiftDepositoryID" />
+    </Key>
+    <Property Name="GiftDepositoryID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemCount" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="FromMemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ToMemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SentMemberYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemLists">
+    <Key>
+      <PropertyRef Name="ItemListID" />
+    </Key>
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="ItemPrice" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemSellPrice" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemCategory1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ItemCategory2" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ItemCategory3" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IteamCreateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IteamUpdateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberAccountBlockLog">
+    <Key>
+      <PropertyRef Name="MemberAccountBlockID" />
+    </Key>
+    <Property Name="MemberAccountBlockID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MemberAccountBlockReasonCategory1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberAccountBlockReasonCategory2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberAccountBlockReasonCategory3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberAccountBlockReason" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="MemberAccountBlockProcess" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberGameInfoes">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Level" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Exps" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Points" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserSTAT1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserSTAT10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberGameInfoStages">
+    <Key>
+      <PropertyRef Name="MemberGameInfoStageID" />
+    </Key>
+    <Property Name="MemberGameInfoStageID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="StageName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StageStatus" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Category1" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Category2" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Category3" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Mission1" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Mission2" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Mission3" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Mission4" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Mission5" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Points" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StageStat1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StageStat2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StageStat3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StageStat4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StageStat5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberItemPurchases">
+    <Key>
+      <PropertyRef Name="MemberItemPurchaseID" />
+    </Key>
+    <Property Name="MemberItemPurchaseID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PurchaseQuantity" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PurchasePrice" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PGinfo1" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="PGinfo2" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="PGinfo3" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="PGinfo4" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="PGinfo5" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="PurchaseDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PurchaseDeviceIPAddress" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="PurchaseDeviceMACAddress" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PurchaseDT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="PurchaseCancelYN" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="PurchaseCancelDT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="PurchaseCancelingStatus" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="PurchaseCancelReturnedAmount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PurchaseCancelDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PurchaseCancelDeviceIPAddress" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="PurchaseCancelDeviceMACAddress" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="PurchaseCancelConfirmAdminMemberID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberItems">
+    <Key>
+      <PropertyRef Name="MemberItemID" />
+    </Key>
+    <Property Name="MemberItemID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ItemListID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemCount" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="ItemStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MemberPWD" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="EmailConfirmedYN" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="PhoneNumber1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PINumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name2" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name3" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RecommenderID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MemberGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastIPaddress" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastLoginDT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="LastLogoutDT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="LastMACAddress" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="AccountBlockYN" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="AccountBlockEndDT" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="AnonymousYN" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="3rdAuthProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="3rdAuthID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="3rdAuthParam" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="PushNotificationID" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="PushNotificationProvider" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="PushNotificationGroup" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeZoneID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notices">
+    <Key>
+      <PropertyRef Name="NoticeID" />
+    </Key>
+    <Property Name="NoticeID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="NoticeCategory1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NoticeCategory2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NoticeCategory3" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetOS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetDevice" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="NoticeImageLink" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol6" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoticeDurationFrom" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="NoticeDurationTo" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="CreateAdminID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="HideYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeleteYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServerInfo">
+    <Key>
+      <PropertyRef Name="InfoID" />
+    </Key>
+    <Property Name="InfoID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FEServerLists" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="SocketServerLists" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Version" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ResourceLink" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="EULAText" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="sCol1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sCol5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatsData">
+    <Key>
+      <PropertyRef Name="StatID" />
+    </Key>
+    <Property Name="StatID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="CountNum" Type="bigint" Nullable="false" />
+    <Property Name="Fields" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegionDT" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="DataFromRegion" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CloudBreadDBModelStoreContainer">
+    <EntitySet Name="AdminMembers" EntityType="Self.AdminMembers" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="Coupon" EntityType="Self.Coupon" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="CouponMember" EntityType="Self.CouponMember" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="GameEventMember" EntityType="Self.GameEventMember" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="GameEvents" EntityType="Self.GameEvents" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="GiftDepositories" EntityType="Self.GiftDepositories" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="ItemLists" EntityType="Self.ItemLists" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="MemberAccountBlockLog" EntityType="Self.MemberAccountBlockLog" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="MemberGameInfoes" EntityType="Self.MemberGameInfoes" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="MemberGameInfoStages" EntityType="Self.MemberGameInfoStages" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="MemberItemPurchases" EntityType="Self.MemberItemPurchases" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="MemberItems" EntityType="Self.MemberItems" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="Notices" EntityType="Self.Notices" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="ServerInfo" EntityType="Self.ServerInfo" Schema="CloudBread" store:Type="Tables" />
+    <EntitySet Name="StatsData" EntityType="Self.StatsData" Schema="CloudBread" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

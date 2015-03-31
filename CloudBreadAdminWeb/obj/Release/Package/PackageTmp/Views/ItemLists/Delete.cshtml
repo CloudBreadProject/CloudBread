@@ -1,0 +1,232 @@
+﻿@*
+    Controller 에서 Delete code가 기본 Block되어 있음.
+    데이터 삭제는 CS처리나 분쟁시 근거 제공을 위해 일정 주기 동안 삭제를 권장하지 않음.
+    주단위 배치나 월단위 배치에서 DeletedYN이 "Y"이고 최종 수정일시(UpdatedAt) 컬럼 값이 7일 또는 30일이 지난 값들에 대해
+    지정된 Log(기본 Azure Table Storage)로 Archive 하고 배치 처리 루틴에 의해 테이블에서 삭제 할 것을 권장
+*@
+
+@model CloudBreadAdminWeb.ItemLists
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>정말 삭제 하시겠습니까?</h3>
+<div>
+    <h4>ItemLists</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemSellPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemSellPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCategory1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemCategory1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCategory2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemCategory2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemCategory3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemCategory3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sCol10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sCol10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IteamCreateAdminID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IteamCreateAdminID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IteamUpdateAdminID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IteamUpdateAdminID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HideYN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HideYN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteYN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteYN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegionDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegionDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="삭제" class="btn btn-default" /> |
+            @Html.ActionLink("리스트", "Index")
+        </div>
+    }
+</div>

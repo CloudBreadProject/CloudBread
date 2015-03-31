@@ -1,0 +1,183 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true" >
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:background="#71BCFA"	        
+	        android:orientation="vertical"
+	        >
+        
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 		        
+		        android:orientation="vertical"
+		        android:padding="6dip" >
+	            <CheckBox
+		            android:id="@+id/chkEncryption"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="right"
+		            android:text="암호화" />		    
+		        <TextView
+		            android:id="@+id/label_service_name"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="2dp"           
+		            android:text="@string/label_service_name"
+		            android:gravity="left"
+		            android:textAppearance="?android:attr/textAppearanceSmall" />		  
+		        <EditText
+		            android:id="@+id/edit_service_name"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="2dp"            
+		            android:text="@string/service_name"
+		            android:textAppearance="?android:attr/textAppearanceSmall" />
+		     
+		    </LinearLayout>
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 		       
+		        android:orientation="vertical"
+		        android:padding="6dip" >
+		        <TextView
+		            android:id="@+id/label_service_key"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="2dp"            
+		            android:text="@string/label_service_key"
+		            android:textAppearance="?android:attr/textAppearanceSmall" />
+		        <EditText
+		            android:id="@+id/edit_service_key"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="2dp"           
+		            android:text="@string/service_key"
+		            android:textAppearance="?android:attr/textAppearanceSmall" />
+		 
+		    </LinearLayout>
+		    <TextView
+		        android:id="@+id/text_request_label"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"		             
+		        android:layout_marginLeft="2dp"     
+		        android:text="request"
+		        android:textAppearance="?android:attr/textAppearanceSmall" />
+		    <TextView
+		        android:id="@+id/text_request"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"		       		             	        		       
+                android:textIsSelectable="true"		        
+		        android:background="#FFFFFF"	        
+		        android:layout_marginLeft="2dp"                      	        
+		        android:textAppearance="?android:attr/textAppearanceSmall" />
+		    <TextView
+		        android:id="@+id/text_result_label"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"		             
+		        android:layout_marginLeft="2dp"     
+		        android:text="result"
+		        android:textAppearance="?android:attr/textAppearanceSmall" />
+		    <TextView
+		        android:id="@+id/text_result"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"		        
+                android:textIsSelectable="true"		  
+		        android:background="#FFFFFF"
+		        android:layout_marginLeft="2dp"      
+		        android:textAppearance="?android:attr/textAppearanceSmall" />
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 		      
+		        android:padding="6dip" >
+		        <Button
+		            android:id="@+id/buttonSelLoginIDDupeCheck"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:onClick="SelLoginIDDupeCheck"
+		            android:text="@string/SelLoginIDDupeCheck_button_text" />		
+		        <Button
+		            android:id="@+id/buttonInsRegMember"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:onClick="InsRegMember"
+		            android:text="@string/InsRegMember_button_text" />		
+		    </LinearLayout>
+			<LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content" 		      
+			        android:padding="6dip" >
+			        <Button
+			            android:id="@+id/buttonSelMemberItems"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="SelMemberItems"
+			            android:text="@string/SelMemberItems_button_text" />		
+			        <Button
+			            android:id="@+id/buttonSelNotices"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="SelNotices"
+			            android:text="@string/SelNotices_button_text"/>		
+			 </LinearLayout>   
+			 <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content" 		      
+			        android:padding="6dip" >
+			        <Button
+			            android:id="@+id/buttonSelGameEvents"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="SelGameEvents"
+			            android:text="@string/SelGameEvents_button_text" />		
+			        <Button
+			            android:id="@+id/buttonSelCoupons"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="SelCoupons"
+			            android:text="@string/SelCoupons_button_text"/>		
+			 </LinearLayout>   
+			 <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content" 		      
+			        android:padding="6dip" >
+			        <Button
+			            android:id="@+id/buttonInsert"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="AddUseMemberItem_Insert"
+			            android:text="@string/AddUseMemberItem_insert_button_text" />		
+			        <Button
+			            android:id="@+id/buttonUpdate"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="AddUseMemberItem_update"
+			            android:text="@string/AddUseMemberItem_update_button_text"/>		
+			        
+			 </LinearLayout> 
+			 <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content" 		      
+			        android:padding="6dip" >
+			        <Button
+			            android:id="@+id/buttonDelete"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:onClick="AddUseMemberItem_delete"
+			            android:text="@string/AddUseMemberItem_deletete_button_text"/>		
+			        
+			 </LinearLayout>   
+			 
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.WindowsAzure.Mobile.UI</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Instantiates a new instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication"/>.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            The authentication provider.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication.LoginAsyncOverride">
+            <summary>
+            Provides Login logic by showing a login UI.
+            </summary>
+            <returns>
+            Task that will complete with the response string when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions">
+            <summary>
+            Extension methods for UI-based login.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.GetPush(Microsoft.WindowsAzure.MobileServices.MobileServiceClient)">
+            <summary>
+            Extension method to get a <see cref="T:Microsoft.WindowsAzure.MobileServices.Push"/> object made from an existing <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/>.
+            </summary>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to create with.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.Push"/> object used for registering for notifications.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.LoginPage">
+            <summary>
+            Third-party provider authentication control for the Windows Phone platform.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.#ctor">
+            <summary>
+            Initiatlizes the page by hooking up some event handlers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.BrowserControl_LoadCompleted(System.Object,System.Windows.Navigation.NavigationEventArgs)">
+            <summary>
+            Handler for the browser control's load completed event.  We use this to detect when
+            to hide the progress bar and show the browser control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs)">
+            <summary>
+            Initiates the authentication operation by pointing the browser control
+            to the PhoneWebAuthenticationBroker.StartUri.  If the PhoneWebAuthenticationBroker
+            isn't currently in the middle of an authentication operation, then we immediately
+            navigate back.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs)">
+            <summary>
+            Updates the PhoneWebAuthenticationBroker on the state of the authentication
+            operation.  If we navigated back by pressing the back key, then the operation
+            will be canceled.  If the browser control successfully completed the operation,
+            signaled by its navigating to the PhoneWebAuthenticationBroker.EndUri, then we
+            pass the results on.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.LoginPage_BackKeyPress(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handler for the page's back key events.  We use this to determine whether navigations
+            away from this page are benign (such as going to the start screen) or actually meant
+            to cancel the operation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.BrowserControl_Navigating(System.Object,Microsoft.Phone.Controls.NavigatingEventArgs)">
+            <summary>
+            Handler for the browser control's navigating event.  We use this to detect when login
+            has completed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.BrowserControl_NavigationFailed(System.Object,System.Windows.Navigation.NavigationFailedEventArgs)">
+            <summary>
+            Handler for the browser control's navigation failed event.  We use this to detect errors
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.ShowProgressBar">
+            <summary>
+            Shows the progress bar and hides the browser control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.HideProgressBar">
+            <summary>
+            Hides the progress bar and shows the browser control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.LoginPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.LoginPage.Broker">
+            <summary>
+            The AuthenticationBroker associated with the current Login action.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PhoneAuthenticationStatus">
+            <summary>
+            This class mimics the functionality provided by WebAuthenticationStatus available in Win8.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker">
+            <summary>
+            An AuthenticationBroker for the Windows Phone Platform 
+            that is like the Windows Store WebAuthenticationBroker 
+            APIs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.AuthenticateAsync(System.Uri,System.Uri,System.Boolean)">
+            <summary>
+            Begins a server-side authentication flow by navigating the WebAuthenticationBroker
+            to the <paramref name="startUrl"/>.
+            </summary>
+            <param name="startUrl">The URL that the browser-based control should 
+            first navigate to in order to start the authenication flow.
+            </param>
+            <param name="endUrl">The URL that indicates the authentication flow has 
+            completed. Upon being redirected to any URL that starts with the 
+            <paramref name="endUrl"/>, the browser-based control must stop navigating and
+            return the response data to the <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/>.
+            </param>
+            <param name="useSingleSignOn">Indicates if single sign-on should be used so 
+            that users do not have to re-enter his/her credentials every time.
+            </param>
+            <returns>
+            The response data from the authentication flow that contains a string of JSON 
+            that represents a Mobile Services authentication token.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the user cancels the authentication flow or an error occurs during
+            the authentication flow.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.GetTokenStringFromResponseData(System.String)">
+            <summary>
+            Gets the JSON string that represents the Mobile Service authentication token
+            from the result of the authentication attempt.
+            </summary>
+            <param name="responseData">
+            The response data returned from the WebAuthenticationBroker.
+            </param>
+            <returns>
+            A JSON string that represents a Mobile Service authentication token.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the authentication flow resulted in an error message or an invalid response.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.GetSubStringAfterMatch(System.String,System.String)">
+            <summary>
+            Returns a substring from the <paramref name="stringToSearch"/> starting from
+            the first character after the <paramref name="matchString"/> if the 
+            <paramref name="stringToSearch"/> contains the <paramref name="matchString"/>;
+            otherwise, returns <c>null</c>.
+            </summary>
+            <param name="stringToSearch">The string to search for the <paramref name="matchString"/>.
+            </param>
+            <param name="matchString">The string to look for in the <paramref name="stringToSearch"/>
+            </param>
+            <returns>The substring from <paramref name="stringToSearch"/> that follows the
+            <paramref name="matchString"/> if the <paramref name="stringToSearch"/> contains 
+            the <paramref name="matchString"/>; otherwise, returns <c>null</c>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.Dispose">
+            <summary>
+            Implemenation of <see cref="T:System.IDisposable"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.Dispose(System.Boolean)">
+            <summary>
+            Implemenation of <see cref="T:System.IDisposable"/> for
+            derived classes to use.
+            </summary>
+            <param name="disposing">
+            Indicates if being called from the Dispose() method
+            or the finalizer.
+            </param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.AuthenticationInProgress">
+            <summary>
+            Indicates if authentication is currently in progress or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.StartUri">
+            <summary>
+            The URL that the <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/> started at
+            to begin the authentication flow. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.EndUri">
+            <summary>
+            The URL that the <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/> will use to
+            determine if the authentication flow has completed or not.
+            </summary>
+        </member>
+    </members>
+</doc>

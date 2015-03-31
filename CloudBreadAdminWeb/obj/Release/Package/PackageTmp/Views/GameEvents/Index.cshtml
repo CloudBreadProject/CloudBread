@@ -1,0 +1,144 @@
+﻿@model PagedList.IPagedList<CloudBreadAdminWeb.GameEvents>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("생성", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "GameEvents", FormMethod.Get))
+{
+    if (ViewBag.SearchCondition != null)
+    {
+        ViewBag.pageSearchCondition = ViewBag.SearchCondition;
+    }
+    var options = new List<SelectListItem>();
+
+    options.Add(new SelectListItem { Value = "GameEventID", Text = "GameEventID", Selected = true });
+    options.Add(new SelectListItem { Value = "EventCategory1", Text = "EventCategory1" });
+    options.Add(new SelectListItem { Value = "ItemListID", Text = "ItemListID" });
+    options.Add(new SelectListItem { Value = "Title", Text = "Title" });
+
+    <p>
+        검색 :
+        @Html.DropDownList("SearchCondition", options)
+
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            GameEventID
+        </th>
+        <th>
+            EventCategory1
+        </th>
+        <th>
+            ItemListID
+        </th>
+        <th>
+            ItemName
+        </th>
+        <th>
+            ItemCount
+        </th>
+        <th>
+            Title
+        </th>
+        
+        <th>
+            EventDurationFrom
+        </th>
+        <th>
+            EventDurationTo
+        </th>
+        <th>
+            OrderNumber
+        </th>
+        <th>
+            HideYN
+        </th>
+        <th>
+            DeleteYN
+        </th>
+        <th>
+            CreatedAt
+        </th>
+        <th>
+            UpdatedAt
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("수정", "Edit", new { id = item.GameEventID }) |
+            @Html.ActionLink("상세", "Details", new { id = item.GameEventID }) | 
+            @Html.ActionLink("삭제", "Delete", new { id = item.GameEventID }) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameEventID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventCategory1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemListID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemLists.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemCount)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDurationFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDurationTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNumber)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.HideYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleteYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedAt)
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                    new { page, currentFilter = ViewBag.CurrentFilter, SearchCondition = ViewBag.pageSearchCondition }))

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.WebPages.Deployment</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.WebPages.Deployment.PreApplicationStartCode">
+      <summary>웹 페이지 배포용 응용 프로그램 시작 전 코드에 대한 등록 지점을 제공합니다.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.PreApplicationStartCode.Start">
+      <summary>웹 페이지 배포용 응용 프로그램 시작 전 코드를 등록합니다.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Deployment.WebPagesDeployment">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 응용 프로그램에 대한 배포 정보를 가져오는 데 사용되는 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetAssemblyPath(System.Version)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 페이지 배포에 대한 어셈블리 경로를 가져옵니다.</summary>
+      <returns>웹 페이지 배포에 대한 어셈블리 경로입니다.</returns>
+      <param name="version">웹 페이지 버전입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetExplicitWebPagesVersion(System.String)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.지정된 이진 경로에서 웹 페이지 버전을 가져옵니다.</summary>
+      <returns>웹 페이지 버전입니다.</returns>
+      <param name="path">웹 페이지에 대한 이진 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetIncompatibleDependencies(System.String)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 페이지 버전에 관계없이 지정된 경로에서 어셈블리 참조를 가져옵니다.</summary>
+      <returns>웹 페이지의 어셈블리 참조 및 해당 버전이 포함된 사전입니다.</returns>
+      <param name="appPath">웹 페이지 응용 프로그램에 대한 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetMaxVersion">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 페이지 로드된 어셈블리의 최대 버전을 가져옵니다.</summary>
+      <returns>웹 페이지 로드된 어셈블리의 최대 버전입니다.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersion(System.String)">
+      <summary>지정된 경로에서 웹 페이지 버전을 가져옵니다.</summary>
+      <returns>웹 페이지 버전입니다.</returns>
+      <param name="path">응용 프로그램의 루트 디렉터리 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersionWithoutEnabledCheck(System.String)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.지정된 경로와 함께 구성 설정을 사용하여 웹 페이지 버전을 가져옵니다.</summary>
+      <returns>웹 페이지 버전입니다.</returns>
+      <param name="path">응용 프로그램 설정에 대한 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetWebPagesAssemblies">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.이 웹 페이지 배포에 대한 어셈블리를 반환합니다.</summary>
+      <returns>이 웹 페이지 배포에 대한 어셈블리가 포함된 목록입니다.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsEnabled(System.String)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 페이지 배포를 사용할 수 있는지 여부를 나타냅니다.</summary>
+      <returns>웹 페이지 배포가 사용하도록 설정되어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="path">웹 페이지 배포에 대한 경로입니다.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsExplicitlyDisabled(System.String)">
+      <summary>이 형식/멤버는 .NET Framework 인프라를 지원하며 사용자 코드에서 직접 사용할 수 없습니다.웹 페이지 배포가 명시적으로 사용하지 않도록 설정되어 있는지 여부를 나타냅니다.</summary>
+      <returns>웹 페이지 배포가 명시적으로 사용하지 않도록 설정되어 있으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="path">웹 페이지 배포에 대한 경로입니다.</param>
+    </member>
+  </members>
+</doc>

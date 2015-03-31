@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">dwTechDaysDemo</string>
+    <string name="add_textbox_hint">Add a ToDo item</string>
+    <string name="add_button_text">Add</string>
+    <string name="mobile_services">Mobile Services </string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="checkbox_text">Item Text</string>
+    <string name="service_name">"https://techhdaysrr01.azure-mobile.net/"</string>  
+    <string name="service_key">"sjuUBruJNpVmTeMxuwfbgvOCYNpTfR81"</string>    
+    <string name="label_service_name">"Service name"</string>  
+    <string name="label_service_key">"Service key"</string>  
+    <string name="SelLoginIDDupeCheck_button_text">"SelLoginIDDupeCheck"</string>  
+    <string name="InsRegMember_button_text">"InsRegMember"</string>  
+    <string name="SelMemberItems_button_text">"SelMemberItems"</string>  
+    <string name="SelNotices_button_text">"SelNotices"</string>      
+    <string name="SelGameEvents_button_text">"SelGameEvents"</string>  
+    <string name="SelCoupons_button_text">"SelCoupons"</string>        
+    <string name="AddUseMemberItem_insert_button_text">"MemberItem-Insert"</string>  
+    <string name="AddUseMemberItem_update_button_text">"MemberItem-Update"</string>      
+    <string name="AddUseMemberItem_deletete_button_text">"MemberItem-Delete"</string>  
+    
+</resources>

@@ -1,0 +1,122 @@
+﻿@model PagedList.IPagedList<CloudBreadAdminWeb.MemberAccountBlockLog>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("생성", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "MemberAccountBlockLogs", FormMethod.Get))
+{
+    if (ViewBag.SearchCondition != null)
+    {
+        ViewBag.pageSearchCondition = ViewBag.SearchCondition;
+    }
+    var options = new List<SelectListItem>();
+
+    options.Add(new SelectListItem { Value = "MemberAccountBlockID ", Text = "MemberAccountBlockID ", Selected = true });
+    options.Add(new SelectListItem { Value = "MemberID", Text = "MemberID" });
+
+    <p>
+        검색 :
+        @Html.DropDownList("SearchCondition", options)
+
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            MemberAccountBlockID
+        </th>
+        <th>
+            MemberID
+        </th>
+        <th>
+            MemberName
+        </th>
+        <th>
+            MemberAccountBlockReasonCategory1
+        </th>
+        <th>
+            MemberAccountBlockProcess
+        </th>
+        
+        <th>
+            CreateAdminID
+        </th>
+        <th>
+            HideYN
+        </th>
+        <th>
+            DeleteYN
+        </th>
+        <th>
+            CreatedAt
+        </th>
+        <th>
+            UpdatedAt
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("수정", "Edit", new { id = item.MemberAccountBlockID }) |
+            @Html.ActionLink("상세", "Details", new { id = item.MemberAccountBlockID }) | 
+            @Html.ActionLink("삭제", "Delete", new { id = item.MemberAccountBlockID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberAccountBlockID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members.Name1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberAccountBlockReasonCategory1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberAccountBlockProcess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateAdminID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HideYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleteYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedAt)
+        </td>
+
+    </tr>
+}
+
+</table>
+
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                    new { page, currentFilter = ViewBag.CurrentFilter, SearchCondition = ViewBag.pageSearchCondition }))

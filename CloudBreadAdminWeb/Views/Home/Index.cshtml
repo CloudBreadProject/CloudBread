@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Cloud Bread Project</h1>
+    <p class="lead">Cloud Bread 프로젝트는 클라우드 기반 무료 오픈소스 프로젝트로 모바일 게임과 앱에 최적화된 게임 서버 엔진 입니다.
+</p>
+    <p><a href="https://github.com/CloudBreadProject/CloudBread" class="btn btn-primary btn-lg">Github로 이동 &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>DAU-시간</h2>
+        <p>
+            <div>
+                <img src="@Url.Action("GetHDAUChartImage")" />
+            </div>
+        </p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h2>DAU-일간</h2>
+        <p>
+            <div>
+                <img src="@Url.Action("GetDDAUChartImage")" />
+            </div>
+        </p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h2>유료아이템매출-일간</h2>
+        <p>
+            <div>
+                <img src="@Url.Action("GetCashItemChartImage")" />
+            </div>
+        </p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+    </div>
+</div>

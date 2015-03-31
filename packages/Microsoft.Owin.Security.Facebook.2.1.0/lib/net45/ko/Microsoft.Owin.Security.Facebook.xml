@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security.Facebook</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext">
+      <summary>Facebook 인증 정보에 대한 액세스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,Newtonsoft.Json.Linq.JObject,System.String,System.String)"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.AccessToken">
+      <summary>액세스 토큰을 가져오거나 설정합니다.</summary>
+      <returns>액세스 토큰입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Email">
+      <summary>Facebook에 액세스하는 데 사용되는 전자 메일을 가져오거나 설정합니다.</summary>
+      <returns>Facebook에 액세스하는 데 사용되는 전자 메일입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.ExpiresIn"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Id">
+      <summary>컨텍스트와 연관된 식별자를 가져오거나 설정합니다.</summary>
+      <returns>컨텍스트와 연관된 식별자입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Identity">
+      <summary>이 인스턴스의 ID를 가져오거나 설정합니다.</summary>
+      <returns>이 인스턴스의 ID입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Link">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext" />에 대한 링크를 가져오거나 설정합니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext" />에 대한 링크입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Name">
+      <summary>컨텍스트와 연관된 이름을 가져오거나 설정합니다.</summary>
+      <returns>컨텍스트와 연관된 이름입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Properties"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.User">
+      <summary>인증에 액세스하는 사용자를 가져오거나 설정합니다.</summary>
+      <returns>인증에 액세스하는 사용자입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.UserName"></member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware">
+      <summary>Facebook 인증 미들웨어를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="next">다음 응용 프로그램으로 진행됩니다.</param>
+      <param name="app">응용 프로그램입니다.</param>
+      <param name="options">Facebook 인증 옵션입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware.CreateHandler">
+      <summary>인증 처리기를 만듭니다.</summary>
+      <returns>인증 처리기입니다.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions">
+      <summary>Facebook 인증에 대한 옵션을 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.AppId">
+      <summary>응용 프로그램 식별자를 가져오거나 설정합니다.</summary>
+      <returns>응용 프로그램 식별자입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.AppSecret">
+      <summary>응용 프로그램 암호를 가져오거나 설정합니다.</summary>
+      <returns>응용 프로그램 암호입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelCertificateValidator"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelHttpHandler"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelTimeout"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.CallbackPath"></member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Caption">
+      <summary>응용 프로그램에 표시되는 텍스트 캡션을 가져오거나 설정합니다.</summary>
+      <returns>응용 프로그램에 표시되는 텍스트 캡션입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Provider">
+      <summary>인증 공급자를 가져오거나 설정합니다.</summary>
+      <returns>인증 공급자입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Scope">
+      <summary>인증관 연관된 범위를 가져오거나 설정합니다.</summary>
+      <returns>인증관 연관된 범위입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.SignInAsAuthenticationType">
+      <summary>로그인에 사용할 인증 유형을 나타내는 문자열을 가져오거나 설정합니다.</summary>
+      <returns>로그인에 사용할 인증 유형을 나타내는 문자열입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.StateDataFormat"></member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider">
+      <summary>Facebook 인증 공급자를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext)">
+      <summary>인증된 Facebook을 나타냅니다.</summary>
+      <returns>인증을 완료하는 작업입니다.</returns>
+      <param name="context">컨텍스트입니다.</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.OnAuthenticated">
+      <summary>OnAuthenticated 이벤트를 가져오거나 설정합니다.</summary>
+      <returns>OnAuthenticated 이벤트입니다.</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.OnReturnEndpoint">
+      <summary>OnReturnEndpoint 이벤트를 가져오거나 설정합니다.</summary>
+      <returns>OnReturnEndpoint 이벤트입니다.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext)">
+      <summary>Facebook 끝점을 반환합니다.</summary>
+      <returns>끝점 반환 프로세스를 완료하는 작업입니다.</returns>
+      <param name="context">컨텍스트입니다.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext">
+      <summary>Facebook 속성에 대한 반환 끝점 컨텍스트를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)"></member>
+    <member name="T:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider">
+      <summary>인증에 대한 Facebook 컨텍스트를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext)">
+      <summary>인증된 컨텍스트를 식별합니다.</summary>
+      <returns>인증된 컨텍스트입니다.</returns>
+      <param name="context">인증할 컨텍스트입니다.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext)">
+      <summary>Facebook 끝점 컨텍스트를 반환합니다.</summary>
+      <returns>Facebook 끝점 컨텍스트입니다.</returns>
+      <param name="context">끝점 컨텍스트입니다.</param>
+    </member>
+    <member name="T:Owin.FacebookAuthenticationExtensions">
+      <summary>Facebook 인증에 대한 확장 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:Owin.FacebookAuthenticationExtensions.UseFacebookAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions)">
+      <summary>OWIN 응용 프로그램에 대한 Facebook 인증을 생성합니다.</summary>
+      <returns>인증을 생성하는 <see cref="T:Owin.IAppBuilder" />입니다.</returns>
+      <param name="app">응용 프로그램 작성기입니다.</param>
+      <param name="options">Facebook 인증 옵션입니다.</param>
+    </member>
+    <member name="M:Owin.FacebookAuthenticationExtensions.UseFacebookAuthentication(Owin.IAppBuilder,System.String,System.String)">
+      <summary>OWIN 응용 프로그램에 대한 Facebook 인증을 생성합니다.</summary>
+      <returns>인증을 생성하는 <see cref="T:Owin.IAppBuilder" />입니다.</returns>
+      <param name="app">응용 프로그램 작성기입니다.</param>
+      <param name="appId">응용 프로그램 ID입니다.</param>
+      <param name="appSecret">응용 프로그램 암호입니다.</param>
+    </member>
+  </members>
+</doc>

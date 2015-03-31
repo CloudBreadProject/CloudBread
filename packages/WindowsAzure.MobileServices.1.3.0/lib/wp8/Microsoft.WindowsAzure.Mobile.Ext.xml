@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.WindowsAzure.Mobile.Ext</name>
+    </assembly>
+    <members>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.ApplicationStorage">
+            <summary>
+            Returns a platform-specific implemention of application storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.PlatformInformation">
+            <summary>
+            Returns a platform-specific implemention of platform information.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.ExpressionUtility">
+            <summary>
+            Returns a platform-specific implementation of a utility class
+            that provides functionality for manipulating 
+            <see cref="T:System.Linq.Expressions.Expression"/> instances.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.PushUtility">
+            <summary>
+            Returns a platform-specific implementation of a utility class
+            that provides functionality for platform-specifc push capabilities.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility">
+            <summary>
+            An implementation of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IExpressionUtility"/> interface
+            for that uses the ExpressionVisitor
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.PartiallyEvaluate(System.Linq.Expressions.Expression)">
+            <summary>
+            Evaluate all subtrees of an expression that aren't dependent on
+            parameters to that expression and replace the subtree with a
+            constant expression.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <returns>
+            An expression in which every node is either a constant or part of
+            a subtree that depends on a one of the expression's parameters.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.GetMemberExpressions(System.Linq.Expressions.Expression)">
+            <summary>
+            Returns the MemberExpressions in the expression hierarchy of the <paramref name="expression"/>.
+            </summary>
+            <param name="expression">The expression to search for children MemberExpressions</param>
+            <returns>A collection of MemberExpressions.</returns>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.PushUtility.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.PushUtility"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PushUtility.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.PushUtility"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage">
+            <summary>
+            An implementation of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IApplicationStorage"/> interface
+            for the Windows Phone Platform that uses the Windows Phone
+            <see cref="T:System.IO.IsolatedStorage.IsolatedStorageSettings"/> APIs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Microsoft#WindowsAzure#MobileServices#IApplicationStorage#TryReadSetting(System.String,System.Object@)">
+            <summary>
+            Tries to read a setting's value from 
+            <see cref="P:System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings"/>. 
+            </summary>
+            <param name="name">The name of the setting to try to read.
+            </param>
+            <param name="value">Upon returning, if the return value was <c>true</c>, 
+            will be the value of the given setting; will be <c>null</c> otherwise.
+            </param>
+            <returns>
+            <c>true</c> if the setting existed and was successfully read; <c>false</c> otherwise.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the setting name is <c>null</c> or whitespace.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Microsoft#WindowsAzure#MobileServices#IApplicationStorage#WriteSetting(System.String,System.Object)">
+            <summary>
+            Writes the setting's value to application storage.
+            </summary>
+            <param name="name">The name of the setting to write.
+            </param>
+            <param name="value">The value to write.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the setting name is <c>null</c> or empty.
+            </exception>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PlatformInformation">
+            <summary>
+            Implements the <see cref="T:Microsoft.WindowsAzure.MobileServices.IPlatform"/> interface for the Windows
+            Phone platform.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.PlatformInformation.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemArchitecture">
+            <summary>
+            The architecture of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemName">
+            <summary>
+            The name of the operating system of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemVersion">
+            <summary>
+            The version of the operating system of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.IsEmulator">
+            <summary>
+            Indicated whether the device is an emulator or not
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PartialEvaluator">
+            <summary>
+            Evaluates all of an expression's subtrees that aren't dependent on any
+            parameters to the expression (things like local variables).  This is
+            necessary so we can turn the evaluated values into constants that we
+            can send to the server where the query executes.
+            </summary>
+            <remarks>
+            Note that by evaluating as much of the expression as possible now, any
+            future re-evaluation of the query (for the purposes of paging in the
+            MobileServiceCollectionView, etc.) will use constants rather than
+            the latest values in closed variables, etc.  This is desirable behavior
+            for data source paging but should be carefully considered for other
+            scenarios.
+            -
+            This code is based on the concepts discussed in
+            http://blogs.msdn.com/b/mattwar/archive/2007/08/01/linq-building-an-iqueryable-provider-part-iii.aspx
+            which is pointed to by MSDN as the reference for building LINQ 
+            providers.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.PartiallyEvaluate(System.Linq.Expressions.Expression)">
+            <summary>
+            Evaluate all subtrees of an expression that aren't dependent on
+            parameters to that expression and replace the subtree with a
+            constant expression.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <returns>
+            An expression in which every node is either a constant or part of
+            a subtree that depends on a one of the expression's parameters.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.FindIndependentSubtrees(System.Linq.Expressions.Expression)">
+            <summary>
+            Walk the expression and compute all of the subtrees that are not
+            dependent on any of the expressions parameters.
+            </summary>
+            <param name="expression">The expression to analyze.</param>
+            <returns>
+            A set of all the expression subtrees that are independent from the
+            expression's parameters.  Note that this set will include every
+            element of an independent subtree, but it's not a problem because
+            the EvaluateIndependentSubtrees walks top down.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.EvaluateIndependentSubtrees(System.Linq.Expressions.Expression,System.Collections.Generic.List{System.Linq.Expressions.Expression})">
+            <summary>
+            Replace all the independent subtrees in an expression with
+            constants equal to the expression's evaluated result.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <param name="subtrees">
+            The independent subtrees in the expression.
+            </param>
+            <returns>
+            An expression that depends only on parameter values.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.VisitorHelper">
+            <summary>
+            Visit all the members of specific types of expression tree nodes.  This
+            helps reduce the number of specific visitor classes we need to declare.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.VisitorHelper.visitor">
+            <summary>
+            A visitor callback for the generic Visit method that takes the
+            Expression along with a function that will recurse and returns the
+            visited expression or a modified value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.VisitorHelper.memberVisitor">
+            <summary>
+            A visitor callback for the VisitMember method that takes the
+            MemberExpression along with a function that will recurse and
+            returns the visisted expression or a modified value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.#ctor">
+            <summary>
+            Private constructor to prevent instantiation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitAll(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Visit all the nodes in the expression.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <param name="visitor">
+            A function that takes the current node and another function to
+            recurse and returns an expression.
+            </param>
+            <returns>
+            The expression obtained by visiting the input expression.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitMembers(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.MemberExpression,System.Func{System.Linq.Expressions.MemberExpression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Visit all the member accesses in the expression.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <param name="visitor">
+            A function that takes the current member access node and another
+            function to recurse and returns and expression.
+            </param>
+            <returns>
+            The expression obtained by visiting the input expression.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.Visit(System.Linq.Expressions.Expression)">
+            <summary>
+            Visit every node.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <returns>The visisted expression.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitMember(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            Visit member access.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <returns>The visited expression.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Push">
+            <summary>
+            Define a class help to create/update/delete notification registrations
+            </summary>    
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.#ctor(Microsoft.WindowsAzure.MobileServices.MobileServiceClient)">
+            <summary>
+            Creates a Push object for registering for notifications
+            </summary>
+            <param name="client">The MobileServiceClient to create with.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String)">
+            <summary>
+            Register a particular channelUri
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Register a particular channelUri
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String)">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The XmlDocument defining the template</param>
+            <param name="templateName">The template name</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The XmlDocument defining the template</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+            <returns>Task that completes when registration is complete</returns>        
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterNativeAsync">
+            <summary>
+            Unregister any registrations previously registered from this device
+            </summary>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterTemplateAsync(System.String)">
+            <summary>
+            Unregister any registrations with given templateName registered from this device
+            </summary>
+            <param name="templateName">The template name</param>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterAllAsync(System.String)">
+            <summary>
+            Unregister any registrations with given channelUri
+            </summary>
+            <param name="channelUri">The channel Uri</param>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(Microsoft.WindowsAzure.MobileServices.Registration)">
+            <summary>
+            Register for notifications
+            </summary>
+            <param name="registration">The object defining the registration</param>
+            <returns>Task that will complete when the registration is completed</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.ListRegistrationsAsync(System.String)">
+            <summary>
+            DEBUG-ONLY: List the registrations made with the service for a channelUri
+            </summary>
+            <param name="channelUri">The deviceToken to check for</param>
+            <returns>List of registrations</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MpnsRegistration">
+            <summary>
+            Registration is used to define a target that is registered for notifications
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MpnsRegistration.#ctor(System.String)">
+            <summary>
+            Create a default Registration for a channelUri
+            </summary>
+            <param name="channelUri">The channel uri</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MpnsRegistration.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a default Registration for a channelUri with specific tags
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MpnsRegistration.ChannelUri">
+            <summary>
+            The Uri of the Channel returned by the Push Notification Channel Manager.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration">
+            <summary>
+            Registration is used to define a target that is registered for notifications. A TemplateRegistration allows the client application
+            to define the format of the registration.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.NotificationType">
+            <summary>
+            Name of the <see cref="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.MpnsHeaders"/> key for Windows Phone Notification Target
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.NotificationClass">
+            <summary>
+            Name of the <see cref="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.MpnsHeaders"/> key for Windows Phone Notification Class
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Create a TemplateRegistration
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a TemplateRegistration
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags that restrict which notifications this registration will receive</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Create a TemplateRegistration
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags that restrict which notifications this registration will receive</param>
+            <param name="additionalHeaders">Additional headers</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.MpnsHeaders">
+            <summary>
+            Gets headers that should be sent to WNS with the notification
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.TemplateName">
+            <summary>
+            Get templateName
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.BodyTemplate">
+            <summary>
+            Gets or sets bodyTemplate as string
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MpnsTemplateRegistration.Name">
+            <summary>
+            The name of the registration used in local storage.
+            </summary>
+        </member>
+    </members>
+</doc>

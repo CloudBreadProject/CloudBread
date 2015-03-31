@@ -1,0 +1,28 @@
+﻿@model CloudBreadAdminWeb.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4>다른 서비스를 사용하여 로그인하십시오.</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                구성된 외부 인증 서비스가 없습니다. 외부 서비스를 통한 로그인을 지원하도록 이 ASP.NET 응용 프로그램을 설정하는 방법에 대한
+                자세한 내용은 <a href="http://go.microsoft.com/fwlink/?LinkId=313242">이 문서</a>를 참조하십시오.
+            </p>
+        </div>
+    }
+    else {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+                <p>
+                    @foreach (AuthenticationDescription p in loginProviders) {
+                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="@p.Caption 계정을 사용하여 로그인">@p.AuthenticationType</button>
+                    }
+                </p>
+            </div>
+        }
+    }
+}

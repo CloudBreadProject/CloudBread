@@ -1,0 +1,918 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.WindowsAzure.Mobile.Ext</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceSingleSignOnAuthentication">
+            <summary>
+            Performs single sign-on authentication functionality.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSingleSignOnAuthentication.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Instantiates a new instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceSingleSignOnAuthentication"/>.
+            Single sign-on requires that the
+            application's Package SID be registered with the Microsoft Azure Mobile Service, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            The authentication provider.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSingleSignOnAuthentication.LoginAsyncOverride">
+            <summary>
+            Provides Login logic by showing a UI and using single sign-on.
+            </summary>
+            <returns>
+            Task that will complete with the response string when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Instantiates a new instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication"/>.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            The authentication provider.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUIAuthentication.LoginAsyncOverride">
+            <summary>
+            Provides Login logic by showing a login UI.
+            </summary>
+            <returns>
+            Task that will complete with the response string when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2">
+            <summary>
+            An asynchronous data source that implements ISupportIncrementalLoading and 
+            can wrap the results of a Mobile Services query in a way that's easily 
+            consumed by Xaml collection controls like ListView, GridView or ListBox.
+            </summary>
+            <typeparam name="TTable">Data source element type.</typeparam>
+            <typeparam name="TCollection">Type of elements ending up in the collection.</typeparam>
+            <remarks>S
+            Currently handles asynchronously loading the data, notifying the controls and paging.
+            Use the <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`1"/> class if the table and 
+            collection items are of the same type.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{`0},System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IncrementalLoadingMobileServiceCollection{TTable, TCollection}"/>
+            class.
+            </summary>
+            <param name="query">
+            The data source's query which provides the data.
+            </param>
+            <param name="selector">
+            A selector function to provide client side projections.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{`0},System.Func{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IncrementalLoadingMobileServiceCollection{TTable, TCollection}"/>
+            class.
+            </summary>
+            <param name="query">
+            The data source's query which provides the data.
+            </param>
+            <param name="selector">
+            A selector function to provide client side projections.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IncrementalLoadingMobileServiceCollection{TTable, TCollection}"/>
+            class. This constructior should be used in cases where TTable and TCollection are the same type.
+            </summary>
+            <param name="query">
+            The data source's query which provides the data.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.Windows#UI#Xaml#Data#ISupportIncrementalLoading#LoadMoreItemsAsync(System.UInt32)">
+            <summary>
+            Explicit implementation of ISupportIncrementalLoading.LoadMoreItemsAsync 
+            which delegates the work to the base class
+            </summary>
+            <param name="count">
+            Number of items requested by the control.
+            This is ignored since we have our own page size.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.OnExceptionOccurred(System.Exception)">
+            <summary>
+            Provided to allow users to handle exceptions resulting from calls to 
+            LoadMoreItemsAsync performed by controls.
+            </summary>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.Windows#UI#Xaml#Data#ISupportIncrementalLoading#HasMoreItems">
+            <summary>
+            Indicates if more items can be requested by the control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`2.ThrowExceptionsFromLoading">
+            <summary>
+            Indicates if the exceptions from loading more data should be
+            thrown or not.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`1">
+            <summary>
+            An asynchronous data source that implements ISupportIncrementalLoading and 
+            can wrap the results of a Mobile Services query in a way that's easily 
+            consumed by Xaml collection controls like ListView, GridView or ListBox.
+            </summary>
+            <typeparam name="T">Data source and collection element type.</typeparam>
+            <remarks>
+            Handles asynchronously loading the data, notifying the controls and paging.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollection`1.#ctor(Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IncrementalLoadingMobileServiceCollection{T}"/> class.
+            </summary>
+            <param name="query">
+            The data source's query, which provides the data.
+            </param>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollectionExtensions">
+            <summary>
+            Provide extension methods on <see cref="T:IMobileServiceTableQuery`1{T}"/>
+            and <see cref="T:IMobileServiceTable`1{T}"/> to wrap them in an incremental loading collection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollectionExtensions.ToIncrementalLoadingCollection``1(Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``0})">
+            <summary>
+            Create a new collection view based on the query.
+            </summary>
+            <returns>The collection view.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceIncrementalLoadingCollectionExtensions.ToIncrementalLoadingCollection``1(Microsoft.WindowsAzure.MobileServices.IMobileServiceTable{``0})">
+            <summary>
+            Create a new collection view based on the query.
+            </summary>
+            <returns>The collection view.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.SingleSignOnExtensions">
+            <summary>
+            Provides extension methods for single sign-on.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.SingleSignOnExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider,System.Boolean)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name and optional token object.
+            </summary>
+            <param name="provider" type="MobileServiceAuthenticationProvider">
+            Authentication provider to use.
+            </param>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to login with.
+            </param>
+            <param name="useSingleSignOn">
+            Indicates that single sign-on should be used. Single sign-on requires that the
+            application's Package SID be registered with the Microsoft Azure Mobile Service, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.SingleSignOnExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name and optional token object.
+            </summary>
+            <param name="provider" type="MobileServiceAuthenticationProvider">
+            Authentication provider to use.
+            </param>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to login with.
+            </param>
+            <param name="useSingleSignOn">
+            Indicates that single sign-on should be used. Single sign-on requires that the
+            application's Package SID be registered with the Microsoft Azure Mobile Service, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.SingleSignOnExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Boolean)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name and optional token object.
+            </summary>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to login with.
+            </param>
+            <param name="useSingleSignOn">
+            Indicates that single sign-on should be used. Single sign-on requires that the
+            application's Package SID be registered with the Microsoft Azure Mobile Service, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.SingleSignOnExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name and optional token object.
+            </summary>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to login with.
+            </param>
+            <param name="useSingleSignOn">
+            Indicates that single sign-on should be used. Single sign-on requires that the
+            application's Package SID be registered with the Microsoft Azure Mobile Service, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility">
+            <summary>
+            An implementation of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IExpressionUtility"/> interface
+            for that uses the ExpressionVisitor
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.PartiallyEvaluate(System.Linq.Expressions.Expression)">
+            <summary>
+            Evaluate all subtrees of an expression that aren't dependent on
+            parameters to that expression and replace the subtree with a
+            constant expression.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <returns>
+            An expression in which every node is either a constant or part of
+            a subtree that depends on a one of the expression's parameters.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.GetMemberExpressions(System.Linq.Expressions.Expression)">
+            <summary>
+            Returns the MemberExpressions in the expression hierarchy of the <paramref name="expression"/>.
+            </summary>
+            <param name="expression">The expression to search for children MemberExpressions</param>
+            <returns>A collection of MemberExpressions.</returns>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.ExpressionUtility.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.ExpressionUtility"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PartialEvaluator">
+            <summary>
+            Evaluates all of an expression's subtrees that aren't dependent on any
+            parameters to the expression (things like local variables).  This is
+            necessary so we can turn the evaluated values into constants that we
+            can send to the server where the query executes.
+            </summary>
+            <remarks>
+            Note that by evaluating as much of the expression as possible now, any
+            future re-evaluation of the query (for the purposes of paging in the
+            MobileServiceCollectionView, etc.) will use constants rather than
+            the latest values in closed variables, etc.  This is desirable behavior
+            for data source paging but should be carefully considered for other
+            scenarios.
+            -
+            This code is based on the concepts discussed in
+            http://blogs.msdn.com/b/mattwar/archive/2007/08/01/linq-building-an-iqueryable-provider-part-iii.aspx
+            which is pointed to by MSDN as the reference for building LINQ 
+            providers.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.PartiallyEvaluate(System.Linq.Expressions.Expression)">
+            <summary>
+            Evaluate all subtrees of an expression that aren't dependent on
+            parameters to that expression and replace the subtree with a
+            constant expression.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <returns>
+            An expression in which every node is either a constant or part of
+            a subtree that depends on a one of the expression's parameters.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.FindIndependentSubtrees(System.Linq.Expressions.Expression)">
+            <summary>
+            Walk the expression and compute all of the subtrees that are not
+            dependent on any of the expressions parameters.
+            </summary>
+            <param name="expression">The expression to analyze.</param>
+            <returns>
+            A set of all the expression subtrees that are independent from the
+            expression's parameters.  Note that this set will include every
+            element of an independent subtree, but it's not a problem because
+            the EvaluateIndependentSubtrees walks top down.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PartialEvaluator.EvaluateIndependentSubtrees(System.Linq.Expressions.Expression,System.Collections.Generic.List{System.Linq.Expressions.Expression})">
+            <summary>
+            Replace all the independent subtrees in an expression with
+            constants equal to the expression's evaluated result.
+            </summary>
+            <param name="expression">
+            The expression to partially evaluate.
+            </param>
+            <param name="subtrees">
+            The independent subtrees in the expression.
+            </param>
+            <returns>
+            An expression that depends only on parameter values.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.VisitorHelper">
+            <summary>
+            Visit all the members of specific types of expression tree nodes.  This
+            helps reduce the number of specific visitor classes we need to declare.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.VisitorHelper.visitor">
+            <summary>
+            A visitor callback for the generic Visit method that takes the
+            Expression along with a function that will recurse and returns the
+            visited expression or a modified value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.VisitorHelper.memberVisitor">
+            <summary>
+            A visitor callback for the VisitMember method that takes the
+            MemberExpression along with a function that will recurse and
+            returns the visisted expression or a modified value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.#ctor">
+            <summary>
+            Private constructor to prevent instantiation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitAll(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Visit all the nodes in the expression.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <param name="visitor">
+            A function that takes the current node and another function to
+            recurse and returns an expression.
+            </param>
+            <returns>
+            The expression obtained by visiting the input expression.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitMembers(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.MemberExpression,System.Func{System.Linq.Expressions.MemberExpression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression})">
+            <summary>
+            Visit all the member accesses in the expression.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <param name="visitor">
+            A function that takes the current member access node and another
+            function to recurse and returns and expression.
+            </param>
+            <returns>
+            The expression obtained by visiting the input expression.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.Visit(System.Linq.Expressions.Expression)">
+            <summary>
+            Visit every node.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <returns>The visisted expression.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.VisitorHelper.VisitMember(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            Visit member access.
+            </summary>
+            <param name="expression">The expression to visit.</param>
+            <returns>The visited expression.</returns>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.ApplicationStorage">
+            <summary>
+            Returns a platform-specific implemention of application storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.PlatformInformation">
+            <summary>
+            Returns a platform-specific implemention of platform information.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.ExpressionUtility">
+            <summary>
+            Returns a platform-specific implementation of a utility class
+            that provides functionality for manipulating 
+            <see cref="T:System.Linq.Expressions.Expression"/> instances.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.CurrentPlatform.PushUtility">
+            <summary>
+            Returns a platform-specific implementation of a utility class
+            that provides functionality for platform-specifc push capabilities.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.ApplicationStorage">
+            <summary>
+            An implementation of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IApplicationStorage"/> interface
+            for the Windows Store Platform that uses the Windows Store
+            <see cref="T:Windows.Storage.ApplicationData"/> APIs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Microsoft#WindowsAzure#MobileServices#IApplicationStorage#TryReadSetting(System.String,System.Object@)">
+            <summary>
+            Tries to read a setting's value from application storage. 
+            </summary>
+            <param name="name">The name of the setting to try to read.
+            </param>
+            <param name="value">Upon returning, if the return value was <c>true</c>, 
+            will be the value of the given setting; will be <c>null</c> otherwise.
+            </param>
+            <returns>
+            <c>true</c> if the setting existed and was successfully read; <c>false</c> otherwise.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the setting name is <c>null</c> or whitespace.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Microsoft#WindowsAzure#MobileServices#IApplicationStorage#WriteSetting(System.String,System.Object)">
+            <summary>
+            Writes the setting's value to application storage.
+            </summary>
+            <param name="name">The name of the setting to write.
+            </param>
+            <param name="value">The value to write.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if the setting name is <c>null</c> or empty.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if an error occurs while writing the setting.
+            </exception>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.ApplicationStorage.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IApplicationStorage"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker">
+            <summary>
+            AuthenticationBroker for the Windows Store Platform that uses the Windows Store
+            <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/> APIs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.AuthenticateAsync(System.Uri,System.Uri,System.Boolean)">
+            <summary>
+            Begins a server-side authentication flow by navigating the 
+            <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/> to the <paramref name="startUrl"/>.
+            </summary>
+            <param name="startUrl">The URL that the browser-based control should 
+            first navigate to in order to start the authenication flow.
+            </param>
+            <param name="endUrl">The URL that indicates the authentication flow has 
+            completed. Upon being redirected to any URL that starts with the 
+            endUrl, the browser-based control must stop navigating and
+            return the response data to the <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/>.
+            </param>
+            <param name="useSingleSignOn">Indicates if single sign-on should be used so 
+            that users do not have to re-enter his/her credentials every time.
+            </param>
+            <returns>
+            The response data from the authentication flow that contains a string of JSON 
+            that represents a Mobile Services authentication token.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the user cancels the authentication flow or an error occurs during
+            the authentication flow.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.AuthenticateWithBroker(System.Uri,System.Uri,System.Boolean)">
+            <summary>
+            Begins a server-side authentication flow by navigating the 
+            <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/> to the <paramref name="startUrl"/>.
+            Considers if the <paramref name="useSingleSignOn"/> is being used and calls the
+            correct overload of the <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/>.
+            </summary>
+            <param name="startUrl">The URL that the browser-based control should 
+            first navigate to in order to start the authenication flow.
+            </param>
+            <param name="endUrl">The URL that indicates the authentication flow has 
+            completed. Upon being redirected to any URL that starts with the 
+            <paramref name="endUrl"/>, the browser-based control must stop navigating and
+            return the response data to the <see cref="T:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker"/>.
+            </param>
+            <param name="useSingleSignOn">Indicates if single sign-on should be used so 
+            that users do not have to re-enter his/her credentials every time.
+            </param>
+            <returns>
+            The <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationResult"/> returned by the 
+            <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.GetTokenStringFromResult(Windows.Security.Authentication.Web.WebAuthenticationResult)">
+            <summary>
+            Gets the JSON string that represents the Mobile Service authentication token
+            from the <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationResult"/>.
+            </summary>
+            <param name="result">The <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationResult"/> returned
+            from the <see cref="T:Windows.Security.Authentication.Web.WebAuthenticationBroker"/>.</param>
+            <returns>
+            A JSON string that represents a Mobile Service authentication token.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the authentication flow resulted in an error message or an invalid response.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.GetSubStringAfterMatch(System.String,System.String)">
+            <summary>
+            Returns a substring from the <paramref name="stringToSearch"/> starting from
+            the first character after the <paramref name="matchString"/> if the 
+            <paramref name="stringToSearch"/> contains the <paramref name="matchString"/>;
+            otherwise, returns <c>null</c>.
+            </summary>
+            <param name="stringToSearch">The string to search for the <paramref name="matchString"/>.
+            </param>
+            <param name="matchString">The string to look for in the <paramref name="stringToSearch"/>
+            </param>
+            <returns>The substring from <paramref name="stringToSearch"/> that follows the
+            <paramref name="matchString"/> if the <paramref name="stringToSearch"/> contains 
+            the <paramref name="matchString"/>; otherwise, returns <c>null</c>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.AuthenticationBroker.GetUrlWithQueryStringParameter(System.Uri,System.String,System.String)">
+            <summary>
+            Returns a URL that is equivalent to the <paramref name="url"/> provided but which
+            includes in the query string of the URL the <paramref name="queryParameter"/>
+            with the value given by <paramref name="queryValue"/>.
+            </summary>
+            <param name="url">The URL to add the query string parameter and value to.
+            </param>
+            <param name="queryParameter">The name of the query string parameter to add to 
+            the URL.
+            </param>
+            <param name="queryValue">The value of the query string parameter to add to the URL.
+            </param>
+            <returns>
+            A URL that is equivalent to the <paramref name="url"/> provided but which
+            includes in the query string of the URL the <paramref name="queryParameter"/>
+            with the value given by <paramref name="queryValue"/>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PlatformInformation">
+            <summary>
+            Implements the <see cref="T:Microsoft.WindowsAzure.MobileServices.IPlatform"/> interface for the Windows
+            Store platform.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.PlatformInformation.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IPlatformInformation"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.IPlatformInformation"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemArchitecture">
+            <summary>
+            The architecture of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemName">
+            <summary>
+            The name of the operating system of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.OperatingSystemVersion">
+            <summary>
+            The version of the operating system of the platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PlatformInformation.IsEmulator">
+            <summary>
+            Indicated whether the device is an emulator or not
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.PushUtility.instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.PushUtility"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.PushUtility.Instance">
+            <summary>
+            A singleton instance of the <see cref="T:Microsoft.WindowsAzure.MobileServices.PushUtility"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Push">
+            <summary>
+            Define a class help to create/update/delete notification registrations
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String)">
+            <summary>
+            Register a particular channelUri
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Register a particular channelUri
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,Windows.Data.Xml.Dom.XmlDocument,System.String)">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The XmlDocument defining the template</param>
+            <param name="templateName">The template name</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,Windows.Data.Xml.Dom.XmlDocument,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The XmlDocument defining the template</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+            <returns>Task that completes when registration is complete</returns>        
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String)">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The string defining the template</param>
+            <param name="templateName">The template name</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Register a particular channelUri with a template
+            </summary>
+            <param name="channelUri">The channelUri to register</param>
+            <param name="xmlTemplate">The string defining the template</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+            <returns>Task that completes when registration is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterNativeAsync">
+            <summary>
+            Unregister any registrations previously registered from this device
+            </summary>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterTemplateAsync(System.String)">
+            <summary>
+            Unregister any registrations with given templateName registered from this device
+            </summary>
+            <param name="templateName">The template name</param>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterAllAsync(System.String)">
+            <summary>
+            Unregister any registrations with given channelUri
+            </summary>
+            <param name="channelUri">The channel Uri</param>
+            <returns>Task that completes when unregister is complete</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(Microsoft.WindowsAzure.MobileServices.Registration)">
+            <summary>
+            Register for notifications
+            </summary>
+            <param name="registration">The object defining the registration</param>
+            <returns>Task that will complete when the registration is completed</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.ListRegistrationsAsync(System.String)">
+            <summary>
+            DEBUG-ONLY: List the registrations made with the service for a channelUri
+            </summary>
+            <param name="channelUri">The channelUri to check for</param>
+            <returns>List of registrations</returns>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Push.TileId">
+            <summary>
+            The TileId associated with this specific object. String.Empty is default if not created via SecondaryTiles property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Push.SecondaryTiles">
+            <summary>
+            Access this member with an indexer to access secondary tile registrations. Example: <code>push.SecondaryTiles["tileName"].RegisterNativeAsync("mychannelUri");</code>
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Push.SecondaryTilesList">
+            <summary>
+            Collection of Push objects for secondary tiles
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Push.SecondaryTilesList.Item(System.String)">
+            <summary>
+            Indexer for creating/looking up tileId-specific Push objects
+            </summary>
+            <param name="tileId">The tileId of a secondary tile</param>
+            <returns>Push object for performing registrations on</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.WnsRegistration">
+            <summary>
+            Registration is used to define a target that is registered for notifications
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsRegistration.#ctor(System.String)">
+            <summary>
+            Create a default Registration for a channelUri
+            </summary>
+            <param name="channelUri">The channel uri</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsRegistration.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a default Registration for a channelUri with specific tags
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="tags">The tags to register to receive notifications from</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsRegistration.ChannelUri">
+            <summary>
+            The Uri of the Channel returned by the Push Notification Channel Manager.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration">
+            <summary>
+            Registration is used to define a target that is registered for notifications. A <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/> allows the client application
+            to define the format of the registration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags that restrict which notifications this registration will receive</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
+            </summary>
+            <param name="channelUri">The channel uri</param>
+            <param name="bodyTemplate">The template xml in string format</param>
+            <param name="templateName">The template name</param>
+            <param name="tags">The tags that restrict which notifications this registration will receive</param>
+            <param name="additionalHeaders">Additional headers</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.WnsHeaders">
+            <summary>
+            Gets headers that should be sent to WNS with the notification
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.TemplateName">
+            <summary>
+            Get templateName
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.BodyTemplate">
+            <summary>
+            Gets bodyTemplate as string
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.Name">
+            <summary>
+            The name of the registration used in local storage.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions">
+            <summary>
+            Extension methods for UI-based login.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,Microsoft.WindowsAzure.MobileServices.MobileServiceAuthenticationProvider,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String)">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.LoginAsync(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into a Mobile Services application given a provider name.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.GetPush(Microsoft.WindowsAzure.MobileServices.MobileServiceClient)">
+            <summary>
+            Extension method to get a <see cref="T:Microsoft.WindowsAzure.MobileServices.Push"/> object made from an existing <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/>.
+            </summary>
+            <param name="client">
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/> to create with.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.WindowsAzure.MobileServices.Push"/> object used for registering for notifications.
+            </returns>
+        </member>
+    </members>
+</doc>

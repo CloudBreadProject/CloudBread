@@ -1,0 +1,80 @@
+﻿@model CloudBreadAdminWeb.Models.IndexViewModel
+@{
+    ViewBag.Title = "관리";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>계정 설정 변경</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>암호:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("암호 변경", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("만들기", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>외부 로그인:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("관리", "ManageLogins") ]
+        </dd>
+        @*
+            2단계 인증 시스템에서는 두 번째 확인 단계로 전화 번호를 사용할 수 있습니다.
+             
+             SMS를 사용하여 2단계 인증을 지원하도록 이 ASP.NET 응용 프로그램을 설정하는 방법에 대한
+                자세한 내용은 <a href="http://go.microsoft.com/fwlink/?LinkId=313242">이 문서</a>를 참조하십시오.
+             
+             2단계 인증을 설정한 후에는 다음 블록의 주석 처리를 제거하십시오.
+        *@
+        @*  
+            <dt>전화 번호:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "없음") [
+                @if (Model.PhoneNumber != null)
+                {
+                    @Html.ActionLink("변경", "AddPhoneNumber")
+                    @: &nbsp;|&nbsp;
+                    @Html.ActionLink("제거", "RemovePhoneNumber")
+                }
+                else
+                {
+                    @Html.ActionLink("추가", "AddPhoneNumber")
+                }
+                ]
+            </dd>
+        *@
+        <dt>2단계 인증:</dt>
+        <dd>
+            <p>
+                구성된 2단계 인증 공급자가 없습니다. 2단계 인증을 지원하도록 이 ASP.NET 응용 프로그램을 설정하는 방법에 대한
+                자세한 내용은 <a href="http://go.microsoft.com/fwlink/?LinkId=313242">이 문서</a>를 참조하십시오.
+            </p>
+            @*@if (Model.TwoFactor)
+                {
+
+                    <form method="post" action="/Manage/DisableTwoFactorAuthentication">
+                        사용
+                        <input type="submit" value="사용 안 함" class="btn btn-link" />
+                    </form>
+                }
+                else
+                {
+
+                    <form method="post" action="/Manage/EnableTwoFactorAuthentication">
+                        사용 안 함
+                        <input type="submit" value="사용" class="btn btn-link" />
+                    </form>
+                }*@
+        </dd>
+    </dl>
+</div>

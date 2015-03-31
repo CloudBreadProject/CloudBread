@@ -1,0 +1,113 @@
+﻿@model PagedList.IPagedList<CloudBreadAdminWeb.AdminMembers>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("생성", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "AdminMembers", FormMethod.Get))
+{
+    if (ViewBag.SearchCondition != null)
+    {
+        ViewBag.pageSearchCondition = ViewBag.SearchCondition;
+    }
+    var options = new List<SelectListItem>();
+
+    options.Add(new SelectListItem { Value = "AdminMemberID", Text = "AdminMemberID", Selected = true });
+    options.Add(new SelectListItem { Value = "AdminMemberEmail", Text = "AdminMemberEmail" });
+    options.Add(new SelectListItem { Value = "Name1", Text = "Name1" });
+
+    <p>
+        검색 :
+        @Html.DropDownList("SearchCondition", options)
+
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            AdminMemberID
+        </th>
+        <th>
+            AdminMemberEmail
+        </th>
+        <th>
+            AdminGroup
+        </th>
+        <th>
+            TimeZoneID
+        </th>
+        <th>
+            Name1
+        </th>
+        <th>
+            HideYN
+        </th>
+        <th>
+            DeleteYN
+        </th>
+        <th>
+            CreatedAt
+        </th>
+        <th>
+            UpdatedAt
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("수정", "Edit", new { id = item.AdminMemberID }) |
+            @Html.ActionLink("상세", "Details", new { id = item.AdminMemberID }) | 
+            @Html.ActionLink("삭제", "Delete", new { id = item.AdminMemberID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminMemberID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminMemberEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeZoneID)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Name1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HideYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleteYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedAt)
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                    new { page, currentFilter = ViewBag.CurrentFilter, SearchCondition = ViewBag.pageSearchCondition }))

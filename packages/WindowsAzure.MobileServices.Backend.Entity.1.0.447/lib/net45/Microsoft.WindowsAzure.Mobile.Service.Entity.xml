@@ -1,0 +1,590 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.WindowsAzure.Mobile.Service.Entity</name>
+    </assembly>
+    <members>
+        <member name="F:Microsoft.WindowsAzure.Mobile.Service.AssemblyUtils.AssemblyVersionKey">
+            <summary>
+            The key identifying the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Models.StatusReport"/> value containing the assembly version for a particular report.  
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.AssemblyUtils.GetExecutingAssemblyFileVersionOrDefault">
+            <summary>
+            Gets a string containing the <see cref="T:System.Reflection.AssemblyFileVersionAttribute"/> version information
+            for the current assembly.
+            </summary>
+            <returns>The file version.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.AssemblyUtils.GetExecutingAssemblyVersionOrDefault">
+            <summary>
+            Gets a string containing the <see cref="T:System.Reflection.AssemblyFileVersionAttribute"/> and <see cref="T:System.Reflection.AssemblyInformationalVersionAttribute"/>
+            version information for the current assembly.
+            </summary>
+            <returns>The combined file and informational version.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ArgMustBeGreaterThanOrEqualTo">
+            <summary>
+              Looks up a localized string similar to Argument must be greater than or equal to {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ArgumentOutOfRange_GreaterThan">
+            <summary>
+              Looks up a localized string similar to The value must be greater than {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ArgumentOutOfRange_InvalidEnum">
+            <summary>
+              Looks up a localized string similar to The value must be from the &apos;{0}&apos; enumeration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ArgumentOutOfRange_LessThan">
+            <summary>
+              Looks up a localized string similar to The value must be less than {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.Assembly_UnknownFileVersion">
+            <summary>
+              Looks up a localized string similar to &lt;unknown&gt;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.Assembly_UnknownInfoVersion">
+            <summary>
+              Looks up a localized string similar to &lt;unknown&gt;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.DomainManager_Conflict">
+            <summary>
+              Looks up a localized string similar to The operation failed due to a conflict: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.HttpHeaderToken_Invalid">
+            <summary>
+              Looks up a localized string similar to The format of value &apos;{0}&apos; is invalid. The character &apos;{1}&apos; is not a valid HTTP header token character..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.LoginProvider_ProviderSkipped">
+            <summary>
+              Looks up a localized string similar to The login provider &apos;{0}&apos; has not been configured and as a result is not registered. If this is not the intention then please configure it through the portal..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ParameterInvalid">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; parameter value is invalid..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.ParameterNull">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; parameter cannot be null..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.Service_Healthy">
+            <summary>
+              Looks up a localized string similar to The service is considered to be in a healthy state..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.CommonResources.Service_UnhealtyState">
+            <summary>
+              Looks up a localized string similar to Service is unhealthy. Please check the service logs to determine the issue and how to correct it..
+            </summary>
+        </member>
+        <member name="T:System.Web.Http.OData.DeltaExtensions">
+            <summary>
+            Various extension methods for the <see cref="T:System.Web.Http.OData.Delta`1"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Web.Http.OData.DeltaExtensions.GetPropertyValueOrDefault``2(System.Web.Http.OData.Delta{``0},System.String)">
+            <summary>
+            Gets the value of a given property or <c>default</c> if property is either not present or not of type <typeparamref name="TProperty"/>.
+            </summary>
+            <typeparam name="TData">The type of <see cref="T:System.Web.Http.OData.Delta`1"/>.</typeparam>
+            <typeparam name="TProperty">The type of the property.</typeparam>
+            <param name="patch">The <see cref="T:System.Web.Http.OData.Delta`1"/> instance to probe for the property.</param>
+            <param name="propertyName">The property name to look up.</param>
+            <returns>The value of the property or <c>default</c> if either not present or of the wrong type.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.ServiceLogCategories">
+            <summary>
+            Category names traced by the service infrastructure. By separating it out from the default Web API 
+            categories and from other user categories it is possible to filter them out in the tracing
+            logic.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.SqlFuncs.StringConvert(System.Nullable{System.Double})">
+            <summary>Returns character data converted from numeric data.</summary>
+            <returns>The input expression converted to a string.</returns>
+            <param name="number">A numeric expression.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.SqlFuncs.StringConvert(System.Nullable{System.Double},System.Nullable{System.Int32})">
+            <summary>Returns character data converted from numeric data.</summary>
+            <returns>The numeric input expression converted to a string.</returns>
+            <param name="number">A numeric expression.</param>
+            <param name="length">The total length of the string. This includes decimal point, sign, digits, and spaces. The default is 10.</param>
+        </member>
+        <member name="M:System.StringExtensions.FormatForUser(System.String,System.Object[])">
+            <summary>
+            Formats the input string to be user visible using <see cref="P:System.Globalization.CultureInfo.CurrentCulture"/>, per FxCop's rule
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.FormatInvariant(System.String,System.Object[])">
+            <summary>
+            Formats the input string to be user visible using <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.SplitAndTrim(System.String,System.Char[])">
+            <summary>
+            Splits a string into segments based on a given <paramref name="separator"/>. The segments are 
+            trimmed and empty segments are removed.
+            </summary>
+            <param name="input">The string to split.</param>
+            <param name="separator">An array of Unicode characters that delimit the substrings in this instance, an empty array that contains no delimiters, or null.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the resulting segments.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1">
+            <summary>
+            An implementation of <see cref="T:System.Data.Entity.IDatabaseInitializer`1"/> that will <b>DELETE</b> all resources (e.g. tables, views, functions, and procedures)
+            within a given database schema and re-seed the database regardless of whether the database model has changed. This implementation 
+            of <see cref="T:System.Data.Entity.IDatabaseInitializer`1"/> is useful if the current user only has permission to access resources within a particular database schema and 
+            not the entire database.
+            </summary>
+            <typeparam name="TContext"> The type of <see cref="T:System.Data.Entity.DbContext"/>.</typeparam>
+            <remarks>
+            To seed the database create a derived class and override the <c>Seed</c> method.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1"/> that will <b>DELETE</b> all resources from 
+            the default schema derived from the service name regardless of whether the model has changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1"/> class with a given <paramref name="schema"/>.
+            </summary>
+            <param name="schema">The schema to <b>DELETE</b> all resources from regardless of whether the model has changed.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.InitializeDatabase(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.DeleteAllResourcesFromSchema(`0)">
+            <summary>
+            <b>DELETE</b> all resources from the <see cref="P:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.Schema"/>.
+            </summary>
+            <param name="context">The <see cref="T:System.Data.Entity.DbContext"/>.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1.Schema">
+            <summary>
+            Gets the schema to <b>DELETE</b> all resources from.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaIfModelChanges`1">
+            <summary>
+            An implementation of <see cref="T:System.Data.Entity.IDatabaseInitializer`1"/> that will <b>DELETE</b> all resources (e.g. tables, views, functions, and procedures)
+            within a given database schema, and optionally re-seed the database only if the model has changed since the database was created. This implementation 
+            of <see cref="T:System.Data.Entity.IDatabaseInitializer`1"/> is useful if the current user only has permission to access resources within a particular database schema and 
+            not the entire database.
+            </summary>
+            <typeparam name="TContext"> The type of <see cref="T:System.Data.Entity.DbContext"/>.</typeparam>
+            <remarks>
+            Whether or not the model has changed is determined by the <see cref="M:System.Data.Entity.Database.CompatibleWithModel(System.Boolean)"/> method.
+            To seed the database create a derived class and override the <c>Seed</c> method.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaIfModelChanges`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaAlways`1"/> that will <b>DELETE</b> all resources from 
+            the default schema derived from the service name in case the model has changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaIfModelChanges`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaIfModelChanges`1"/> class with a given <paramref name="schema"/>.
+            </summary>
+            <param name="schema">The schema to <b>DELETE</b> all resources from in case the model has changed.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.ClearDatabaseSchemaIfModelChanges`1.InitializeDatabase(`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.Config.EntityExtensionConfig">
+            <summary>
+            The <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Config.EntityExtensionConfig"/> class provides configuration specific to Entity Framework. In particular,
+            it registers <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityTableSqlGenerator"/> as a plug-in to Entity Framework so that tables carrying columns
+            marked with the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.TableColumnAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Config.EntityExtensionConfig.Initialize">
+            <summary>
+            Initialization used by unit tests to setup <see cref="T:System.Data.Entity.DbConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Config.EntityExtensionConfig.Initialize(System.Web.Http.HttpConfiguration,Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.Diagnostics.EntityStatusReporter">
+            <summary>
+            Provides a <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Models.StatusReport"/> for table controllers using Entity Framework
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Diagnostics.EntityStatusReporter.GetStatus(System.Web.Http.HttpConfiguration,Microsoft.WindowsAzure.Mobile.Service.ApiServices,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Diagnostics.EntityStatusReporter.Name">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2">
+            <summary>
+            Provides an <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.DomainManager`1"/> implementation targeting SQL as the backend store using
+            Entity Framework where there is not a 1:1 mapping between the data object (DTO) exposed through
+            a <see cref="T:Microsoft.WindowsAzure.Mobile.Service.TableController`1"/> and the domain model managed by SQL. 
+            See <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1"/> for situations where there is a 1:1 relationship between 
+            the Data Object (DTO) and the domain model managed by SQL.
+            </summary>
+            <remarks>
+            The <see cref="T:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2"/> leverages AutoMapper to map between the 
+            DTO and the domain model and it is assumed that AutoMapper has already been initialized with 
+            appropriate mappings that map from DTO =&gt; domain model and from domain model =&gt; DTO. The 
+            bi-directional mapping is required for both reads (GET, QUERY) and updates (PUT, POST, DELETE, PATCH)
+            to function.
+            </remarks>
+            <typeparam name="TData">The data object (DTO) type.</typeparam>
+            <typeparam name="TModel">The type of the domain data model</typeparam>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.#ctor(System.Data.Entity.DbContext,System.Net.Http.HttpRequestMessage,Microsoft.WindowsAzure.Mobile.Service.ApiServices)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2"/>
+            </summary>
+            <param name="context">
+            An instance of <see cref="T:System.Data.Entity.DbContext"/>
+            </param>
+            <param name="request">
+            An instance of <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            </param>
+            <param name="services">
+            An instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ApiServices"/>
+            </param>        
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.#ctor(System.Data.Entity.DbContext,System.Net.Http.HttpRequestMessage,Microsoft.WindowsAzure.Mobile.Service.ApiServices,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2"/>
+            </summary>
+            <param name="context">
+            An instance of <see cref="T:System.Data.Entity.DbContext"/>
+            </param>
+            <param name="request">
+            An instance of <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            </param>
+            <param name="services">
+            An instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ApiServices"/>
+            </param>
+            <param name="enableSoftDelete">
+            Determines whether rows are hard deleted or marked as deleted.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.SubmitChangesAsync">
+            <summary>
+            Submits the change through Entity Framework while logging any exceptions
+            and produce appropriate <see cref="T:System.Net.Http.HttpResponseMessage"/> instances.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the operation.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.GetOriginalValue(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)">
+            <summary>
+            Gets the original value of an entity in case an update or replace operation
+            resulted in an <see cref="T:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException"/>. The original value extracted 
+            from the exception will get returned to the client so that it can merge the data and 
+            possibly try the operation again.
+            </summary>
+            <param name="conflict">The <see cref="T:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException"/> thrown by 
+            the update or replace operation.</param>
+            <returns>The original value or <c>null</c> if none are available.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.SetOriginalVersion(`1,System.Byte[])">
+            <summary>
+            Override this method to support optimistic concurrent updates and replace operations. In order to evaluate whether 
+            an object has been updated concurrently, Entity Framework needs to know the original version of the object being edited
+            and compare that to the current version maintained in the database. This requires that the original value is known
+            by Entity Framework so that it can ask the database to do the check.
+            </summary>
+            <remarks>
+            In case the column used to manage versioning is called "Version", the code to set the original value looks like this:
+            <code>
+              this.context.Entry(model).OriginalValues["Version"] = version;
+            </code>
+            </remarks>
+            <param name="model">The current entity model object.</param>
+            <param name="version">The original version provided by the request as being the version that is being updated; or <c>null</c> if no version was indicated.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2.VerifyUpdatedKey(System.String,`0)">
+            <summary>
+            Verify that the id specified in the request URI matches that of an 
+            updated entity. If not then throw an exception as ids can't be modified.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext">
+            <summary>
+            The <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext"/> is an abstract base class which provides the same functionality as the 
+            <see cref="T:System.Data.Entity.DbContext"/> scaffolded by Visual Studio. It is optional to use this base class 
+            instead of the scaffolded code when using a <see cref="T:Microsoft.WindowsAzure.Mobile.Service.TableController`1"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext"/> with the default schema name
+            derived from the service name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityContext.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext"/> with a given <paramref name="schema"/>.
+            </summary>
+            <param name="schema">The schema name to use for this <see cref="T:System.Data.Entity.DbContext"/>. It is recommended that the
+            service name (which can be obtained from the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ServiceSettingsDictionary"/> be used as the schema name).</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityContext.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext"/> with a given <paramref name="schema"/> and 
+            <paramref name="nameOrConnectionString"/>. 
+            </summary>
+            <param name="schema">The schema name to use for this <see cref="T:System.Data.Entity.DbContext"/>. It is recommended that the
+            service name (which can be obtained from the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ServiceSettingsDictionary"/> be used as the schema name).</param>
+            <param name="nameOrConnectionString">The connection string name or connection string to use.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.EntityContext.Schema">
+            <summary>
+            Gets or sets the default database schema name. This default database schema name is used for 
+            database objects that do not have an explicitly configured schema name. If the schema name
+            is null or empty then a default schema name is derived from the service name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.EntityData">
+            <summary>
+            An abstract implementation of the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.ITableData"/> interface indicating how the
+            system properties for a given table data model are to be serialized when communicating
+            with clients when using Entity Framework for accessing the backend store.
+            The uniform serialization of system properties ensures that the clients 
+            can process the system properties uniformly across platforms. Concrete entity framework
+            models can derive from this base class in order to support the system properties.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityTableSqlGenerator">
+            <summary>
+            Updates the SQL DB definition to take into account columns marked by <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.TableColumnType"/>.
+            The <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityTableSqlGenerator"/> can be enabled either by using the scaffolded <see cref="T:System.Data.Entity.DbContext"/>
+            or by deriving from the <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityContext"/> base class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1">
+            <summary>
+            Provides a <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.DomainManager`1"/> implementation targeting SQL as the backend store using
+            Entity Framework. In this model, there is a 1:1 mapping between the data object (DTO) exposed through
+            a <see cref="T:Microsoft.WindowsAzure.Mobile.Service.TableController`1"/> and the domain model. The <see cref="T:Microsoft.WindowsAzure.Mobile.Service.MappedEntityDomainManager`2"/>
+            is the recommended <see cref="T:Microsoft.WindowsAzure.Mobile.Service.Tables.DomainManager`1"/> for situations where there is not a 1:1
+            relationship between the Data Object (DTO) and the domain model managed by SQL.
+            </summary>
+            <typeparam name="TData">The data object (DTO) type.</typeparam>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1.#ctor(System.Data.Entity.DbContext,System.Net.Http.HttpRequestMessage,Microsoft.WindowsAzure.Mobile.Service.ApiServices)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1"/>
+            </summary>
+            <param name="context">
+            An instance of <see cref="T:System.Data.Entity.DbContext"/>
+            </param>
+            <param name="request">
+            An instance of <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            </param>
+            <param name="services">
+            An instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ApiServices"/>
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1.#ctor(System.Data.Entity.DbContext,System.Net.Http.HttpRequestMessage,Microsoft.WindowsAzure.Mobile.Service.ApiServices,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1"/>
+            </summary>
+            <param name="context">
+            An instance of <see cref="T:System.Data.Entity.DbContext"/>
+            </param>
+            <param name="request">
+            An instance of <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            </param>
+            <param name="services">
+            An instance of <see cref="T:Microsoft.WindowsAzure.Mobile.Service.ApiServices"/>
+            </param>
+            <param name="enableSoftDelete">
+            Determines whether rows are hard deleted or marked as deleted.
+            </param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1.SubmitChangesAsync">
+            <summary>
+            Submits the change through Entity Framework while logging any exceptions
+            and produce appropriate <see cref="T:System.Net.Http.HttpResponseMessage"/> instances.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the operation.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1.GetOriginalValue(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)">
+            <summary>
+            Gets the original value of an entity in case an update or replace operation
+            resulted in an <see cref="T:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException"/>. The original value extracted 
+            from the exception will get returned to the client so that it can merge the data and 
+            possibly try the operation again.
+            </summary>
+            <param name="conflict">The <see cref="T:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException"/> thrown by 
+            the update or replace operation.</param>
+            <returns>The original value or <c>null</c> if none are available.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.EntityDomainManager`1.VerifyUpdatedKey(System.String,`0)">
+            <summary>
+            Verify that the id specified in the request URI matches that of an 
+            updated entity. If not then throw an exception as ids can't be modified.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DbInitializer_ErrorDeletingSchema">
+            <summary>
+              Looks up a localized string similar to Database initialization failed. Could not delete one or more objects from schema &apos;{0}&apos;. Please ensure that the database connection string is correct. For more details on the error, please see the inner exception..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DbInitializer_ErrorInitializingSchema">
+            <summary>
+              Looks up a localized string similar to Database initialization failed. Could not initialize one or more objects in schema &apos;{0}&apos;. Please ensure that the database connection string is correct. For more details on the error, please see the inner exception..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DomainManager_ChangeConflict">
+            <summary>
+              Looks up a localized string similar to The operation failed due to a change conflict. Error received: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DomainManager_InvalidOperation">
+            <summary>
+              Looks up a localized string similar to The operation failed with the following error: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DomainManager_NoOriginalValue">
+            <summary>
+              Looks up a localized string similar to The client is attempting to use optimistic concurrency in connection with updates and inserts but the current &apos;{0}&apos; implementation does not set the original version required to support this. Please implement the method &apos;{1}&apos; and provide the original value..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DomainManager_ValidationError">
+            <summary>
+              Looks up a localized string similar to The entity submitted was invalid: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.DomainManager_ValidationErrorDescription">
+            <summary>
+              Looks up a localized string similar to Validation error on property &apos;{0}&apos;: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.EntityDomainController_KeyNotFound">
+            <summary>
+              Looks up a localized string similar to They key &apos;{0}&apos; is invalid. It must follow a format that is compatible with a type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.StatusReport_Description">
+            <summary>
+              Looks up a localized string similar to Microsoft Azure Mobile Services .NET Entity Framework Extension.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.StatusReport_UnknownProvider">
+            <summary>
+              Looks up a localized string similar to Unknown storage provider -- skipping..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.StatusReport_UnknownSetting">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; setting could not be determined -- skipping..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.TableController_KeyMismatch">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; field in the HTTP request body must match the values used in the request URI. Expected a value of &apos;{1}&apos; but received &apos;{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.Mobile.Service.Properties.EFResources.TableKeys_InvalidKey">
+            <summary>
+              Looks up a localized string similar to The key &apos;{0}&apos; is invalid. It must follow the pattern k1,k2,k3,... or &apos;k1&apos;,&apos;k2&apos;,&apos;k3&apos;,....
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.SqlUniqueConstraintViolationError">
+            <summary>
+            Error number for unique constraint violation
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.GetValidationDescription(System.Data.Entity.Validation.DbEntityValidationException)">
+            <summary>
+            Creates a description of validation errors provided by <paramref name="ex"/>.
+            </summary>
+            <param name="ex">The <see cref="T:System.Data.Entity.Validation.DbEntityValidationException"/> with the validation errors.</param>
+            <returns>A <see cref="T:System.String"/> describing the validation errors.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.SubmitChangesAsync(System.Data.Entity.DbContext,System.Net.Http.HttpRequestMessage,Microsoft.WindowsAzure.Mobile.Service.ApiServices,System.Func{System.Data.Entity.Infrastructure.DbUpdateConcurrencyException,System.Object})">
+            <summary>
+            Submits the change through Entity Framework while logging any exceptions
+            and produce appropriate <see cref="T:System.Net.Http.HttpResponseMessage"/> instances.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the operation.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.LogDataExceptionMetric(System.Data.DataException,Microsoft.WindowsAzure.Mobile.Service.Diagnostics.IMetricsLogger)">
+            <summary>
+            Logs the appropriate metric event for the specified <see cref="T:System.Data.DataException"/>
+            </summary>
+            <param name="dataException">The exception to log a metric for.</param>
+            <param name="metricsLogger">The metrics logger</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.GetUnderlyingSqlException(System.Data.DataException)">
+            <summary>
+            If the inner exception chain of the specified <see cref="T:System.Data.DataException"/> has
+            a <see cref="T:System.Data.SqlClient.SqlException"/> that inner exception is returned.
+            </summary>
+            <param name="dataException">The exception to search through</param>
+            <returns>The inner <see cref="T:System.Data.SqlClient.SqlException"/> or null</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.GetConflictStatusCode(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Returns a conflict HTTP status code depending on whether there is an <c>If-Match</c> header present or not.
+            In this case, the status code is 412 (Precondition failed), if not it is 409 (Conflict).
+            </summary>
+            <param name="request">The request to inspect.</param>
+            <returns>The <see cref="T:System.Net.HttpStatusCode"/> status.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Mobile.Service.Tables.EntityUtils.GetSqlCommand(System.String)">
+            <summary>
+            Returns the SQL command with the given <paramref name="name"/> by reading the corresponding 
+            embedded resource.
+            </summary>
+            <param name="name">The name of the SQL command to read as an embedded resource.</param>
+            <returns>The command.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,89 @@
+﻿@model CloudBreadAdminWeb.ServerInfo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>정말 삭제 하시겠습니까?</h3>
+<div>
+    <h4>ServerInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServerLists)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServerLists)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EULAText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EULAText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFromRegionDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFromRegionDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="삭제" class="btn btn-default" /> |
+            @Html.ActionLink("리스트", "Index")
+        </div>
+    }
+</div>
