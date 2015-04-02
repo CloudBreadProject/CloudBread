@@ -20,19 +20,25 @@
 - 분석/관리 배치 작업 추가 제작 가능 
 - 무료 기술 교육 제공(헤카톤/캠프)
 
-
+<br/>
 <h2>개발자 그룹</h2>
-페이스북 사용자 그룹 : https://www.facebook.com/groups/cloudBreadProject/ 
+- 페이스북 사용자 그룹 : https://www.facebook.com/groups/cloudBreadProject/ 
 
-<h2>지원되는 환경</h2>
+<br/>
+<h2>지원되는 모바일 & 클라이언트환경</h2>
+- iOS, Android, Windows Phone, Windows 스토어앱, Xamarin, PhoneGap, Sencha 등 
+- Microsoft Azure Mobile Service가 지원하는 모바일 및 다양한 클라이언트 플랫폼 지원 : http://azure.microsoft.com/ko-kr/documentation/services/mobile-services/ 
 
+<br/>
 <h2>설치</h2>
 - Wiki의 튜토리얼 설치 참조
 
+<br/>
 <h2>프로젝트 설명</h2>
 모바일게임과 모바일 앱에서 사용되는 사용자의 패턴과 액션을 기록해 기능들을 제공
 클라이언트 모바일 디바이스는 게임서버로 JSON 방식의 데이터를 요청하고 서버가 해당 데이터를 처리 후 응답
 약 100여개의 비즈니스 로직이 기본제공되며(Wiki 참조) 클라이언트는 마이크로소프트가 오픈소스로 직접 만들어 제공하는 라이브러리를 통해 서버로 API를 호출
+
 
 <h3>Example 1. 로그인ID 중복 체크 </h3>
 Behavior : SelLoginIDDupeCheck
@@ -48,6 +54,7 @@ Behavior : SelLoginIDDupeCheck
 
 - 이런 식으로, JSON 데이터를 요청하고 응답이 클라이언트로 전달됨.
 - 클라이언트 개발자는 파라미터에 맞춰 JSON 데이터를 호출하고 응답을 받아 게임 서버에 저장
+
 
 <h3>Example 2. 로그인 후 게임 이벤트 조회 </h3>
 Behavior : SelGameEvents
@@ -67,6 +74,7 @@ Behavior : SelGameEvents
 
 - 요청 데이터와 응답 데이터는 각 API마다 목적과 사용 방식이 존재. Wiki의 API 설명 참조
 
+
 <h3>Example 3. 멤버등록-회원가입 </h3>
 Behavior : InsRegMember
 - 멤버등록 처리
@@ -85,6 +93,7 @@ Behavior : InsRegMember
 - 앱내 구매만 사용할 경우
 - 회원+포인트 리더보드만 필요한 경우
 
+<br/>
 <h2>질문/토론</h2>
 페이스북 사용자 그룹 : https://www.facebook.com/groups/cloudBreadProject/ 
 
