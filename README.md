@@ -5,7 +5,7 @@
 <br/>
 <h2>기능</h2>
 <h3>PaaS / DaaS 서버 엔진</h3>
-- PaaS, DaaS 로 서비스 즉시 배포
+- PaaS, DaaS 로 손쉬운 개발 및 서비스 즉시 배포
 - Real Auto Scale - PaaS
 - 개발/테스트/배포 = 통합 환경
 - 서비스 규모에 따른 앱 변경 없음
