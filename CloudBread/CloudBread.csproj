@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -259,6 +260,9 @@
     <Compile Include="Controllers\CBUdtSellItemController.cs" />
     <Compile Include="Controllers\CBUdtSendGiftController.cs" />
     <Compile Include="Controllers\CDUdtReturnItemController.cs" />
+    <Compile Include="Controllers\legend2Controller.cs" />
+    <Compile Include="Controllers\legend3Controller.cs" />
+    <Compile Include="Controllers\legendController.cs" />
     <Compile Include="DataObjects\globalVal.cs" />
     <Compile Include="DataObjects\TodoItem.cs">
       <SubType>Code</SubType>
@@ -272,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <None Include="Properties\PublishProfiles\dwcloudbreadasm - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\mobile-CloudBread0330.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

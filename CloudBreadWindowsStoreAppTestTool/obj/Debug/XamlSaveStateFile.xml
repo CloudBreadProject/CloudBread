@@ -1,10 +1,10 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
     <LocalAssembly PathName="c:\users\dwkim\documents\visual studio 2013\projects\cloudbread\cloudbreadwindowsstoreapptesttool\obj\debug\intermediatexaml\cloudbreadwindowsstoreapptesttool.exe" HashGuid="ecb69d6c-c141-48d2-d192-c06eef569cc4" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbreadproject\cloudbreadproject\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.dll" HashGuid="9ae27956-fc25-6346-a044-affad933acd5" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbreadproject\cloudbreadproject\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.ext.dll" HashGuid="c3fe55d4-dcfc-ac07-236d-f429b050553a" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbreadproject\cloudbreadproject\packages\newtonsoft.json.6.0.4\lib\netcore45\newtonsoft.json.dll" HashGuid="21d6fdf9-5b56-582d-4524-cf342594819a" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbreadproject\cloudbreadproject\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.extensions.dll" HashGuid="b50282f8-b9f8-4408-8d49-ba2efe301624" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbreadproject\cloudbreadproject\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.primitives.dll" HashGuid="7b71418d-e056-7613-c839-85fb8f6472a6" />
+    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.dll" HashGuid="9ae27956-fc25-6346-a044-affad933acd5" />
+    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.ext.dll" HashGuid="c3fe55d4-dcfc-ac07-236d-f429b050553a" />
+    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\newtonsoft.json.6.0.4\lib\netcore45\newtonsoft.json.dll" HashGuid="21d6fdf9-5b56-582d-4524-cf342594819a" />
+    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.extensions.dll" HashGuid="b50282f8-b9f8-4408-8d49-ba2efe301624" />
+    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.primitives.dll" HashGuid="7b71418d-e056-7613-c839-85fb8f6472a6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>
