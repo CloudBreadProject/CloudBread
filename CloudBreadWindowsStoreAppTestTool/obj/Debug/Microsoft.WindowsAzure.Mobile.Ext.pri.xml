@@ -431,6 +431,11 @@
 					<Value>Die Eigenschaft "InnerHandler" des delegierenden Handlers muss null sein.</Value>
 				</Candidate>
 			</NamedResource>
+			<NamedResource name="MobileServiceClient_InvalidAlternateLoginHost" uri="ms-resource://Microsoft.WindowsAzure.MobileServices/Microsoft.WindowsAzure.MobileServices.Resources/MobileServiceClient_InvalidAlternateLoginHost">
+				<Candidate qualifiers="Language-en-US" isDefault="true" type="String">
+					<Value>{0} is invalid.AlternateLoginHost must be a valid https URI with hostname only</Value>
+				</Candidate>
+			</NamedResource>
 			<NamedResource name="MobileServiceClient_NoResponseContent" uri="ms-resource://Microsoft.WindowsAzure.MobileServices/Microsoft.WindowsAzure.MobileServices.Resources/MobileServiceClient_NoResponseContent">
 				<Candidate qualifiers="Language-zh-TW" type="String">
 					<Value>伺服器並未提供具有預期內容的回應。</Value>
@@ -461,6 +466,11 @@
 				</Candidate>
 				<Candidate qualifiers="Language-de-DE" type="String">
 					<Value>Der Server hat keine Antwort mit dem erwarteten Inhalt bereitgestellt.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MobileServiceClient_NotAnAbsoluteURI" uri="ms-resource://Microsoft.WindowsAzure.MobileServices/Microsoft.WindowsAzure.MobileServices.Resources/MobileServiceClient_NotAnAbsoluteURI">
+				<Candidate qualifiers="Language-en-US" isDefault="true" type="String">
+					<Value>{0} is not an absolute URI.</Value>
 				</Candidate>
 			</NamedResource>
 			<NamedResource name="MobileServiceCollection_IncrementalLoadingFailed" uri="ms-resource://Microsoft.WindowsAzure.MobileServices/Microsoft.WindowsAzure.MobileServices.Resources/MobileServiceCollection_IncrementalLoadingFailed">

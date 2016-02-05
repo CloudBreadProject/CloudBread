@@ -1,176 +1,153 @@
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\AutoMapper.Net4.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\CloudBread.dll.config
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\CloudBread.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\CloudBread.pdb
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Autofac.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\AutoMapper.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\CloudBreadLib.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\EntityFramework.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\EntityFramework.SqlServer.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.Edm.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.OData.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.Services.Client.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.ActiveDirectory.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Jwt.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.ServiceBus.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Configuration.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Entity.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Storage.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Tables.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Storage.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Newtonsoft.Json.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Owin.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\RazorEngine.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Formatting.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Spatial.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Cors.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Cors.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.OData.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Owin.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Tracing.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Razor.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\CloudBreadLib.pdb
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Autofac.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\AutoMapper.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\EntityFramework.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\EntityFramework.SqlServer.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.Edm.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.OData.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Data.Services.Client.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.ActiveDirectory.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Jwt.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.ServiceBus.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Configuration.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Entity.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Storage.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Service.Tables.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Storage.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\Newtonsoft.Json.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\RazorEngine.pdb
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\RazorEngine.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.IdentityModel.Tokens.Jwt.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Formatting.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Spatial.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Cors.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.OData.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Owin.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Http.Tracing.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\System.Web.Razor.xml
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\EntityFramework.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.OData.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.WindowsAzure.Mobile.Service.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.WindowsAzure.Mobile.Service.Entity.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.WindowsAzure.Mobile.Service.Storage.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\Microsoft.WindowsAzure.Mobile.Service.Tables.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\de\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\es\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\fr\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\it\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ja\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ko\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\ru\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hans\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\obj\Release\CloudBread.csprojResolveAssemblyReference.cache
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\obj\Release\CloudBread.dll
-C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBread\obj\Release\CloudBread.pdb
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Ext.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Extensions.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Primitives.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.xml
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Mobile.Ext.xml
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Extensions.xml
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\System.Net.Http.Primitives.xml
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Host.SystemWeb.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Security.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Security.Facebook.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Security.Google.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\bin\ko\Microsoft.Owin.Security.Twitter.resources.dll
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBread\obj\Release\CloudBread.csproj.App.config
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\AutoMapper.Net4.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\CloudBread.dll.config
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\CloudBread.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\CloudBread.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\AutoMapper.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\CloudBreadLib.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\EntityFramework.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\EntityFramework.SqlServer.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Authentication.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.CrossDomain.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Entity.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Home.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Notifications.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Quickstart.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Tables.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.NotificationHubs.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.Edm.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.OData.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.Services.Client.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.Security.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Newtonsoft.Json.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Owin.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Net.Http.Formatting.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Spatial.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Cors.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.Cors.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.OData.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.Owin.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\CloudBreadLib.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\AutoMapper.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\AutoMapper.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\AutoMapper.Net4.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\EntityFramework.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\EntityFramework.SqlServer.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Authentication.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.CrossDomain.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Entity.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Home.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Notifications.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Quickstart.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.Mobile.Server.Tables.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Azure.NotificationHubs.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.Edm.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.OData.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Data.Services.Client.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.Owin.Security.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\Newtonsoft.Json.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Net.Http.Formatting.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Spatial.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.Cors.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.OData.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\System.Web.Http.Owin.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Azure.Mobile.Server.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Azure.Mobile.Server.Authentication.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Azure.Mobile.Server.Entity.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Azure.Mobile.Server.Notifications.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Azure.Mobile.Server.Tables.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\de\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\es\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\fr\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\it\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ja\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ko\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\ru\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\obj\Release\CloudBread.csprojResolveAssemblyReference.cache
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\obj\Release\CloudBread.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\CloudBread\obj\Release\CloudBread.pdb

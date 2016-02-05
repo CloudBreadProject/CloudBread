@@ -4,7 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,9 +19,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBSelGameEventsController : ApiController
     {
-        public ApiServices Services { get; set; }
+        
         public class InputParams { public string MemberID; }
 
         public class Model

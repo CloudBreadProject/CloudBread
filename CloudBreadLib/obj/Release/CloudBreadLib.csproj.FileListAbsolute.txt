@@ -22,3 +22,25 @@ C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBreadLib\bi
 C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBreadLib\bin\Release\Microsoft.WindowsAzure.Storage.xml
 C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBreadLib\bin\Release\Microsoft.WindowsAzure.StorageClient.xml
 C:\Users\dwkim\Documents\Visual Studio 2013\Projects\CloudBread\CloudBreadLib\obj\Release\CloudBreadLib.csprojResolveAssemblyReference.cache
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\CloudBreadLib.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\CloudBreadLib.pdb
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Microsoft.Data.Edm.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Newtonsoft.Json.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Microsoft.Data.OData.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\System.Spatial.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Microsoft.Data.Edm.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Microsoft.WindowsAzure.Storage.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Microsoft.WindowsAzure.StorageClient.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\Newtonsoft.Json.xml
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\de\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\es\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\it\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\bin\Release\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\obj\Release\CloudBreadLib.csprojResolveAssemblyReference.cache
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\obj\Release\CloudBreadLib.dll
+C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadLib\obj\Release\CloudBreadLib.pdb

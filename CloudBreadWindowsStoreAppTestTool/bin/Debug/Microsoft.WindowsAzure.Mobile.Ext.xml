@@ -651,92 +651,35 @@
             Define a class help to create/update/delete notification registrations
             </summary>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(System.String)">
             <summary>
-            Register a particular channelUri
+            Register an Installation with particular channelUri
             </summary>
             <param name="channelUri">The channelUri to register</param>
             <returns>Task that completes when registration is complete</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterNativeAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(System.String,Newtonsoft.Json.Linq.JObject)">
             <summary>
-            Register a particular channelUri
+            Register an Installation with particular channelUri and templates
             </summary>
             <param name="channelUri">The channelUri to register</param>
-            <param name="tags">The tags to register to receive notifications from</param>
+            <param name="templates">JSON with one more templates to register</param>
             <returns>Task that completes when registration is complete</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,Windows.Data.Xml.Dom.XmlDocument,System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(System.String,Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.Linq.JObject)">
             <summary>
-            Register a particular channelUri with a template
+            Register an Installation with particular channelUri, templates and secondaryTiles
             </summary>
             <param name="channelUri">The channelUri to register</param>
-            <param name="xmlTemplate">The XmlDocument defining the template</param>
-            <param name="templateName">The template name</param>
+            <param name="templates">JSON with one more templates to register</param>
+            <param name="secondaryTiles">JSON with one more templates to register secondaryTiles</param>
             <returns>Task that completes when registration is complete</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,Windows.Data.Xml.Dom.XmlDocument,System.String,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterAsync">
             <summary>
-            Register a particular channelUri with a template
-            </summary>
-            <param name="channelUri">The channelUri to register</param>
-            <param name="xmlTemplate">The XmlDocument defining the template</param>
-            <param name="templateName">The template name</param>
-            <param name="tags">The tags to register to receive notifications from</param>
-            <returns>Task that completes when registration is complete</returns>        
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String)">
-            <summary>
-            Register a particular channelUri with a template
-            </summary>
-            <param name="channelUri">The channelUri to register</param>
-            <param name="xmlTemplate">The string defining the template</param>
-            <param name="templateName">The template name</param>
-            <returns>Task that completes when registration is complete</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterTemplateAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Register a particular channelUri with a template
-            </summary>
-            <param name="channelUri">The channelUri to register</param>
-            <param name="xmlTemplate">The string defining the template</param>
-            <param name="templateName">The template name</param>
-            <param name="tags">The tags to register to receive notifications from</param>
-            <returns>Task that completes when registration is complete</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterNativeAsync">
-            <summary>
-            Unregister any registrations previously registered from this device
+            Unregister any installations previously registered from this device
             </summary>
             <returns>Task that completes when unregister is complete</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterTemplateAsync(System.String)">
-            <summary>
-            Unregister any registrations with given templateName registered from this device
-            </summary>
-            <param name="templateName">The template name</param>
-            <returns>Task that completes when unregister is complete</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.UnregisterAllAsync(System.String)">
-            <summary>
-            Unregister any registrations with given channelUri
-            </summary>
-            <param name="channelUri">The channel Uri</param>
-            <returns>Task that completes when unregister is complete</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.RegisterAsync(Microsoft.WindowsAzure.MobileServices.Registration)">
-            <summary>
-            Register for notifications
-            </summary>
-            <param name="registration">The object defining the registration</param>
-            <returns>Task that will complete when the registration is completed</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Push.ListRegistrationsAsync(System.String)">
-            <summary>
-            DEBUG-ONLY: List the registrations made with the service for a channelUri
-            </summary>
-            <param name="channelUri">The channelUri to check for</param>
-            <returns>List of registrations</returns>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Push.TileId">
             <summary>
@@ -746,6 +689,11 @@
         <member name="P:Microsoft.WindowsAzure.MobileServices.Push.SecondaryTiles">
             <summary>
             Access this member with an indexer to access secondary tile registrations. Example: <code>push.SecondaryTiles["tileName"].RegisterNativeAsync("mychannelUri");</code>
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Push.InstallationId">
+            <summary>
+            Installation Id used to register the device with Notification Hubs
             </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Push.SecondaryTilesList">
@@ -759,82 +707,6 @@
             </summary>
             <param name="tileId">The tileId of a secondary tile</param>
             <returns>Push object for performing registrations on</returns>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.WnsRegistration">
-            <summary>
-            Registration is used to define a target that is registered for notifications
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsRegistration.#ctor(System.String)">
-            <summary>
-            Create a default Registration for a channelUri
-            </summary>
-            <param name="channelUri">The channel uri</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsRegistration.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Create a default Registration for a channelUri with specific tags
-            </summary>
-            <param name="channelUri">The channel uri</param>
-            <param name="tags">The tags to register to receive notifications from</param>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsRegistration.ChannelUri">
-            <summary>
-            The Uri of the Channel returned by the Push Notification Channel Manager.
-            </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration">
-            <summary>
-            Registration is used to define a target that is registered for notifications. A <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/> allows the client application
-            to define the format of the registration.
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
-            </summary>
-            <param name="channelUri">The channel uri</param>
-            <param name="bodyTemplate">The template xml in string format</param>
-            <param name="templateName">The template name</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
-            </summary>
-            <param name="channelUri">The channel uri</param>
-            <param name="bodyTemplate">The template xml in string format</param>
-            <param name="templateName">The template name</param>
-            <param name="tags">The tags that restrict which notifications this registration will receive</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.#ctor(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
-            <summary>
-            Create a <see cref="T:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration"/>
-            </summary>
-            <param name="channelUri">The channel uri</param>
-            <param name="bodyTemplate">The template xml in string format</param>
-            <param name="templateName">The template name</param>
-            <param name="tags">The tags that restrict which notifications this registration will receive</param>
-            <param name="additionalHeaders">Additional headers</param>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.WnsHeaders">
-            <summary>
-            Gets headers that should be sent to WNS with the notification
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.TemplateName">
-            <summary>
-            Get templateName
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.BodyTemplate">
-            <summary>
-            Gets bodyTemplate as string
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.WnsTemplateRegistration.Name">
-            <summary>
-            The name of the registration used in local storage.
-            </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions">
             <summary>
@@ -903,7 +775,7 @@
             Task that will complete when the user has finished authentication.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.GetPush(Microsoft.WindowsAzure.MobileServices.MobileServiceClient)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClientExtensions.GetPush(Microsoft.WindowsAzure.MobileServices.IMobileServiceClient)">
             <summary>
             Extension method to get a <see cref="T:Microsoft.WindowsAzure.MobileServices.Push"/> object made from an existing <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/>.
             </summary>
