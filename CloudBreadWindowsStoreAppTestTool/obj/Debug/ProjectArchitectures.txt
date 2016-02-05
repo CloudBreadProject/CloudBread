@@ -1,1 +1,1 @@
-C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\CloudBreadWindowsStoreAppTestTool.csproj;neutral
+C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\CloudBreadWindowsStoreAppTestTool.csproj;neutral
