@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Azure.Mobile.Server;        //추가하나? 인증 없는 페이지인가?
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -17,6 +19,8 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    //필요한가? 인증 없는 페이지인가?
+    [MobileAppController]
     public class CBUdtConfirmedEmailAddressController : ApiController
     {
         string result;

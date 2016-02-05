@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="CloudBreadDBConString-Web.config Connection String" description="CloudBreadDBConString Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:(local),1433;Database=CloudBreadDB;User ID=konan94;Password=!rjfejrthl94;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\Documents\\GitHub\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadDBConString']/@connectionString" />
+  <parameter name="CloudBreadDBConString-Web.config Connection String" description="CloudBreadDBConString Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:dwasqldb.database.windows.net,1433;Database=dwCloudBread2;User ID=konan@dwasqldb;Password=P@ssw0rd;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\Documents\\GitHub\\CloudBread2\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadDBConString']/@connectionString" />
   </parameter>
   <parameter name="CloudBreadStorageConString-Web.config Connection String" description="CloudBreadStorageConString Connection String used in web.config by the application to access the database." defaultValue="DefaultEndpointsProtocol=https;AccountName=dwcbstordev;AccountKey=L2ZyTzh+rKTJHIA3l3mA/N5rPlJ2kuMOM1IzKsI32f6uDFuJ417KdoOOd0uJTqjw1NGDzo06GSb6N1YmoZtECw==;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\Documents\\GitHub\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadStorageConString']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\Documents\\GitHub\\CloudBread2\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBreadStorageConString']/@connectionString" />
+  </parameter>
+  <parameter name="CloudBread.Models.MobileServiceContext-Web.config Connection String" description="CloudBread.Models.MobileServiceContext Connection String used in web.config by the application to access the database." defaultValue="CloudBread.Models.MobileServiceContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwkim\\Documents\\GitHub\\CloudBread2\\CloudBread\\CloudBread\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CloudBread.Models.MobileServiceContext']/@connectionString" />
   </parameter>
 </parameters>

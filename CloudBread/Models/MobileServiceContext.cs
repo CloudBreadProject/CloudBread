@@ -1,13 +1,12 @@
-﻿using System.Data.Entity;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using Microsoft.WindowsAzure.Mobile.Service;
-using Microsoft.WindowsAzure.Mobile.Service.Tables;
-//using CloudBread.DataObjects;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Tables;
+using CloudBread.DataObjects;
 
 namespace CloudBread.Models
 {
-
     public class MobileServiceContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
@@ -21,43 +20,19 @@ namespace CloudBread.Models
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
 
-        private const string connectionStringName = "Name=CloudBreadDBConString";
+        private const string connectionStringName = "Name=MS_TableConnectionString";
 
-        public MobileServiceContext()
-            : base(connectionStringName)
+        public MobileServiceContext() : base(connectionStringName)
         {
         }
 
-        //public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            string schema = ServiceSettingsDictionary.GetSchemaName();
-            if (!string.IsNullOrEmpty(schema))
-            {
-                modelBuilder.HasDefaultSchema(schema);
-            }
-
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.Member> Member { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.AdminMember> AdminMember { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.ItemList> ItemList { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.MemberItemPurchase> MemberItemPurchases { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.MemberGameInfo> MemberGameInfo { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.MemberItem> MemberItem { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.GiftDepository> GiftDepository { get; set; }
-
-        //public System.Data.Entity.DbSet<CloudBread.DataObjects.doMember> doMembers { get; set; }
     }
-
 }
