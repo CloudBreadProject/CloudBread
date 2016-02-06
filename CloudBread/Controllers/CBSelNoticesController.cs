@@ -1,4 +1,15 @@
-﻿using System;
+﻿/**
+* @file CBSelNoticesController.cs
+* @brief Get notices by between "NoticeDurationFrom" and "NoticeDurationTo" rule \n
+* after member login, show this notice data for members
+* @author Dae Woo Kim
+* @param string memberID
+* @return Notices table object
+* @see uspSelNotices SP, BehaviorID : B11
+* @todo paging, filter by (NoticeCategory1, NoticeCategory2, NoticeCategory3, TargetGroup, TargetOS, TargetDevice) option support
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,7 +35,7 @@ namespace CloudBread.Controllers
     {
         
         public class InputParams { 
-            public string MemberID;     // 로그 식별 
+            public string MemberID;     // log tasking purpose 
         }
 
         public class Model
@@ -61,9 +72,6 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 공지사항을을 가져오는 프로시져. 
-                // 내부조건으로 자동 가져옴
-
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("CloudBread.uspSelNotices", connection))
@@ -110,7 +118,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelNoticesController";

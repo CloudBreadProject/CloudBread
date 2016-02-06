@@ -1,4 +1,15 @@
-﻿using System;
+﻿/**
+* @file CBSelCouponsController.cs
+* @brief get coupon list of memberID  \n
+* check memberID and date between "CouponDurationFrom" and "CouponDurationTo"
+* @author Dae Woo Kim
+* @param string memberID 
+* @return coupons table object
+* @see uspSelCoupons SP, BehaviorID : B14
+* @todo paging and filter by (CouponCategory1, CouponCategory2, CouponCategory3, TargetGroup, TargetOS, TargetDevice)
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -109,7 +120,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelCouponsController";

@@ -1,4 +1,17 @@
-﻿using System;
+﻿/**
+* @file CBInsRegMemberController.cs
+* @brief private member registration controller. \n
+* mobile client POST members and MemberGameInfoes object as json format \n
+* insert on members and MemberGameInfoes table \n
+* use mobile app autehtication provider such like 'facebook id' or something \n
+* @author Dae Woo Kim
+* @param members and MemberGameInfoes object
+* @return string value "2" affected rows count
+* @see uspInsRegMember SP, BehaviorID : B02
+* @todo change return value to inserted data as json
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +20,6 @@ using System.Web.Http;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
 
-//추가
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Logger.Logging;
@@ -99,7 +111,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                //// 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID_Members;
                 //logMessage.Level = "INFO"; 
                 //logMessage.Logger = "CBuspInsRegMemberCheckController"; 
@@ -185,7 +197,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        // 완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID_Members;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBuspInsRegMemberCheckController";
@@ -200,7 +212,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_Members;
                 logMessage.Level = "ERROR"; 
                 logMessage.Logger = "CBuspInsRegMemberCheckController";

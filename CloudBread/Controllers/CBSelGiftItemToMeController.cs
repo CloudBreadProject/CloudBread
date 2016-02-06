@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBSelGiftItemToMeController.cs
+* @brief get 1 gift item for memberID  \n
+* after get gift, call "CBUdtMoveGift" API to save gift to memberID \n
+* @author Dae Woo Kim
+* @param string memberID 
+* @return GiftDepositories table object
+* @see uspSelGiftItemToMe SP, BehaviorID : B21
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +32,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBSelGiftItemToMeController : ApiController
     {
-        
-
         public class InputParams { public string MemberID;}
 
         public class Model
@@ -43,7 +51,6 @@ namespace CloudBread.Controllers
             public string sCol8 { get; set; }
             public string sCol9 { get; set; }
             public string sCol10 { get; set; }	
-
         }
 
         public List<Model> Post(InputParams p)
@@ -55,7 +62,6 @@ namespace CloudBread.Controllers
 
             try
             {
-
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("CloudBread.uspSelGiftItemToMe", connection))
@@ -98,7 +104,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelGiftItemToMeController";
@@ -109,6 +115,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }

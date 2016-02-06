@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>8f862140-7ce1-4e17-a468-845b78783b33</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>42AD35596184436AE3A42E1535899DA6BEA772AEA7A4D3BBCC7FE3389B041B69</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8f862140-7ce1-4e17-a468-845b78783b33_1.0.0.0_neutral__dxys2af6pkwb2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8f862140-7ce1-4e17-a468-845b78783b33_dxys2af6pkwb2!App</RegisteredUserModeAppID>
@@ -19,72 +19,68 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-02-05T19:53:45.766</Modified>
+      <Modified>2016-02-06T10:56:24.098</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.exe">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.exe">
       <PackagePath>CloudBreadWindowsStoreAppTestTool.exe</PackagePath>
-      <Modified>2016-02-05T19:54:37.645</Modified>
+      <Modified>2016-02-06T10:56:23.703</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.dll</PackagePath>
-      <Modified>2016-02-05T19:53:24.614</Modified>
+      <Modified>2016-02-06T10:50:51.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.Ext.dll</PackagePath>
-      <Modified>2016-02-05T19:53:24.627</Modified>
+      <Modified>2016-02-06T10:50:51.096</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2016-01-28T06:51:07.478</Modified>
+      <Modified>2016-02-05T20:51:23.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\packages\Microsoft.Net.Http.2.2.29\lib\win8\System.Net.Http.Extensions.dll">
-      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
-      <Modified>2016-02-05T19:53:22.264</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBread\packages\Microsoft.Net.Http.2.2.29\lib\win8\System.Net.Http.Primitives.dll">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\packages\Microsoft.Net.Http.2.2.29\lib\wpa81\System.Net.Http.Primitives.dll">
       <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
-      <Modified>2016-02-05T19:53:22.303</Modified>
+      <Modified>2016-02-06T10:23:03.656</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-28T06:50:41.278</Modified>
+      <Modified>2016-02-05T20:51:23.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-28T06:50:41.279</Modified>
+      <Modified>2016-02-05T20:51:23.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-28T06:50:41.281</Modified>
+      <Modified>2016-02-05T20:51:23.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-28T06:50:41.282</Modified>
+      <Modified>2016-02-05T20:51:23.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.xr.xml">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.xr.xml">
       <PackagePath>CloudBreadWindowsStoreAppTestTool.xr.xml</PackagePath>
-      <Modified>2016-02-05T16:15:03.156</Modified>
+      <Modified>2016-02-06T10:51:38.867</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2016-02-05T15:51:48.464</Modified>
+      <Modified>2016-02-06T10:56:23.639</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2016-02-05T15:51:48.514</Modified>
+      <Modified>2016-02-06T10:56:23.640</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread2\CloudBreadWindowsStoreAppTestTool\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-05T19:53:45.619</Modified>
+      <Modified>2016-02-06T10:56:23.980</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

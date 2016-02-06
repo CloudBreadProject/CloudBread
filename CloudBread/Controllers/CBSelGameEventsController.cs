@@ -1,4 +1,16 @@
-﻿using System;
+﻿/**
+* @file CBSelGameEventsController.cs
+* @brief Get remained game events for memberID \n
+* date between "GameEvents.EventDurationFrom" and "GameEvents.EventDurationTo" rule \n
+* after finish the game event, member could not join the finished event \n
+* @author Dae Woo Kim
+* @param string memberID
+* @return GameEvents list table object
+* @see uspSelGameEvents SP, BehaviorID : B12
+* @todo paging, filter by (EventCategory1, EventCategory2, EventCategory3, TargetGroup, TargetOS, TargetDevice) option support
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -113,7 +125,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelGameEventsController";

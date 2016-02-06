@@ -1,4 +1,16 @@
-﻿using System;
+﻿/**
+* @file CBUdtGameEventMemberToItemController.cs
+* @brief save event item to member's memberitem  \n
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
+* @param MemberItems object
+* @param GameEventMember object
+* @return string "2" - affected rows. in case of string "0" - event not exists
+* @see uspUdtGameEventMemberToItem SP, BehaviorID : B13
+* @todo change SP to upsert auto method
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -59,16 +71,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 한번 참석한 이벤트. 이벤트에서 받은 아이템을 insert 또는 update하고 
-            // MemberEvent 테이블에 저장
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.MemberID_MemberItems;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtGameEventMemberToItemController";
@@ -121,7 +130,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.MemberID_MemberItems;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtGameEventMemberToItemController";
@@ -136,7 +145,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberItems;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtGameEventMemberToItemController";
