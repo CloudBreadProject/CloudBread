@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBSelLoginInfoController.cs
+* @brief execute login and select member data \n
+* update last login info with deviceid and ipaddress
+* @author Dae Woo Kim
+* @param string MemberID, MemberPWD, LastDeviceID, LastIPaddress, LastMACAddress
+* @return member data
+* @see uspSelLoginInfo SP, BehaviorID : B06
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -25,7 +35,7 @@ namespace CloudBread.Controllers
         
         public class InputParams { 
             public string memberID; 
-            public string memberPWD;        //SHA512
+            public string memberPWD;        // SHA512 from client device
             public string LastDeviceID = ""; 
             public string LastIPaddress = ""; 
             public string LastMACAddress="";
@@ -84,7 +94,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.memberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBSelLoginInfoController";
@@ -157,7 +167,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.memberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBSelLoginInfoController";
@@ -171,7 +181,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelLoginInfoController";

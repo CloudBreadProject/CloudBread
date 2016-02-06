@@ -1,4 +1,18 @@
-﻿using System;
+﻿/**
+* @file CBInsAnonymousRegMemberController.cs
+* @brief private anonymous member registration controller. \n
+* mobile client POST members and MemberGameInfoes object as json format \n
+* insert on members and MemberGameInfoes table \n
+* send memberID as guid from client or unique value and fill out of info as blank values \n
+* identically same with insregmember task \n
+* @author Dae Woo Kim
+* @param members and MemberGameInfoes object
+* @return string value "2" affected rows count
+* @see uspInsAnonymousRegMember SP, BehaviorID : B03
+* @todo change return value to inserted data as json
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -91,14 +105,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            //익명 회원가입 모듈 시작
-            
+           
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MembersMemberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBInsAnonymousRegMemberController";
@@ -183,7 +196,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MembersMemberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBInsAnonymousRegMemberController";
@@ -197,7 +210,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MembersMemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBInsAnonymousRegMemberController";

@@ -1,4 +1,17 @@
-﻿using System;
+﻿/**
+* @file CBSelSendEmailToMemberController.cs
+* @brief send email to a member \n
+* mobile client POST memberID as json format \n
+* this procedure return email address of member \n 
+* use "CloudBreadlib/BAL/SendSMTPMail" to send SMTP email in the code \n
+* @author Dae Woo Kim
+* @param string memberid
+* @return string emailaddress or sendmail result
+* @see uspSelSendEmailToMember SP, BehaviorID : B04
+* @todo implement code for SendSMTPMail in side of class with authentication
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -31,7 +44,7 @@ namespace CloudBread.Controllers
 
         public string Post(InputParams p)
         {
-            // 메일 주소로 메일 전송 - 회원 가입 확인(메일 주소 체크) 등 - 관리자 또는 특수 조건 하에 회원 호출
+            // check proper authentication of member who trigger this API (Admin or member with authorized)
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -51,18 +64,17 @@ namespace CloudBread.Controllers
                                 result = dreader[0].ToString();
                             }
                             //////////////////////////////////////////////////////////////////////////////////////
-                            // 메일 전송 루틴 - CloudBreadlib/BAL/SendSMTPMail 참조
-                            //방화벽, 안티바이러스 등 outbound 체크
-                            //SendEmail 찾아가서 인증 정보 등 변경할 것
-                            //string s = SendSMTPMail.SendEmail(dreader[0].ToString(), "제목", "내용");
-                            //Debug.WriteLine(s);
+                            // mail sending module - reference CloudBreadlib/BAL/SendSMTPMail
+                            // check firewall, anti-virus and outbound traffic
+                            // in SendEmail lib, change your mail login info
+                            //string s = SendSMTPMail.SendEmail(dreader[0].ToString(), "subject", "content");
                             //////////////////////////////////////////////////////////////////////////////////////
 
                             dreader.Close();
                         }
                         connection.Close();
 
-                        return result;
+                        return result;  // or return mail send result string s
                     }
 
                 }
@@ -70,7 +82,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelSendEmailToMemberController";

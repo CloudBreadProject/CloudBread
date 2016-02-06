@@ -1,4 +1,16 @@
-﻿using System;
+﻿/**
+* @file CBSelMemberItemsController.cs
+* @brief get MemberItems by paging  \n
+* to get all data without paging, set big number "pageSize" param (max 9223372036854775807)
+* @author Dae Woo Kim
+* @param string memberID
+* @param int64 page - (max 9223372036854775807)
+* @param int64 pageSize - (max 9223372036854775807) 
+* @return MemberItems table object
+* @see uspSelMemberItems SP, BehaviorID : B20, B23
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,7 +34,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBSelMemberItemsController : ApiController
     {
-        
         public class InputParams {
             public string MemberID;
             public Int64 Page; 
@@ -76,10 +87,6 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 멤버아이템 리스트들을 가져오는 프로시져. 전체를 가져올 경우 페이지사이즈를 최대로 준다.
-                // 페이징이 필요 없을 경우는 파라미터를 크게 잡을 것
-                // 참고로 big int -9223372036854775808 부터 9223372036854775807 까지
-
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("CloudBread.uspSelMemberItems", connection))
@@ -143,7 +150,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelMemberItemsController";

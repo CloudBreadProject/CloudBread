@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBSelLoginIDDupeCheckController.cs
+* @brief login id dupe check controller. mobile client POST memberID as json format \n
+* check memberid duplication in members table 
+* @author Dae Woo Kim
+* @param string memberID 
+* @return string value "0" or "1" : false or true
+* @see uspSelLoginIDDupeCheck SP, BehaviorID : B01
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,7 +32,7 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBSelLoginIDDupeCheckController : ApiController
     {
-        
+
         public class InputParams { public string memberID;}
 
         public string Post(InputParams p)
@@ -58,7 +68,7 @@ namespace CloudBread.Controllers
         
 	        catch (Exception ex)
 	        {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelLoginIDDupeCheckController";
