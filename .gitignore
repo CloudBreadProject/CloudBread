@@ -11,17 +11,51 @@
 *.userprefs
 
 # Build results
-**/[Dd]ebug/
-**/[Dd]ebugPublic/
-**/[Rr]elease/
-**/[Rr]eleases/
-**/x64/
-**/x86/
-**/build/
-**/bld/
-**/[Bb]in/
-**/[Oo]bj/
+CloudBread/[Dd]ebug/
+CloudBread/[Dd]ebugPublic/
+CloudBread/[Rr]elease/
+CloudBread/[Rr]eleases/
+CloudBread/x64/
+CloudBread/x86/
+CloudBread/build/
+CloudBread/bld/
+CloudBread/[Bb]in/
+CloudBread/[Oo]bj/
 
+CloudBreadAdminWeb/[Dd]ebug/
+CloudBreadAdminWeb/[Dd]ebugPublic/
+CloudBreadAdminWeb/[Rr]elease/
+CloudBreadAdminWeb/[Rr]eleases/
+CloudBreadAdminWeb/x64/
+CloudBreadAdminWeb/x86/
+CloudBreadAdminWeb/build/
+CloudBreadAdminWeb/bld/
+CloudBreadAdminWeb/[Bb]in/
+CloudBreadAdminWeb/[Oo]bj/
+
+CloudBreadLib/[Dd]ebug/
+CloudBreadLib/[Dd]ebugPublic/
+CloudBreadLib/[Rr]elease/
+CloudBreadLib/[Rr]eleases/
+CloudBreadLib/x64/
+CloudBreadLib/x86/
+CloudBreadLib/build/
+CloudBreadLib/bld/
+CloudBreadLib/[Bb]in/
+CloudBreadLib/[Oo]bj/
+
+CloudBreadWindowsStoreAppTestTool/[Dd]ebug/
+CloudBreadWindowsStoreAppTestTool/[Dd]ebugPublic/
+CloudBreadWindowsStoreAppTestTool/[Rr]elease/
+CloudBreadWindowsStoreAppTestTool/[Rr]eleases/
+CloudBreadWindowsStoreAppTestTool/x64/
+CloudBreadWindowsStoreAppTestTool/x86/
+CloudBreadWindowsStoreAppTestTool/build/
+CloudBreadWindowsStoreAppTestTool/bld/
+CloudBreadWindowsStoreAppTestTool/[Bb]in/
+CloudBreadWindowsStoreAppTestTool/[Oo]bj/
+
+/packages/
 
 # Visual Studio 2015 cache/options directory
 .vs/
