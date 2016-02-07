@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBComUdtMemberItemPurchaseController.cs
+* @brief update MemberItemPurchase common API \n
+* @author Dae Woo Kim
+* @param MemberItemPurchases table object
+* @return string "1" - affected rows.
+* @see uspComUdtMemberItemPurchase SP, BehaviorID : B28
+* @todo make notice to game manangers to check admin website
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -62,16 +72,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 공통 MemberItemPurchase 정보 수정 모듈 시작 update시 파라미터를 NULL로 주면 해당 컬럼은 변화되지 않음.
-            // Json에서는 null 으로 값을 지정하거나 아예 로우 값을 제공하지 않아도 가능
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBComUdtMemberItemPurchaseController";
@@ -127,7 +134,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        // 완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBComUdtMemberItemPurchaseController";
@@ -142,7 +149,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComUdtMemberItemPurchaseController";
