@@ -1,4 +1,16 @@
-﻿
+﻿/**
+* @file CBAddUseMemberItemController.cs
+* @brief add / update / remove memberitems and update MemberGameInfo()  \n
+* you can implement member item add+status change / use+status change / drop, remove + status change \n
+* first of all, check member inventory and set first param, "InsertORUpdateORDelete" branching memberitems
+* @author Dae Woo Kim
+* @param string InsertORUpdateORDelete - branching memberitems table
+* @param MemberItems table object
+* @param MemberGameInfoes table object 
+* @return string "2" - affected rows
+* @see uspAddUseMemberItem SP, BehaviorID : B24
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,21 +79,18 @@ namespace CloudBread.Controllers
             public string sCol9_MemberGameInfoes;
             public string sCol10_MemberGameInfoes;
         }
-
         
         public string Post(InputParams p)
         {
 
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            //보유 아이템 추가-사용 컨트롤러 시작
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.MemberID_MemberItem;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBAddUseMemberItemController";
@@ -134,7 +143,6 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@sCol9_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol9_MemberGameInfoes;
                         command.Parameters.Add("@sCol10_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol10_MemberGameInfoes;
 
-
                         connection.Open();
                         using (SqlDataReader dreader = command.ExecuteReader())
                         {
@@ -146,7 +154,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.MemberID_MemberItem;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBAddUseMemberItemController";
@@ -161,7 +169,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberItem;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBAddUseMemberItemController";

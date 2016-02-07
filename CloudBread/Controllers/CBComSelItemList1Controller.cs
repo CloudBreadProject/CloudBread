@@ -1,4 +1,16 @@
-﻿using System;
+﻿/**
+* @file CBComSelItemList1Controller.cs
+* @brief Get 1 item data  \n
+* same with "CBComSelItemList1Controller"
+* @author Dae Woo Kim
+* @param string MemberID - log purpose
+* @param string ItemListID
+* @return itemlists table object
+* @see uspSelItem1 SP, BehaviorID : B26
+* @todo duplicate with "CBComSelItemList1Controller"
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
