@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+* @file CBComSelMemberItemController.cs
+* @brief Get 1 memberitem info from MemberItems table \n
+* @author Dae Woo Kim
+* @param string MemberID(log purpose), string MemberItemID
+* @return MemberItems table object
+* @see uspComSelMemberItem SP, BehaviorID : B53
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,7 +33,7 @@ namespace CloudBread.Controllers
     {
         
         public class InputParams {
-            public string MemberID;     // 로그 식별
+            public string MemberID;     // log purpose
             public string MemberItemID;
         }
 
@@ -101,7 +110,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComSelMemberItemController";

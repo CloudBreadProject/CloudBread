@@ -7,7 +7,7 @@
 * @param string ItemListID
 * @return itemlists table object
 * @see uspSelItem1 SP, BehaviorID : B26
-* @todo duplicate with "CBSelItem1Controller"
+* @todo duplicate with "CBComSelItemList1Controller"
 */
 
 using System;

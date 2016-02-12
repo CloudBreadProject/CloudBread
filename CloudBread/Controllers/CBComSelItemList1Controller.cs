@@ -1,13 +1,12 @@
 ﻿/**
 * @file CBComSelItemList1Controller.cs
-* @brief Get 1 item data  \n
-* same with "CBComSelItemList1Controller"
+* @brief Get 1 item data from ItemLists table \n
 * @author Dae Woo Kim
 * @param string MemberID - log purpose
 * @param string ItemListID
 * @return itemlists table object
-* @see uspSelItem1 SP, BehaviorID : B26
-* @todo duplicate with "CBComSelItemList1Controller"
+* @see uspComSelItemList1 SP, BehaviorID : B55
+* @todo duplicate with "CBSelItem1Controller"
 */
 
 using System;
@@ -36,7 +35,7 @@ namespace CloudBread.Controllers
     {
         
         public class InputParams {
-            public string MemberID;     // 로그 식별
+            public string MemberID;     // log purpose
             public string ItemListID;
         }
 
@@ -121,7 +120,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComSelItemList1Controller";

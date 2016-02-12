@@ -6,6 +6,7 @@
 * @param string memberID 
 * @return string value "0" or "1" : false or true
 * @see uspSelLoginIDDupeCheck SP, BehaviorID : B01
+* @todo return result is json format object / check change or not
 */
 
 using System;
@@ -35,10 +36,15 @@ namespace CloudBread.Controllers
 
         public class InputParams { public string memberID;}
 
-        public string Post(InputParams p)
+        //return json
+        public class Result { public string result; }
+
+        public Result Post(InputParams p)      // //return json
         {
-            string result = "";
-            
+            //return json
+            //string result = "";
+            Result r = new Result();
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -52,16 +58,19 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.memberID;
                         connection.Open();
                         using(SqlDataReader dreader = command.ExecuteReader())
-                        { 
-                            while(dreader.Read())
+                        {
+                            while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                // change
+                                r.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
                         connection.Close();
 
-                        return result;
+                        // return json
+                        //return result;
+                        return r;
                     }
 	            }
             }
