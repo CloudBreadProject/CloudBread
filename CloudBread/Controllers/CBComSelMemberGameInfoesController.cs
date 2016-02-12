@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBComSelMemberGameInfoesController.cs
+* @brief common API for Get member game infoes for memberID - return MemberGameInfoes info \n
+* @author Dae Woo Kim
+* @param string memberID
+* @return MemberGameInfoes table object
+* @see uspComSelMemberGameInfoes SP, BehaviorID : B37
+* @todo paging, filter by (EventCategory1, EventCategory2, EventCategory3, TargetGroup, TargetOS, TargetDevice) option support
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

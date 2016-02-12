@@ -8,7 +8,7 @@
 * @param MemberItems table object
 * @param MemberGameInfoes table object 
 * @return string "2" - affected rows
-* @see uspAddUseMemberItem SP, BehaviorID : B24
+* @see uspAddUseMemberItem SP, BehaviorID : B24, B41
 */
 
 using System;

@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBSelMemberGameInfoStagesController.cs
+* @brief Get game stages list from MemberGameInfoStages table \n
+* @author Dae Woo Kim
+* @param string memberID
+* @return MemberGameInfoStages table object
+* @see uspSelMemberGameInfoStages SP, BehaviorID : B46
+* @todo paging, filter option support
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -125,7 +135,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelMemberGameInfoStagesController";

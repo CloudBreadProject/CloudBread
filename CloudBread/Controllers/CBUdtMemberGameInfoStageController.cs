@@ -1,4 +1,15 @@
-﻿using System;
+﻿/**
+* @file CBUdtMemberGameInfoStageController.cs
+* @brief update membergameinfo and membergameinfostage \n
+* during the game, used for update both membergameinfo and membergameinfostage table \n
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if game stage exists, then "UPDATE". if not, "INSERT".
+* @param MemberGameInfoes and MemberGameInfoStages object
+* @return string value "2" affected rows count
+* @see uspUdtMemberGameInfoStage SP, BehaviorID : B44, B45
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
