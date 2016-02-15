@@ -2,7 +2,8 @@
 * @file CBComSelMemberItemController.cs
 * @brief Get 1 memberitem info from MemberItems table \n
 * @author Dae Woo Kim
-* @param string MemberID(log purpose), string MemberItemID
+* @param string MemberID -log purpose
+* @param string MemberItemID
 * @return MemberItems table object
 * @see uspComSelMemberItem SP, BehaviorID : B53
 */
@@ -31,7 +32,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBComSelMemberItemController : ApiController
     {
-        
         public class InputParams {
             public string MemberID;     // log purpose
             public string MemberItemID;
@@ -54,8 +54,6 @@ namespace CloudBread.Controllers
             public string sCol8 { get; set; }
             public string sCol9 { get; set; }
             public string sCol10 { get; set; }
-
-
         }
 
         public List<Model> Post(InputParams p)

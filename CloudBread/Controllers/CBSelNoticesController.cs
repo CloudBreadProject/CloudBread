@@ -5,7 +5,7 @@
 * @author Dae Woo Kim
 * @param string memberID
 * @return Notices table object
-* @see uspSelNotices SP, BehaviorID : B11
+* @see uspSelNotices SP, BehaviorID : B11, B65
 * @todo paging, filter by (NoticeCategory1, NoticeCategory2, NoticeCategory3, TargetGroup, TargetOS, TargetDevice) option support
 */
 

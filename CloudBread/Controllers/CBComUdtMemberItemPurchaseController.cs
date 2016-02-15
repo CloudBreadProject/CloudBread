@@ -1,10 +1,10 @@
 ﻿/**
 * @file CBComUdtMemberItemPurchaseController.cs
-* @brief update MemberItemPurchase common API \n
+* @brief Common API for update MemberItemPurchase data \n
 * @author Dae Woo Kim
 * @param MemberItemPurchases table object
 * @return string "1" - affected rows.
-* @see uspComUdtMemberItemPurchase SP, BehaviorID : B28
+* @see uspComUdtMemberItemPurchase SP, BehaviorID : B28, B60
 * @todo make notice to game manangers to check admin website
 */
 
@@ -32,8 +32,7 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBComUdtMemberItemPurchaseController : ApiController
     {
-        
-        public class InputParams
+          public class InputParams
         {
             public string MemberItemPurchaseID { get; set; }
             public string MemberID { get; set; }

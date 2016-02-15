@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBComUdtMemberItemController
-* @brief common API for a MemberItem update on MemberItems table \n
-* set parameter null or remoce json property for no change on column data
+* @brief Common API for a MemberItem update on MemberItems table. \n
+* Set parameter null or remove json property for no change on column data.
 * @author Dae Woo Kim
 * @param MemberItem object
 * @return string "1" - affected rows
@@ -32,7 +32,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBComUdtMemberItemController : ApiController
     {
-        
         public class InputParams
         {
             public string MemberItemID { get; set; }

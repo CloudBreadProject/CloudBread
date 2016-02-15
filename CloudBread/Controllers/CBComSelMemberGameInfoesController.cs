@@ -1,10 +1,10 @@
 ﻿/**
 * @file CBComSelMemberGameInfoesController.cs
-* @brief common API for Get member game infoes for memberID - return MemberGameInfoes info \n
+* @brief Common API for Get member game infoes of memberID - return MemberGameInfoes info. \n
 * @author Dae Woo Kim
 * @param string memberID
 * @return MemberGameInfoes table object
-* @see uspComSelMemberGameInfoes SP, BehaviorID : B37
+* @see uspComSelMemberGameInfoes SP, BehaviorID : B37, B57
 * @todo paging, filter by (EventCategory1, EventCategory2, EventCategory3, TargetGroup, TargetOS, TargetDevice) option support
 */
 
@@ -126,7 +126,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComSelMemberGameInfoesController";

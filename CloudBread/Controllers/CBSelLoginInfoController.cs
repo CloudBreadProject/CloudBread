@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBSelLoginInfoController.cs
-* @brief execute login and select member data \n
-* update last login info with deviceid and ipaddress
+* @brief Consider using 3rd party authentication. Execute login and select member data. \n
+* Update last login info with DeviceID and IPAddress.
 * @author Dae Woo Kim
 * @param string MemberID, MemberPWD, LastDeviceID, LastIPaddress, LastMACAddress
 * @return member data
@@ -35,7 +35,7 @@ namespace CloudBread.Controllers
         
         public class InputParams { 
             public string memberID; 
-            public string memberPWD;        // SHA512 from client device
+            public string memberPWD;        // If using own autehtication, SHA512 from client device.
             public string LastDeviceID = ""; 
             public string LastIPaddress = ""; 
             public string LastMACAddress="";

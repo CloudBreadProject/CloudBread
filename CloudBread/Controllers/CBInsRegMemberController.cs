@@ -1,14 +1,15 @@
 ﻿/**
 * @file CBInsRegMemberController.cs
-* @brief private member registration controller. \n
-* mobile client POST members and MemberGameInfoes object as json format \n
-* insert on members and MemberGameInfoes table \n
-* use mobile app autehtication provider such like 'facebook id' or something \n
+* @brief First of all, you must consider using 3rd party(Facebook, Microsoft ID, Google ID and Twitter ID) or Active Directory authentication. \n
+* Private member registration controller. \n
+* Mobile client POST members and MemberGameInfoes object as json format. \n
+* Insert on members and MemberGameInfoes table. \n
+* Send memberID as guid(or 3rd party provider generated unique value) from client or unique value to fill out of info as blank values. \n
 * @author Dae Woo Kim
 * @param members and MemberGameInfoes object
 * @return string value "2" affected rows count
 * @see uspInsRegMember SP, BehaviorID : B02
-* @todo change return value to inserted data as json
+* @todo apply auth module. change return value to inserted data as json
 */
 
 using System;

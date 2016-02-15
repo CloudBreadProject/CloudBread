@@ -98,15 +98,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 게임 스테이지 진행 중 스테이지 정보 업데이트(삽입/수정) + 게임정보 인포 업데이트
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID_MemberGameInfoes;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtMemberGameInfoStageController";
@@ -184,7 +182,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID_MemberGameInfoes;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtMemberGameInfoStageController";
@@ -199,7 +197,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberGameInfoes;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtMemberGameInfoStageController";

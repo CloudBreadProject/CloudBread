@@ -1,6 +1,6 @@
 ﻿/**
 * @file CBUdtSellItemController.cs
-* @brief deplicated by CBAddUseMemberItem API \n
+* @brief Duplicated by CBAddUseMemberItem API. \n
 * @author Dae Woo Kim
 * @param string DeleteORUpdate
 * @param MemberItems table object

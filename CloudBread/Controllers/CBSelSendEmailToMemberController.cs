@@ -1,9 +1,9 @@
 ﻿/**
 * @file CBSelSendEmailToMemberController.cs
-* @brief send email to a member \n
-* mobile client POST memberID as json format \n
-* this procedure return email address of member \n 
-* use "CloudBreadlib/BAL/SendSMTPMail" to send SMTP email in the code \n
+* @brief Send email to a member. \n
+* Mobile client POST memberID as json format. \n
+* This procedure return email address of member. \n 
+* Use "CloudBreadlib/BAL/SendSMTPMail" to send SMTP email in the code. \n
 * @author Dae Woo Kim
 * @param string memberid
 * @return string emailaddress or sendmail result
@@ -64,9 +64,9 @@ namespace CloudBread.Controllers
                                 result = dreader[0].ToString();
                             }
                             //////////////////////////////////////////////////////////////////////////////////////
-                            // mail sending module - reference CloudBreadlib/BAL/SendSMTPMail
-                            // check firewall, anti-virus and outbound traffic
-                            // in SendEmail lib, change your mail login info
+                            //// mail sending module - reference CloudBreadlib/BAL/SendSMTPMail
+                            //// check firewall, anti-virus and outbound traffic
+                            //// in SendEmail lib, change your mail login info
                             //string s = SendSMTPMail.SendEmail(dreader[0].ToString(), "subject", "content");
                             //////////////////////////////////////////////////////////////////////////////////////
 

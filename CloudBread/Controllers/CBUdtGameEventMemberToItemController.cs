@@ -1,6 +1,6 @@
 ﻿/**
 * @file CBUdtGameEventMemberToItemController.cs
-* @brief save event item to member's memberitem  \n
+* @brief Save event item to member's MemberItems table  \n
 * @author Dae Woo Kim
 * @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
 * @param MemberItems object
@@ -139,7 +139,6 @@ namespace CloudBread.Controllers
 
                         return result;
                     }
-
                 }
             }
 

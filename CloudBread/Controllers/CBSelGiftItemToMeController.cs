@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBSelGiftItemToMeController.cs
-* @brief get 1 gift item for memberID  \n
-* after get gift, call "CBUdtMoveGift" API to save gift to memberID \n
+* @brief Get 1 gift item for memberID.  \n
+* After get gift, call "CBUdtMoveGift" API to save gift to memberID \n
 * @author Dae Woo Kim
 * @param string memberID 
 * @return GiftDepositories table object

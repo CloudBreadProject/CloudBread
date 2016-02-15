@@ -1,11 +1,11 @@
 ﻿/**
-* @file CBComUdtMemberGameInfoesController.cs
-* @brief Common API for a member game info update on MemberGameInfoes table. \n
+* @file CBComUdtMemberGameInfoStagesController.cs
+* @brief Common API for a game stage update on MemberGameInfoStages table. \n
 * Set parameter null or remove json property for no change on column data.
 * @author Dae Woo Kim
-* @param MemberGameInfoes table object
+* @param MemberGameInfoStages object
 * @return string "1" - affected rows
-* @see uspComUdtMemberGameInfoes SP, BehaviorID : B58
+* @see uspComUdtMemberGameInfoStages SP, BehaviorID : B64
 */
 
 using System;
@@ -30,25 +30,28 @@ using Newtonsoft.Json;
 namespace CloudBread.Controllers
 {
     [MobileAppController]
-    public class CBComUdtMemberGameInfoesController : ApiController
+    public class CBComUdtMemberGameInfoStagesController : ApiController
     {
-        
         public class InputParams
         {
+            public string MemberGameInfoStageID { get; set; }
             public string MemberID { get; set; }
-            public string Level { get; set; }
-            public string Exps { get; set; }
+            public string StageName { get; set; }
+            public string StageStatus { get; set; }
+            public string Category1 { get; set; }
+            public string Category2 { get; set; }
+            public string Category3 { get; set; }
+            public string Mission1 { get; set; }
+            public string Mission2 { get; set; }
+            public string Mission3 { get; set; }
+            public string Mission4 { get; set; }
+            public string Mission5 { get; set; }
             public string Points { get; set; }
-            public string UserSTAT1 { get; set; }
-            public string UserSTAT2 { get; set; }
-            public string UserSTAT3 { get; set; }
-            public string UserSTAT4 { get; set; }
-            public string UserSTAT5 { get; set; }
-            public string UserSTAT6 { get; set; }
-            public string UserSTAT7 { get; set; }
-            public string UserSTAT8 { get; set; }
-            public string UserSTAT9 { get; set; }
-            public string UserSTAT10 { get; set; }
+            public string StageStat1 { get; set; }
+            public string StageStat2 { get; set; }
+            public string StageStat3 { get; set; }
+            public string StageStat4 { get; set; }
+            public string StageStat5 { get; set; }
             public string sCol1 { get; set; }
             public string sCol2 { get; set; }
             public string sCol3 { get; set; }
@@ -65,7 +68,6 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -74,30 +76,33 @@ namespace CloudBread.Controllers
                 // task start log
                 //logMessage.memberID = p.MemberID;
                 //logMessage.Level = "INFO";
-                //logMessage.Logger = "CBComUdtMemberGameInfoesController";
+                //logMessage.Logger = "CBComUdtMemberGameInfoStagesController";
                 //logMessage.Message = jsonParam;
                 //Logging.RunLog(logMessage);
 
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("CloudBread.uspComUdtMemberGameInfoes", connection))
+                    using (SqlCommand command = new SqlCommand("CloudBread.uspComUdtMemberGameInfoStages", connection))
                     {
-
                         command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@MemberGameInfoStageID", SqlDbType.NVarChar, -1).Value = p.MemberGameInfoStageID;
                         command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.MemberID;
-                        command.Parameters.Add("@Level", SqlDbType.NVarChar, -1).Value = p.Level;
-                        command.Parameters.Add("@Exps", SqlDbType.NVarChar, -1).Value = p.Exps;
+                        command.Parameters.Add("@StageName", SqlDbType.NVarChar, -1).Value = p.StageName;
+                        command.Parameters.Add("@StageStatus", SqlDbType.NVarChar, -1).Value = p.StageStatus;
+                        command.Parameters.Add("@Category1", SqlDbType.NVarChar, -1).Value = p.Category1;
+                        command.Parameters.Add("@Category2", SqlDbType.NVarChar, -1).Value = p.Category2;
+                        command.Parameters.Add("@Category3", SqlDbType.NVarChar, -1).Value = p.Category3;
+                        command.Parameters.Add("@Mission1", SqlDbType.NVarChar, -1).Value = p.Mission1;
+                        command.Parameters.Add("@Mission2", SqlDbType.NVarChar, -1).Value = p.Mission2;
+                        command.Parameters.Add("@Mission3", SqlDbType.NVarChar, -1).Value = p.Mission3;
+                        command.Parameters.Add("@Mission4", SqlDbType.NVarChar, -1).Value = p.Mission4;
+                        command.Parameters.Add("@Mission5", SqlDbType.NVarChar, -1).Value = p.Mission5;
                         command.Parameters.Add("@Points", SqlDbType.NVarChar, -1).Value = p.Points;
-                        command.Parameters.Add("@UserSTAT1", SqlDbType.NVarChar, -1).Value = p.UserSTAT1;
-                        command.Parameters.Add("@UserSTAT2", SqlDbType.NVarChar, -1).Value = p.UserSTAT2;
-                        command.Parameters.Add("@UserSTAT3", SqlDbType.NVarChar, -1).Value = p.UserSTAT3;
-                        command.Parameters.Add("@UserSTAT4", SqlDbType.NVarChar, -1).Value = p.UserSTAT4;
-                        command.Parameters.Add("@UserSTAT5", SqlDbType.NVarChar, -1).Value = p.UserSTAT5;
-                        command.Parameters.Add("@UserSTAT6", SqlDbType.NVarChar, -1).Value = p.UserSTAT6;
-                        command.Parameters.Add("@UserSTAT7", SqlDbType.NVarChar, -1).Value = p.UserSTAT7;
-                        command.Parameters.Add("@UserSTAT8", SqlDbType.NVarChar, -1).Value = p.UserSTAT8;
-                        command.Parameters.Add("@UserSTAT9", SqlDbType.NVarChar, -1).Value = p.UserSTAT9;
-                        command.Parameters.Add("@UserSTAT10", SqlDbType.NVarChar, -1).Value = p.UserSTAT10;
+                        command.Parameters.Add("@StageStat1", SqlDbType.NVarChar, -1).Value = p.StageStat1;
+                        command.Parameters.Add("@StageStat2", SqlDbType.NVarChar, -1).Value = p.StageStat2;
+                        command.Parameters.Add("@StageStat3", SqlDbType.NVarChar, -1).Value = p.StageStat3;
+                        command.Parameters.Add("@StageStat4", SqlDbType.NVarChar, -1).Value = p.StageStat4;
+                        command.Parameters.Add("@StageStat5", SqlDbType.NVarChar, -1).Value = p.StageStat5;
                         command.Parameters.Add("@sCol1", SqlDbType.NVarChar, -1).Value = p.sCol1;
                         command.Parameters.Add("@sCol2", SqlDbType.NVarChar, -1).Value = p.sCol2;
                         command.Parameters.Add("@sCol3", SqlDbType.NVarChar, -1).Value = p.sCol3;
@@ -123,7 +128,7 @@ namespace CloudBread.Controllers
                         // task end log
                         logMessage.memberID = p.MemberID;
                         logMessage.Level = "INFO";
-                        logMessage.Logger = "CBComUdtMemberGameInfoesController";
+                        logMessage.Logger = "CBComUdtMemberGameInfoStagesController";
                         logMessage.Message = jsonParam;
                         Logging.RunLog(logMessage);
 
@@ -138,7 +143,7 @@ namespace CloudBread.Controllers
                 // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
-                logMessage.Logger = "CBComUdtMemberGameInfoesController";
+                logMessage.Logger = "CBComUdtMemberGameInfoStagesController";
                 logMessage.Message = jsonParam;
                 logMessage.Exception = ex.ToString();
                 Logging.RunLog(logMessage);
@@ -149,3 +154,5 @@ namespace CloudBread.Controllers
 
     }
 }
+
+

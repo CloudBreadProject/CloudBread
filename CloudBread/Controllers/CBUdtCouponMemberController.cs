@@ -1,6 +1,6 @@
 ﻿/**
 * @file CBUdtCouponMemberController.cs
-* @brief update MemberItems and CouponMember table by using coupon  \n
+* @brief Update MemberItems and CouponMember table by using coupon. \n
 * "DupeYN" value is set "Y", multiple members can use this coupon.
 * "DupeYN" value is set "N", only one member can use it. - set "DeleteYN" to "Y"
 * @author Dae Woo Kim

@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBSelCouponsController.cs
-* @brief get coupon list of memberID  \n
-* check memberID and date between "CouponDurationFrom" and "CouponDurationTo"
+* @brief Get coupon list API of memberID  \n
+* Check memberID and date between "CouponDurationFrom" and "CouponDurationTo"
 * @author Dae Woo Kim
 * @param string memberID 
 * @return coupons table object

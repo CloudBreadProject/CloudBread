@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+* @file CBComSelMemberItemPurchaseController.cs
+* @brief Get 1 member item purchase data info from MemberItemPurchase table \n
+* @author Dae Woo Kim
+* @param string MemberID - log purpose
+* @param string MemberItemPurchaseID
+* @return MemberItemPurchase table object
+* @see uspComSelMemberItemPurchase SP, BehaviorID : B59
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,7 +34,7 @@ namespace CloudBread.Controllers
     {
         
         public class InputParams {
-            public string MemberID;     // 로그 식별
+            public string MemberID;     // log purpose
             public string MemberItemPurchaseID;
         }
 
@@ -133,7 +143,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComSelMemberItemPurchaseController";

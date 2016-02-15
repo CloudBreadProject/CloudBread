@@ -1,8 +1,8 @@
 ﻿/**
 * @file CBAddUseMemberItemController.cs
-* @brief add / update / remove memberitems and update MemberGameInfo()  \n
-* you can implement member item add+status change / use+status change / drop, remove + status change \n
-* first of all, check member inventory and set first param, "InsertORUpdateORDelete" branching memberitems
+* @brief add, update and remove memberitems and update MemberGameInfo. \n
+* You can implement member item add+status change / use+status change / drop, remove + status change. \n
+* First of all, check member inventory and set first param, "InsertORUpdateORDelete" branching memberitems.
 * @author Dae Woo Kim
 * @param string InsertORUpdateORDelete - branching memberitems table
 * @param MemberItems table object
