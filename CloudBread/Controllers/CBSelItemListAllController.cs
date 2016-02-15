@@ -1,11 +1,11 @@
 ﻿/**
 * @file CBSelItemListAllController.cs
-* @brief get itemlists by paging  \n
-* to get all data without paging, set big number "pageSize" param (max 9223372036854775807)
+* @brief Get ItemLists table data by paging. \n
+* To get all data without paging, set big number "pageSize" param (max 9223372036854775807).
 * @author Dae Woo Kim
 * @param string memberID - log purpose
-* @param int64 page - (max 9223372036854775807)
-* @param int64 pageSize - (max 9223372036854775807) 
+* @param int64 page
+* @param int64 pageSize
 * @return itemlists table object
 * @see uspSelItemListAll SP, BehaviorID : B19
 */

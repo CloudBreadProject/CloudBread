@@ -1,10 +1,10 @@
 ﻿/**
 * @file CBUdtConfirmedEmailAddressController.cs
 * @brief !not implemented \n
-* confirm email address of member \n
-* need todo : this controller made for email address validate and confirmation \n
-* this controller could be accessed with mobile browser(without appkey authentication) \n
-* has to be seperated in mobile app appkey authentication and provide hashed string for member email address param \n 
+* Confirm email address of member. \n
+* Need todo : this controller made for email address validate and confirmation. \n
+* This controller could be accessed with mobile browser(without appkey authentication). \n
+* It has to be seperated in mobile app appkey authentication and provide hashed string for member email address param. \n 
 * @author Dae Woo Kim
 * @param todo : hashed member unique value from member's email click
 * @return string "1" - rows affected

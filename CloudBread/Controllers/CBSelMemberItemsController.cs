@@ -1,11 +1,11 @@
 ﻿/**
 * @file CBSelMemberItemsController.cs
-* @brief get MemberItems by paging  \n
-* to get all data without paging, set big number "pageSize" param (max 9223372036854775807)
+* @brief Get MemberItems data by paging. \n
+* To get all data without paging, set big number "pageSize" param (max 9223372036854775807)
 * @author Dae Woo Kim
 * @param string memberID
-* @param int64 page - (max 9223372036854775807)
-* @param int64 pageSize - (max 9223372036854775807) 
+* @param int64 page
+* @param int64 pageSize
 * @return MemberItems table object
 * @see uspSelMemberItems SP, BehaviorID : B20, B23
 */

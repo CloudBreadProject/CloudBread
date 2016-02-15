@@ -1,9 +1,9 @@
 ﻿/**
 * @file CBAddMemberItemPurchaseController.cs
-* @brief update MemberGameInfoes, MemberItems and MemberItemPurchases \n
-* Regarding to MemberItems, select insert or update data
+* @brief Item purchase API include purchase info. Update MemberGameInfoes, MemberItems and MemberItemPurchases \n
+* Regarding to MemberItems, select insert or update data \n
 * @author Dae Woo Kim
-* @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
+* @param string InsertORUpdate  - if itemid exists in MemberItem inventory, then "UPDATE". if not, "INSERT".
 * @param MemberItems table object
 * @param MemberItemPurchases table object
 * @param MemberGameInfoes table object

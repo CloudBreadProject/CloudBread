@@ -1,6 +1,6 @@
 ﻿/**
 * @file CBUdtMoveGiftController.cs
-* @brief update MemberItems and GiftDepositories table by using gift  \n
+* @brief Update MemberItems and GiftDepositories table by using gift.  \n
 * @author Dae Woo Kim
 * @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
 * @param string GiftDepositoryID 

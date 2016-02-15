@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBUdtSendGiftController.cs
-* @brief send item to another member. update or delete(not actual delete - DeleteYN flag change) MemberItems, insert to GiftDepositories  \n
-* first of all, check member inventory and set first param, "DeleteORUpdate" branching memberitems
+* @brief Send item to another member. Update or delete(not actual delete - DeleteYN flag change) MemberItems, insert to GiftDepositories.  \n
+* First of all, check member inventory and set first param, "DeleteORUpdate" branching memberitems
 * @author Dae Woo Kim
 * @param string DeleteORUpdate - branching memberitems table
 * @param MemberItems table object

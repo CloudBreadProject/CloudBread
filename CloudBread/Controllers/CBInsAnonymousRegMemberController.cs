@@ -1,10 +1,11 @@
 ﻿/**
 * @file CBInsAnonymousRegMemberController.cs
-* @brief private anonymous member registration controller. \n
-* mobile client POST members and MemberGameInfoes object as json format \n
-* insert on members and MemberGameInfoes table \n
-* send memberID as guid from client or unique value and fill out of info as blank values \n
-* identically same with insregmember task \n
+* @brief First of all, you must consider using 3rd party(Facebook, Microsoft ID, Google ID and Twitter ID) or Active Directory authentication. \n
+* Private anonymous member registration controller. \n
+* Mobile client POST members and MemberGameInfoes object as json format. \n
+* Insert on members and MemberGameInfoes table. \n
+* Send memberID as guid(or 3rd party provider generated unique value) from client or unique value to fill out of info as blank values. \n
+* This API is identically same with InsRegMember API.
 * @author Dae Woo Kim
 * @param members and MemberGameInfoes object
 * @return string value "2" affected rows count

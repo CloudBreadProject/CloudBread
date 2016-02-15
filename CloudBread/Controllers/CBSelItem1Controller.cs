@@ -1,6 +1,6 @@
 ﻿/**
 * @file CBSelItem1Controller.cs
-* @brief Get 1 item data  \n
+* @brief Get 1 item data API from ItemLists table  \n
 * same with "CBSelItem1Controller"
 * @author Dae Woo Kim
 * @param string MemberID - log purpose
@@ -34,7 +34,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBSelItem1Controller : ApiController
     {
-        
         public class InputParams {
             public string MemberID;     // log purpose
             public string ItemListID;

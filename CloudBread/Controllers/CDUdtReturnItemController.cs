@@ -1,7 +1,7 @@
 ﻿/**
 * @file CDUdtReturnItemController.cs
-* @brief return purchased item and roll back item and status \n
-* update or delete MemberItems, update MemberItemPurchases and update MemberGameInfoes \n
+* @brief Return purchased item and roll back item and status. Call this API in unique situation. \n
+* Update or delete MemberItems, update MemberItemPurchases and update MemberGameInfoes. \n
 * @author Dae Woo Kim
 * @param string DeleteORUpdate  - if itemid exists in memberitem inventory and need to delete, set "DELETE". this operation will update delete flag of table  or set "UPDATE"
 * @param MemberItems table object

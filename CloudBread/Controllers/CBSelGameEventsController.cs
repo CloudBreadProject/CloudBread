@@ -1,12 +1,12 @@
 ﻿/**
 * @file CBSelGameEventsController.cs
-* @brief Get remained game events for memberID \n
-* date between "GameEvents.EventDurationFrom" and "GameEvents.EventDurationTo" rule \n
-* after finish the game event, member could not join the finished event \n
+* @brief Get remained game events API for memberID. \n
+* Date between "GameEvents.EventDurationFrom" and "GameEvents.EventDurationTo" rule. \n
+* After finish the game event duration, member could not join the finished event. \n
 * @author Dae Woo Kim
 * @param string memberID
 * @return GameEvents list table object
-* @see uspSelGameEvents SP, BehaviorID : B12
+* @see uspSelGameEvents SP, BehaviorID : B12, B67
 * @todo paging, filter by (EventCategory1, EventCategory2, EventCategory3, TargetGroup, TargetOS, TargetDevice) option support
 */
 

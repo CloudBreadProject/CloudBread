@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBCOMUdtMemberController.cs
-* @brief common API for a member update on members table \n
-* set parameter null or remoce json property for no change on column data
+* @brief Common API for a member update on members table. \n
+* Set parameter null or remove json property for no change on column data.
 * @author Dae Woo Kim
 * @param member object
 * @return string "1" - affected rows

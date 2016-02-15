@@ -1,7 +1,7 @@
 ﻿/**
 * @file CBSelLoginIDDupeCheckController.cs
-* @brief login id dupe check controller. mobile client POST memberID as json format \n
-* check memberid duplication in members table 
+* @brief Login id dupe check controller. Mobile client POST memberID as json format. \n
+* Check memberid duplication in members table. Consider using 3rd party authentication.
 * @author Dae Woo Kim
 * @param string memberID 
 * @return string value "0" or "1" : false or true

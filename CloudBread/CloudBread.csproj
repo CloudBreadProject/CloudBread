@@ -207,6 +207,7 @@
     <Compile Include="Controllers\CBComUdtItemList1Controller.cs" />
     <Compile Include="Controllers\CBCOMUdtMemberController.cs" />
     <Compile Include="Controllers\CBComUdtMemberGameInfoesController.cs" />
+    <Compile Include="Controllers\CBComUdtMemberGameInfoStagesController.cs" />
     <Compile Include="Controllers\CBComUdtMemberItemController.cs" />
     <Compile Include="Controllers\CBComUdtMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBInsAnonymousRegMemberController.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Controllers\CBUdtSellItemController.cs" />
     <Compile Include="Controllers\CBUdtSendGiftController.cs" />
     <Compile Include="Controllers\CDUdtReturnItemController.cs" />
+    <Compile Include="Controllers\ComSelMemberGameInfoStagesController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\globalVal.cs" />
