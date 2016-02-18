@@ -1,11 +1,26 @@
-﻿using System;
+﻿/**
+* @file CBInsRegMemberController.cs
+* @brief First of all, you must consider using 3rd party(Facebook, Microsoft ID, Google ID and Twitter ID) or Active Directory authentication. \n
+* Private member registration controller. \n
+* Mobile client POST members and MemberGameInfoes object as json format. \n
+* Insert on members and MemberGameInfoes table. \n
+* Send memberID as guid(or 3rd party provider generated unique value) from client or unique value to fill out of info as blank values. \n
+* @author Dae Woo Kim
+* @param members and MemberGameInfoes object
+* @return string value "2" affected rows count
+* @see uspInsRegMember SP, BehaviorID : B02
+* @todo apply auth module. change return value to inserted data as json
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
-//추가
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
+
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Logger.Logging;
@@ -18,10 +33,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBInsRegMemberController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
             public string 	MemberID_Members	 { get; set; }   
@@ -97,7 +112,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                //// 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID_Members;
                 //logMessage.Level = "INFO"; 
                 //logMessage.Logger = "CBuspInsRegMemberCheckController"; 
@@ -183,7 +198,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        // 완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID_Members;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBuspInsRegMemberCheckController";
@@ -198,7 +213,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_Members;
                 logMessage.Level = "ERROR"; 
                 logMessage.Logger = "CBuspInsRegMemberCheckController";

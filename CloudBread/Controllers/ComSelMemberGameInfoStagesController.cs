@@ -1,11 +1,11 @@
 ﻿/**
-* @file CBSelMemberGameInfoStagesController.cs
-* @brief Get game stages list from MemberGameInfoStages table. \n
+* @file ComSelMemberGameInfoStagesController.cs
+* @brief Common API for get member game stage for memberID - return MemberGameInfoStages info. \n
 * @author Dae Woo Kim
-* @param string memberID
+* @param string memberID - log purpose
+* @param string MemberGameInfoStageID 
 * @return MemberGameInfoStages table object
-* @see uspSelMemberGameInfoStages SP, BehaviorID : B46
-* @todo paging, filter option support
+* @see uspComSelMemberGameInfoStages SP, BehaviorID : B63
 */
 
 using System;
@@ -30,10 +30,13 @@ using Newtonsoft.Json;
 namespace CloudBread.Controllers
 {
     [MobileAppController]
-    public class CBSelMemberGameInfoStagesController : ApiController
+    public class ComSelMemberGameInfoStagesController : ApiController
     {
-        
-        public class InputParams { public string memberID;}
+
+        public class InputParams {
+            public string MemberID { get; set; }    // log purpose
+            public string MemberGameInfoStageID { get; set; }
+        }
 
         public class Model
         {
@@ -65,8 +68,6 @@ namespace CloudBread.Controllers
             public string sCol8 { get; set; }
             public string sCol9 { get; set; }
             public string sCol10 { get; set; }
-
-
         }
 
         public List<Model> Post(InputParams p)
@@ -81,10 +82,10 @@ namespace CloudBread.Controllers
 
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("CloudBread.uspSelMemberGameInfoStages", connection))
+                    using (SqlCommand command = new SqlCommand("CloudBread.uspComSelMemberGameInfoStages", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.memberID;
+                        command.Parameters.Add("@MemberGameInfoStageID", SqlDbType.NVarChar, -1).Value = p.MemberGameInfoStageID;
                         connection.Open();
 
                         using (SqlDataReader dreader = command.ExecuteReader())
@@ -121,7 +122,6 @@ namespace CloudBread.Controllers
                                     sCol8 = dreader[25].ToString(),
                                     sCol9 = dreader[26].ToString(),
                                     sCol10 = dreader[27].ToString()
-
                                 };
                                 result.Add(workItem);
                             }
@@ -136,9 +136,9 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = p.memberID;
+                logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
-                logMessage.Logger = "CBSelMemberGameInfoStagesController";
+                logMessage.Logger = "ComSelMemberGameInfoStagesController";
                 logMessage.Message = jsonParam;
                 logMessage.Exception = ex.ToString();
                 Logging.RunLog(logMessage);

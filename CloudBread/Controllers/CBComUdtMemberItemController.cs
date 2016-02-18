@@ -1,10 +1,21 @@
-﻿using System;
+﻿/**
+* @file CBComUdtMemberItemController
+* @brief Common API for a MemberItem update on MemberItems table. \n
+* Set parameter null or remove json property for no change on column data.
+* @author Dae Woo Kim
+* @param MemberItem object
+* @return string "1" - affected rows
+* @see uspComUdtMemberItem SP, BehaviorID : B054
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,10 +29,9 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBComUdtMemberItemController : ApiController
     {
-        public ApiServices Services { get; set; }
-
         public class InputParams
         {
             public string MemberItemID { get; set; }
@@ -44,17 +54,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 공통 회원아이템 정보 수정 모듈 시작 update시 파라미터를 NULL로 주면 해당 컬럼은 변화되지 않음.
-            // Json에서는 null 으로 값을 지정하거나 아예 로우 값을 제공하지 않아도 가능
-            ////////////////////////////////////////////////////////////////////////
             
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBComUdtMemberItemController";
@@ -94,7 +100,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBComUdtMemberItemController";

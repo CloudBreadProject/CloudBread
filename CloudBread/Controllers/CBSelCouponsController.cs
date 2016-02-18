@@ -1,10 +1,22 @@
-﻿using System;
+﻿/**
+* @file CBSelCouponsController.cs
+* @brief Get coupon list API of memberID  \n
+* Check memberID and date between "CouponDurationFrom" and "CouponDurationTo"
+* @author Dae Woo Kim
+* @param string memberID 
+* @return coupons table object
+* @see uspSelCoupons SP, BehaviorID : B14
+* @todo paging and filter by (CouponCategory1, CouponCategory2, CouponCategory3, TargetGroup, TargetOS, TargetDevice)
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,9 +30,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBSelCouponsController : ApiController
     {
-        public ApiServices Services { get; set; }
+        
         public class InputParams { public string MemberID; }
 
         public class Model
@@ -107,7 +120,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelCouponsController";

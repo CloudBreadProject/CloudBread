@@ -159,6 +159,9 @@
   <data name="SyncStore_FailedToLoadError" xml:space="preserve">
     <value>Failed to read errors from the local store.</value>
   </data>
+  <data name="MobileServiceClient_NotAnAbsoluteURI" xml:space="preserve">
+    <value>{0} is not an absolute URI.</value>
+  </data>
   <data name="MobileServiceTable_ExpectedArray" xml:space="preserve">
     <value>Could not get an array from response {0}.</value>
   </data>
@@ -224,6 +227,9 @@
   </data>
   <data name="SyncStore_FailedToUpsertItem" xml:space="preserve">
     <value>Failed to update the item in the local store.</value>
+  </data>
+  <data name="MobileServiceClient_InvalidAlternateLoginHost" xml:space="preserve">
+    <value>{0} is invalid.AlternateLoginHost must be a valid https URI with hostname only</value>
   </data>
   <data name="MobileServiceContractResolver_MemberNotFound" xml:space="preserve">
     <value>No '{0}' member found on type '{1}'.</value>

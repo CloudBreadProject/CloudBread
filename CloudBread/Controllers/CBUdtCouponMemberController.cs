@@ -1,10 +1,25 @@
-﻿using System;
+﻿/**
+* @file CBUdtCouponMemberController.cs
+* @brief Update MemberItems and CouponMember table by using coupon. \n
+* "DupeYN" value is set "Y", multiple members can use this coupon.
+* "DupeYN" value is set "N", only one member can use it. - set "DeleteYN" to "Y"
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
+* @param MemberItems object
+* @param CouponMember object
+* @return string "2" or "3" - affected rows. 2 or 3 is depend on "DupeYN" value.
+* @see uspUdtCouponMember SP, BehaviorID : B15
+* @todo change SP to upsert auto method
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,10 +33,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBUdtCouponMemberController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
             public string InsertORUpdate { get; set; }
@@ -59,17 +74,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 한번 사용한 쿠폰. 쿠폰에서 받은 아이템을 insert 또는 update하고 
-            // MemberCoupon 테이블에 저장. 
-            // Coupon 중복 사용이 불가한 경우 DeleteYN을 Y로 처리.
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.MemberID_MemberItems;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtCouponMemberController";
@@ -123,7 +134,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.MemberID_MemberItems;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtCouponMemberController";
@@ -138,7 +149,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberItems;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtCouponMemberController";

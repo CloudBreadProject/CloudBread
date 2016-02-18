@@ -413,6 +413,90 @@
             The string associated to the enum value.
             </summary>
         </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.PlatformInformationExtensions.GetVersionFromAssemblyFileVersion(Microsoft.WindowsAzure.MobileServices.IPlatformInformation)">
+            <summary>
+            Returns the version set in the <see cref="T:System.Reflection.AssemblyFileVersionAttribute"/> set in the assembly
+            containing this <see cref="T:Microsoft.WindowsAzure.MobileServices.IPlatformInformation"/> implementation.
+            </summary>
+            <param name="platformInformation"></param>
+            <returns>The version set in the </returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.PreserveAttribute">
+            <summary>
+            When applied to a target (e.g. assembly, class, member, etc.), instructs the Xamarin linker to preserve that target
+            in the linking process result.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore">
+            <summary>
+            Allows saving and reading data in the local tables.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.InitializeAsync">
+            <summary>
+            Initializes the store for use.
+            </summary>
+            <returns>A task that completes when store has initialized.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.ReadAsync(Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription)">
+            <summary>
+            Reads data from local table by executing the query.
+            </summary>
+            <param name="query">Instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription"/> that defines the query to be executed on local table.</param>
+            <returns>A task that returns instance of JObject or JArray with items matching the query.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.UpsertAsync(System.String,System.Collections.Generic.IEnumerable{Newtonsoft.Json.Linq.JObject},System.Boolean)">
+            <summary>
+            Updates or inserts data in local table.
+            </summary>
+            <param name="tableName">Name of the local table.</param>
+            <param name="items">A list of items to be inserted.</param>
+            <param name="ignoreMissingColumns"><code>true</code> if the extra properties on item can be ignored; <code>false</code> otherwise.</param>
+            <returns>A task that completes when item has been upserted in local table.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.DeleteAsync(Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription)">
+            <summary>
+            Deletes all the items from local table that match the query.
+            </summary>
+            <param name="query">Instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription"/></param>
+            <returns>A task that completes when delete has been executed on local table.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.DeleteAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Deletes items from local table with the given list of ids
+            </summary>
+            <param name="tableName">Name of the local table.</param>
+            <param name="ids">A list of ids of the items to be deleted</param>
+            <returns>A task that completes when delete query has executed.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.LookupAsync(System.String,System.String)">
+            <summary>
+            Reads a single item from local table with specified id.
+            </summary>
+            <param name="tableName">Name of the local table.</param>
+            <param name="id">Id for the object to be read.</param>
+            <returns>A task that returns the item read from local table.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreChangeEvent">
+            <summary>
+            Represents an event raised as a result of a change against the local store.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEvent">
+            <summary>
+            Represents a mobile service event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreChangeEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceConflictException">
             <summary>
             Provides details of http response with status code of 'Conflict'
@@ -741,6 +825,15 @@
             <param name="context">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext"/>.</param>
             <param name="store">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore"/>.</param>
         </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncContextExtensions.InitializeAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext,Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore,Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions)">
+            <summary>
+            Initializes the sync context.
+            </summary>
+            <param name="context">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext"/>.</param>
+            <param name="store">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore"/>.</param>
+            <param name="trackingOptions">The traking options that should be enabled on this instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext"/>.</param>
+            <returns>A task that completes when the initialization when initialization has finished.</returns>
+        </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions">
             <summary>
             Provides extension methods on <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable"/>
@@ -757,6 +850,28 @@
             <param name="query">
             An OData query that determines which items to 
             pull from the remote table.
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable,System.String,System.String,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
+            <summary>
+            Pulls all items that match the given query from the associated remote table. Supports incremental sync.
+            </summary>
+            <param name="table">The instance of table to execute pull on.</param>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
             </param>
             <returns>
             A task that completes when pull operation has finished.
@@ -790,6 +905,58 @@
             Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
             </exception>
         </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
+            <summary>
+            Pulls all items that match the given query from the associated remote table. Supports incremental sync.
+            </summary>
+            <param name="table">The instance of table to execute pull on.</param>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="parameters">
+            A dictionary of user-defined parameters and values to include in 
+            the request URI query string.
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Pulls all items that match the given query from the associated remote table. Supports incremental sync.
+            </summary>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="parameters">
+            A dictionary of user-defined parameters and values to include in 
+            the request URI query string.
+            </param>
+            <param name="pushOtherTables">
+            Push other tables if this table is dirty.
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
+        </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync``2(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable{``0},System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``1},System.Threading.CancellationToken)">
             <summary>
             Pulls all items that match the given query from the associated remote table.
@@ -803,6 +970,30 @@
             pull from the remote table.
             </param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync``2(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable{``0},System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``1},System.Threading.CancellationToken,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
+            <summary>
+            Pulls all items that match the given query from the associated remote table.
+            </summary>
+            <param name="table">The instance of table to execute pull on.</param>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
             </param>
             <returns>
             A task that completes when pull operation has finished.
@@ -830,6 +1021,49 @@
             <exception cref="T:System.ArgumentException">
             Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
             </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync``2(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable{``0},System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``1},Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
+            <summary>
+            Pulls all items that match the given query
+            from the associated remote table.
+            </summary>
+            <param name="table">The instance of table to execute pull on.</param>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again. Must be 25 characters or less and contain only alphanumeric characters, dash, and underscore.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="queryId"/> does not match the regular expression <value>[a-zA-Z][a-zA-Z0-9_-]{0,24}</value>.
+            </exception>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PullAsync``2(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable{``0},System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``1},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Pulls all items that match the given query from the associated remote table.
+            </summary>
+            <param name="queryId">
+            A string that uniquely identifies this query and is used to keep track of its sync state. Supplying this parameter enables incremental sync whenever the same key is used again.
+            </param>
+            <param name="query">
+            An OData query that determines which items to 
+            pull from the remote table.
+            </param>
+            <param name="pushOtherTables">
+            Push other tables if this table is dirty
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <returns>
+            A task that completes when pull operation has finished.
+            </returns>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSyncTableExtensions.PurgeAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable)">
             <summary>
@@ -1034,20 +1268,21 @@
             Task that will complete when the user has finished authentication.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.Logout">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.LogoutAsync">
             <summary>
             Log a user out.
             </summary>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``1(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``1(System.String,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST.
             </summary>
             <typeparam name="T">The type of instance returned from the Microsoft Azure Mobile Service.</typeparam>    
             <param name="apiName">The name of the custom API.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``2(System.String,``0)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST with
             support for sending HTTP content.
@@ -1056,9 +1291,10 @@
             <typeparam name="U">The type of instance returned from the Microsoft Azure Mobile Service.</typeparam>    
             <param name="apiName">The name of the custom API.</param>
             <param name="body">The value to be sent as the HTTP body.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``1(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``1(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data can be passed using the query string.
@@ -1069,9 +1305,10 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data can be sent though the HTTP content or the query string.
@@ -1084,25 +1321,28 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST.
             </summary>
             <param name="apiName">The name of the custom API.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST, with
             support for sending HTTP content.
             </summary>
             <param name="apiName">The name of the custom API.</param>
             <param name="body">The value to be sent as the HTTP body.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data will sent to through the query string.
@@ -1112,9 +1352,10 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP method.
             Additional data can be sent though the HTTP content or the query string.
@@ -1125,9 +1366,10 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpContent,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpContent,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HttpMethod.
             Additional data can be sent though the HTTP content or the query string. 
@@ -1141,18 +1383,12 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The HTTP Response from the custom api invocation.</returns>
         </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.ApplicationKey">
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.MobileAppUri">
             <summary>
-            Gets the Mobile Services application's name that is provided by the
-            call to MobileServiceClient(...).
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.ApplicationUri">
-            <summary>
-            Gets the Uri to the Mobile Services application that is provided by
-            the call to MobileServiceClient(...).
+            Absolute URI of the Microsoft Azure Mobile App.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.CurrentUser">
@@ -1161,9 +1397,30 @@
             MobileServiceClient.Login().
             </summary>
         </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.LoginUriPrefix">
+            <summary>
+            Prefix for login endpoints. If not set defaults to /.auth/login
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.AlternateLoginHost">
+            <summary>
+            Alternate Host URI for login
+            </summary>
+        </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.SyncContext">
             <summary>
             Returns a <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.InstallationId">
+            <summary>
+            Returns the application's installation id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.EventManager">
+            <summary>
+            The event manager that exposes and manages the event stream used by the mobile services types to 
+            publish and consume events.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceClient.SerializerSettings">
@@ -1222,75 +1479,25 @@
             Default empty array of HttpMessageHandlers.
             </summary>
         </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.applicationInstallationId">
-            <summary>
-            The id used to identify this installation of the application to 
-            provide telemetry data.
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.String,System.Net.Http.HttpMessageHandler[])">
             <summary>
             Initializes a new instance of the MobileServiceClient class.
             </summary>
-            <param name="applicationUrl">
-            The URI for the Microsoft Azure Mobile Service.
-            </param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.Uri)">
-            <summary>
-            Initializes a new instance of the MobileServiceClient class.
-            </summary>
-            <param name="applicationUri">
-            The URI for the Microsoft Azure Mobile Service.
-            </param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the MobileServiceClient class.
-            </summary>
-            <param name="applicationUrl">
-            The URI for the Microsoft Azure Mobile Service.
-            </param>
-            <param name="applicationKey">
-            The application key for the Microsoft Azure Mobile Service.
-            </param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.Uri,System.String)">
-            <summary>
-            Initializes a new instance of the MobileServiceClient class.
-            </summary>
-            <param name="applicationUri">
-            The URI for the Microsoft Azure Mobile Service.
-            </param>
-            <param name="applicationKey">
-            The application key for the Microsoft Azure Mobile Service.
-            </param> 
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.String,System.String,System.Net.Http.HttpMessageHandler[])">
-            <summary>
-            Initializes a new instance of the MobileServiceClient class.
-            </summary>
-            <param name="applicationUrl">
-            The URI for the Microsoft Azure Mobile Service.
-            </param>
-            <param name="applicationKey">
-            The application key for the Microsoft Azure Mobile Service.
+            <param name="mobileAppUri">
+            Absolute URI of the Microsoft Azure Mobile App.
             </param>
             <param name="handlers">
             Chain of <see cref="T:System.Net.Http.HttpMessageHandler"/> instances. 
             All but the last should be <see cref="T:System.Net.Http.DelegatingHandler"/>s. 
             </param>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.Uri,System.String,System.Net.Http.HttpMessageHandler[])">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.#ctor(System.Uri,System.Net.Http.HttpMessageHandler[])">
             <summary>
             Initializes a new instance of the MobileServiceClient class.
             </summary>
-            <param name="applicationUri">
-            The URI for the Microsoft Azure Mobile Service.
+            <param name="mobileAppUri">
+            Absolute URI of the Microsoft Azure Mobile App.
             </param>
-            <param name="applicationKey">
-            The application key for the Microsoft Azure Mobile Service.
-            </param> 
             <param name="handlers">
             Chain of <see cref="T:System.Net.Http.HttpMessageHandler"/> instances. 
             All but the last should be <see cref="T:System.Net.Http.DelegatingHandler"/>s. 
@@ -1409,20 +1616,21 @@
             Task that will complete when the user has finished authentication.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.Logout">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.LogoutAsync">
             <summary>
             Log a user out.
             </summary>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``1(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``1(System.String,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST.
             </summary>
             <typeparam name="T">The type of instance returned from the Microsoft Azure Mobile Service.</typeparam>    
             <param name="apiName">The name of the custom API.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``2(System.String,``0)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST with
             support for sending HTTP content.
@@ -1431,9 +1639,10 @@
             <typeparam name="U">The type of instance returned from the Microsoft Azure Mobile Service.</typeparam>    
             <param name="apiName">The name of the custom API.</param>
             <param name="body">The value to be sent as the HTTP body.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``1(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``1(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data can be passed using the query string.
@@ -1444,9 +1653,10 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync``2(System.String,``0,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data can be sent though the HTTP content or the query string.
@@ -1459,25 +1669,28 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST.
             </summary>
             <param name="apiName">The name of the custom API.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using an HTTP POST, with
             support for sending HTTP content.
             </summary>
             <param name="apiName">The name of the custom API.</param>
             <param name="body">The value to be sent as the HTTP body.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP Method.
             Additional data will sent to through the query string.
@@ -1487,9 +1700,10 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>        
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service using the specified HTTP method.
             Additional data can be sent though the HTTP content or the query string.
@@ -1500,9 +1714,27 @@
             <param name="parameters">
             A dictionary of user-defined parameters and values to include in the request URI query string.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InternalInvokeApiAsync(System.String,System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InvokeApiAsync(System.String,System.Net.Http.HttpContent,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Invokes a user-defined custom API of a Windows Azure Mobile Service using the specified HttpMethod.
+            Additional data can be sent though the HTTP content or the query string. 
+            </summary>
+            <param name="apiName">The name of the custom AP.</param>
+            <param name="content">The HTTP content.</param>
+            <param name="method">The HTTP method.</param>
+            <param name="requestHeaders">
+            A dictionary of user-defined headers to include in the HttpRequest.
+            </param>
+            <param name="parameters">
+            A dictionary of user-defined parameters and values to include in the request URI query string.
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
+            <returns>The HTTP Response from the custom api invocation.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InternalInvokeApiAsync(System.String,System.String,System.Net.Http.HttpMethod,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures,System.Threading.CancellationToken)">
             <summary>
             Invokes a user-defined custom API of a Microsoft Azure Mobile Service.
             </summary>
@@ -1515,6 +1747,7 @@
             <param name="features">
             Value indicating which features of the SDK are being used in this call. Useful for telemetry.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>The response content from the custom api invocation.</returns>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.CreateAPIUriString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
@@ -1566,22 +1799,37 @@
             An installation ID.
             </returns>
         </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.ApplicationUri">
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.MobileAppUri">
             <summary>
-            Gets the Uri to the Mobile Services application that is provided by
-            the call to MobileServiceClient(...).
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.ApplicationKey">
-            <summary>
-            Gets the Mobile Services application's name that is provided by the
-            call to MobileServiceClient(...).
+            Absolute URI of the Microsoft Azure Mobile App.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.CurrentUser">
             <summary>
             The current authenticated user provided after a successful call to
             MobileServiceClient.Login().
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.LoginUriPrefix">
+            <summary>
+            Prefix for the login endpoints. If not set defaults to /.auth/login
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.AlternateLoginHost">
+            <summary>
+            Alternate URI for login
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.InstallationId">
+            <summary>
+            The id used to identify this installation of the application to 
+            provide telemetry data.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.EventManager">
+            <summary>
+            The event manager that exposes and manages the event stream used by the mobile services types to 
+            publish and consume events.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.SerializerSettings">
@@ -1601,7 +1849,13 @@
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.HttpClient">
             <summary>
-            Gets the <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient"/> associated with this client.
+            Gets the <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient"/> associated with the Azure Mobile App.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceClient.AlternateAuthHttpClient">
+            <summary>
+            Gets the <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient"/> associated with the Alternate login
+            Azure Mobile App.
             </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures">
@@ -1680,7 +1934,7 @@
             included in all requests made to the Microsoft Azure Mobile Service, allowing 
             the client to perform all actions on the Microsoft Azure Mobile Service that 
             require authenticated-user level permissions.
-            </summary>
+            </summary>        
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.IApplicationStorage">
             <summary>
@@ -1738,22 +1992,6 @@
             An interface for platform-specific assemblies to provide utility functions
             regarding Push capabilities.
             </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IPushUtility.GetNewNativeRegistration">
-            <summary>
-            Return a new, strongly typed native registration instance
-            </summary>        
-            <returns>
-            An object to JSON deserialize into
-            </returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.IPushUtility.GetNewTemplateRegistration">
-            <summary>
-            Return a new, strongly typed template registration instance
-            </summary>        
-            <returns>
-            An object to JSON deserialize into
-            </returns>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.IPushUtility.GetPlatform">
             <summary>
@@ -1859,6 +2097,11 @@
             Boolean indicating if the platform is running on an emulator.
             </summary>
         </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.IPlatformInformation.Version">
+            <summary>
+            Gets the platform library version.
+            </summary>
+        </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.ZumoFeaturesHeader">
             <summary>
             Name of the header to indicate the feature(s) initiating the remote server call.
@@ -1867,11 +2110,6 @@
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestInstallationIdHeader">
             <summary>
             Name of the Installation ID header included on each request.
-            </summary>
-        </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestApplicationKeyHeader">
-            <summary>
-            Name of the application key header included when there's a key.
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.ZumoVersionHeader">
@@ -1884,6 +2122,16 @@
             Name of the authentication header included when the user's logged
             in.
             </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.ZumoApiVersionHeader">
+            <summary>
+             Name of the zumo api version header
+             </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.ZumoApiVersion">
+            <summary>
+             Current Zumo api version sent with each request
+             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.UserAgentHeader">
             <summary>
@@ -1903,11 +2151,6 @@
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.installationId">
             <summary>
             The installation id of the application.
-            </summary>
-        </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.applicationKey">
-            <summary>
-            The application key for the Microsoft Azure Mobile Service.
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.userAgentHeaderValue">
@@ -1944,7 +2187,7 @@
             Factory method for creating the default http client handler
             </summary>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.#ctor(System.Collections.Generic.IEnumerable{System.Net.Http.HttpMessageHandler},System.Uri,System.String,System.String)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.#ctor(System.Collections.Generic.IEnumerable{System.Net.Http.HttpMessageHandler},System.Uri,System.String)">
             <summary>
             Instantiates a new <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient"/>, 
             which does all the request to a mobile service.
@@ -1958,9 +2201,6 @@
             </param>
             <param name="installationId">
             The installation id of the application.
-            </param>
-            <param name="applicationKey">
-            The application key for the Microsoft Azure Mobile Service.
             </param>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestWithoutHandlersAsync(System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.String)">
@@ -1985,7 +2225,7 @@
             The content of the response as a string.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures,System.Threading.CancellationToken)">
             <summary>
             Makes an HTTP request that includes the standard Mobile Services
             headers. It will use an HttpClient with user-defined http handlers.
@@ -2012,11 +2252,12 @@
             <param name="features">
             Value indicating which features of the SDK are being used in this call. Useful for telemetry.
             </param>
-            <returns>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
+            <returns> 
             The response.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Boolean,System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Boolean,System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)">
             <summary>
             Makes an HTTP request that includes the standard Mobile Services
             headers. It will use an HttpClient that optionally has user-defined 
@@ -2042,11 +2283,12 @@
             <param name="requestHeaders">
             Additional request headers to include with the request.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>
             The content of the response as a string.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.Net.Http.HttpContent,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.RequestAsync(System.Net.Http.HttpMethod,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceUser,System.Net.Http.HttpContent,System.Collections.Generic.IDictionary{System.String,System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceFeatures,System.Threading.CancellationToken)">
             <summary>
             Makes an HTTP request that includes the standard Mobile Services
             headers. It will use an HttpClient with user-defined http handlers.
@@ -2070,6 +2312,7 @@
             <param name="features">
             Value indicating which features of the SDK are being used in this call. Useful for telemetry.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>
             An <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </returns>
@@ -2149,7 +2392,7 @@
             required Mobile Service headers.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.SendRequestAsync(System.Net.Http.HttpClient,System.Net.Http.HttpRequestMessage,System.Boolean)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceHttpClient.SendRequestAsync(System.Net.Http.HttpClient,System.Net.Http.HttpRequestMessage,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Sends the <paramref name="request"/> with the given <paramref name="client"/>.
             </summary>
@@ -2162,6 +2405,7 @@
             <param name="ensureResponseContent">
             Optional parameter to indicate if the response should include content.
             </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe</param>
             <returns>
             An <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </returns>
@@ -2252,133 +2496,6 @@
             <summary>
             Gets the current platform. If none is loaded yet, accessing this property triggers platform resolution.
             </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager">
-            <summary>
-            Provides a platform-specific implementation to allow storage of registrationId to registrationName mapping
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.GetRegistration(System.String)">
-            <summary>
-            Get the registration from local storage
-            </summary>
-            <param name="registrationName">The name of the registration mapping to search for</param>
-            <returns>The StoredRegistrationEntry if it exists or null if it does not.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.DeleteRegistrationByName(System.String)">
-            <summary>
-            Delete a registration from local storage by name
-            </summary>
-            <param name="registrationName">The name of the registration mapping to delete.</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.DeleteRegistrationByRegistrationId(System.String)">
-            <summary>
-            Delete a registration from local storage by registrationId
-            </summary>
-            <param name="registrationId">The registrationId of the registration mapping to delete.</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.UpdateRegistrationByName(System.String,System.String,System.String)">
-            <summary>
-            Update a registration mapping and the deviceId in local storage by registrationName
-            </summary>
-            <param name="registrationName">The name of the registration mapping to update.</param>
-            <param name="registrationId">The registrationId to update.</param>
-            <param name="registrationDeviceId">The device Id to update the ILocalStorageManager to.</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.UpdateRegistrationByRegistrationId(System.String,System.String,System.String)">
-            <summary>
-            Update a registration mapping and the deviceId in local storage by registrationId
-            </summary>
-            <param name="registrationId">The registrationId of the registration mapping to update.</param>
-            <param name="registrationName">The registration name to update.</param>
-            <param name="registrationDeviceId">The device Id to update the ILocalStorageManager to.</param>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.ClearRegistrations">
-            <summary>
-            Clear all registrations from local storage.
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.RefreshFinished(System.String)">
-            <summary>
-            Ensure that the ILocalStorageManager instance has the updated DeviceId
-            </summary>
-            <param name="refreshedDeviceId">The deviceId to update</param>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.IsRefreshNeeded">
-            <summary>
-            Gets a value indicating whether local storage data needs to be refreshed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.ILocalStorageManager.PushHandle">
-            <summary>
-            Gets the DeviceId of all registrations in this instance of ILocalStorageManager
-            </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.LocalStorageManager">
-            <summary>
-            The value will be stored in the following keys:
-                Version: the storage version
-                DeviceId: the latest deviceId used for creation.
-                Registrations: Json representation of Dictionary of StoredRegistrationEntry. (Registration name and RegistrationId)
-            When create/delete is called, deviceId will be updated.
-            When create/update/get/delete registrations, registrations value will be updated.
-            </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.Registration">
-            <summary>
-            RegistrationBase is used as the base class for common properties existing in all Registration types to define a target that is registered for notifications.
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Registration.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Common Registration constructor for common properties
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Registration.ShouldSerializeRegistrationId">
-            <summary>
-            Internal--Helper method hinting to Json.Net that RegistrationId should not be serialized
-            </summary>
-            <returns>false</returns>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.Registration.Platform">
-            <summary>
-            The platform's name for its push notifcation system.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.Registration.Tags">
-            <summary>
-            If specified, restricts the notifications that the registration will receive to only those that
-            are annotated with one of the specified tags. Note that a tag with a comma in it will be split into two tags.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.Registration.PushHandle">
-            <summary>
-            The push handle used to address the device by the push notification service (Possibly nonunique)
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.Registration.RegistrationId">
-            <summary>
-            The registration id.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.Registration.Name">
-            <summary>
-            The name of the registration is stored locally with the registrationId
-            </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.RegistrationManager">
-            <summary>
-            Help to do registrationManagement and convert the exceptions
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.RegistrationManager.RegisterAsync(Microsoft.WindowsAzure.MobileServices.Registration)">
-            <summary>
-            If local storage does not have this registrationName, we will create a new one.
-            If local storage has this name, we will call update.
-            If update failed with 404(not found), we will create a new one.
-            </summary>
-            <param name="registration"></param>
-            <returns></returns>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Resources">
             <summary>
@@ -2471,9 +2588,19 @@
               Looks up a localized string similar to The &apos;InnerHandler&apos; property of the delegating handler must be null..
             </summary>
         </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Resources.MobileServiceClient_InvalidAlternateLoginHost">
+            <summary>
+              Looks up a localized string similar to {0} is invalid.AlternateLoginHost must be a valid https URI with hostname only.
+            </summary>
+        </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Resources.MobileServiceClient_NoResponseContent">
             <summary>
               Looks up a localized string similar to The server did not provide a response with the expected content..
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Resources.MobileServiceClient_NotAnAbsoluteURI">
+            <summary>
+              Looks up a localized string similar to {0} is not an absolute URI..
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Resources.MobileServiceCollection_IncrementalLoadingFailed">
@@ -2921,6 +3048,160 @@
               Looks up a localized string similar to This page must be called from the type &apos;{0}&apos;..
             </summary>
         </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.PurgeCompletedEvent">
+            <summary>
+            A mobile service event that is published when a purge operation against the local store is completed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.PurgeCompletedEvent.EventName">
+            <summary>
+            The purge completed event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.PurgeCompletedEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.PurgeCompletedEvent.TableName">
+            <summary>
+            Gets the name of the table that was the target of the purge operation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatchCompletedEvent">
+            <summary>
+            A mobile service event that is published when an operations batch against the local store is completed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatchCompletedEvent.EventName">
+            <summary>
+            The store operation batch completed event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatchCompletedEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatchCompletedEvent.Batch">
+            <summary>
+            The operations batch instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEventManager">
+            <summary>
+            Manages event notifications and subscriptions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEventManager.PublishAsync(Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEvent)">
+            <summary>
+            Publishes a <see cref="T:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEvent"/>.
+            </summary>
+            <param name="mobileServiceEvent">The event to be published.</param>
+            <returns>A task that completes when the event is published.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEventManager.Subscribe``1(System.Action{``0})">
+            <summary>
+            Subscribes to event notifications.
+            </summary>
+            <typeparam name="T">The base type of event to filter notifications by.</typeparam>
+            <param name="next">The delegate to be invoked to handle events.</param>
+            <returns>An <see cref="T:System.IDisposable"/> instance representing the subscription.</returns>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Eventing.ISubscription">
+            <summary>
+            Represents a <see cref="T:Microsoft.WindowsAzure.MobileServices.Eventing.IMobileServiceEventManager"/> subscription.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent">
+            <summary>
+            Represents a mobile service event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent.#ctor(System.String)">
+            <summary>
+            Creates an instance of a <see cref="T:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent"/>.
+            </summary>
+            <param name="name">The event name.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent`1">
+            <summary>
+            Represents a mobile service event with a strongly typed payload.
+            </summary>
+            <typeparam name="T">The type of payload in this event.</typeparam>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent`1.#ctor(System.String,`0)">
+            <summary>
+            Initializes an instance of the MobileServiceEvent using the specified event name and payload.
+            </summary>
+            <param name="name">The event name.</param>
+            <param name="payload">The payload associated with this event.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Eventing.MobileServiceEvent`1.Payload">
+            <summary>
+            Gets the event payload.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationCompletedEvent">
+            <summary>
+            Represents an event raised when an operation against the local store completes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationCompletedEvent.EventName">
+            <summary>
+            The store operation completed event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationCompletedEvent.Name">
+            <summary>
+            Gets the event name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationCompletedEvent.Operation">
+            <summary>
+            The operation that triggered this event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind">
+            <summary>
+            Defines the kinds of operations performed against the local store.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind.Insert">
+            <summary>
+            Insert operation against the local store.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind.Update">
+            <summary>
+            Update operation against the local store.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind.Upsert">
+            <summary>
+            Update or insert operation against the local store.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind.Delete">
+            <summary>
+            Delete operation against the local store.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.PullOptions.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.PullOptions.MaxPageSize">
+            <summary>
+            Maximum allowed size of a page while performing a pull operation.
+            </summary>
+        </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableKind">
             <summary>
             Enumeration for kinds of tables.
@@ -2974,22 +3255,22 @@
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties.CreatedAt">
             <summary>
-            The __createdAt system property
+            The createdAt system property
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties.UpdatedAt">
             <summary>
-            The __updatedAt system property
+            The updatedAt system property
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties.Version">
             <summary>
-            The __version system property
+            The version system property
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties.Deleted">
             <summary>
-            The __deleted system property
+            The deleted system property
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties.All">
@@ -4454,7 +4735,7 @@
         <member name="T:Microsoft.WindowsAzure.MobileServices.DeletedAttribute">
             <summary>
             Attribute applied to a member of a type to specify that it represents
-            the __deleted system property.
+            the deleted system property.
             </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.ISystemPropertyAttribute">
@@ -4477,56 +4758,6 @@
             <summary>
             Gets the system property the attribute represents.
             </summary>
-        </member>
-        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore">
-            <summary>
-            Allows saving and reading data in the local tables.
-            </summary>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.InitializeAsync">
-            <summary>
-            Initializes the store for use.
-            </summary>
-            <returns>A task that completes when store has initialized.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.ReadAsync(Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription)">
-            <summary>
-            Reads data from local table by executing the query.
-            </summary>
-            <param name="query">Instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription"/> that defines the query to be executed on local table.</param>
-            <returns>A task that returns instance of JObject or JArray with items matching the query.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.UpsertAsync(System.String,System.Collections.Generic.IEnumerable{Newtonsoft.Json.Linq.JObject},System.Boolean)">
-            <summary>
-            Updates or inserts data in local table.
-            </summary>
-            <param name="tableName">Name of the local table.</param>
-            <param name="items">A list of items to be inserted.</param>
-            <param name="ignoreMissingColumns"><code>true</code> if the extra properties on item can be ignored; <code>false</code> otherwise.</param>
-            <returns>A task that completes when item has been upserted in local table.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.DeleteAsync(Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription)">
-            <summary>
-            Deletes all the items from local table that match the query.
-            </summary>
-            <param name="query">Instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription"/></param>
-            <returns>A task that completes when delete has been executed on local table.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.DeleteAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Deletes items from local table with the given list of ids
-            </summary>
-            <param name="tableName">Name of the local table.</param>
-            <param name="ids">A list of ids of the items to be deleted</param>
-            <returns>A task that completes when delete query has executed.</returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore.LookupAsync(System.String,System.String)">
-            <summary>
-            Reads a single item from local table with specified id.
-            </summary>
-            <param name="tableName">Name of the local table.</param>
-            <param name="id">Id for the object to be read.</param>
-            <returns>A task that returns the item read from local table.</returns>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalStore">
             <summary>
@@ -4703,6 +4934,15 @@
             <param name="handler">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncHandler"/></param>
             <returns>A task that completes when sync context has initialized.</returns>
         </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.InitializeAsync(Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore,Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncHandler,Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions)">
+            <summary>
+            Initializes the sync context.
+            </summary>
+            <param name="store">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore"/>.</param>
+            <param name="handler">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncHandler"/></param>
+            <param name="trackingOptions">A <see cref="P:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.StoreTrackingOptions"/> value indicating how store operations will be tracked, impacting which store events are raised.</param>
+            <returns>A task that completes when sync context has initialized.</returns>
+        </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.PushAsync(System.Threading.CancellationToken)">
             <summary>
             Pushes all pending operations up to the remote table.
@@ -4713,6 +4953,11 @@
         <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.Store">
             <summary>
             An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceLocalStore"/>
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.StoreTrackingOptions">
+            <summary>
+            A flag indicating which store tracking options are currently enabled.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncContext.Handler">
@@ -4791,7 +5036,7 @@
             A task that will return with a result when the lookup finishes.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable.PullAsync(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable.PullAsync(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Threading.CancellationToken,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
             <summary>
             Pulls all items that match the given query from the associated remote table. Supports incremental sync.
             </summary>
@@ -4810,6 +5055,9 @@
             Push other tables if this table is dirty.
             </param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
             </param>
             <returns>
             A task that completes when pull operation has finished.
@@ -4919,7 +5167,7 @@
             A task that will complete when the delete finishes.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable`1.PullAsync``1(System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``0},System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable`1.PullAsync``1(System.String,Microsoft.WindowsAzure.MobileServices.IMobileServiceTableQuery{``0},System.Boolean,System.Threading.CancellationToken,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
             <summary>
             Pulls all items that match the given query from the associated remote table.
             </summary>
@@ -4934,6 +5182,9 @@
             Push other tables if this table is dirty
             </param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
             </param>
             <returns>
             A task that completes when pull operation has finished.
@@ -5103,7 +5354,7 @@
         <member name="T:Microsoft.WindowsAzure.MobileServices.UpdatedAtAttribute">
             <summary>
             Attribute applied to a member of a type to specify that it represents
-            the __updatedAt system property.
+            the updatedAt system property.
             </summary>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.UpdatedAtAttribute.#ctor">
@@ -5119,7 +5370,7 @@
         <member name="T:Microsoft.WindowsAzure.MobileServices.CreatedAtAttribute">
             <summary>
             Attribute applied to a member of a type to specify that it represents
-            the __createdAt system property.
+            the createdAt system property.
             </summary>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.CreatedAtAttribute.#ctor">
@@ -5135,7 +5386,7 @@
         <member name="T:Microsoft.WindowsAzure.MobileServices.VersionAttribute">
             <summary>
             Attribute applied to a member of a type to specify that it represents
-            the __version system property.
+            the version system property.
             </summary>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.VersionAttribute.#ctor">
@@ -5313,11 +5564,6 @@
         <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceTable.TableName">
             <summary>
             Gets the name of the table.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.IMobileServiceTable.SystemProperties">
-            <summary>
-            The Mobile Service system properties to be included with items.
             </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.IMobileServiceTable`1">
@@ -5683,11 +5929,6 @@
             .../{app}/tables/{coll}.
             </summary>
         </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.SystemPropertiesQueryParameterName">
-            <summary>
-            The name of the system properties query string parameter
-            </summary>
-        </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.IncludeDeletedParameterName">
             <summary>
             The name of the include deleted query string parameter
@@ -5798,36 +6039,6 @@
             </param>
             <returns>
             A task that will complete when the insert finishes.
-            </returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.RemoveUnrequestedSystemProperties(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
-            <summary>
-            Removes system properties from the passed in item
-            </summary>
-            <param name="item">
-            The item returned from the server
-            </param>
-            <param name="parameters">
-            A dictionary of user-defined parameters and values to include in 
-            the request URI query string.
-            </param>
-            <param name="version">
-            Set to the value of the version system property before it is removed.
-            </param>
-            <returns>
-            An item that only contains normal fields and the requested system properties
-            </returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.GetRequestedSystemProperties(System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            Calculates the requested system properties from the server
-            </summary>
-            <param name="parameters">
-            A dictionary of user-defined parameters and values to include in 
-            the request URI query string.
-            </param>
-            <returns>
-            The calculated system properties value
             </returns>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.UpdateAsync(Newtonsoft.Json.Linq.JObject)">
@@ -5980,16 +6191,6 @@
             A task that will return with a result when the lookup finishes.
             </returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.AddSystemProperties(Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties,System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            Adds the tables requested system properties to the parameters collection.
-            </summary>
-            <param name="systemProperties">The sytem properties to add.</param>
-            <param name="parameters">The parameters collection.</param>
-            <returns>
-            The parameters collection with any requested system properties included.
-            </returns>
-        </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.IncludeDeleted(System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
             Adds the query string parameter to include deleted records.
@@ -6007,15 +6208,6 @@
             <param name="name">The name of system parameter.</param>
             <param name="value">The value of system parameter.</param>
             <returns></returns>
-        </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.GetSystemPropertiesString(Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties)">
-            <summary>
-            Gets the system properties header value from the <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties"/>.
-            </summary>
-            <param name="properties">The system properties to set in the system properties header.</param>
-            <returns>
-            The system properties header value. Returns null if the systemProperty value is None.
-            </returns>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.ParseContent(System.Net.Http.HttpResponseMessage)">
             <summary>
@@ -6110,11 +6302,6 @@
         <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.TableName">
             <summary>
             Gets the name of the table.
-            </summary>
-        </member>
-        <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.SystemProperties">
-            <summary>
-            The Mobile Service system properties to be included with items.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.MobileServiceTable.Features">
@@ -6512,6 +6699,16 @@
             A static helper class for building URLs for Mobile Service tables.
             </summary>
         </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceUrlBuilder.SchemeDelimiter">
+            <summary>
+            Delimiter following the scheme in a URI.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceUrlBuilder.Slash">
+            <summary>
+            A constant variable that defines the character '/'.
+            </summary>
+        </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUrlBuilder.GetQueryString(System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean)">
             <summary>
             Converts a dictionary of string key-value pairs into a URI query string.
@@ -6559,6 +6756,36 @@
             <returns>
             
             </returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUrlBuilder.AddTrailingSlash(System.String)">
+            <summary>
+            Appends a slash ('/') to <paramref name="uri"/> if it is missing a trailing slash.
+            </summary>
+            <param name="uri">
+            URI to add a trailing slash to.
+            </param>
+            <returns>
+            Uri with a slash appended to <paramref name="uri"/> if it is missing one.
+            Else, <paramref name="uri"/> is returned unchanged.
+            </returns>
+            <remarks>
+            No validation of the uri is performed.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceUrlBuilder.AddLeadingSlash(System.String)">
+            <summary>
+            Prepends a slash ('/') to <paramref name="uri"/> if it is missing a leading slash.
+            </summary>
+            <param name="uri">
+            URI to add a leading slash to.
+            </param>
+            <returns>
+            Uri with a leading slash<paramref name="uri"/> if it is missing one.
+            Else, <paramref name="uri"/> is returned unchanged.
+            </returns>
+            <remarks>
+            No validation of the uri is performed.
+            </remarks>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Query.MobileServiceTableQueryDescription">
             <summary>
@@ -6764,11 +6991,6 @@
             <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/>.
             </summary>
         </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.SystemPropertyPrefix">
-            <summary>
-            The string prefix used to indicate system properties
-            </summary>
-        </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.idPropertyNames">
             <summary>
             The property names that are all aliased to be the id of an instance.
@@ -6776,7 +6998,7 @@
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.systemPropertyNameToEnum">
             <summary>
-            The system property names with the correct prefix mapped to the enum values
+            The system property names mapped to the enum values
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.idPropertyCache">
@@ -6960,19 +7182,18 @@
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.GetSystemPropertyString(Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties)">
             <summary>
             Given a <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties"/> enum value, returns the string value with the 
-            correct casing and system property prefix.
+            correct casing.
             </summary>
             <param name="systemProperty">The system property.</param>
-            <returns>A string of the system property with the correct casing and system property prefix.</returns>
+            <returns>A string of the system property with the correct casing.</returns>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.ApplySystemPropertyAttributes(Newtonsoft.Json.Serialization.JsonProperty,System.Reflection.MemberInfo,System.Boolean)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.ApplySystemPropertyAttributes(Newtonsoft.Json.Serialization.JsonProperty,System.Reflection.MemberInfo)">
             <summary>
             Applies the system property attribute to the property by renaming the property to the
             system property name.
             </summary>
             <param name="property">The property.</param>
             <param name="member">The <see cref="T:System.Reflection.MemberInfo"/> that corresponds to the property.</param>
-            <param name="isIntegerIdType">Indicates if the type that the property is on, has an integer id type or not.</param>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceContractResolver.SetMemberConverters(Newtonsoft.Json.Serialization.JsonProperty)">
             <summary>
@@ -7064,11 +7285,6 @@
             <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceClient"/>.
             </summary>
         </member>
-        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.SystemPropertyPrefix">
-            <summary>
-            The string prefix used to indicate system properties
-            </summary>
-        </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.MaxStringIdLength">
             <summary>
             The max length of valid string ids.
@@ -7076,17 +7292,22 @@
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.VersionSystemPropertyString">
             <summary>
-            The version system property as a string with the prefix.
+            The version system property as a string
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.UpdatedAtSystemPropertyString">
             <summary>
-            The version system property as a string with the prefix.
+            The version system property as a string
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.CreatedAtSystemPropertyString">
             <summary>
-            The version system property as a string with the prefix.
+            The version system property as a string
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.DeletedSystemPropertyString">
+            <summary>
+            The deleted system property as a string
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.stringIdValidationRegex">
@@ -7157,7 +7378,7 @@
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.MobileServiceSerializer.RemoveSystemProperties(Newtonsoft.Json.Linq.JObject,System.String@,Microsoft.WindowsAzure.MobileServices.MobileServiceSystemProperties)">
             <summary>
-            Removes all system properties (name start with '__') from the instance
+            Removes all system properties from the instance
             if the instance is determined to have a string id and therefore be for table that
             supports system properties.
             </summary>
@@ -7560,6 +7781,14 @@
             <param name="item">The item to update in local store.</param>
             <returns>Task that completes when operation is cancelled.</returns>
         </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationError.UpdateOperationAsync(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Updates the table operation and updates the local instance of the item with the given item. 
+            Clears the error and sets the operation state to pending.
+            </summary>
+            <param name="item">The item to update in local store.</param>
+            <returns>Task that completes when operation is updated.</returns>
+        </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationError.CancelAndDiscardItemAsync">
             <summary>
             Cancels the table operation and discards the local instance of the item.
@@ -7574,7 +7803,7 @@
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationError.Id">
             <summary>
-            A unique identifier for the error.
+            A unique identifier for the error. The Value matches value of MobileServiceTableOperation Id property.
             </summary>
         </member>
         <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationError.Handled">
@@ -7777,7 +8006,7 @@
             Queue for pending operations (insert,delete,update) against remote table 
             </summary>
         </member>
-        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceSyncContext.PullAsync(System.String,Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableKind,System.String,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceRemoteTableOptions,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IEnumerable{System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceObjectReader,System.Threading.CancellationToken)">
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceSyncContext.PullAsync(System.String,Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableKind,System.String,System.String,Microsoft.WindowsAzure.MobileServices.MobileServiceRemoteTableOptions,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IEnumerable{System.String},Microsoft.WindowsAzure.MobileServices.MobileServiceObjectReader,System.Threading.CancellationToken,Microsoft.WindowsAzure.MobileServices.Sync.PullOptions)">
             <summary>
             Pulls all items that match the given query from the associated remote table.
             </summary>
@@ -7795,6 +8024,9 @@
             </param>
             <param name="reader">An instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.MobileServiceObjectReader"/></param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> token to observe
+            </param>
+            <param name="pullOptions">
+            PullOptions that determine how to pull data from the remote table
             </param>
             <returns>
             A task that completes when pull operation has finished.
@@ -7834,12 +8066,12 @@
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationKind.Update">
             <summary>
-            Delete operation
+            Update operation
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceTableOperationKind.Delete">
             <summary>
-            Update operation
+            Delete operation
             </summary>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.OperationQueue">
@@ -7874,19 +8106,24 @@
             Names of tables in local store that are reserved by sync framework
             </summary>
         </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalSystemTables.Prefix">
+            <summary>
+            Prefix used on system table names
+            </summary>
+        </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalSystemTables.OperationQueue">
             <summary>
-            Table that stores operation queue items
+            Name of the table that stores operation queue items
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalSystemTables.SyncErrors">
             <summary>
-            Table that stores sync errors
+            Name of the table that stores sync errors
             </summary>
         </member>
         <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalSystemTables.Config">
             <summary>
-            Configuration settings related to sync framework
+            Name of the table that stores configuration settings related to sync framework
             </summary>
         </member>
         <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalSystemTables.DefineAll(Microsoft.WindowsAzure.MobileServices.Sync.MobileServiceLocalStore)">
@@ -7899,6 +8136,197 @@
             <summary>
             Returns the names of all system tables
             </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation">
+            <summary>
+            Represents an operation against the local data store.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.#ctor(System.String,System.String,Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind,Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource,System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation"/> class.
+            </summary>
+            <param name="tableName">The name of the table that is the target of this operation.</param>
+            <param name="recordId">The target record identifier.</param>
+            <param name="kind">The kind of operation.</param>
+            <param name="source">The source that triggered this operation.</param>
+            <param name="batchId">The id of the batch this operation belongs to.</param>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.BatchId">
+            <summary>
+            The ID of the batch this operation belongs to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.TableName">
+            <summary>
+            The name of the table this operation was executed against.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.RecordId">
+            <summary>
+            The ID of the record this operation that was the target of this operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.Kind">
+            <summary>
+            The kind of operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperation.Source">
+            <summary>
+            Describes the source this operation was triggered from.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatch">
+            <summary>
+            Represents a series of operations that happened within the context of a single action such as a
+            server push or pull.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatch.GetOperationCountByKind(Microsoft.WindowsAzure.MobileServices.Sync.LocalStoreOperationKind)">
+            <summary>
+            Gets the number of operations matching the provided operation kind executed within this batch.
+            </summary>
+            <param name="operationKind">The kind of operation.</param>
+            <returns>The number of operations matching the provided count.</returns>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatch.BatchId">
+            <summary>
+            The ID of the batch this operation belongs to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatch.Source">
+            <summary>
+            Describes the source this operation was triggered from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationsBatch.OperationCount">
+            <summary>
+            The number of operations executed within this batch.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource">
+            <summary>
+            Represents the source of an operation performed against the local store.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource.Local">
+            <summary>
+            The operation was triggered by a local action (e.g. locally inserting, updating or deleting a record)
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource.LocalConflictResolution">
+            <summary>
+            The operation was triggered by a local conflict resolution action taken against an operation error.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource.LocalPurge">
+            <summary>
+            The operation was triggered by a local purge action.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource.ServerPull">
+            <summary>
+            The operation was triggered by a Pull action and reflects a newer version of the record from the server.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource.ServerPush">
+            <summary>
+            The operation was triggered by a Push action.
+            </summary>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions">
+            <summary>
+            A flags enumeration for the available store tracking options available.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.None">
+            <summary>
+            No tracking options.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyLocalOperations">
+            <summary>
+            Generates notifications for local record operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyLocalConflictResolutionOperations">
+            <summary>
+            Generates notifications for local conflict resolution record operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerPullOperations">
+            <summary>
+            Generates notifications for operations triggered by a server pull.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerPushOperations">
+            <summary>
+            Generates notifiactions for operations triggered by a server push.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerOperations">
+            <summary>
+            Generates notifications for operations triggerd by a server pull or a server push.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyLocalAndServerOperations">
+            <summary>
+            Generates notifications for local and server (pull or push) record operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerPullBatch">
+            <summary>
+            Generates a notification at the end of an operation batch triggered by a server pull.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerPushBatch">
+            <summary>
+            Generates a notification at the end of an operation batch triggered by a server push.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.NotifyServerBatch">
+            <summary>
+            Generates a notification at the end of an operation batch triggered by a server pull or a server push.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.DetectInsertsAndUpdates">
+            <summary>
+            Enable "upsert" analysis to detect if the record is being created or updated.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.DetectRecordChanges">
+            <summary>
+            On updates, enable change detection on records and only generates notifications if data changes are detected.
+            This automatically enables inserts and updates analysis.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.AllNotifications">
+            <summary>
+            Generates all record operations and batch notifications.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions.AllNotificationsAndChangeDetection">
+            <summary>
+            Generates all record operation notifications, batch notifications, insert and updates detection and record change detection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingContext.#ctor(Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource,System.String)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingContext"/> with the specified <paramref name="source"/> and
+            <paramref name="batchId"/>, enabling the NotifyRecordOperation and NotifyBatch <see cref="P:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingContext.TrackingOptions"/>.
+            </summary>
+            <param name="source">The store operation source used by this tracking context.</param>
+            <param name="batchId">The batch ID used by this tracking context.</param>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingContext.#ctor(Microsoft.WindowsAzure.MobileServices.Sync.StoreOperationSource,System.String,Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingOptions)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.WindowsAzure.MobileServices.Sync.StoreTrackingContext"/> with the specified <paramref name="source"/> and
+            <paramref name="batchId"/> and <paramref name="trackingOptions"/>.
+            </summary>
+            <param name="source">The store operation source used by this tracking context.</param>
+            <param name="batchId">The batch ID used by this tracking context.</param>
+            <param name="trackingOptions">The tracking options used by this tracking context.</param>
         </member>
         <member name="T:Microsoft.WindowsAzure.MobileServices.Threading.ActionBlock">
             <summary>

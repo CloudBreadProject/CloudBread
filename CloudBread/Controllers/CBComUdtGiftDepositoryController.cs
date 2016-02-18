@@ -1,10 +1,21 @@
-﻿using System;
+﻿/**
+* @file CBComSelGiftDepositoryController.cs
+* @brief Common API for a gift data update on GiftDepository table. \n
+* Set parameter null or remove json property for no change on column data.
+* @author Dae Woo Kim
+* @param GiftDepository object
+* @return string "1" - affected rows
+* @see uspComUdtGiftDepository SP, BehaviorID : B62
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,13 +29,13 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBComUdtGiftDepositoryController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
-            public string MemberID;     // 로그 식별
+            public string MemberID; 
             public string GiftDepositoryID { get; set; }
             public string ItemListID { get; set; }
             public string ItemCount { get; set; }
@@ -51,7 +62,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBComUdtGiftDepositoryController";
@@ -90,7 +101,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        // 완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBComUdtGiftDepositoryController";
@@ -105,7 +116,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                // 에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComUdtGiftDepositoryController";

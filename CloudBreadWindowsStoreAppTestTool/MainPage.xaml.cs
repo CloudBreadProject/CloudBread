@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 //추가
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
@@ -37,7 +38,10 @@ namespace CloudBreadWindowsStoreAppTestTool
         public MainPage()
         {
             this.InitializeComponent();
-            this.serverURL.Text = "https://cloudbread0330.azure-mobile.net/";
+            //this.serverURL.Text = "https://cloudbread0330.azure-mobile.net/";
+            this.serverURL.Text = "http://dw-cloudbread2.azurewebsites.net/";
+            //this.serverURL.Text = "http://localhost:1477";
+
             this.serverKey.Password = "";       // 서버키
             
         }
@@ -59,7 +63,7 @@ namespace CloudBreadWindowsStoreAppTestTool
                 SelLoginIDDupeCheck selLoginIDDupeCheck = new SelLoginIDDupeCheck();
                 //selLoginIDDupeCheck.memberID = crypto
                 
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{""memberID"": ""aaa"" }";
 
                 //토큰 = body 텍스트 - 으로 바로 로드
@@ -67,6 +71,7 @@ namespace CloudBreadWindowsStoreAppTestTool
                 JToken token = JObject.Parse(j);
 
                 var orderResult = await client.InvokeApiAsync("CBSelLoginIDDupeCheck", token);
+                //var orderResult = await client.InvokeApiAsync("values");
                 outputTextbox.Text = orderResult.ToString();
 
             }
@@ -88,7 +93,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                       ""memberID_Members"": ""회원ID-GUID"",
                       ""memberPWD_Members"": ""GUID"",
@@ -173,7 +178,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                               ""memberID"": ""aaa"",
                                 ""page"": 1,
@@ -200,7 +205,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
 
                 string j = @"{
                           ""memberID"": ""aaa""
@@ -226,7 +231,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                           ""memberID"": ""aaa""
                         }";
@@ -251,7 +256,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                   ""memberID"": ""aaa""
                 }";
@@ -276,7 +281,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                       ""insertORUpdateORDelete"": ""INSERT"",
                       ""memberItemID_MemberItem"": ""GUID"",
@@ -342,7 +347,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                           ""insertORUpdateORDelete"": ""UPDATE"",
                           ""memberItemID_MemberItem"": ""회원의아이템ID1-원래GUID값"",
@@ -407,7 +412,7 @@ namespace CloudBreadWindowsStoreAppTestTool
 
             try
             {
-                var client = new MobileServiceClient(serverURL.Text, serverKey.Password);
+                var client = new MobileServiceClient(serverURL.Text);
                 string j = @"{
                       ""insertORUpdateORDelete"": ""DELETE"",
                       ""memberItemID_MemberItem"": ""회원의아이템ID1-원래고유값"",

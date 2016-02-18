@@ -1,10 +1,23 @@
-﻿using System;
+﻿/**
+* @file CBSelItem1Controller.cs
+* @brief Get 1 item data API from ItemLists table  \n
+* same with "CBSelItem1Controller"
+* @author Dae Woo Kim
+* @param string MemberID - log purpose
+* @param string ItemListID
+* @return itemlists table object
+* @see uspSelItem1 SP, BehaviorID : B26
+* @todo duplicate with "CBComSelItemList1Controller"
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,11 +31,11 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBSelItem1Controller : ApiController
     {
-        public ApiServices Services { get; set; }
         public class InputParams {
-            public string MemberID;     // 로그 식별
+            public string MemberID;     // log purpose
             public string ItemListID;
         }
 
@@ -57,8 +70,6 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 아이템 리스트 1개를 가져오는 프로시져. 
-
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("CloudBread.uspSelItem1", connection))
@@ -104,7 +115,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelItem1Controller";

@@ -1,10 +1,20 @@
-﻿using System;
+﻿/**
+* @file CBComSelMemberController.cs
+* @brief Get 1 member info from Members table \n
+* @author Dae Woo Kim
+* @param string memberID
+* @return Members table object
+* @see uspComSelMember SP, BehaviorID : B51
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,10 +28,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBComSelMemberController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams { 
             public string memberID;
         }
@@ -145,7 +155,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBComSelMemberController";

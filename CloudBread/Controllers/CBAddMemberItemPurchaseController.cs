@@ -1,11 +1,25 @@
-﻿using System;
+﻿/**
+* @file CBAddMemberItemPurchaseController.cs
+* @brief Item purchase API include purchase info. Update MemberGameInfoes, MemberItems and MemberItemPurchases \n
+* Regarding to MemberItems, select insert or update data \n
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if itemid exists in MemberItem inventory, then "UPDATE". if not, "INSERT".
+* @param MemberItems table object
+* @param MemberItemPurchases table object
+* @param MemberGameInfoes table object
+* @return string "3" - affected rows.
+* @see uspAddMemberItemPurchase SP, BehaviorID : B27
+* @todo change SP to upsert auto method
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
-
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Logger.Logging;
@@ -16,12 +30,13 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 
+
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBAddMemberItemPurchaseController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
             public string InsertORUpdate { get; set; }
@@ -101,18 +116,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            //회원 아이템 구매 모듈
-            //INSERT UPDATE 하는 이유는 memberitems에 upsert - MERGE 하는 이슈임.
-            //memberitems item의 수량 정보 등이 모두 암호화 되어 있어서, upsert 불가하고 클라이언트에서 분기해 올라와야 함.
-            ////////////////////////////////////////////////////////////////////////
             
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.MemberID_MemberItems;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBAddMemberItemPurchaseController";
@@ -209,7 +219,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.MemberID_MemberItems;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBAddMemberItemPurchaseController";
@@ -224,7 +234,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberItems;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBAddMemberItemPurchaseController";

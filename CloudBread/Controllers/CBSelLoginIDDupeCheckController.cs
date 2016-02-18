@@ -1,10 +1,22 @@
-﻿using System;
+﻿/**
+* @file CBSelLoginIDDupeCheckController.cs
+* @brief Login id dupe check controller. Mobile client POST memberID as json format. \n
+* Check memberid duplication in members table. Consider using 3rd party authentication.
+* @author Dae Woo Kim
+* @param string memberID 
+* @return string value "0" or "1" : false or true
+* @see uspSelLoginIDDupeCheck SP, BehaviorID : B01
+* @todo return result is json format object / check change or not
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,16 +30,21 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBSelLoginIDDupeCheckController : ApiController
     {
-        public ApiServices Services { get; set; }
 
         public class InputParams { public string memberID;}
 
-        public string Post(InputParams p)
+        //return json
+        public class Result { public string result; }
+
+        public Result Post(InputParams p)      // //return json
         {
-            string result = "";
-            
+            //return json
+            //string result = "";
+            Result r = new Result();
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -41,23 +58,26 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.memberID;
                         connection.Open();
                         using(SqlDataReader dreader = command.ExecuteReader())
-                        { 
-                            while(dreader.Read())
+                        {
+                            while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                // change
+                                r.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
                         connection.Close();
 
-                        return result;
+                        // return json
+                        //return result;
+                        return r;
                     }
 	            }
             }
         
 	        catch (Exception ex)
 	        {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelLoginIDDupeCheckController";

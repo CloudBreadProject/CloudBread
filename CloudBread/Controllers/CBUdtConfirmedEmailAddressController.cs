@@ -1,9 +1,25 @@
-﻿using System;
+﻿/**
+* @file CBUdtConfirmedEmailAddressController.cs
+* @brief !not implemented \n
+* Confirm email address of member. \n
+* Need todo : this controller made for email address validate and confirmation. \n
+* This controller could be accessed with mobile browser(without appkey authentication). \n
+* It has to be seperated in mobile app appkey authentication and provide hashed string for member email address param. \n 
+* @author Dae Woo Kim
+* @param todo : hashed member unique value from member's email click
+* @return string "1" - rows affected
+* @see uspUdtConfirmedEmailAddress SP, BehaviorID : B05
+* @todo implement code logic
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Azure.Mobile.Server; 
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -17,18 +33,19 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    // detour mobile app appkey authentication
+    [MobileAppController]
     public class CBUdtConfirmedEmailAddressController : ApiController
     {
         string result;
 
         public class InputParams { 
-            public string memberID; 
+            public string memberID;         // todo list
             public string memberPWD;
         }
 
         public string Post(InputParams p)
         {
-            // 메일 주소로 메일 전송 - 회원 가입 확인(메일 주소 체크) 등
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -61,7 +78,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtConfirmedEmailAddressController";

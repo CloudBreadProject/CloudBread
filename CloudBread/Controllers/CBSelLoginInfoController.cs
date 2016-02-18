@@ -1,10 +1,21 @@
-﻿using System;
+﻿/**
+* @file CBSelLoginInfoController.cs
+* @brief Consider using 3rd party authentication. Execute login and select member data. \n
+* Update last login info with DeviceID and IPAddress.
+* @author Dae Woo Kim
+* @param string MemberID, MemberPWD, LastDeviceID, LastIPaddress, LastMACAddress
+* @return member data
+* @see uspSelLoginInfo SP, BehaviorID : B06
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,13 +29,13 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBSelLoginInfoController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams { 
             public string memberID; 
-            public string memberPWD;        //SHA512
+            public string memberPWD;        // If using own autehtication, SHA512 from client device.
             public string LastDeviceID = ""; 
             public string LastIPaddress = ""; 
             public string LastMACAddress="";
@@ -83,7 +94,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                // 진입로그
+                // start task log
                 //logMessage.memberID = p.memberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBSelLoginInfoController";
@@ -156,7 +167,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // end task log
                         logMessage.memberID = p.memberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBSelLoginInfoController";
@@ -170,7 +181,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.memberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSelLoginInfoController";

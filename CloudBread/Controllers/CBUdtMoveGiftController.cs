@@ -1,10 +1,23 @@
-﻿using System;
+﻿/**
+* @file CBUdtMoveGiftController.cs
+* @brief Update MemberItems and GiftDepositories table by using gift.  \n
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
+* @param string GiftDepositoryID 
+* @param memberitems table object
+* @return string "2" - affected rows.
+* @see uspUdtMoveGift SP, BehaviorID : B22
+* @todo change SP to upsert auto method
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,10 +31,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBUdtMoveGiftController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
             public string InsertORUpdate { get; set; }
@@ -41,23 +54,18 @@ namespace CloudBread.Controllers
             public string sCol8 { get; set; }
             public string sCol9 { get; set; }
             public string sCol10 { get; set; }	
-
         }
 
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            //공통 회원 정보 수정 모듈 시작 update시 파라미터를 NULL로 주면 해당 컬럼은 변화되지 않음.
-            // Json에서는 null 으로 값을 지정하거나 아예 값을 제공하지 않아도 가능
-            ////////////////////////////////////////////////////////////////////////
-            
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtMoveGiftController";
@@ -98,7 +106,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtMoveGiftController";
@@ -113,7 +121,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtMoveGiftController";

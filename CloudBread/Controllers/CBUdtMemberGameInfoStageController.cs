@@ -1,10 +1,22 @@
-﻿using System;
+﻿/**
+* @file CBUdtMemberGameInfoStageController.cs
+* @brief update membergameinfo and membergameinfostage \n
+* during the game, used for update both membergameinfo and membergameinfostage table \n
+* @author Dae Woo Kim
+* @param string InsertORUpdate  - if game stage exists, then "UPDATE". if not, "INSERT".
+* @param MemberGameInfoes and MemberGameInfoStages object
+* @return string value "2" affected rows count
+* @see uspUdtMemberGameInfoStage SP, BehaviorID : B44, B45
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -19,10 +31,10 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBUdtMemberGameInfoStageController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
             public string InsertORUpdate { get; set; }
@@ -86,15 +98,13 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            // 게임 스테이지 진행 중 스테이지 정보 업데이트(삽입/수정) + 게임정보 인포 업데이트
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID_MemberGameInfoes;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtMemberGameInfoStageController";
@@ -172,7 +182,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID_MemberGameInfoes;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtMemberGameInfoStageController";
@@ -187,7 +197,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberGameInfoes;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtMemberGameInfoStageController";

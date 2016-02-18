@@ -1,10 +1,25 @@
-﻿using System;
+﻿/**
+* @file CDUdtReturnItemController.cs
+* @brief Return purchased item and roll back item and status. Call this API in unique situation. \n
+* Update or delete MemberItems, update MemberItemPurchases and update MemberGameInfoes. \n
+* @author Dae Woo Kim
+* @param string DeleteORUpdate  - if itemid exists in memberitem inventory and need to delete, set "DELETE". this operation will update delete flag of table  or set "UPDATE"
+* @param MemberItems table object
+* @param MemberItemPurchases table object
+* @param MemberGameInfoes table object
+* @return string "3" - affected rows.
+* @see uspUdtReturnItem SP, BehaviorID : B30
+* @todo change SP to updelete auto method
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -18,13 +33,13 @@ using Newtonsoft.Json;
 
 namespace CloudBread.Controllers
 {
+    [MobileAppController]
     public class CBUdtReturnItemController : ApiController
     {
-        public ApiServices Services { get; set; }
-
+        
         public class InputParams
         {
-            public string InsertORUpdate { get; set; }
+            public string DeleteORUpdate { get; set; }
             public string MemberItemID_MemberItems { get; set; }
             public string MemberID_MemberItems { get; set; }
             public string ItemListID_MemberItems { get; set; }
@@ -96,21 +111,18 @@ namespace CloudBread.Controllers
             public string sCol9_MemberGameInfoes { get; set; }
             public string sCol10_MemberGameInfoes { get; set; }
 
-
         }
 
         public string Post(InputParams p)
         {
             string result = "";
-            ////////////////////////////////////////////////////////////////////////
-            //자동 아이템 철회 프로시저 시작
-            ////////////////////////////////////////////////////////////////////////
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
             try
             {
-                // 진입로그
+                // task start log
                 //logMessage.memberID = p.MemberID_MemberItems;
                 //logMessage.Level = "INFO";
                 //logMessage.Logger = "CBUdtReturnItemController";
@@ -122,7 +134,7 @@ namespace CloudBread.Controllers
                     using (SqlCommand command = new SqlCommand("CloudBread.uspUdtReturnItem", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.InsertORUpdate.ToUpper();
+                        command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.DeleteORUpdate.ToUpper();
                         command.Parameters.Add("@MemberItemID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberItemID_MemberItems;
                         command.Parameters.Add("@MemberID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberID_MemberItems;
                         command.Parameters.Add("@ItemListID_MemberItems", SqlDbType.NVarChar, -1).Value = p.ItemListID_MemberItems;
@@ -206,7 +218,7 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
 
-                        //완료 로그
+                        // task end log
                         logMessage.memberID = p.MemberID_MemberItems;
                         logMessage.Level = "INFO";
                         logMessage.Logger = "CBUdtReturnItemController";
@@ -221,7 +233,7 @@ namespace CloudBread.Controllers
 
             catch (Exception ex)
             {
-                //에러로그
+                // error log
                 logMessage.memberID = p.MemberID_MemberItems;
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBUdtReturnItemController";
