@@ -30,7 +30,7 @@ using Newtonsoft.Json;
 namespace CloudBread.Controllers
 {
     [MobileAppController]
-    public class ComSelMemberGameInfoStagesController : ApiController
+    public class CBComSelMemberGameInfoStagesController : ApiController
     {
 
         public class InputParams {

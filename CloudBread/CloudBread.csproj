@@ -231,9 +231,9 @@
     <Compile Include="Controllers\CBUdtSellItemController.cs" />
     <Compile Include="Controllers\CBUdtSendGiftController.cs" />
     <Compile Include="Controllers\CDUdtReturnItemController.cs" />
-    <Compile Include="Controllers\ComSelMemberGameInfoStagesController.cs" />
+    <Compile Include="Controllers\CBComSelMemberGameInfoStagesController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VerController.cs" />
     <Compile Include="DataObjects\globalVal.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Global.asax.cs">
@@ -266,6 +266,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="mainpage.dox" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
