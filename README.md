@@ -51,3 +51,5 @@
 * BaHwan Han  
 * JungHyun Kim
 * YoonSeok Hong
+* 
+Disclaimer: This is a personal team project and is not associated with Microsoft nor Microsoft Azure.
