@@ -20,12 +20,13 @@ namespace CloudBreadAuth
     */
     public class CBAuth
     {
+
         /*
         * @brief Before setup the authentication provider in Azure Portal MobileApp, return passed memberID for dev and test purpose. \n
         * @param pMemberID
         * @param pClaim object
         */
-        public static string getMemberID(string pMemberID, ClaimsPrincipal pClaim )
+        public static string getMemberID(string pMemberID, ClaimsPrincipal pClaim)
         {
             string sid;
 
@@ -48,8 +49,6 @@ namespace CloudBreadAuth
 
                 throw;
             }
-            
-            
 
             return sid;
 

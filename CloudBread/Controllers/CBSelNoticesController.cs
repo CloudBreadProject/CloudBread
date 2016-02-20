@@ -27,6 +27,8 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using CloudBreadAuth;
+using System.Security.Claims;
 
 namespace CloudBread.Controllers
 {
@@ -65,6 +67,14 @@ namespace CloudBread.Controllers
 
         public List<Model> Post(InputParams p)   
         {
+            //string sid = "";
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            //claimsPrincipal.GetType
+            //string sid = claimsPrincipal == null ? p.MemberID : CBAuth.getSID(claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID, claimsPrincipal);
+            p.MemberID = sid;
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -74,7 +84,7 @@ namespace CloudBread.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("CloudBread.uspSelNotices", connection))
+                    using (SqlCommand command = new SqlCommand("uspSelNotices", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         connection.Open();

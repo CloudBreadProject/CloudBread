@@ -17,7 +17,7 @@ namespace CloudBread.Controllers
     public class PingController : ApiController
     {
 
-        /// GET api/ping - return string
+        /// GET api/ping - return ping test string
         public string Get()
         {
             return "Hello";
@@ -27,7 +27,7 @@ namespace CloudBread.Controllers
         public string Post()
         {
             string sid;
-            // Get the SID of the current user.
+            // Get the sid or memberID of the current user.
             var claimsPrincipal = this.User as ClaimsPrincipal;
             sid = CBAuth.getMemberID("non-auth member", claimsPrincipal);
 
