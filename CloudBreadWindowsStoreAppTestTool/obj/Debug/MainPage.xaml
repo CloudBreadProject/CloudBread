@@ -8,24 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="inputTextbox" HorizontalAlignment="Left" Height="139" Margin="73,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1210"/>
-        <TextBox x:ConnectionId='1' x:Name="outputTextbox" HorizontalAlignment="Left" Height="121" Margin="73,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1210"                                  />
-        <TextBlock HorizontalAlignment="Left" Height="37" Margin="73,39,0,0" TextWrapping="Wrap" Text="서버주소" VerticalAlignment="Top" Width="117"/>
-        <TextBox x:Name ="serverURL" HorizontalAlignment="Left" Height="42" Margin="176,34,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="368"/>
-        <TextBlock HorizontalAlignment="Left" Height="42" Margin="652,34,0,0" TextWrapping="Wrap" Text="서버키" VerticalAlignment="Top" Width="91"/>
-        <CheckBox x:Name ="isCrypt1" Content="암호화" HorizontalAlignment="Left" Margin="1049,34,0,0" VerticalAlignment="Top" Width="117"/>
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="73,96,0,0" TextWrapping="Wrap" Text="Input" VerticalAlignment="Top" Width="177"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Margin="73,297,0,0" TextWrapping="Wrap" Text="Output" VerticalAlignment="Top" Width="139"/>
-        <Button x:ConnectionId='2' Content="CBSelLoginIDDupeCheck" HorizontalAlignment="Left" Height="49" Margin="70,493,0,0" VerticalAlignment="Top" Width="247"                     />
-        <PasswordBox x:Name ="serverKey" HorizontalAlignment="Left" Margin="716,39,0,0" VerticalAlignment="Top" Width="277"/>
-        <Button x:ConnectionId='3'  Content="CBInsRegMember" HorizontalAlignment="Left" Height="49" Margin="342,493,0,0" VerticalAlignment="Top" Width="247"                             />
-        <Button x:ConnectionId='4'  Content="CBSelMemberItems" HorizontalAlignment="Left" Height="49" Margin="612,493,0,0" VerticalAlignment="Top" Width="247"                               />
-        <Button x:ConnectionId='5'  Content="CBSelNotices" HorizontalAlignment="Left" Height="49" Margin="900,493,0,0" VerticalAlignment="Top" Width="247"                           />
-        <Button x:ConnectionId='6'  Content="CBSelGameEvents" HorizontalAlignment="Left" Height="49" Margin="70,565,0,0" VerticalAlignment="Top" Width="247"                              />
-        <Button x:ConnectionId='7'  Content="CBSelCoupons" HorizontalAlignment="Left" Height="49" Margin="342,565,0,0" VerticalAlignment="Top" Width="247"                           />
-        <Button x:ConnectionId='8'  Content="CBAddUseMemberItemINSERT" HorizontalAlignment="Left" Height="49" Margin="612,565,0,0" VerticalAlignment="Top" Width="247"                                       />
-        <Button x:ConnectionId='9'  Content="CBAddUseMemberItemUPDATE" HorizontalAlignment="Left" Height="49" Margin="900,565,0,0" VerticalAlignment="Top" Width="247"                                       />
-        <Button x:ConnectionId='10'  Content="CBAddUseMemberItemDELETE" HorizontalAlignment="Left" Height="49" Margin="70,633,0,0" VerticalAlignment="Top" Width="247"                                       />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="155,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26.667" Height="74">
+        	<Run Text="This tool is build for CloudBread dev and test authkey generate purpose."/>
+        	<LineBreak/>
+        	<Run Text="for "/>
+        	<Run Text="more information, visit CloudBread project website"/>
+        	<LineBreak/>
+        	<Run/>
+        </TextBlock>
+        <Button x:ConnectionId='1' x:Name="btnGen" Content="Generate auth key" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="492,179,0,0" FontFamily="Global User Interface" FontSize="18.667"                     />
+        <TextBox x:Name="txtAuthKey" HorizontalAlignment="Left" Height="279" Margin="289,303,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="389" FontFamily="Global User Interface"/>
+        <TextBlock x:Name="tbSID" HorizontalAlignment="Left" Height="32" Margin="166,239,0,0" TextWrapping="Wrap" Text="SID" VerticalAlignment="Top" Width="104" FontSize="18.667"/>
+        <TextBlock x:Name="tbAuthKey" HorizontalAlignment="Left" Height="32" Margin="166,303,0,0" TextWrapping="Wrap" Text="AuthKey" VerticalAlignment="Top" Width="104" FontSize="18.667"/>
+        <TextBox x:Name="txtSID"  HorizontalAlignment="Left" Height="32" Margin="289,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="389" FontFamily="Global User Interface"/>
     </Grid>
 </Page>
 

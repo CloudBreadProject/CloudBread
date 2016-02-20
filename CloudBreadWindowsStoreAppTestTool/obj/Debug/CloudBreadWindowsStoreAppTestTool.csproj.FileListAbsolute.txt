@@ -142,11 +142,4 @@ C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj
 C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\ProjectArchitectures.txt
 C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\layout.resfiles
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\layout.resfiles.intermediate
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\Resources.resfiles
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\Resources.resfiles.intermediate
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\pri.resfiles
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\pri.resfiles.intermediate
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\priconfig.xml
-C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\Microsoft.WindowsAzure.Mobile\priconfig.xml.intermediate
+C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\obj\Debug\CloudBreadWindowsStoreAppTestTool.csprojResolveAssemblyReference.cache

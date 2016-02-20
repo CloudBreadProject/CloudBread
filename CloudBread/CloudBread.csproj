@@ -194,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="CBAuth.cs" />
     <Compile Include="CBLoggers.cs" />
     <Compile Include="Controllers\CBAddMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBAddUseMemberItemController.cs" />
@@ -233,7 +234,7 @@
     <Compile Include="Controllers\CDUdtReturnItemController.cs" />
     <Compile Include="Controllers\CBComSelMemberGameInfoStagesController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
-    <Compile Include="Controllers\VerController.cs" />
+    <Compile Include="Controllers\PingController.cs" />
     <Compile Include="DataObjects\globalVal.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Global.asax.cs">
