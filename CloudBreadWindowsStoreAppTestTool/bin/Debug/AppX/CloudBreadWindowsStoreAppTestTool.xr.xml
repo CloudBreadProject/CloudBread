@@ -10,47 +10,40 @@
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Text" />
-      <RootEvent Name="TextChanged" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
       <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Inlines" />
       <RootProperty Name="Text" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="FontSize" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="FontFamily" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
     <RootType FullName="CloudBreadWindowsStoreAppTestTool.MainPage" />
   </Roots.RootTypes>
 </Roots>

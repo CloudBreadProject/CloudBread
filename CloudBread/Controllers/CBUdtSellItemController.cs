@@ -27,6 +27,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using CloudBreadAuth;
 
 namespace CloudBread.Controllers
 {
@@ -97,7 +98,7 @@ namespace CloudBread.Controllers
 
         //        using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
         //        {
-        //            using (SqlCommand command = new SqlCommand("CloudBread.uspUdtSellItem", connection))
+        //            using (SqlCommand command = new SqlCommand("uspUdtSellItem", connection))
         //            {
         //                command.CommandType = CommandType.StoredProcedure;
         //                command.Parameters.Add("@DeleteORUpdate", SqlDbType.NVarChar, -1).Value = p.DeleteORUpdate.ToUpper();

@@ -28,7 +28,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.exe">
       <PackagePath>CloudBreadWindowsStoreAppTestTool.exe</PackagePath>
-      <Modified>2016-02-06T10:56:23.703</Modified>
+      <Modified>2016-02-20T11:47:44.144</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.dll</PackagePath>
@@ -68,7 +68,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\CloudBreadWindowsStoreAppTestTool.xr.xml">
       <PackagePath>CloudBreadWindowsStoreAppTestTool.xr.xml</PackagePath>
-      <Modified>2016-02-06T10:51:38.867</Modified>
+      <Modified>2016-02-20T09:11:15.002</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -76,11 +76,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2016-02-06T10:56:23.640</Modified>
+      <Modified>2016-02-20T09:11:15.043</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dwkim\Documents\GitHub\CloudBread\CloudBreadWindowsStoreAppTestTool\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-02-06T10:56:23.980</Modified>
+      <Modified>2016-02-20T10:56:08.607</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

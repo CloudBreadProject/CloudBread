@@ -29,7 +29,8 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
-
+using CloudBreadAuth;
+using System.Security.Claims;
 
 namespace CloudBread.Controllers
 {
@@ -116,7 +117,14 @@ namespace CloudBread.Controllers
         public string Post(InputParams p)
         {
             string result = "";
-            
+
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            string sid = CBAuth.getMemberID(p.MemberID_MemberGameInfoes, claimsPrincipal);
+            p.MemberID_MemberGameInfoes = sid;
+            p.MemberID_MemberItemPurchases = sid;
+            p.MemberID_MemberItems = sid;
+
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
@@ -134,7 +142,7 @@ namespace CloudBread.Controllers
 
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("CloudBread.uspAddMemberItemPurchase", connection))
+                    using (SqlCommand command = new SqlCommand("uspAddMemberItemPurchase", connection))
                     {
                         command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.InsertORUpdate.ToUpper();       // INSERT UPDATE 분기
                         command.Parameters.Add("@MemberItemID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberItemID_MemberItems;
