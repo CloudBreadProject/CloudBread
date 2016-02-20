@@ -1,40 +1,38 @@
-﻿using System.Web.Http;
+﻿/**
+* @file PingController.cs
+* @brief CloudBread app ping test API and authentication check \n
+* @author Dae Woo Kim
+*/
+
+using System.Web.Http;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
 using System.Security.Claims;
+using CloudBreadAuth;
 
 namespace CloudBread.Controllers
 {
-    // Use the MobileAppController attribute for each ApiController you want to use  
-    // from your mobile clients 
+
     [MobileAppController]
     public class PingController : ApiController
     {
-        // GET api/values
+
+        /// GET api/ping - return string
         public string Get()
         {
             return "Hello";
         }
 
-        // POST api/values
+        // POST api/ping - return current authentication member SID
         public string Post()
         {
             string sid;
             // Get the SID of the current user.
             var claimsPrincipal = this.User as ClaimsPrincipal;
-            if(claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier) != null)
-            {
-                sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
-            }
-            else
-            {
-                sid = "no-auth" ; 
-            }
+            sid = CBAuth.getMemberID("non-auth member", claimsPrincipal);
 
-            return sid ;
+            return "Hello " + sid ;
         }
-
-        // POST api/values
 
     }
 }

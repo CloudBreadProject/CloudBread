@@ -12,7 +12,7 @@ using System.Web;
 using Microsoft.Azure.Mobile.Server.Config;
 using System.Security.Claims;
 
-namespace CloudBread
+namespace CloudBreadAuth
 {
     /**
     * @class CBAuth 
@@ -20,7 +20,6 @@ namespace CloudBread
     */
     public class CBAuth
     {
-
         /*
         * @brief Before setup the authentication provider in Azure Portal MobileApp, return passed memberID for dev and test purpose. \n
         * @param pMemberID
@@ -29,16 +28,28 @@ namespace CloudBread
         public static string getMemberID(string pMemberID, ClaimsPrincipal pClaim )
         {
             string sid;
-            /// Get the SID of the current user.
-            if (pClaim.FindFirst(ClaimTypes.NameIdentifier) == null)
+
+            try
             {
-                sid = pMemberID;
+                if (pClaim.FindFirst(ClaimTypes.NameIdentifier) == null)
+                {
+                    /// local or non-authentication provider
+                    sid = pMemberID;
+                }
+                else
+                {
+                    /// authentication provider set up
+                    /// return SID from claim object
+                    sid = pClaim.FindFirst(ClaimTypes.NameIdentifier).Value.Replace("sid:", "");
+                }
             }
-            else
+            catch (Exception)
             {
-                /// @brief return SID from claim object
-                sid = pClaim.FindFirst(ClaimTypes.NameIdentifier).Value.Replace("sid:", "");
+
+                throw;
             }
+            
+            
 
             return sid;
 
