@@ -28,6 +28,8 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using CloudBreadAuth;
+using Microsoft.Practices.TransientFaultHandling;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
 
 namespace CloudBread.Controllers
 {
