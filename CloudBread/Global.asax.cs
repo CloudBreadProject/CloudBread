@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+* @file Global.asax.cs
+* @brief CloudBread startup task processor. \n
+* @author Dae Woo Kim
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,9 +12,11 @@ using System.Web.Security;
 using System.Web.SessionState;
 
 using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage.Queue;
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
+
+
 using CloudBread.globals;
 
 namespace CloudBread
@@ -20,18 +28,21 @@ namespace CloudBread
         {
             try
             {
-                //최초 어플리케이션이 수행될때 Azure Table Storage에 CloudBreadLog 테이블, 
-                // Azure Queue Service에서 messagestolog(소문자필수) Queue가 생성되어 있지 않으면 생성
+                /// On start up, CreateIfNotExists CloudBreadLog table on Azure Table Storage
+                /// On start up, CreateIfNotExists messagestolog table on Azure Queue Service
                 if (globalVal.StorageConnectionString != "")
                 {
+                    /// Azure Storage connection retry policy
+                    var retryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
                     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
                     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-                    var tableClient1 = storageAccount.CreateCloudTableClient();
-                    var cloudTable = tableClient1.GetTableReference("CloudBreadLog");
+                    tableClient.DefaultRequestOptions.RetryPolicy = retryPolicy;
+                    var cloudTable = tableClient.GetTableReference("CloudBreadLog");
                     cloudTable.CreateIfNotExists();
 
                     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-                    CloudQueue queue = queueClient.GetQueueReference("messagestolog");      // 큐 이름은 반드시 소문자
+                    queueClient.DefaultRequestOptions.RetryPolicy = retryPolicy;
+                    CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lowercase
                     queue.CreateIfNotExists();
 
                 }

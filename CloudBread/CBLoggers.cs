@@ -13,10 +13,10 @@ using System.Data;
 using System.Data.SqlClient;
 
 using Microsoft.WindowsAzure.Storage;
-//using Microsoft.WindowsAzure.StorageClient
-using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage.Queue;
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
+
 using System.Web.Configuration;
 using Newtonsoft.Json;
 using CloudBread.globals;
@@ -143,9 +143,11 @@ namespace Logger.Logging
                             case "ATS":
                                 /// Save log on Azure Table Storage
                                 {
-                                    CloudStorageAccount storageAccountQ = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
-                                    CloudTableClient tableClient = storageAccountQ.CreateCloudTableClient();
-                                    var tableClient1 = storageAccountQ.CreateCloudTableClient();
+                                    /// Azure Table Storage connection retry policy
+                                    var tableStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
+                                    CloudStorageAccount storageAccountT = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
+                                    CloudTableClient tableClient = storageAccountT.CreateCloudTableClient();
+                                    tableClient.DefaultRequestOptions.RetryPolicy = tableStorageRetryPolicy;
                                     CloudTable table = tableClient.GetTableReference("CloudBreadLog");
                                     CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       //memberid를 파티션키로 쓴다.
                                     Message.jobID = message.jobID;
@@ -163,9 +165,12 @@ namespace Logger.Logging
                             case "AQS":
                                 /// Save log on Azure Queue Storage
                                 {
+                                    /// Azure Queue Storage connection retry policy
+                                    var queueStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
                                     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
                                     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-                                    CloudQueue queue = queueClient.GetQueueReference("messagestolog");      // 반드시 소문자
+                                    queueClient.DefaultRequestOptions.RetryPolicy = queueStorageRetryPolicy;
+                                    CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lower case
                                     CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
                                     Message.jobID = message.jobID;
                                     Message.Date = DateTimeOffset.UtcNow.ToString();
@@ -179,9 +184,13 @@ namespace Logger.Logging
                                     break;
                                 }
 
-                            case "DocDB":
-                                /// todolist - save log on Azure DocDB
+                            case "redis":
+                                /// todolist - save log on Azure Redis Cache
                                 break;
+
+                            //case "DocDB":
+                            //    /// todolist - save log on Azure DocDB
+                            //    break;
 
                             default:
                                 /// case do nothing
