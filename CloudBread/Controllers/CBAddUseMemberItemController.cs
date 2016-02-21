@@ -31,6 +31,8 @@ using System.Data.SqlClient;
 using Newtonsoft.Json;
 using CloudBreadAuth;
 using System.Security.Claims;
+using Microsoft.Practices.TransientFaultHandling;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
 
 namespace CloudBread.Controllers
 {
@@ -105,6 +107,8 @@ namespace CloudBread.Controllers
                 //logMessage.Message = jsonParam;
                 //Logging.RunLog(logMessage);
 
+                /// Database connection retry policy
+                RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
                 using (SqlConnection connection = new SqlConnection(globalVal.DBConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("uspAddUseMemberItem", connection))
@@ -151,8 +155,8 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@sCol9_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol9_MemberGameInfoes;
                         command.Parameters.Add("@sCol10_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol10_MemberGameInfoes;
 
-                        connection.Open();
-                        using (SqlDataReader dreader = command.ExecuteReader())
+                        connection.OpenWithRetry(retryPolicy);
+                        using (SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
                         {
                             while (dreader.Read())
                             {

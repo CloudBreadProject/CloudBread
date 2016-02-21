@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+* @file CBLogger.cs
+* @brief Processing CloudBread log related task class. \n
+* @author Dae Woo Kim
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,16 +20,22 @@ using Microsoft.WindowsAzure.Storage.Queue;
 using System.Web.Configuration;
 using Newtonsoft.Json;
 using CloudBread.globals;
+using Microsoft.Practices.TransientFaultHandling;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
 
 namespace Logger.Logging
 {
 
     public class Logging {
 
+        /**
+        * @class CBLoggers 
+        * @brief Processing CloudBread log related task class. \n
+        */
         public class CBLoggers
         {
             public string memberID { get; set; }
-            public string jobID { get; set; }       // Scheduled job 에서 사용
+            public string jobID { get; set; }       /// Used in Scheduled job 
             public string Date { get; set; }
             public string Thread { get; set; }
             public string Level { get; set; }
@@ -32,6 +44,10 @@ namespace Logger.Logging
             public string Exception { get; set; }
         }
 
+        /**
+        * @class CBATSMessageEntity 
+        * @brief Entity class for log structure - including ATS \n
+        */
         public class CBATSMessageEntity : TableEntity
         {
             public CBATSMessageEntity(string pkey, string rkey)
@@ -50,16 +66,19 @@ namespace Logger.Logging
 
         }
 
+        /**
+        * @brief Save log task processor. \n
+        */
         public static bool RunLog(CBLoggers message)
         {
             if (globalVal.CloudBreadLoggerSetting != "")
             {
                 if (string.IsNullOrEmpty(message.memberID))
                 {
-                    message.memberID = "";
+                    message.memberID = "";      /// in case of non-member triggered job
                 }
 
-                //ERROR는 바로 DB - CloudBreadErrorLog 로 저장
+                /// critical error case, save in database CloudBreadErrorLog
                 if (message.Level.ToUpper() == "ERROR")
                 {
                     try
@@ -74,30 +93,32 @@ namespace Logger.Logging
                                message.Exception
                                );
 
+                        /// Database connection retry policy
+                        RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
                         SqlConnection connection = new SqlConnection(globalVal.DBConnectionString);
                         {
-                            connection.Open();
+                            connection.OpenWithRetry(retryPolicy);
                             SqlCommand command = new SqlCommand(strQuery, connection);
-                            int rowcount = command.ExecuteNonQuery();
+                            int rowcount = command.ExecuteNonQueryWithRetry(retryPolicy);
                             connection.Close();
                         }
                     }
                     catch (Exception)
                     {
-                        // DB 로깅이 실패했을 경우
+                        /// Catch fail to log on database. Most case database connection or login fail issue.
                         throw;
                     }
 
                 }
                 else
                 {
-                    // 조건에 따라 사용자 로그 저장
+                    /// Regarding to web.config logger settting, save logs on specific storage
                     try
                     {
                         switch (globalVal.CloudBreadLoggerSetting)
                         {
                             case "SQL":
-                                //DB로 저장
+                                /// Save log on SQL
                                 string strQuery = string.Format("insert into dbo.CloudBreadLog(memberid, jobID, [Thread], [Level], [Logger], [Message], [Exception]) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
                                message.memberID,
                                message.jobID,
@@ -107,18 +128,20 @@ namespace Logger.Logging
                                message.Message,
                                message.Exception
                                );
+
+                                /// Database connection retry policy
+                                RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
                                 SqlConnection connection = new SqlConnection(globalVal.DBConnectionString);
                                 {
-                                    connection.Open();
+                                    connection.OpenWithRetry(retryPolicy);
                                     SqlCommand command = new SqlCommand(strQuery, connection);
-                                    int rowcount = command.ExecuteNonQuery();
+                                    int rowcount = command.ExecuteNonQueryWithRetry(retryPolicy);
                                     connection.Close();
-                                    //Console.WriteLine(rowcount);
                                     break;
                                 }
 
                             case "ATS":
-                                //ATS로 독립 저장
+                                /// Save log on Azure Table Storage
                                 {
                                     CloudStorageAccount storageAccountQ = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
                                     CloudTableClient tableClient = storageAccountQ.CreateCloudTableClient();
@@ -138,12 +161,11 @@ namespace Logger.Logging
                                 }
 
                             case "AQS":
-                                //Azure Queue Storage로 저장
+                                /// Save log on Azure Queue Storage
                                 {
                                     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
                                     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
                                     CloudQueue queue = queueClient.GetQueueReference("messagestolog");      // 반드시 소문자
-
                                     CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
                                     Message.jobID = message.jobID;
                                     Message.Date = DateTimeOffset.UtcNow.ToString();
@@ -152,25 +174,23 @@ namespace Logger.Logging
                                     Message.Logger = message.Logger;
                                     Message.Message = message.Message;
                                     Message.Exception = message.Exception;
-
                                     CloudQueueMessage Qmessage = new CloudQueueMessage(JsonConvert.SerializeObject(Message));
                                     queue.AddMessage(Qmessage);
-
                                     break;
                                 }
 
                             case "DocDB":
-                                //DocDB로 저장
+                                /// todolist - save log on Azure DocDB
                                 break;
 
                             default:
-                                //저장안함
+                                /// case do nothing
                                 break;
                         }
                     }
                     catch (Exception)
                     {
-                        // 로그 저장 실패시 오류를 throw :: 재시도 하는 로직?
+                        /// catch save log error here.
                         throw;
                     }
                 }
