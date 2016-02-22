@@ -145,6 +145,7 @@ namespace CloudBread.Controllers
                 {
                     using (SqlCommand command = new SqlCommand("uspAddMemberItemPurchase", connection))
                     {
+                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.InsertORUpdate.ToUpper();       // INSERT UPDATE 분기
                         command.Parameters.Add("@MemberItemID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberItemID_MemberItems;
                         command.Parameters.Add("@MemberID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberID_MemberItems;

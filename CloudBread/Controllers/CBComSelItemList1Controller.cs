@@ -53,8 +53,8 @@ namespace CloudBread.Controllers
             public string ItemCategory1 { get; set; }
             public string ItemCategory2 { get; set; }
             public string ItemCategory3 { get; set; }
-            public string IteamCreateAdminID { get; set; }
-            public string IteamUpdateAdminID { get; set; }
+            //public string IteamCreateAdminID { get; set; }
+            //public string IteamUpdateAdminID { get; set; }
             public string sCol1 { get; set; }
             public string sCol2 { get; set; }
             public string sCol3 { get; set; }
@@ -105,18 +105,18 @@ namespace CloudBread.Controllers
                                     ItemCategory1 = dreader[5].ToString(),
                                     ItemCategory2 = dreader[6].ToString(),
                                     ItemCategory3 = dreader[7].ToString(),
-                                    IteamCreateAdminID = dreader[8].ToString(),
-                                    IteamUpdateAdminID = dreader[9].ToString(),
-                                    sCol1 = dreader[10].ToString(),
-                                    sCol2 = dreader[11].ToString(),
-                                    sCol3 = dreader[12].ToString(),
-                                    sCol4 = dreader[13].ToString(),
-                                    sCol5 = dreader[14].ToString(),
-                                    sCol6 = dreader[15].ToString(),
-                                    sCol7 = dreader[16].ToString(),
-                                    sCol8 = dreader[17].ToString(),
-                                    sCol9 = dreader[18].ToString(),
-                                    sCol10 = dreader[19].ToString(),
+                                    //IteamCreateAdminID = dreader[8].ToString(),
+                                    //IteamUpdateAdminID = dreader[9].ToString(),
+                                    sCol1 = dreader[8].ToString(),
+                                    sCol2 = dreader[9].ToString(),
+                                    sCol3 = dreader[10].ToString(),
+                                    sCol4 = dreader[11].ToString(),
+                                    sCol5 = dreader[12].ToString(),
+                                    sCol6 = dreader[13].ToString(),
+                                    sCol7 = dreader[14].ToString(),
+                                    sCol8 = dreader[15].ToString(),
+                                    sCol9 = dreader[16].ToString(),
+                                    sCol10 = dreader[17].ToString(),
                                 };
                                 result.Add(workItem);
                             }

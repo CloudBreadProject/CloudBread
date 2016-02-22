@@ -98,15 +98,16 @@ namespace CloudBread.Controllers
                                     ItemCount = dreader[2].ToString(),
                                     FromMemberID = dreader[3].ToString(),
                                     ToMemberID = dreader[4].ToString(),
-                                    sCol2 = dreader[5].ToString(),
-                                    sCol3 = dreader[6].ToString(),
-                                    sCol4 = dreader[7].ToString(),
-                                    sCol5 = dreader[8].ToString(),
-                                    sCol6 = dreader[9].ToString(),
-                                    sCol7 = dreader[10].ToString(),
-                                    sCol8 = dreader[11].ToString(),
-                                    sCol9 = dreader[12].ToString(),
-                                    sCol10 = dreader[13].ToString()
+                                    sCol1 = dreader[5].ToString(),
+                                    sCol2 = dreader[6].ToString(),
+                                    sCol3 = dreader[7].ToString(),
+                                    sCol4 = dreader[8].ToString(),
+                                    sCol5 = dreader[9].ToString(),
+                                    sCol6 = dreader[10].ToString(),
+                                    sCol7 = dreader[11].ToString(),
+                                    sCol8 = dreader[12].ToString(),
+                                    sCol9 = dreader[13].ToString(),
+                                    sCol10 = dreader[14].ToString()
 
                                 };
                                 result.Add(workItem);
