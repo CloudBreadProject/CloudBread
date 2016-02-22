@@ -57,18 +57,15 @@ namespace CloudBread.Controllers
             public string LastLoginDT { get; set; }
             public string LastLogoutDT { get; set; }
             public string LastMACAddress { get; set; }
-
             public string AccountBlockYN { get; set; }
             public string AccountBlockEndDT { get; set; }
             public string AnonymousYN { get; set; }
-
             public string _3rdAuthProvider { get; set; }
             public string _3rdAuthID { get; set; }
             public string _3rdAuthParam { get; set; }
             public string PushNotificationID { get; set; }
             public string PushNotificationProvider { get; set; }
             public string PushNotificationGroup { get; set; }
-
             public string sCol1 { get; set; }
             public string sCol2 { get; set; }
             public string sCol3 { get; set; }
@@ -79,7 +76,7 @@ namespace CloudBread.Controllers
             public string sCol8 { get; set; }
             public string sCol9 { get; set; }
             public string sCol10 { get; set; }
-
+            public string TimeZoneID { get; set; }
         }
 
         public string Post(InputParams p)
@@ -151,6 +148,7 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@sCol8", SqlDbType.NVarChar, -1).Value = p.sCol8;
                         command.Parameters.Add("@sCol9", SqlDbType.NVarChar, -1).Value = p.sCol9;
                         command.Parameters.Add("@sCol10 ", SqlDbType.NVarChar, -1).Value = p.sCol10;
+                        command.Parameters.Add("@TimeZoneID ", SqlDbType.NVarChar, -1).Value = p.TimeZoneID;
 
                         connection.OpenWithRetry(retryPolicy);
                         using (SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
