@@ -4,7 +4,7 @@
 * Private anonymous member registration controller. \n
 * Mobile client POST members and MemberGameInfoes object as json format. \n
 * Insert on members and MemberGameInfoes table. \n
-* Send memberID as guid(or 3rd party provider generated unique value) from client or unique value to fill out of info as blank values. \n
+* Send memberID as guid(or custom 3rd party provider generated unique value) from client or unique value to fill out of info as blank values. \n
 * This API is identically same with InsRegMember API.
 * @author Dae Woo Kim
 * @param members and MemberGameInfoes object
