@@ -263,7 +263,7 @@
     <Compile Include="Controllers\CBUdtMoveGiftController.cs" />
     <Compile Include="Controllers\CBUdtSellItemController.cs" />
     <Compile Include="Controllers\CBUdtSendGiftController.cs" />
-    <Compile Include="Controllers\CDUdtReturnItemController.cs" />
+    <Compile Include="Controllers\CBUdtReturnItemController.cs" />
     <Compile Include="Controllers\CBComSelMemberGameInfoStagesController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\PingController.cs" />
@@ -300,6 +300,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="mainpage.dox" />
+    <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
