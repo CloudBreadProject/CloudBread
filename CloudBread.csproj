@@ -299,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".travis.yml" />
+    <Content Include="appveyor.yml" />
     <None Include="mainpage.dox" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
