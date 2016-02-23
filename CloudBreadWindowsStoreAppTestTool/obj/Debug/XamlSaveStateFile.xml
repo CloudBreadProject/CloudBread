@@ -1,9 +1,0 @@
-<XamlCompilerSaveState>
-  <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\dwkim\documents\github\cloudbread\cloudbreadwindowsstoreapptesttool\obj\debug\intermediatexaml\cloudbreadwindowsstoreapptesttool.exe" HashGuid="b5a12047-7775-ff06-e60e-44ca8cdb7044" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\microsoft.azure.mobile.client.2.0.1\lib\netcore45\microsoft.windowsazure.mobile.dll" HashGuid="d7ccb84c-759c-fa2f-e873-8857cbb0622e" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\microsoft.azure.mobile.client.2.0.1\lib\netcore45\microsoft.windowsazure.mobile.ext.dll" HashGuid="8e717174-2dda-06be-e0d7-9ee261acde16" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\newtonsoft.json.6.0.4\lib\netcore45\newtonsoft.json.dll" HashGuid="21d6fdf9-5b56-582d-4524-cf342594819a" />
-    <ReferenceAssembly PathName="c:\users\dwkim\documents\github\cloudbread\packages\microsoft.net.http.2.2.29\lib\wpa81\system.net.http.primitives.dll" HashGuid="7b71418d-e056-7613-c839-85fb8f6472a6" />
-  </ReferenceAssemblyList>
-</XamlCompilerSaveState>
