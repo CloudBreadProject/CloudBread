@@ -39,8 +39,8 @@ namespace CloudBread.Controllers
         
         public class InputParams { 
             public string memberID; 
-            public string memberPWD;        // If using own autehtication, SHA512 from client device.
-            public string LastDeviceID = ""; 
+            public string memberPWD;        // Consider using 3rd party authentication. If using own autehtication, at least SHA512 from client device.
+            public string LastDeviceID = "";
             public string LastIPaddress = ""; 
             public string LastMACAddress="";
         }
