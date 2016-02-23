@@ -281,6 +281,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\CloudBreadLib.dll" />
+    <Content Include="bin\CloudBreadLib.pdb" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
