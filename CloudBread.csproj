@@ -48,6 +48,10 @@
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CloudBreadLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CloudBread-Lib\bin\Release\CloudBreadLib.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -293,6 +297,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".travis.yml" />
     <None Include="mainpage.dox" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
