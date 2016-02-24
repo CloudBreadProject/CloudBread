@@ -80,7 +80,7 @@ namespace CloudBread.Controllers
             var claimsPrincipal = this.User as ClaimsPrincipal;
             string sid = CBAuth.getMemberID(p.MemberID_MemberItems, claimsPrincipal);
             p.MemberID_MemberItems = sid;
-            p.MemberItemID_MemberItems = sid;
+            p.MemberID_GameEventMember = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
