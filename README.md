@@ -1,11 +1,11 @@
 ##CloudBread Project
 CloudBread is free OSS project for **mobile game and mobile app server engine** powered by cloud service.
-_ _ _
+
 [![Build status](https://ci.appveyor.com/api/projects/status/s82kx42sg734gde2?svg=true)](https://ci.appveyor.com/project/CloudBreadPaPa/cloudbread)
 
 ###About this project
-CloudBread support feartures
-- Stateless RESTful API based on HTTP game server engine + realtime peer to peer communication module.
+CloudBread support features
+- Stateless RESTful API based on HTTP game server engine + real-time peer to peer communication module.
 - Built on fully managed Microsoft cloud service(PaaS) and official SDK.
 - Most of game service modules include membership, Item management, leader board, notice, Coupon & event management, Admin website, IAP, push notification and etc.
 - Support 100+ *game business logic* and admin website by default.
@@ -18,18 +18,18 @@ CloudBread is supporting developer guide and API reference pages for developer. 
 - CloudBread developer guide wiki : https://github.com/CloudBreadProject/CloudBread/wiki
 - CloudBread API reference : http://cloudbreadproject.github.io/
 
-###Offcial discussion group and issue reporting.
+###Official discussion group and issue reporting.
 About issue discussion, feature request, and bug reporting use **[Github issues](https://github.com/CloudBreadProject/CloudBread/issues)** page, please. Before you summit the issue, please search about issue first.
 - Issue reporting : https://github.com/CloudBreadProject/CloudBread/issues
 - Official Facebook International user group : https://www.facebook.com/groups/CloudBreadInternational/
 - Official Facebook Korean user group : https://www.facebook.com/groups/cloudBreadProject/
 
 ###Contribution
-CloudBread is open source and you can contribute to make it better. Please, join the facebook group and if you want to code contribute on code, Pull Request is webcomed.
+CloudBread is open source and you can contribute to make it better. Please, join the Facebook group and if you want to code contribute on code, Pull Request is welcomed.
 
-###Offline meet-ups and develooper camp
-CloudBread team is hosting various offline activiteiso for mobile game & app developers.
-The contributor team meet-up is hosted offline every week in Korean Seoul city. Also, CloudBread team is hosting hands on *Developer camp* biweekly in Seoul city. Do you want to join the various developer activities? Please, join facebook discussion group.
+###Offline meet-ups and developer camp
+CloudBread team is hosting various offline activities for mobile game & app developers.
+The contributor team meet-up is hosted offline every week in Korean Seoul city. Also, CloudBread team is hosting hands on *Developer camp* biweekly in Seoul city. Do you want to join the various developer activities? Please, join Facebook discussion group.
 
 ###Contributors
 [![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook)
@@ -67,10 +67,10 @@ CloudBread와 관련된 이슈, 기능추가 및 변경, 버그 리포팅은 공
 
 
 ###프로젝트 참여와 공헌
-CloudBread는 오픈소스 프로젝트로, 누구나 참여 가능합니다. 페이스북 개발자 그룹에 방문해 컨택 하실 수 있으며, 코드에 대한 참여와 공헌을 위해서 Pull Requst를 해주시면 됩니다.
+CloudBread는 오픈소스 프로젝트로, 누구나 참여 가능합니다. 페이스북 개발자 그룹에 방문해 컨택 하실 수 있으며, 코드에 대한 참여와 공헌을 위해서 Pull Request를 해주시면 됩니다.
 
 ###오프라인 개발자 밋업과 개발자 캠프
-CloudBread 프로젝트 팀은 다양한 오프라인 행사를 모바일 게임 개발자 대상으로 주최하고 있습니다. 현재, Contibutor팀은 주 1회 정기 모임을 진행해 프로젝트 확장과 안정성 제공을 상의하고 프로젝트에 공헌 하고 있으며, 2주에 한번 간격으로 개발자 대상 오프라인 캠프를 진행하고 있습니다. 다양한 오프라인 행사에 참여를 원하시면 페이스북 그룹을 방문해 주세요.
+CloudBread 프로젝트 팀은 다양한 오프라인 행사를 모바일 게임 개발자 대상으로 주최하고 있습니다. 현재, Contributor 팀은 주 1회 정기 모임을 진행해 프로젝트 확장과 안정성 제공을 상의하고 프로젝트에 공헌 하고 있으며, 2주에 한번 간격으로 개발자 대상 오프라인 캠프를 진행하고 있습니다. 다양한 오프라인 행사에 참여를 원하시면 페이스북 그룹을 방문해 주세요.
 
 ###Contributors
 [![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook)
@@ -79,5 +79,4 @@ CloudBread 프로젝트 팀은 다양한 오프라인 행사를 모바일 게임
 - This project released under the **MIT license**.
 - CloudBread project is not responsible for software that damages or corrupts your service. This website is a guide to Open Source Software. Although we test applications we cannot guarantee their safe use. Download and use the programs at your own risk.
 - This open source software is CloudBread team project and this is not associated with company or organization.
-
 
