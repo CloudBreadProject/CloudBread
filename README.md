@@ -1,6 +1,6 @@
+# CloudBread
 [![Build status](https://ci.appveyor.com/api/projects/status/s82kx42sg734gde2?svg=true)](https://ci.appveyor.com/project/CloudBreadPaPa/cloudbread)
 
-# CloudBread
 클라우드 기반 무료 오픈소스 프로젝트로, 모바일 게임과 모바일 앱에 최적화된 게임 서버 엔진입니다.
 모든 서비스는 마이크로소프트의 클라우드 서비스인 Azure에 최적화되어 동작하며, 안정성과 확장성을 목표로 개발 중입니다.
 
