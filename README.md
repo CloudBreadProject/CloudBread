@@ -15,8 +15,8 @@ To install CloudBread, follow this **installation guide wiki** document.
 
 ###CloudBread developer guide and API Reference
 CloudBread is supporting developer guide and API reference pages for developer. Please, visit link below.
-CloudBread developer guide wiki : https://github.com/CloudBreadProject/CloudBread/wiki
-CloudBread API reference : http://cloudbreadproject.github.io/
+- CloudBread developer guide wiki : https://github.com/CloudBreadProject/CloudBread/wiki
+- CloudBread API reference : http://cloudbreadproject.github.io/
 
 ###Offcial discussion group and issue reporting.
 About issue discussion, feature request, and bug reporting use **[Github issues](https://github.com/CloudBreadProject/CloudBread/issues)** page, please. Before you summit the issue, please search about issue first.
