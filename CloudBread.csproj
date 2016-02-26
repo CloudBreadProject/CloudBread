@@ -260,6 +260,7 @@
     <Compile Include="Controllers\CBSelMemberItemsController.cs" />
     <Compile Include="Controllers\CBSelNoticesController.cs" />
     <Compile Include="Controllers\CBSelSendEmailToMemberController.cs" />
+    <Compile Include="Controllers\CBSocketAuthController.cs" />
     <Compile Include="Controllers\CBUdtConfirmedEmailAddressController.cs" />
     <Compile Include="Controllers\CBUdtCouponMemberController.cs" />
     <Compile Include="Controllers\CBUdtGameEventMemberToItemController.cs" />
@@ -283,7 +284,9 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -298,11 +301,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tools\CloudBread.json.postman_collection" />
     <None Include="mainpage.dox" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
-    <Content Include="README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
