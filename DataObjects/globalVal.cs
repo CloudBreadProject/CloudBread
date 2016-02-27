@@ -19,7 +19,6 @@ namespace CloudBread.globals
 
         public static string CloudBreadSocketRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketRedisServer"];     /// adding v2.0.0
         public static string CloudBreadSocketRedisPassword = WebConfigurationManager.AppSettings["CloudBreadSocketRedisPassword"];     /// adding v2.0.0
-        public static int CloudBreadSocketAuthTokenTTL = int.Parse(WebConfigurationManager.AppSettings["CloudBreadSocketAuthTokenTTL"]);     /// adding v2.0.0
 
         public static string CloudBreadRankRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0
         public static string CloudBreadRankRedisPassword = WebConfigurationManager.AppSettings["CloudBreadRankRedisPassword"];     /// adding v2.0.0

@@ -290,14 +290,14 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <None Include="Web.config">
+    <None Include="Web.config_temp">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="Web.Debug.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="Web.Release.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -312,14 +312,14 @@
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
-    <None Include="Web.cofnfig-github">
+    <None Include="Web.cofnfig">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web.Debug.cofnfig-github">
-      <DependentUpon>Web.cofnfig-github</DependentUpon>
+    <None Include="Web.Debug.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
     </None>
-    <None Include="Web.Release.cofnfig-github">
-      <DependentUpon>Web.cofnfig-github</DependentUpon>
+    <None Include="Web.Release.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>
