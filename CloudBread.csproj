@@ -316,8 +316,6 @@
   <ItemGroup>
     <Content Include="Tools\CloudBread.json.postman_collection" />
     <None Include="mainpage.dox" />
-    <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
     <None Include="Web.cofnfig">
       <SubType>Designer</SubType>
