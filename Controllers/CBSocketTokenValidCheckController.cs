@@ -6,7 +6,8 @@
 * @return string memberid, string token.guid, string genDateUTC
 * @author Dae Woo Kim
 ******************************************************************
-* @todo limit access this API only CloudBread-Socket poejct.
+* @todo limit access this API only CloudBread-Socket poejct. \n
+* direct connect from Socket Server to redis = this api will be stop development until CloudBread v3.
 ******************************************************************
 */
 

@@ -36,7 +36,9 @@
     <add key="CloudBreadSocketRedisServer" value="yourredisserver"></add>
     <!-- This Password Key for connect CloudBread-Socket token save on Redis service. 이 password 키는 CloudBread-Socket 프로젝트 JWT 토큰을 저장하는 Redis에 연결 할때 사용되는 값 -->
     <add key="CloudBreadSocketRedisPassword" value="yourredisserverpassword"></add>
-
+    <!-- This Key for connect CloudBread-Socket token TTL minutes. default 30 minutes. 이 키는 CloudBread-Socket 프로젝트 토큰을 생성 후 캐시에서 사라지는 시간. 기본 30분 -->
+    <add key="CloudBreadSocketAuthTokenTTL" value="30"></add>
+    
     <!-- This key for CloudBread leader board(ranking) service connection. 이 키는 leader board(ranking) 서비스 연결에 사용 -->
     <add key="CloudBreadRankRedisServer" value="yourredisserver"></add>
     <!-- This password key for CloudBread leader board(ranking) service connection. 이 키는 leader board(ranking) 서비스 연결에 사용 -->
