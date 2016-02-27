@@ -9,9 +9,7 @@ namespace CloudBread.globals
     public static class globalVal
     {
         public static string DBConnectionString = WebConfigurationManager.ConnectionStrings["CloudBreadDBConString"].ConnectionString;
-
-        public static string StorageConnectionString = WebConfigurationManager.AppSettings["CloudBreadStorageConString"];
-
+        public static string StorageConnectionString = WebConfigurationManager.ConnectionStrings["CloudBreadStorageConString"].ConnectionString;
         public static string CloudBreadLoggerSetting = WebConfigurationManager.AppSettings["CloudBreadLoggerSetting"].ToString();
         public static string CloudBreadCryptSetting = WebConfigurationManager.AppSettings["CloudBreadCryptSetting"].ToString();
         public static int conRetryCount = int.Parse(WebConfigurationManager.AppSettings["CloudBreadconRetryCount"]);    /// adding v2.0.0

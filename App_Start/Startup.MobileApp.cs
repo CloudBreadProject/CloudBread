@@ -24,7 +24,7 @@ namespace CloudBread
 
 
             // adding Attribute Routing of Web Api - for socket project
-            //config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes();
 
 
             // Use Entity Framework Code First to create database tables based on your DbContext

@@ -20,19 +20,19 @@ namespace CloudBread.Models
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
 
-        //private const string connectionStringName = "Name=MS_TableConnectionString";
+        private const string connectionStringName = "Name=MS_TableConnectionString";
 
-        //public MobileServiceContext() : base(connectionStringName)
-        //{
-        //}
+        public MobileServiceContext() : base(connectionStringName)
+        {
+        }
 
-        //public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Add(
-        //        new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
-        //            "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Add(
+                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
+                    "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+        }
     }
 }
