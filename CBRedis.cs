@@ -5,6 +5,7 @@ using System.Web;
 
 using CloudBread.globals;
 using StackExchange.Redis;
+using Newtonsoft.Json;
 
 namespace CloudBreadRedis
 {
@@ -62,6 +63,66 @@ namespace CloudBreadRedis
 
                 throw;
             }
+        }
+
+        /// @brief Set point value at Redis sorted set
+        public static bool SetSortedSetRank(string sid, double point)
+        {
+            ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
+
+            try
+            {
+                IDatabase cache = connection.GetDatabase();
+                cache.SortedSetAdd(globalVal.CloudBreadRankSortedSet, sid, point);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+            return true;
+        }
+
+        /// @brief Get rank value from Redis sorted set
+        public static bool GetSortedSetRank(string sid)
+        {
+            long rank = 0;
+            ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
+
+            try
+            {
+                IDatabase cache = connection.GetDatabase();
+                rank = cache.SortedSetRank(globalVal.CloudBreadRankSortedSet, sid) ?? 0;   
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return true;
+        }
+
+        /// @brief Get top rank point and info from Redis sorted set
+        public static string GetTopSortedSetRank(int countNumber)
+        {
+            long rank = 0;
+            ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
+
+            try
+            {
+                IDatabase cache = connection.GetDatabase();
+                SortedSetEntry[] values = cache.SortedSetRangeByScoreWithScores(globalVal.CloudBreadRankSortedSet, order: Order.Descending, take: countNumber);
+                return JsonConvert.SerializeObject(values);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

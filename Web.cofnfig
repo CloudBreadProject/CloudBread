@@ -41,7 +41,8 @@
     <add key="CloudBreadRankRedisServer" value="yourredisserver"></add>
     <!-- This password key for CloudBread leader board(ranking) service connection. 이 키는 leader board(ranking) 서비스 연결에 사용 -->
     <add key="CloudBreadRankRedisPassword" value="yourredisserverpassword"></add>
-
+    <add key="CloudBreadRankSortedSet" value="cbrank"></add>
+    
     <!-- This key for CloudBread leader logging service connection. 이 키는 게임 로그 서비스 연결에 사용 -->
     <add key="CloudBreadGameLogRedisServer" value="yourredisserver"></add>
     <!-- This password key for CloudBread logging service connection. 이 키는 게임 로그 서비스 연결에 사용 -->
