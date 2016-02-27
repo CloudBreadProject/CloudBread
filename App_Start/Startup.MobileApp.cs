@@ -22,6 +22,11 @@ namespace CloudBread
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+
+            // adding Attribute Routing of Web Api - for socket project
+            config.MapHttpAttributeRoutes();
+
+
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new MobileServiceInitializer());
 

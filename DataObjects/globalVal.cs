@@ -17,5 +17,14 @@ namespace CloudBread.globals
         public static string CloudBreadSocketKeyText = WebConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0
         public static string CloudBreadSocketKeyIV = WebConfigurationManager.AppSettings["CloudBreadSocketKeyIV"];     /// adding v2.0.0
 
+        public static string CloudBreadSocketRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketRedisServer"];     /// adding v2.0.0
+        public static string CloudBreadSocketRedisPassword = WebConfigurationManager.AppSettings["CloudBreadSocketRedisPassword"];     /// adding v2.0.0
+
+        public static string CloudBreadRankRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0
+        public static string CloudBreadRankRedisPassword = WebConfigurationManager.AppSettings["CloudBreadRankRedisPassword"];     /// adding v2.0.0
+
+        public static string CloudBreadGameLogRedisServer = WebConfigurationManager.AppSettings["CloudBreadGameLogRedisServer"];     /// adding v2.0.0
+        public static string CloudBreadGameLogRedisPassword = WebConfigurationManager.AppSettings["CloudBreadGameLogRedisPassword"];     /// adding v2.0.0
+
     }
 }

@@ -172,6 +172,10 @@
       <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.316.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StackExchange.Redis.1.0.488\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20511.1437, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.4.0.2.205111437\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
@@ -232,6 +236,7 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="CBAuth.cs" />
     <Compile Include="CBLoggers.cs" />
+    <Compile Include="CBRedis.cs" />
     <Compile Include="Controllers\CBAddMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBAddUseMemberItemController.cs" />
     <Compile Include="Controllers\CBComSelGiftDepositoryController.cs" />
@@ -261,6 +266,7 @@
     <Compile Include="Controllers\CBSelNoticesController.cs" />
     <Compile Include="Controllers\CBSelSendEmailToMemberController.cs" />
     <Compile Include="Controllers\CBSocketAuthController.cs" />
+    <Compile Include="Controllers\CBSocketTokenValidCheckController.cs" />
     <Compile Include="Controllers\CBUdtConfirmedEmailAddressController.cs" />
     <Compile Include="Controllers\CBUdtCouponMemberController.cs" />
     <Compile Include="Controllers\CBUdtGameEventMemberToItemController.cs" />
@@ -284,15 +290,15 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config">
+    <None Include="Web.config_temp">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    </None>
+    <None Include="Web.Debug.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
+    </None>
+    <None Include="Web.Release.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +312,15 @@
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
+    <None Include="Web.cofnfig">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
+    </None>
+    <None Include="Web.Release.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

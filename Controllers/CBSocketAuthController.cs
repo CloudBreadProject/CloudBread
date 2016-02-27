@@ -23,6 +23,7 @@ using CloudBreadLib.BAL.Crypto;
 using Newtonsoft.Json;
 using CloudBreadAuth;
 using System.Security.Claims;
+using CloudBreadRedis;
 
 namespace CloudBread.Controllers
 {
@@ -59,15 +60,21 @@ namespace CloudBread.Controllers
 
             try
             {
-                // return token
+                /// return token object
                 Token t = new Token();
 
-                // generate paylod 
+                /// generate paylod 
                 payload.guid = Guid.NewGuid().ToString();
                 payload.genDateUTC = DateTimeOffset.UtcNow.ToString();
 
-                // token Serialize and encrypte
-                t.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(payload), globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
+                /// token Serialize and encrypt
+                t.token = JsonConvert.SerializeObject(payload);
+
+                /// save to Rdis
+                CBRedis.SetRedisKey(payload.guid, t.token, null);
+
+                /// token encrypt
+                t.token = Crypto.AES_encrypt(t.token, globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
 
                 return t;
 
