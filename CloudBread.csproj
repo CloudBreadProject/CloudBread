@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -290,6 +291,7 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
+    <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>
@@ -309,18 +311,6 @@
   <ItemGroup>
     <Content Include="Tools\CloudBread.json.postman_collection" />
     <None Include="mainpage.dox" />
-    <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
-    <None Include="Web.cofnfig-github">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.Debug.cofnfig-github">
-      <DependentUpon>Web.cofnfig-github</DependentUpon>
-    </None>
-    <None Include="Web.Release.cofnfig-github">
-      <DependentUpon>Web.cofnfig-github</DependentUpon>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
