@@ -71,7 +71,7 @@ namespace CloudBread.Controllers
                 t.token = JsonConvert.SerializeObject(payload);
 
                 /// save to Rdis
-                CBRedis.SetRedisKey(payload.guid, t.token, null);
+                CBRedis.SetRedisKey(payload.guid, t.token, 30); // 30 min for socket suth TTL
 
                 /// token encrypt
                 t.token = Crypto.AES_encrypt(t.token, globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
