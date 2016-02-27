@@ -30,7 +30,7 @@ using System.Security.Claims;
 
 namespace CloudBread.Controllers
 {
-    [MobileAppController] 
+    //[MobileAppController]     // only access by CloudBread.Socket project.
     public class CBSocketTokenValidCheckController : ApiController
     {
         public class Result
@@ -47,9 +47,18 @@ namespace CloudBread.Controllers
             public string sid { get; set; }     // logging purpose
         }
 
+        /// @brief added route for change attrbute.
+        [Route("api/CBSocketTokenValidCheck")]
+        [HttpPost]
         // GET api/CBSocketTokenValidCheck
         public Result POST(Token token)
         {
+
+            /// Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            string sid = CBAuth.getMemberID("debug", claimsPrincipal);
+            // payload.sid = sid;
+
             // return
             Result r = new Result();
             string redisResult = "";
@@ -65,7 +74,7 @@ namespace CloudBread.Controllers
 
                 if (redisResult == null)
                 {
-                    // does not exist on Redis
+                    // does not exist on Redis.
                     r.guid = "";
                     r.sid = "";
                     r.genDateUTC = "";
@@ -75,6 +84,7 @@ namespace CloudBread.Controllers
                     // Deserialize json
                     r = JsonConvert.DeserializeObject<Result>(redisResult);
                 }
+
                 return r;
             }
 
