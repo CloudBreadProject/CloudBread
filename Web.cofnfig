@@ -1,26 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
 <configuration>
   <configSections>
     <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
   </configSections>
   <connectionStrings>
+    <!-- local database connection string. 로컬 데이터베이스 연결 문자열. -->
+    <!--<add name="CloudBreadDBConString" connectionString="Server=(local);Database=yourdbname;User Id=youruserid;Password=yourpassword;" providerName="System.Data.SqlClient" />-->
+
     <!-- remote database connection string. 원격 데이터베이스 연결 문자열. -->
-    <add name="CloudBreadDBConString" connectionString="Change your SQL database connectionstring" providerName="System.Data.SqlClient" />
+    <add name="CloudBreadDBConString" connectionString="Server=tcp:yourazuresqldatabaseserver,1433;Database=yourazuresqldatabasename;User ID=yourloginid;Password=yourpassword;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+
     <!-- remote azure storage account connection string. 원격 azure 저장소 계정 연결 문자열. -->
-    <add name="CloudBreadStorageConString" connectionString="Change your Azure Storage Account connectionstring" />
+    <add name="CloudBreadStorageConString" connectionString="DefaultEndpointsProtocol=https;AccountName=yourstorageaccountname;AccountKey=yourstrageaccountsecretkey;" />
   </connectionStrings>
   <appSettings>
-    <!-- Adding configuration - 설정 추가-->
+    <!-- Adding CloudBread configuration - 설정 추가 -->
     <add key="CloudBreadCryptSetting" value="AES256"></add>
     <add key="CloudBreadLoggerSetting" value="ATS"></add>
-    <add key="CloudBreadconRetryCount" value="3"></add> <!-- This is DB connection retry trial count. DB연결 재시도 수 -->
-    <add key="CloudBreadconRetryFromSeconds" value="5"></add> <!-- This is DB connection retry trial wait second. In production environment, recommend change to 30 to handle throttling condition. DB연결 재시도 대기 시간 초. 프러덕션 환경에서는 스로틀링 핸들을 위해 30으로 설정 권장 -->
+
+    <!-- This is DB connection retry trial count. DB연결 재시도 수 -->
+    <add key="CloudBreadconRetryCount" value="3"></add>
+    <!-- This is DB connection retry trial wait second. In production environment, recommend change to 30 to handle throttling condition. DB연결 재시도 대기 시간 초. 프러덕션 환경에서는 스로틀링 핸들을 위해 30으로 설정 권장 -->
+    <add key="CloudBreadconRetryFromSeconds" value="5"></add>
+
+    <!-- This key for CloudBread-Socket project JWT token AES encryption. 이 키는 CloudBread-Socket 프로젝트 JWT 토큰 AES 암호화에 사용되는 값 -->
+    <add key="CloudBreadSocketKeyText" value="1234567890123456"></add>
+    <!-- This IV for CloudBread-Socket project JWT token AES encryption. 이 IV는 CloudBread-Socket 프로젝트 JWT 토큰 AES 암호화에 사용되는 값 -->
+    <add key="CloudBreadSocketKeyIV" value="1234567890123456"></add>
+
+    <!-- This key for connect CloudBread-Socket project JWT token save on Redis service. 이 키는 CloudBread-Socket 프로젝트 JWT 토큰을 저장하는 Redis에 연결 할때 사용되는 값 -->
+    <add key="CloudBreadSocketRedisServer" value="yourredisserver"></add>
+    <!-- This Password Key for connect CloudBread-Socket token save on Redis service. 이 password 키는 CloudBread-Socket 프로젝트 JWT 토큰을 저장하는 Redis에 연결 할때 사용되는 값 -->
+    <add key="CloudBreadSocketRedisPassword" value="yourredisserverpassword"></add>
+
+    <!-- This key for CloudBread leader board(ranking) service connection. 이 키는 leader board(ranking) 서비스 연결에 사용 -->
+    <add key="CloudBreadRankRedisServer" value="yourredisserver"></add>
+    <!-- This password key for CloudBread leader board(ranking) service connection. 이 키는 leader board(ranking) 서비스 연결에 사용 -->
+    <add key="CloudBreadRankRedisPassword" value="yourredisserverpassword"></add>
+
+    <!-- This key for CloudBread leader logging service connection. 이 키는 게임 로그 서비스 연결에 사용 -->
+    <add key="CloudBreadGameLogRedisServer" value="yourredisserver"></add>
+    <!-- This password key for CloudBread logging service connection. 이 키는 게임 로그 서비스 연결에 사용 -->
+    <add key="CloudBreadGameLogRedisPassword" value="yourredisserverpassword"></add>
+
+    <!-- End of CloudBread configuration - 설정 추가 끝 -->
+    
     <!-- Use these settings for local development. After publishing to your
     Mobile App, these settings will be overridden by the values specified
     in the portal. -->
     <add key="SigningKey" value="Use App Service Authentication Signing Key here to validate tokens" />
     <add key="ValidAudience" value="https://{yoursite}.azurewebsites.net/" />
     <add key="ValidIssuer" value="https://{yoursite}.azurewebsites.net/" />
+
     <add key="PreserveLoginUrl" value="true" />
     <!-- Use these settings for local development. After publishing to your
     Mobile App, these settings will be overridden by the values specified

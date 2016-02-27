@@ -290,15 +290,15 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config">
+    <None Include="Web.config_temp">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    </None>
+    <None Include="Web.Debug.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
+    </None>
+    <None Include="Web.Release.config_temp">
+      <DependentUpon>Web.config_temp</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -312,6 +312,15 @@
     <None Include="Properties\PublishProfiles\dw-cloudbread-auth - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-Cloudbread2 - Web Deploy.pubxml" />
+    <None Include="Web.cofnfig">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
+    </None>
+    <None Include="Web.Release.cofnfig">
+      <DependentUpon>Web.cofnfig</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
