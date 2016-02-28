@@ -22,8 +22,6 @@ namespace CloudBread.Controllers
         public string Get()
         {
 
-            CloudBreadRedis.CBRedis.FillAllRankFromDB("test");
-
             return "Hello"; 
         }
 

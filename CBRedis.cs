@@ -162,7 +162,7 @@ namespace CloudBreadRedis
         /// dt.Rows check. if bigger than 10,000, seperate as another loop 
         /// dt.Rows / 10,000 = mod value + 1 = loop count...........
         /// call count query first and then paging processing at query side to prevent DB throttling? 
-        public static bool FillAllRankFromDB(string p)
+        public static bool FillAllRankFromDB()
         {
 
             try
@@ -170,6 +170,9 @@ namespace CloudBreadRedis
                 // redis connection
                 ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
                 IDatabase cache = connection.GetDatabase();
+
+                // delete rank sorted set - caution. this process remove all rank set data
+                cache.KeyDelete(globalVal.CloudBreadRankSortedSet);
 
                 // data table fill for easy count number
                 RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));

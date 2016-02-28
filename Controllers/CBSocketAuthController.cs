@@ -45,7 +45,7 @@ namespace CloudBread.Controllers
         }
 
         // GET api/CBSocketAuth
-        public Token Get()
+        public Payload Get()
         {
             Payload payload = new Payload();
 
@@ -73,10 +73,10 @@ namespace CloudBread.Controllers
                 /// save to Rdis
                 CBRedis.SetRedisKey(payload.guid, t.token, 30); // 30 min for socket suth TTL
 
-                /// token encrypt
-                t.token = Crypto.AES_encrypt(t.token, globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
+                /// @brief chagned for plain processing - token encrypt
+                //t.token = Crypto.AES_encrypt(t.token, globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
 
-                return t;
+                return payload;     //changed
 
             }
 
