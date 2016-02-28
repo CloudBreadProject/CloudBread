@@ -10,6 +10,7 @@ using Microsoft.Azure.Mobile.Server.Config;
 using System.Security.Claims;
 using CloudBreadAuth;
 
+
 namespace CloudBread.Controllers
 {
 
@@ -20,6 +21,9 @@ namespace CloudBread.Controllers
         /// GET api/ping - return ping test string
         public string Get()
         {
+
+            CloudBreadRedis.CBRedis.FillAllRankFromDB("test");
+
             return "Hello"; 
         }
 

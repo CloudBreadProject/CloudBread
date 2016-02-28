@@ -1,19 +1,29 @@
-﻿using System;
+﻿/**
+* @file CBRedis.cs
+* @brief Processing CloudBread redis cache related task. \n
+* @author Dae Woo Kim
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
 using CloudBread.globals;
 using StackExchange.Redis;
 using Newtonsoft.Json;
+using Microsoft.Practices.TransientFaultHandling;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
 
 namespace CloudBreadRedis
 {
     public class CBRedis
     {
         // compose connection string 
-        // "dw-cloudbread-redis.redis.cache.windows.net,ssl=true,password=PaCO1A+Nqb54epZR+iByjvR2T3ggi2g7YuxKHphf/eQ="
-        static string redisConnectionString = globalVal.CloudBreadSocketRedisServer + ",ssl=true,password=" +globalVal.CloudBreadSocketRedisPassword;
+        static string redisConnectionString = globalVal.CloudBreadSocketRedisServer;
 
         public static bool SetRedisKey(string key, string value, int? expTimeMin)    // todo: value as oject or ...?
         {
@@ -44,6 +54,7 @@ namespace CloudBreadRedis
             }
         }
 
+        /// @brief get redis data by key value
         public static string GetRedisKeyValue(string key)
         {
             string result = "";
@@ -104,7 +115,7 @@ namespace CloudBreadRedis
             return rank;
         }
 
-        /// Get selected rank range members 
+        /// @brief Get selected rank range members. 
         /// Get my rank and then call this method to fetch +-10 rank(total 20) rank
         public static string GetSortedSetRankByRange(long startRank, long endRank)
         {
@@ -146,6 +157,51 @@ namespace CloudBreadRedis
 
         }
 
-        
+        /// fill out all rank redis cache from db
+        public static bool FillAllRankFromDB(string p)
+        {
+
+            try
+            {
+                // redis connection
+                ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
+                IDatabase cache = connection.GetDatabase();
+
+                // data table fill for easy count number
+                RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
+                SqlConnection conn = new SqlConnection(globalVal.DBConnectionString);
+                conn.Open();
+                string strQuery = "SELECT MemberID, Points FROM MemberGameInfoes";
+
+                SqlCommand command = new SqlCommand(strQuery, conn);
+
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(command))
+                {
+                    da.Fill(dt);
+                }
+
+                /// make SortedSetEntry to fill out
+                /// @todo: huge amount of data processing - split 10,000 or ...
+                SortedSetEntry[] sse = new SortedSetEntry[dt.Rows.Count];
+                Int64 i = 0;
+                foreach(DataRow dr in dt.Rows)
+                {
+                    // fill rank row to redis struct array
+                    sse[i] = new SortedSetEntry(dr[0].ToString(), Int64.Parse(dr[1].ToString()));  
+                }
+
+                // fill out all rank data
+                cache.SortedSetAdd(globalVal.CloudBreadRankRedisServer, sse);
+
+                return true;
+            }
+
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
