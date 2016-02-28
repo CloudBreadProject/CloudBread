@@ -75,9 +75,8 @@ namespace CloudBread.Controllers
         /// Get my rank and then call this method to fetch +-10 rank(total 20) rank
         [Route("api/rankerlist/{sid}/{startrank}/{endrank}")]
         [HttpGet]
-        public string GET(string sid, long startRank, long endRank)
+        public SortedSetEntry[] GET(string sid, long startRank, long endRank)
         {
-            string jsonResult = "";
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -86,7 +85,8 @@ namespace CloudBread.Controllers
             try
             {
                 /// fetch redis list by rank range 
-                return jsonResult = CBRedis.GetSortedSetRankByRange(startRank, endRank);
+                SortedSetEntry[] se = CBRedis.GetSortedSetRankByRange(startRank, endRank);
+                return se; 
             }
 
             catch (Exception ex)
