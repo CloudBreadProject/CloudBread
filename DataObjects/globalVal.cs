@@ -20,10 +20,12 @@ namespace CloudBread.globals
         public static string CloudBreadSocketRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketRedisServer"];     /// adding v2.0.0
         public static string CloudBreadRankRedisServer = WebConfigurationManager.AppSettings["CloudBreadRankRedisServer"];     /// adding v2.0.0
         public static string CloudBreadRankSortedSet = WebConfigurationManager.AppSettings["CloudBreadRankSortedSet"];     /// adding v2.0.0 
+        public static bool CloudBreadFillRedisRankSetOnStartup = bool.Parse(WebConfigurationManager.AppSettings["CloudBreadFillRedisRankSetOnStartup"]); /// adding v2.0.0
 
         public static string CloudBreadGameLogRedisServer = WebConfigurationManager.AppSettings["CloudBreadGameLogRedisServer"];     /// adding v2.0.0
-        public static bool CloudBreadFillRedisRankSetOnStartup = bool.Parse(WebConfigurationManager.AppSettings["CloudBreadFillRedisRankSetOnStartup"]); /// adding v2.0.0
+        public static int CloudBreadGameLogExpTimeDays = int.Parse(WebConfigurationManager.AppSettings["CloudBreadGameLogExpTimeDays"]);     /// adding v2.0.0
         
+
 
     }
 }
