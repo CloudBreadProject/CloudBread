@@ -22,6 +22,9 @@ namespace CloudBread
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+            /// adding for API routing
+            config.MapHttpAttributeRoutes();
+
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new MobileServiceInitializer());
 

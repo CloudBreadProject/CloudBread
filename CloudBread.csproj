@@ -254,6 +254,7 @@
     <Compile Include="Controllers\CBComUdtMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBInsAnonymousRegMemberController.cs" />
     <Compile Include="Controllers\CBInsRegMemberController.cs" />
+    <Compile Include="Controllers\CBRankController.cs" />
     <Compile Include="Controllers\CBSelCouponsController.cs" />
     <Compile Include="Controllers\CBSelGameEventsController.cs" />
     <Compile Include="Controllers\CBSelGiftItemToMeController.cs" />

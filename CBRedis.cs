@@ -85,7 +85,7 @@ namespace CloudBreadRedis
         }
 
         /// @brief Get rank value from Redis sorted set
-        public static bool GetSortedSetRank(string sid)
+        public static long GetSortedSetRank(string sid)
         {
             long rank = 0;
             ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
@@ -101,13 +101,34 @@ namespace CloudBreadRedis
                 throw;
             }
 
-            return true;
+            return rank;
+        }
+
+        /// Get selected rank range members 
+        /// Get my rank and then call this method to fetch +-10 rank(total 20) rank
+        public static string GetSortedSetRankByRange(long startRank, long endRank)
+        {
+            
+            ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
+
+            try
+            {
+                IDatabase cache = connection.GetDatabase();
+                SortedSetEntry[] rank = cache.SortedSetRangeByScoreWithScores(globalVal.CloudBreadRankSortedSet, startRank, endRank, Exclude.None, Order.Descending);
+                return JsonConvert.SerializeObject(rank);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         /// @brief Get top rank point and info from Redis sorted set
         public static string GetTopSortedSetRank(int countNumber)
         {
-            long rank = 0;
+
             ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionString);
 
             try
@@ -124,5 +145,7 @@ namespace CloudBreadRedis
             }
 
         }
+
+        
     }
 }
