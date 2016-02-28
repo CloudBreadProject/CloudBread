@@ -33,6 +33,7 @@ namespace CloudBread.Controllers
             public long rank { get; set; }
         }
 
+        /// Get member rank order number 
         [Route("api/rank/{sid}/ranknumber")]
         [HttpGet]
         public MemberRankNumber Get(string sid)
@@ -71,7 +72,6 @@ namespace CloudBread.Controllers
         public string GET(string sid, long startRank, long endRank)
         {
             string jsonResult = "";
-            MemberRankNumber result = new MemberRankNumber();
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -98,7 +98,36 @@ namespace CloudBread.Controllers
         }
 
 
+        /// Get top x rankers list order by score desc
+        [Route("api/topranker/{sid}/{countnum}")]
+        [HttpGet]
+        public string GET(string sid, int countnum)
+        {
+            string jsonResult = "";
 
+            /// logging purpose
+            Logging.CBLoggers logMessage = new Logging.CBLoggers();
+            string jsonParam = JsonConvert.SerializeObject(sid);
+
+            try
+            {
+                /// fetch redis list by rank range 
+                return jsonResult = CBRedis.GetTopSortedSetRank(countnum);
+            }
+
+            catch (Exception ex)
+            {
+                // error log
+                logMessage.memberID = sid;        // requested value. Not redis data value.
+                logMessage.Level = "ERROR";
+                logMessage.Logger = "CBRankController-TopRankerList";
+                logMessage.Message = jsonParam;
+                logMessage.Exception = ex.ToString();
+                Logging.RunLog(logMessage);
+
+                throw;
+            }
+        }
 
     }
 }
