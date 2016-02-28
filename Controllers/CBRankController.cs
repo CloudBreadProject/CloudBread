@@ -107,9 +107,8 @@ namespace CloudBread.Controllers
         /// Get top x rankers list order by score desc
         [Route("api/topranker/{sid}/{countnum}")]
         [HttpGet]
-        public string GET(string sid, int countnum)
+        public SortedSetEntry[] GET(string sid, int countnum)
         {
-            string jsonResult = "";
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -118,7 +117,8 @@ namespace CloudBread.Controllers
             try
             {
                 /// fetch redis list by top countnum rankers
-                return jsonResult = CBRedis.GetTopSortedSetRank(countnum);
+                SortedSetEntry[] sse = CBRedis.GetTopSortedSetRank(countnum);
+                return sse;
             }
 
             catch (Exception ex)

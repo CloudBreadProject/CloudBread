@@ -142,7 +142,7 @@ namespace CloudBreadRedis
         }
 
         /// @brief Get top rank point and info from Redis sorted set
-        public static string GetTopSortedSetRank(int countNumber)
+        public static SortedSetEntry[] GetTopSortedSetRank(int countNumber)
         {
 
             ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(redisConnectionStringRank);
@@ -150,8 +150,8 @@ namespace CloudBreadRedis
             try
             {
                 IDatabase cache = connection.GetDatabase(1);
-                SortedSetEntry[] values = cache.SortedSetRangeByScoreWithScores(globalVal.CloudBreadRankSortedSet, order: Order.Descending, take: countNumber);
-                return JsonConvert.SerializeObject(values);
+                SortedSetEntry[] sse = cache.SortedSetRangeByScoreWithScores(globalVal.CloudBreadRankSortedSet, order: Order.Descending, take: countNumber);
+                return sse;
 
             }
             catch (Exception)
