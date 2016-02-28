@@ -107,7 +107,7 @@ namespace CloudBreadRedis
             try
             {
                 IDatabase cache = connection.GetDatabase(1);
-                rank = cache.SortedSetRank(globalVal.CloudBreadRankSortedSet, sid) ?? 0;   
+                rank = cache.SortedSetRank(globalVal.CloudBreadRankSortedSet, sid, Order.Descending) ?? 0;   
             }
             catch (Exception)
             {
