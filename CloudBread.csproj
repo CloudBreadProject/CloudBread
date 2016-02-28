@@ -254,6 +254,7 @@
     <Compile Include="Controllers\CBComUdtMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBInsAnonymousRegMemberController.cs" />
     <Compile Include="Controllers\CBInsRegMemberController.cs" />
+    <Compile Include="Controllers\CBRankController.cs" />
     <Compile Include="Controllers\CBSelCouponsController.cs" />
     <Compile Include="Controllers\CBSelGameEventsController.cs" />
     <Compile Include="Controllers\CBSelGiftItemToMeController.cs" />
@@ -291,20 +292,11 @@
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
     <Content Include="web.config" />
-    <None Include="Web.config_temp">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
-    <None Include="Web.Debug.config_temp">
-      <DependentUpon>Web.config_temp</DependentUpon>
-    </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config_temp">
-      <DependentUpon>Web.config_temp</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

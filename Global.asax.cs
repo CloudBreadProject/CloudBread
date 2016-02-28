@@ -15,9 +15,8 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage.Queue;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
-
-
 using CloudBread.globals;
+using CloudBreadRedis;
 
 namespace CloudBread
 {
@@ -46,6 +45,15 @@ namespace CloudBread
                     queue.CreateIfNotExists();
 
                 }
+
+                // Regarding to configuration, check startup fill or not
+                if (globalVal.CloudBreadFillRedisRankSetOnStartup)
+                {
+                    // execute redis rank fill task
+                    CBRedis.FillAllRankFromDB();
+                }
+                
+
             }
             catch (System.Exception ex)
             {
