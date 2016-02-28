@@ -136,18 +136,20 @@ namespace CloudBread.Controllers
         }
 
         /// Set redis rank by member
-        public long POST(InputParams p)
+        public MemberRankNumber POST(InputParams p)
         {
-            long result;
+            MemberRankNumber result = new MemberRankNumber();
+
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p.sid);
+            
 
             try
             {
                 /// set redis point and return 
                 CBRedis.SetSortedSetRank(p.sid, p.point);
-                result = CBRedis.GetSortedSetRank(p.sid);
+                result.rank = CBRedis.GetSortedSetRank(p.sid);
                 return result;
             }
 
