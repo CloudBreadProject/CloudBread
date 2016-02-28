@@ -158,6 +158,10 @@ namespace CloudBreadRedis
         }
 
         /// fill out all rank redis cache from db
+        /// @todo: huge amount of data processing - split 10,000 or ...
+        /// dt.Rows check. if bigger than 10,000, seperate as another loop 
+        /// dt.Rows / 10,000 = mod value + 1 = loop count...........
+        /// call count query first and then paging processing at query side to prevent DB throttling? 
         public static bool FillAllRankFromDB(string p)
         {
 
@@ -182,17 +186,17 @@ namespace CloudBreadRedis
                 }
 
                 /// make SortedSetEntry to fill out
-                /// @todo: huge amount of data processing - split 10,000 or ...
                 SortedSetEntry[] sse = new SortedSetEntry[dt.Rows.Count];
                 Int64 i = 0;
                 foreach(DataRow dr in dt.Rows)
                 {
                     // fill rank row to redis struct array
-                    sse[i] = new SortedSetEntry(dr[0].ToString(), Int64.Parse(dr[1].ToString()));  
+                    sse[i] = new SortedSetEntry(dr[0].ToString(), Int64.Parse(dr[1].ToString()));
+                    i++;
                 }
 
                 // fill out all rank data
-                cache.SortedSetAdd(globalVal.CloudBreadRankRedisServer, sse);
+                cache.SortedSetAdd(globalVal.CloudBreadRankSortedSet, sse);
 
                 return true;
             }
