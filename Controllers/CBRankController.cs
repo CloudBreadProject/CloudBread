@@ -33,6 +33,12 @@ namespace CloudBread.Controllers
             public long rank { get; set; }
         }
 
+        public class InputParams
+        {
+            public string sid { get; set; }
+            public double point { get; set; }
+        }
+
         /// Get member rank order number 
         [Route("api/rank/{sid}/ranknumber")]
         [HttpGet]
@@ -111,7 +117,7 @@ namespace CloudBread.Controllers
 
             try
             {
-                /// fetch redis list by rank range 
+                /// fetch redis list by top countnum rankers
                 return jsonResult = CBRedis.GetTopSortedSetRank(countnum);
             }
 
@@ -121,6 +127,36 @@ namespace CloudBread.Controllers
                 logMessage.memberID = sid;        // requested value. Not redis data value.
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBRankController-TopRankerList";
+                logMessage.Message = jsonParam;
+                logMessage.Exception = ex.ToString();
+                Logging.RunLog(logMessage);
+
+                throw;
+            }
+        }
+
+        /// Set redis rank by member
+        public long POST(InputParams p)
+        {
+            long result;
+            /// logging purpose
+            Logging.CBLoggers logMessage = new Logging.CBLoggers();
+            string jsonParam = JsonConvert.SerializeObject(p.sid);
+
+            try
+            {
+                /// set redis point and return 
+                CBRedis.SetSortedSetRank(p.sid, p.point);
+                result = CBRedis.GetSortedSetRank(p.sid);
+                return result;
+            }
+
+            catch (Exception ex)
+            {
+                // error log
+                logMessage.memberID = p.sid;        // requested value. Not redis data value.
+                logMessage.Level = "ERROR";
+                logMessage.Logger = "CBRankController-SetMemberPoint";
                 logMessage.Message = jsonParam;
                 logMessage.Exception = ex.ToString();
                 Logging.RunLog(logMessage);
