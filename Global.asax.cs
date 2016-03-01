@@ -31,6 +31,7 @@ namespace CloudBread
                 /// On start up, CreateIfNotExists messagestolog table on Azure Queue Service
                 if (globalVal.StorageConnectionString != "")
                 {
+                    /// this table is used for CloudBread game log saving
                     /// Azure Storage connection retry policy
                     var retryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
                     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
@@ -39,9 +40,14 @@ namespace CloudBread
                     var cloudTable = tableClient.GetTableReference("CloudBreadLog");
                     cloudTable.CreateIfNotExists();
 
+                    /// this queue is used for CloudBread queue method game log saving
                     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
                     queueClient.DefaultRequestOptions.RetryPolicy = retryPolicy;
                     CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lowercase
+                    queue.CreateIfNotExists();
+
+                    /// this queue is used for CloudBread queue method game log saving
+                    queue = queueClient.GetQueueReference("cloudbread-batch");      /// must be lowercase
                     queue.CreateIfNotExists();
 
                 }
