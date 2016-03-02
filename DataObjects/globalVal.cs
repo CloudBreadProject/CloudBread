@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
+//using System.Web.Configuration;
+using System.Configuration;
 
 namespace CloudBread.globals
 {
     public static class globalVal
     {
-        public static string DBConnectionString = WebConfigurationManager.ConnectionStrings["CloudBreadDBConString"].ConnectionString;
-        public static string StorageConnectionString = WebConfigurationManager.ConnectionStrings["CloudBreadStorageConString"].ConnectionString;
-        public static string CloudBreadLoggerSetting = WebConfigurationManager.AppSettings["CloudBreadLoggerSetting"].ToString();
-        public static string CloudBreadCryptSetting = WebConfigurationManager.AppSettings["CloudBreadCryptSetting"].ToString();
-        public static int conRetryCount = int.Parse(WebConfigurationManager.AppSettings["CloudBreadconRetryCount"]);    /// adding v2.0.0
-        public static int conRetryFromSeconds = int.Parse(WebConfigurationManager.AppSettings["CloudBreadconRetryFromSeconds"]);     /// adding v2.0.0
-        public static string CloudBreadSocketKeyText = WebConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0
-        public static string CloudBreadSocketKeyIV = WebConfigurationManager.AppSettings["CloudBreadSocketKeyIV"];     /// adding v2.0.0
+        public static string DBConnectionString = ConfigurationManager.ConnectionStrings["CloudBreadDBConString"].ConnectionString;
+        public static string StorageConnectionString = ConfigurationManager.ConnectionStrings["CloudBreadStorageConString"].ConnectionString;
+        public static string CloudBreadLoggerSetting = ConfigurationManager.AppSettings["CloudBreadLoggerSetting"].ToString();
+        public static string CloudBreadCryptSetting = ConfigurationManager.AppSettings["CloudBreadCryptSetting"].ToString();
+        public static int conRetryCount = int.Parse(ConfigurationManager.AppSettings["CloudBreadconRetryCount"]);    /// adding v2.0.0
+        public static int conRetryFromSeconds = int.Parse(ConfigurationManager.AppSettings["CloudBreadconRetryFromSeconds"]);     /// adding v2.0.0
+        public static string CloudBreadSocketKeyText = ConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0
+        public static string CloudBreadSocketKeyIV = ConfigurationManager.AppSettings["CloudBreadSocketKeyIV"];     /// adding v2.0.0
 
-        public static string CloudBreadSocketRedisServer = WebConfigurationManager.AppSettings["CloudBreadSocketRedisServer"];     /// adding v2.0.0
-        public static string CloudBreadRankRedisServer = WebConfigurationManager.AppSettings["CloudBreadRankRedisServer"];     /// adding v2.0.0
-        public static string CloudBreadRankSortedSet = WebConfigurationManager.AppSettings["CloudBreadRankSortedSet"];     /// adding v2.0.0 
-        public static bool CloudBreadFillRedisRankSetOnStartup = bool.Parse(WebConfigurationManager.AppSettings["CloudBreadFillRedisRankSetOnStartup"]); /// adding v2.0.0
+        public static string CloudBreadSocketRedisServer = ConfigurationManager.AppSettings["CloudBreadSocketRedisServer"];     /// adding v2.0.0
+        public static string CloudBreadRankRedisServer = ConfigurationManager.AppSettings["CloudBreadRankRedisServer"];     /// adding v2.0.0
+        public static string CloudBreadRankSortedSet = ConfigurationManager.AppSettings["CloudBreadRankSortedSet"];     /// adding v2.0.0 
+        public static bool CloudBreadFillRedisRankSetOnStartup = bool.Parse(ConfigurationManager.AppSettings["CloudBreadFillRedisRankSetOnStartup"]); /// adding v2.0.0
 
-        public static string CloudBreadGameLogRedisServer = WebConfigurationManager.AppSettings["CloudBreadGameLogRedisServer"];     /// adding v2.0.0
-        public static int CloudBreadGameLogExpTimeDays = int.Parse(WebConfigurationManager.AppSettings["CloudBreadGameLogExpTimeDays"]);     /// adding v2.0.0
+        public static string CloudBreadGameLogRedisServer = ConfigurationManager.AppSettings["CloudBreadGameLogRedisServer"];     /// adding v2.0.0
+        public static int CloudBreadGameLogExpTimeDays = int.Parse(ConfigurationManager.AppSettings["CloudBreadGameLogExpTimeDays"]);     /// adding v2.0.0
         
 
 
