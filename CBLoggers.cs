@@ -2,6 +2,7 @@
 * @file CBLogger.cs
 * @brief Processing CloudBread log related task class. \n
 * @author Dae Woo Kim
+* @todo class structure change. AQS, ATS logic change. async model change
 */
 
 using System;
@@ -22,6 +23,7 @@ using Newtonsoft.Json;
 using CloudBread.globals;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBreadRedis;
 
 namespace Logger.Logging
 {
@@ -186,10 +188,19 @@ namespace Logger.Logging
 
                             case "redis":
                                 /// todolist - save log on Azure Redis Cache
+                                /// yyyymmdd:memberid:Controller:GUID
+                                {
+                                    string redisKey = "";
+                                    string redisVal = "";
+                                    message.Date = DateTimeOffset.UtcNow.ToString();
+                                    redisKey = DateTime.Now.ToUniversalTime().ToString("yyyyMMddHHmm") + ":" + message.memberID + ":" + message.Logger + ":" + Guid.NewGuid().ToString();   // guid - too long key size
+                                    redisVal = JsonConvert.SerializeObject(message);
+                                    CBRedis.saveRedisLog(redisKey, redisVal, globalVal.CloudBreadGameLogExpTimeDays);
+                                }
                                 break;
 
                             //case "DocDB":
-                            //    /// todolist - save log on Azure DocDB
+                            //    /// @todo save log data on Azure DocumentDB
                             //    break;
 
                             default:

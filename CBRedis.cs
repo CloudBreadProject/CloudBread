@@ -17,6 +17,7 @@ using StackExchange.Redis;
 using Newtonsoft.Json;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+//using Logger.Logging;
 
 namespace CloudBreadRedis
 {
@@ -25,6 +26,7 @@ namespace CloudBreadRedis
         // compose connection string for service
         static string redisConnectionStringSocket = globalVal.CloudBreadSocketRedisServer;
         static string redisConnectionStringRank = globalVal.CloudBreadRankRedisServer;
+        static string CloudBreadGameLogRedisServer = globalVal.CloudBreadGameLogRedisServer;
 
         /// @brief save socket auth key in redis db0
         public static bool SetRedisKey(string key, string value, int? expTimeMin)    // todo: value as oject or ...?
@@ -215,5 +217,35 @@ namespace CloudBreadRedis
                 throw;
             }
         }
+
+        /// save log to redis db2 and keep 365 days 
+        public static void saveRedisLog(string key, string message, int? expTimeDays)
+        {
+            ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(CloudBreadGameLogRedisServer);
+
+            // try to connect database
+            try
+            {
+                // StringSet task
+                IDatabase cache = connection.GetDatabase(2);
+                if (expTimeDays == null)
+                {
+                    // save without expire time
+                    cache.StringSetAsync(key, message);
+                }
+                else
+                {
+                    cache.StringSetAsync(key, message, TimeSpan.FromDays(Convert.ToDouble(expTimeDays)));
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
     }
 }
