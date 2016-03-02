@@ -291,7 +291,6 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <Content Include="Tools\startup_error.html" />
     <Content Include="web.config" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\jh-mobileapp-dev-01 - Web Deploy.pubxml" />
