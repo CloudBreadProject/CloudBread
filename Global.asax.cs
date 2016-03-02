@@ -17,6 +17,7 @@ using Microsoft.WindowsAzure.Storage.Queue;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using CloudBread.globals;
 using CloudBreadRedis;
+using Logger.Logging;
 
 namespace CloudBread
 {
@@ -63,7 +64,6 @@ namespace CloudBread
             }
             catch (System.Exception ex)
             {
-
                 throw ex;
             }
         }

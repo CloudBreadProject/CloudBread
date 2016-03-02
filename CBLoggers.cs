@@ -108,6 +108,7 @@ namespace Logger.Logging
                     catch (Exception)
                     {
                         /// Catch fail to log on database. Most case database connection or login fail issue.
+                        Console.WriteLine("connection config error");
                         throw;
                     }
 
