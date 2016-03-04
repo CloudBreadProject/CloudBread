@@ -18,7 +18,7 @@ using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage.Queue;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 
-using System.Web.Configuration;
+//using System.Web.Configuration;
 using Newtonsoft.Json;
 using CloudBread.globals;
 using Microsoft.Practices.TransientFaultHandling;
