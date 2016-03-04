@@ -40,8 +40,8 @@ namespace CloudBread.Controllers
         public class Payload
         {
             public string guid { get; set; }
-            public string sid { get; set; }
-            public string genDateUTC { get; set; }
+            //public string sid { get; set; } /// @todo do not show this value client
+            //public string genDateUTC { get; set; }
         }
 
         // GET api/CBSocketAuth
@@ -51,8 +51,8 @@ namespace CloudBread.Controllers
 
             /// Get the sid or memberID of the current user.
             var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID("debug", claimsPrincipal);
-            payload.sid = sid;
+            string sid = CBAuth.getMemberID("debug", claimsPrincipal);  // only for log
+            //payload.sid = sid;
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -65,7 +65,7 @@ namespace CloudBread.Controllers
 
                 /// generate paylod 
                 payload.guid = Guid.NewGuid().ToString();
-                payload.genDateUTC = DateTimeOffset.UtcNow.ToString();
+                //payload.genDateUTC = DateTimeOffset.UtcNow.ToString();
 
                 /// token Serialize and encrypt
                 t.token = JsonConvert.SerializeObject(payload);

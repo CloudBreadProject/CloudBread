@@ -40,7 +40,7 @@ namespace CloudBread.Controllers
         public class InputParams
         {
             public string MemberID { get; set; }
-            public string MemberPWD { get; set; }
+            public string MemberPWD { get; set; }   // CloudBread 2.0.0-beta deplicated. Use 3rd party authentication by default.
             public string EmailAddress { get; set; }
             public string EmailConfirmedYN { get; set; }
             public string PhoneNumber1 { get; set; }

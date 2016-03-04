@@ -68,7 +68,7 @@ namespace CloudBread.Controllers
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.memberID;
-                        command.Parameters.Add("@MemberPWD", SqlDbType.NVarChar, -1).Value = p.memberPWD;
+                        command.Parameters.Add("@MemberPWD", SqlDbType.NVarChar, -1).Value = p.memberPWD;       /// do not use v2.0.0
                         connection.OpenWithRetry(retryPolicy);
                         using (SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
                         {

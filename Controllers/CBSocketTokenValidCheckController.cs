@@ -36,7 +36,7 @@ namespace CloudBread.Controllers
         public class Result
         {
             public string guid { get; set; }
-            public string sid { get; set; }
+            //public string sid { get; set; }
             public string genDateUTC { get; set; }
         }
 
@@ -44,7 +44,7 @@ namespace CloudBread.Controllers
         public class Token
         {
             public string guid { get; set; }
-            public string sid { get; set; }     // logging purpose
+            //public string sid { get; set; }     // logging purpose
         }
 
         // GET api/CBSocketTokenValidCheck
@@ -67,7 +67,7 @@ namespace CloudBread.Controllers
                 {
                     // does not exist on Redis
                     r.guid = "";
-                    r.sid = "";
+                    //r.sid = "";
                     r.genDateUTC = "";
                 }
                 else
@@ -81,7 +81,7 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = token.sid;        // requested value. Not redis data value.
+                logMessage.memberID = "guid";        // requested value. Not redis data value.
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSocketTokenValidCheck";
                 logMessage.Message = jsonParam;
