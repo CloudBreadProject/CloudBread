@@ -21,8 +21,7 @@ CloudBread is supporting developer guide and API reference pages for developer. 
 ###Official discussion group and issue reporting.
 About issue discussion, feature request, and bug reporting use **[Github issues](https://github.com/CloudBreadProject/CloudBread/issues)** page, please. Before you summit the issue, please search about issue first.
 - Issue reporting : https://github.com/CloudBreadProject/CloudBread/issues
-- Official Facebook International user group : https://www.facebook.com/groups/CloudBreadInternational/
-- Official Facebook Korean user group : https://www.facebook.com/groups/cloudBreadProject/
+- Official Facebook user group : https://www.facebook.com/groups/cloudBreadProject/
 
 ###Contribution
 CloudBread is open source and you can contribute to make it better. Please, join the Facebook group and if you want to code contribute on code, Pull Request is welcomed.
@@ -63,7 +62,6 @@ CloudBread 프로젝트는 개발자 가이드와 API 참조 문서 페이지를
 CloudBread와 관련된 이슈, 기능추가 및 변경, 버그 리포팅은 공식 **[Github issues](https://github.com/CloudBreadProject/CloudBread/issues)**에 올려 주세요. 이슈를 올리시기 전에 관련 이슈가 없었는지 검색을 먼저 해보시길 부탁 드립니다.
 - 이슈 리포팅 : https://github.com/CloudBreadProject/CloudBread/issues
 - CloudBread 한국 페이스북 개발자 그룹 : https://www.facebook.com/groups/cloudBreadProject/
-- Official Facebook International user group : https://www.facebook.com/groups/CloudBreadInternational/
 
 
 ###프로젝트 참여와 공헌
