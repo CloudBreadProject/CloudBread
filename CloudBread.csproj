@@ -239,6 +239,7 @@
     <Compile Include="CBRedis.cs" />
     <Compile Include="Controllers\CBAddMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBAddUseMemberItemController.cs" />
+    <Compile Include="Controllers\CBComInsMemberItemPurchaseControllerController.cs" />
     <Compile Include="Controllers\CBComSelGiftDepositoryController.cs" />
     <Compile Include="Controllers\CBComSelItemList1Controller.cs" />
     <Compile Include="Controllers\CBComSelMemberController.cs" />
