@@ -42,9 +42,13 @@ namespace CloudBread.Controllers
         /// Get member rank order number 
         [Route("api/rank/{sid}/ranknumber")]
         [HttpGet]
-        public MemberRankNumber Get(string sid)
+        public MemberRankNumber Get(string sid)     
         {
             MemberRankNumber result = new MemberRankNumber();
+
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            sid = CBAuth.getMemberID(sid, claimsPrincipal);
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -61,7 +65,7 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = sid;        // requested value. Not redis data value.
+                logMessage.memberID = sid;        // authenricated server sid
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBRankController-MemberRankNumber";
                 logMessage.Message = jsonParam;
@@ -75,8 +79,11 @@ namespace CloudBread.Controllers
         /// Get my rank and then call this method to fetch +-10 rank(total 20) rank
         [Route("api/rankerlist/{sid}/{startrank}/{endrank}")]
         [HttpGet]
-        public SortedSetEntry[] GET(string sid, long startRank, long endRank)
+        public SortedSetEntry[] GET(string sid, long startRank, long endRank)   /// @todo not a good idea getting sid from usermode
         {
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            sid = CBAuth.getMemberID(sid, claimsPrincipal);
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -92,7 +99,7 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = sid;        // requested value. Not redis data value.
+                logMessage.memberID = sid;        // server autenticated sid
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBRankController-RankerListByRange";
                 logMessage.Message = jsonParam;
@@ -107,8 +114,11 @@ namespace CloudBread.Controllers
         /// Get top x rankers list order by score desc
         [Route("api/topranker/{sid}/{countnum}")]
         [HttpGet]
-        public SortedSetEntry[] GET(string sid, int countnum)
+        public SortedSetEntry[] GET(string sid, int countnum)  
         {
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            sid = CBAuth.getMemberID(sid, claimsPrincipal);
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
@@ -124,7 +134,7 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = sid;        // requested value. Not redis data value.
+                logMessage.memberID = sid;        // server authenticated value
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBRankController-TopRankerList";
                 logMessage.Message = jsonParam;
@@ -139,6 +149,10 @@ namespace CloudBread.Controllers
         public MemberRankNumber POST(InputParams p)
         {
             MemberRankNumber result = new MemberRankNumber();
+
+            // Get the sid or memberID of the current user.
+            var claimsPrincipal = this.User as ClaimsPrincipal;
+            p.sid = CBAuth.getMemberID(p.sid, claimsPrincipal);
 
             /// logging purpose
             Logging.CBLoggers logMessage = new Logging.CBLoggers();

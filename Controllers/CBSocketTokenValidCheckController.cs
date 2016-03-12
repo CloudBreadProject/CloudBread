@@ -81,7 +81,7 @@ namespace CloudBread.Controllers
             catch (Exception ex)
             {
                 // error log
-                logMessage.memberID = token.sid;        // requested value. Not redis data value.
+                logMessage.memberID = r.sid;        // requested value. Not redis data value.
                 logMessage.Level = "ERROR";
                 logMessage.Logger = "CBSocketTokenValidCheck";
                 logMessage.Message = jsonParam;

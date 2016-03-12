@@ -40,7 +40,7 @@ namespace CloudBread.Controllers
         public class Payload
         {
             public string guid { get; set; }
-            public string sid { get; set; }
+            public string sid { get; set; } /// @todo do not show this value client
             public string genDateUTC { get; set; }
         }
 
@@ -51,7 +51,7 @@ namespace CloudBread.Controllers
 
             /// Get the sid or memberID of the current user.
             var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID("debug", claimsPrincipal);
+            string sid = CBAuth.getMemberID("debug", claimsPrincipal);  // only for log
             payload.sid = sid;
 
             /// logging purpose
@@ -73,6 +73,8 @@ namespace CloudBread.Controllers
                 /// save to Rdis
                 CBRedis.SetRedisKey(payload.guid, t.token, 30); // 30 min for socket suth TTL
 
+                payload.sid = "";
+                payload.genDateUTC = "";
                 /// @brief chagned for plain processing - token encrypt
                 //t.token = Crypto.AES_encrypt(t.token, globalVal.CloudBreadSocketKeyText, globalVal.CloudBreadSocketKeyIV);
 
