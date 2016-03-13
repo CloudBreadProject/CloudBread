@@ -1,12 +1,12 @@
 ﻿/**
 * @file CBSelCouponsController.cs
 * @brief Get coupon list API of memberID  \n
-* Check memberID and date between "CouponDurationFrom" and "CouponDurationTo"
+*************************************************************************** 
+* This API is deplicated by business logic bug in CloudBread 2.0.1 release.
+****************************************************************************
 * @author Dae Woo Kim
 * @param string memberID 
 * @return coupons table object
-* @see uspSelCoupons SP, BehaviorID : B14
-* @todo paging and filter by (CouponCategory1, CouponCategory2, CouponCategory3, TargetGroup, TargetOS, TargetDevice)
 */
 
 using System;
