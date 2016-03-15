@@ -2,7 +2,9 @@
 * @file CBUdtCouponMemberController.cs
 * @brief Update MemberItems and CouponMember table by using coupon. \n
 * "DupeYN" value is set "Y", multiple members can use this coupon.
-* "DupeYN" value is set "N", only one member can use it. - set "DeleteYN" to "Y"
+* "DupeYN" value is set "N", only one member can use it. - set "DeleteYN" to "Y" \n
+* 2016-03-15 added update GameInfo table by Coupon property. \n
+* To update GameInfo table by Coupon, set @InsertOrUpdate value to @GAMEINFO and pass the params. https://github.com/CloudBreadProject/CloudBread/issues/26
 * @author Dae Woo Kim
 * @param string InsertORUpdate  - if itemid exists in memberitem inventory, then "UPDATE". if not, "INSERT".
 * @param MemberItems object
@@ -105,7 +107,7 @@ namespace CloudBread.Controllers
                     {
 
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.InsertORUpdate.ToUpper();
+                        command.Parameters.Add("@InsertORUpdate", SqlDbType.NVarChar, -1).Value = p.InsertORUpdate.ToUpper();       // or GAMEINFO
                         command.Parameters.Add("@CouponID_Coupon", SqlDbType.NVarChar, -1).Value = p.CouponID_Coupon;
                         command.Parameters.Add("@MemberItemID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberItemID_MemberItems;
                         command.Parameters.Add("@MemberID_MemberItems", SqlDbType.NVarChar, -1).Value = p.MemberID_MemberItems;
