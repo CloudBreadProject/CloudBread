@@ -118,7 +118,8 @@ namespace Logger.Logging
                                 CloudTable table = tableClient.GetTableReference("CloudBreadLog");
                                 CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       //memberid를 파티션키로 쓴다.
                                 Message.jobID = message.jobID;
-                                Message.Date = DateTimeOffset.UtcNow.ToString();
+                                Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                                //Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
                                 Message.Thread = message.Thread;
                                 Message.Level = message.Level;
                                 Message.Logger = message.Logger;
@@ -140,7 +141,7 @@ namespace Logger.Logging
                                 CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lower case
                                 CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
                                 Message.jobID = message.jobID;
-                                Message.Date = DateTimeOffset.UtcNow.ToString();
+                                Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
                                 Message.Thread = message.Thread;
                                 Message.Level = message.Level;
                                 Message.Logger = message.Logger;
@@ -157,7 +158,7 @@ namespace Logger.Logging
                             {
                                 string redisKey = "";
                                 string redisVal = "";
-                                message.Date = DateTimeOffset.UtcNow.ToString();
+                                message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"); ;
                                 redisKey = DateTime.Now.ToUniversalTime().ToString("yyyyMMddHHmm") + ":" + message.memberID + ":" + message.Logger + ":" + Guid.NewGuid().ToString();   // guid - too long key size
                                 redisVal = JsonConvert.SerializeObject(message);
                                 CBRedis.saveRedisLog(redisKey, redisVal, globalVal.CloudBreadGameLogExpTimeDays);
