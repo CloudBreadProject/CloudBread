@@ -25,6 +25,9 @@ namespace CloudBread
             /// adding for API routing
             config.MapHttpAttributeRoutes();
 
+            /// added for global error detail description by default
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new MobileServiceInitializer());
 
