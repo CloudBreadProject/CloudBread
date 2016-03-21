@@ -65,7 +65,7 @@ namespace CloudBread.Controllers
 
                 /// generate paylod 
                 payload.guid = Guid.NewGuid().ToString();
-                payload.genDateUTC = DateTimeOffset.UtcNow.ToString();
+                payload.genDateUTC = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"); ;
 
                 /// token Serialize and encrypt
                 t.token = JsonConvert.SerializeObject(payload);
