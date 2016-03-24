@@ -30,56 +30,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBComUdtMemberGameInfoStagesController : ApiController
     {
-        public class InputParams
+        public HttpResponseMessage Post(ComUdtMemberGameInfoStagesInputParams p)
         {
-            public string MemberGameInfoStageID { get; set; }
-            public string MemberID { get; set; }
-            public string StageName { get; set; }
-            public string StageStatus { get; set; }
-            public string Category1 { get; set; }
-            public string Category2 { get; set; }
-            public string Category3 { get; set; }
-            public string Mission1 { get; set; }
-            public string Mission2 { get; set; }
-            public string Mission3 { get; set; }
-            public string Mission4 { get; set; }
-            public string Mission5 { get; set; }
-            public string Points { get; set; }
-            public string StageStat1 { get; set; }
-            public string StageStat2 { get; set; }
-            public string StageStat3 { get; set; }
-            public string StageStat4 { get; set; }
-            public string StageStat5 { get; set; }
-            public string sCol1 { get; set; }
-            public string sCol2 { get; set; }
-            public string sCol3 { get; set; }
-            public string sCol4 { get; set; }
-            public string sCol5 { get; set; }
-            public string sCol6 { get; set; }
-            public string sCol7 { get; set; }
-            public string sCol8 { get; set; }
-            public string sCol9 { get; set; }
-            public string sCol10 { get; set; }
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<ComUdtMemberGameInfoStagesInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
-        }
-
-        public string Post(InputParams p)
-        {
-            string result = "";
-            
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID, this.User as ClaimsPrincipal);
             p.MemberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
+            RowcountResult rowcountResult = new RowcountResult();
 
             try
             {
@@ -131,7 +115,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                rowcountResult.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
@@ -144,7 +128,24 @@ namespace CloudBread.Controllers
                         logMessage.Message = jsonParam;
                         Logging.RunLog(logMessage);
 
-                        return result;
+                        /// Encrypt the result response
+                        if (globalVal.CloudBreadCryptSetting == "AES256")
+                        {
+                            try
+                            {
+                                encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(rowcountResult), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                                response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                                return response;
+                            }
+                            catch (Exception ex)
+                            {
+                                ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                                throw ex;
+                            }
+                        }
+
+                        response = Request.CreateResponse(HttpStatusCode.OK, rowcountResult);
+                        return response;
                     }
 
                 }
