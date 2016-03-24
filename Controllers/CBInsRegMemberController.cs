@@ -34,90 +34,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBInsRegMemberController : ApiController
     {
-        
-        public class InputParams
+        public HttpResponseMessage Post(InsRegMemberInputParams p)
         {
-            public string 	MemberID_Members	 { get; set; }   
-            public string 	MemberPWD_Members	 { get; set; }  
-            public string 	EmailAddress_Members	 { get; set; } 
-            public string 	EmailConfirmedYN_Members	 { get; set; }
-            public string 	PhoneNumber1_Members	 { get; set; }
-            public string 	PhoneNumber2_Members	 { get; set; }
-            public string 	PINumber_Members	 { get; set; }
-            public string 	Name1_Members	 { get; set; }
-            public string 	Name2_Members	 { get; set; }
-            public string 	Name3_Members	 { get; set; }
-            public string 	DOB_Members	 { get; set; }
-            public string 	RecommenderID_Members	 { get; set; }
-            public string 	MemberGroup_Members	 { get; set; }
-            public string 	LastDeviceID_Members	 { get; set; }
-            public string 	LastIPaddress_Members	 { get; set; }
-            public string 	LastLoginDT_Members	 { get; set; }
-            public string 	LastLogoutDT_Members	 { get; set; }
-            public string 	LastMACAddress_Members	 { get; set; }
-            public string 	AccountBlockYN_Members	 { get; set; }
-            public string 	AccountBlockEndDT_Members	 { get; set; }
-            public string 	AnonymousYN_Members	 { get; set; }
-            public string 	_3rdAuthProvider_Members	 { get; set; }
-            public string 	_3rdAuthID_Members	 { get; set; }
-            public string 	_3rdAuthParam_Members	 { get; set; }
-            public string 	PushNotificationID_Members	 { get; set; }
-            public string 	PushNotificationProvider_Members	 { get; set; }
-            public string 	PushNotificationGroup_Members	 { get; set; }
-            public string 	sCol1_Members	 { get; set; }
-            public string 	sCol2_Members	 { get; set; }
-            public string 	sCol3_Members	 { get; set; }
-            public string 	sCol4_Members	 { get; set; }
-            public string 	sCol5_Members	 { get; set; }
-            public string 	sCol6_Members	 { get; set; }
-            public string 	sCol7_Members	 { get; set; }
-            public string 	sCol8_Members	 { get; set; }
-            public string 	sCol9_Members	 { get; set; }
-            public string 	sCol10_Members	 { get; set; }
-            public string 	TimeZoneID_Members	 { get; set; }
-            public string 	Level_MemberGameInfoes	 { get; set; }
-            public string 	Exps_MemberGameInfoes	 { get; set; }
-            public string 	Points_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT1_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT2_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT3_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT4_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT5_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT6_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT7_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT8_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT9_MemberGameInfoes	 { get; set; }
-            public string 	UserSTAT10_MemberGameInfoes	 { get; set; }
-            public string 	sCol1_MemberGameInfoes	 { get; set; }
-            public string 	sCol2_MemberGameInfoes	 { get; set; }
-            public string 	sCol3_MemberGameInfoes	 { get; set; }
-            public string 	sCol4_MemberGameInfoes	 { get; set; }
-            public string 	sCol5_MemberGameInfoes	 { get; set; }
-            public string 	sCol6_MemberGameInfoes	 { get; set; }
-            public string 	sCol7_MemberGameInfoes	 { get; set; }
-            public string 	sCol8_MemberGameInfoes	 { get; set; }
-            public string 	sCol9_MemberGameInfoes	 { get; set; }
-            public string 	sCol10_MemberGameInfoes	 { get; set; }
-
-        }
-
-        public string Post(InputParams p)
-        {
-            string result = "";
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<InsRegMemberInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID_Members, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID_Members, this.User as ClaimsPrincipal);
             p.MemberID_Members = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
+            RowcountResult rowcountResult = new RowcountResult();
 
             try
             {
@@ -197,13 +147,12 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@sCol9_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol9_MemberGameInfoes;
                         command.Parameters.Add("@sCol10_MemberGameInfoes", SqlDbType.NVarChar, -1).Value = p.sCol10_MemberGameInfoes;
 
-
                         connection.OpenWithRetry(retryPolicy);
                         using (SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
                         {
                             while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                rowcountResult.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
@@ -216,9 +165,25 @@ namespace CloudBread.Controllers
                         logMessage.Message = jsonParam;
                         Logging.RunLog(logMessage);
 
-                        return result;
+                        /// Encrypt the result response
+                        if (globalVal.CloudBreadCryptSetting == "AES256")
+                        {
+                            try
+                            {
+                                encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(rowcountResult), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                                response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                                return response;
+                            }
+                            catch (Exception ex)
+                            {
+                                ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                                throw ex;
+                            }
+                        }
+
+                        response = Request.CreateResponse(HttpStatusCode.OK, rowcountResult);
+                        return response;
                     }
-                    
                 }
             }
 
