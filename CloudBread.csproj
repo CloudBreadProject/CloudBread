@@ -292,6 +292,7 @@
     <Compile Include="Models\ComSelMember.cs" />
     <Compile Include="Models\ComSelMemberGameInfoes.cs" />
     <Compile Include="Models\ComSelMemberGameInfoStages.cs" />
+    <Compile Include="Models\ComSelMemberItem.cs" />
     <Compile Include="Models\EncryptedData.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Models\RowcountResult.cs" />
