@@ -290,6 +290,7 @@
     <Compile Include="Models\ComSelGiftDepository.cs" />
     <Compile Include="Models\ComSelItemList1.cs" />
     <Compile Include="Models\ComSelMember.cs" />
+    <Compile Include="Models\ComSelMemberGameInfoes.cs" />
     <Compile Include="Models\EncryptedData.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Models\RowcountResult.cs" />
