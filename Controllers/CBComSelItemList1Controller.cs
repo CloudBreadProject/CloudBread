@@ -31,53 +31,41 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBComSelItemList1Controller : ApiController
     {
-        
-        public class InputParams {
-            public string MemberID;     // log purpose
-            public string ItemListID;
-        }
-
-        public class Model
+        public HttpResponseMessage Post(ComSelItemList1InputParams p)
         {
-            public string ItemListID { get; set; }
-            public string ItemName { get; set; }
-            public string ItemDescription { get; set; }
-            public string ItemPrice { get; set; }
-            public string ItemSellPrice { get; set; }
-            public string ItemCategory1 { get; set; }
-            public string ItemCategory2 { get; set; }
-            public string ItemCategory3 { get; set; }
-            //public string IteamCreateAdminID { get; set; }
-            //public string IteamUpdateAdminID { get; set; }
-            public string sCol1 { get; set; }
-            public string sCol2 { get; set; }
-            public string sCol3 { get; set; }
-            public string sCol4 { get; set; }
-            public string sCol5 { get; set; }
-            public string sCol6 { get; set; }
-            public string sCol7 { get; set; }
-            public string sCol8 { get; set; }
-            public string sCol9 { get; set; }
-            public string sCol10 { get; set; }
-        }
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<ComSelItemList1InputParams>(decrypted);
 
-        public List<Model> Post(InputParams p)
-        {
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
+
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID, this.User as ClaimsPrincipal);
             p.MemberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
-            List<Model> result = new List<Model>();
+            List<ComSelItemList1Model> result = new List<ComSelItemList1Model>();
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
 
             try
             {
@@ -95,7 +83,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                Model workItem = new Model()
+                                ComSelItemList1Model workItem = new ComSelItemList1Model()
                                 {
                                     ItemListID = dreader[0].ToString(),
                                     ItemName = dreader[1].ToString(),
@@ -105,8 +93,6 @@ namespace CloudBread.Controllers
                                     ItemCategory1 = dreader[5].ToString(),
                                     ItemCategory2 = dreader[6].ToString(),
                                     ItemCategory3 = dreader[7].ToString(),
-                                    //IteamCreateAdminID = dreader[8].ToString(),
-                                    //IteamUpdateAdminID = dreader[9].ToString(),
                                     sCol1 = dreader[8].ToString(),
                                     sCol2 = dreader[9].ToString(),
                                     sCol3 = dreader[10].ToString(),
@@ -124,7 +110,25 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
                     }
-                    return result;
+
+                    /// Encrypt the result response
+                    if (globalVal.CloudBreadCryptSetting == "AES256")
+                    {
+                        try
+                        {
+                            encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(result), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                            response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                            throw ex;
+                        }
+                    }
+
+                    response = Request.CreateResponse(HttpStatusCode.OK, result);
+                    return response;
                 }
             }
 

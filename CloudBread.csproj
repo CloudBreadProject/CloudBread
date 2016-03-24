@@ -286,7 +286,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddMemberItemPurchase.cs" />
+    <Compile Include="Models\ComSelGiftDepository.cs" />
+    <Compile Include="Models\ComSelItemList1.cs" />
+    <Compile Include="Models\EncryptedData.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
+    <Compile Include="Models\RowcountResult.cs" />
+    <Compile Include="Models\SelNotices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
