@@ -299,6 +299,7 @@
     <Compile Include="Models\ComUdtMemberGameInfoes.cs" />
     <Compile Include="Models\ComUdtMemberGameInfoStages.cs" />
     <Compile Include="Models\ComUdtMemberItem.cs" />
+    <Compile Include="Models\ComUdtMemberItemPurchase.cs" />
     <Compile Include="Models\EncryptedData.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Models\RowcountResult.cs" />

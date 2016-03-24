@@ -37,8 +37,6 @@ namespace CloudBread.Controllers
     [MobileAppController]
     public class CBComUdtMemberItemController : ApiController
     {
-        
-
         public HttpResponseMessage Post(ComUdtMemberItemInputParams p)
         {
             // try decrypt data
@@ -82,7 +80,6 @@ namespace CloudBread.Controllers
                 {
                     using (SqlCommand command = new SqlCommand("uspComUdtMemberItem", connection))
                     {
-
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@MemberItemID ", SqlDbType.NVarChar, -1).Value = p.MemberItemID;
                         command.Parameters.Add("@MemberID ", SqlDbType.NVarChar, -1).Value = p.MemberID;
@@ -137,7 +134,6 @@ namespace CloudBread.Controllers
                         response = Request.CreateResponse(HttpStatusCode.OK, rowcountResult);
                         return response;
                     }
-
                 }
             }
 
@@ -154,6 +150,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }
