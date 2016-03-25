@@ -32,61 +32,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBUdtSendGiftController : ApiController
     {
-        
-        public class InputParams
+        public HttpResponseMessage Post(UdtSendGiftInputParams p)
         {
-            public string DeleteORUpdate { get; set; }
-            public string MemberItemID_MemberItem { get; set; }
-            public string MemberID_MemberItem { get; set; }
-            public string ItemListID_MemberItem { get; set; }
-            public string ItemCount_MemberItem { get; set; }
-            public string ItemStatus_MemberItem { get; set; }
-            public string sCol1_MemberItem { get; set; }
-            public string sCol2_MemberItem { get; set; }
-            public string sCol3_MemberItem { get; set; }
-            public string sCol4_MemberItem { get; set; }
-            public string sCol5_MemberItem { get; set; }
-            public string sCol6_MemberItem { get; set; }
-            public string sCol7_MemberItem { get; set; }
-            public string sCol8_MemberItem { get; set; }
-            public string sCol9_MemberItem { get; set; }
-            public string sCol10_MemberItem { get; set; }
-            public string GiftDepositoryID_GiftDepository { get; set; }
-            public string ItemListID_GiftDepository { get; set; }
-            public string ItemCount_GiftDepository { get; set; }
-            public string FromMemberID_GiftDepository { get; set; }
-            public string ToMemberID_GiftDepository { get; set; }
-            public string sCol1_GiftDepository { get; set; }
-            public string sCol2_GiftDepository { get; set; }
-            public string sCol3_GiftDepository { get; set; }
-            public string sCol4_GiftDepository { get; set; }
-            public string sCol5_GiftDepository { get; set; }
-            public string sCol6_GiftDepository { get; set; }
-            public string sCol7_GiftDepository { get; set; }
-            public string sCol8_GiftDepository { get; set; }
-            public string sCol9_GiftDepository { get; set; }
-            public string sCol10_GiftDepository { get; set; }
-
-
-        }
-
-        public string Post(InputParams p)
-        {
-            string result = "";
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<UdtSendGiftInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID_MemberItem, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID_MemberItem, this.User as ClaimsPrincipal);
             p.MemberID_MemberItem = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
+            RowcountResult rowcountResult = new RowcountResult();
 
             try
             {
@@ -136,13 +115,12 @@ namespace CloudBread.Controllers
                         command.Parameters.Add("@sCol9_GiftDepository", SqlDbType.NVarChar, -1).Value = p.sCol9_GiftDepository;
                         command.Parameters.Add("@sCol10_GiftDepository", SqlDbType.NVarChar, -1).Value = p.sCol10_GiftDepository;
 
-
                         connection.OpenWithRetry(retryPolicy);
                         using (SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
                         {
                             while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                rowcountResult.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
@@ -155,9 +133,25 @@ namespace CloudBread.Controllers
                         logMessage.Message = jsonParam;
                         Logging.RunLog(logMessage);
 
-                        return result;
-                    }
+                        /// Encrypt the result response
+                        if (globalVal.CloudBreadCryptSetting == "AES256")
+                        {
+                            try
+                            {
+                                encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(rowcountResult), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                                response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                                return response;
+                            }
+                            catch (Exception ex)
+                            {
+                                ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                                throw ex;
+                            }
+                        }
 
+                        response = Request.CreateResponse(HttpStatusCode.OK, rowcountResult);
+                        return response;
+                    }
                 }
             }
 
@@ -174,6 +168,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }

@@ -319,6 +319,7 @@
     <Compile Include="Models\UdtMemberGameInfoStage.cs" />
     <Compile Include="Models\UdtMoveGift.cs" />
     <Compile Include="Models\UdtReturnItem.cs" />
+    <Compile Include="Models\UdtSendGift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
