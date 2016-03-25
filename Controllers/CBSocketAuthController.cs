@@ -50,8 +50,7 @@ namespace CloudBread.Controllers
             Payload payload = new Payload();
 
             /// Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID("debug", claimsPrincipal);  // only for log
+            string sid = CBAuth.getMemberID("debug", this.User as ClaimsPrincipal);  // only for log
             payload.sid = sid;
 
             /// logging purpose
