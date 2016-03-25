@@ -317,6 +317,7 @@
     <Compile Include="Models\UdtCouponMember.cs" />
     <Compile Include="Models\UdtGameEventMemberToItem.cs" />
     <Compile Include="Models\UdtMemberGameInfoStage.cs" />
+    <Compile Include="Models\UdtMoveGift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
