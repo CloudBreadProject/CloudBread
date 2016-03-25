@@ -39,6 +39,21 @@ namespace CloudBread.Controllers
     {
         public HttpResponseMessage Post(SelGiftItemToMeInputParams p)
         {
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<SelGiftItemToMeInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
+
             // Get the sid or memberID of the current user.
             string sid = CBAuth.getMemberID(p.MemberID, this.User as ClaimsPrincipal);
             p.MemberID = sid;
