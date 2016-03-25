@@ -30,57 +30,39 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBComSelCouponController : ApiController
     {
-
-        public class InputParams
+        public HttpResponseMessage Post(ComSelCouponInputParams p)
         {
-            public string MemberID;     // log purpose
-            public string CouponID;
-        }
-
-        public class Model
-        {
-            public string CouponID { get; set; }
-            public string CouponCategory1 { get; set; }
-            public string CouponCategory2 { get; set; }
-            public string CouponCategory3 { get; set; }
-            public string ItemListID { get; set; }
-            public string ItemCount { get; set; }
-            public string ItemStatus { get; set; }
-            public string TargetGroup { get; set; }
-            public string TargetOS { get; set; }
-            public string TargetDevice { get; set; }
-            public string Title { get; set; }
-            public string Content { get; set; }
-            public string sCol1 { get; set; }
-            public string sCol2 { get; set; }
-            public string sCol3 { get; set; }
-            public string sCol4 { get; set; }
-            public string sCol5 { get; set; }
-            public string sCol6 { get; set; }
-            public string sCol7 { get; set; }
-            public string sCol8 { get; set; }
-            public string sCol9 { get; set; }
-            public string sCol10 { get; set; }
-
-        }
-
-        public List<Model> Post(InputParams p)
-        {
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<ComSelCouponInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID, this.User as ClaimsPrincipal);
             p.MemberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
-            List<Model> result = new List<Model>();
+            List<ComSelCouponModel> result = new List<ComSelCouponModel>();
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
 
             try
             {
@@ -98,7 +80,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                Model workItem = new Model()
+                                ComSelCouponModel workItem = new ComSelCouponModel()
                                 {
                                     CouponID = dreader[0].ToString(),
                                     CouponCategory1 = dreader[1].ToString(),
@@ -122,7 +104,6 @@ namespace CloudBread.Controllers
                                     sCol8 = dreader[19].ToString(),
                                     sCol9 = dreader[20].ToString(),
                                     sCol10 = dreader[21].ToString(),
-
                                 };
                                 result.Add(workItem);
                             }
@@ -130,7 +111,25 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
                     }
-                    return result;
+
+                    /// Encrypt the result response
+                    if (globalVal.CloudBreadCryptSetting == "AES256")
+                    {
+                        try
+                        {
+                            encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(result), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                            response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                            throw ex;
+                        }
+                    }
+
+                    response = Request.CreateResponse(HttpStatusCode.OK, result);
+                    return response;
                 }
             }
 
@@ -147,6 +146,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }

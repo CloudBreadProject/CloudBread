@@ -289,6 +289,7 @@
     <Compile Include="Models\AddMemberItemPurchase.cs" />
     <Compile Include="Models\AddUseMemberItem.cs" />
     <Compile Include="Models\ComInsMemberItemPurchase.cs" />
+    <Compile Include="Models\ComSelCoupon.cs" />
     <Compile Include="Models\ComSelGiftDepository.cs" />
     <Compile Include="Models\ComSelItemList1.cs" />
     <Compile Include="Models\ComSelMember.cs" />
