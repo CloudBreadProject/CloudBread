@@ -239,6 +239,8 @@
     <Compile Include="CBRedis.cs" />
     <Compile Include="Controllers\CBAddMemberItemPurchaseController.cs" />
     <Compile Include="Controllers\CBAddUseMemberItemController.cs" />
+    <Compile Include="Controllers\CBComInsMemberGameInfoStagesController.cs" />
+    <Compile Include="Controllers\CBComInsMemberItemController.cs" />
     <Compile Include="Controllers\CBComInsMemberItemPurchaseControllerController.cs" />
     <Compile Include="Controllers\CBComSelCouponController.cs" />
     <Compile Include="Controllers\CBComSelGiftDepositoryController.cs" />
@@ -288,6 +290,8 @@
     </Compile>
     <Compile Include="Models\AddMemberItemPurchase.cs" />
     <Compile Include="Models\AddUseMemberItem.cs" />
+    <Compile Include="Models\ComInsMemberGameInfoStages.cs" />
+    <Compile Include="Models\ComInsMemberItem.cs" />
     <Compile Include="Models\ComInsMemberItemPurchase.cs" />
     <Compile Include="Models\ComSelCoupon.cs" />
     <Compile Include="Models\ComSelGiftDepository.cs" />
@@ -329,7 +333,13 @@
   <ItemGroup>
     <Content Include="CloudBreadLib.dll" />
     <Content Include="Global.asax" />
-    <Content Include="web.config" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\cb2-auth-crypt-demo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\cb2-auth-demo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\cb2-crypt-demo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\cb2-demo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dw-cloudbread-ys - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\jh-mobileapp-dev-01 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\jhmobileApp - Web Deploy.pubxml" />

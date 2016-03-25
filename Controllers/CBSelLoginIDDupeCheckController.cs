@@ -75,7 +75,8 @@ namespace CloudBread.Controllers
                     using(SqlCommand command = new SqlCommand("uspSelLoginIDDupeCheck", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@MemberID", SqlDbType.NVarChar, -1).Value = p.memberID;
+                        command.Parameters.Add("@FindID", SqlDbType.NVarChar, -1).Value = p.findID;
+                        command.Parameters.Add("@Category", SqlDbType.NVarChar, -1).Value = p.category;
                         connection.OpenWithRetry(retryPolicy);
                         using(SqlDataReader dreader = command.ExecuteReaderWithRetry(retryPolicy))
                         {
