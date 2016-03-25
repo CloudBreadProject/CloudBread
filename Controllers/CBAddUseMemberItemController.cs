@@ -33,70 +33,41 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBAddUseMemberItemController : ApiController
     {
-
-        public class InputParams
+        public HttpResponseMessage Post(AddUseMemberItemInputParams p)
         {
-            public string InsertORUpdateORDelete;
-            public string MemberItemID_MemberItem;
-            public string MemberID_MemberItem;
-            public string ItemListID_MemberItem;
-            public string ItemCount_MemberItem;
-            public string ItemStatus_MemberItem;
-            public string sCol1_MemberItem;
-            public string sCol2_MemberItem;
-            public string sCol3_MemberItem;
-            public string sCol4_MemberItem;
-            public string sCol5_MemberItem;
-            public string sCol6_MemberItem;
-            public string sCol7_MemberItem;
-            public string sCol8_MemberItem;
-            public string sCol9_MemberItem;
-            public string sCol10_MemberItem;
-            public string MemberID_MemberGameInfoes;
-            public string Level_MemberGameInfoes;
-            public string Exps_MemberGameInfoes;
-            public string Points_MemberGameInfoes;
-            public string UserSTAT1_MemberGameInfoes;
-            public string UserSTAT2_MemberGameInfoes;
-            public string UserSTAT3_MemberGameInfoes;
-            public string UserSTAT4_MemberGameInfoes;
-            public string UserSTAT5_MemberGameInfoes;
-            public string UserSTAT6_MemberGameInfoes;
-            public string UserSTAT7_MemberGameInfoes;
-            public string UserSTAT8_MemberGameInfoes;
-            public string UserSTAT9_MemberGameInfoes;
-            public string UserSTAT10_MemberGameInfoes;
-            public string sCol1_MemberGameInfoes;
-            public string sCol2_MemberGameInfoes;
-            public string sCol3_MemberGameInfoes;
-            public string sCol4_MemberGameInfoes;
-            public string sCol5_MemberGameInfoes;
-            public string sCol6_MemberGameInfoes;
-            public string sCol7_MemberGameInfoes;
-            public string sCol8_MemberGameInfoes;
-            public string sCol9_MemberGameInfoes;
-            public string sCol10_MemberGameInfoes;
-        }
-        
-        public string Post(InputParams p)
-        {
-
-            string result = "";
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<AddUseMemberItemInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID_MemberGameInfoes, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID_MemberGameInfoes, this.User as ClaimsPrincipal);
             p.MemberID_MemberGameInfoes = sid;
             p.MemberID_MemberItem = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
+            RowcountResult rowcountResult = new RowcountResult();
 
             try
             {
@@ -160,7 +131,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                result = dreader[0].ToString();
+                                rowcountResult.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
@@ -173,9 +144,25 @@ namespace CloudBread.Controllers
                         logMessage.Message = jsonParam;
                         Logging.RunLog(logMessage);
 
-                        return result;
-                    }
+                        /// Encrypt the result response
+                        if (globalVal.CloudBreadCryptSetting == "AES256")
+                        {
+                            try
+                            {
+                                encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(rowcountResult), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                                response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                                return response;
+                            }
+                            catch (Exception ex)
+                            {
+                                ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                                throw ex;
+                            }
+                        }
 
+                        response = Request.CreateResponse(HttpStatusCode.OK, rowcountResult);
+                        return response;
+                    }
                 }
             }
 
@@ -192,6 +179,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }
