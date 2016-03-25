@@ -311,6 +311,7 @@
     <Compile Include="Models\SelLoginIDDupeCheck.cs" />
     <Compile Include="Models\SelLoginInfo.cs" />
     <Compile Include="Models\SelMemberGameInfoStages.cs" />
+    <Compile Include="Models\SelMemberItems.cs" />
     <Compile Include="Models\SelNotices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
