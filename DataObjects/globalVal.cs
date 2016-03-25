@@ -11,8 +11,11 @@ namespace CloudBread.globals
     {
         public static string DBConnectionString = ConfigurationManager.ConnectionStrings["CloudBreadDBConString"].ConnectionString;
         public static string StorageConnectionString = ConfigurationManager.ConnectionStrings["CloudBreadStorageConString"].ConnectionString;
-        public static string CloudBreadLoggerSetting = ConfigurationManager.AppSettings["CloudBreadLoggerSetting"].ToString();
-        public static string CloudBreadCryptSetting = ConfigurationManager.AppSettings["CloudBreadCryptSetting"].ToString();
+        public static string CloudBreadLoggerSetting = ConfigurationManager.AppSettings["CloudBreadLoggerSetting"];
+        public static string CloudBreadCryptSetting = ConfigurationManager.AppSettings["CloudBreadCryptSetting"];
+        public static string CloudBreadCryptKey = ConfigurationManager.AppSettings["CloudBreadCryptKey"];       /// adding v2.0.0
+        public static string CloudBreadCryptIV = ConfigurationManager.AppSettings["CloudBreadCryptIV"];       /// adding v2.0.0
+
         public static int conRetryCount = int.Parse(ConfigurationManager.AppSettings["CloudBreadconRetryCount"]);    /// adding v2.0.0
         public static int conRetryFromSeconds = int.Parse(ConfigurationManager.AppSettings["CloudBreadconRetryFromSeconds"]);     /// adding v2.0.0
         public static string CloudBreadSocketKeyText = ConfigurationManager.AppSettings["CloudBreadSocketKeyText"];     /// adding v2.0.0

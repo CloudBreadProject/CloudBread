@@ -32,67 +32,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBSelMemberItemsController : ApiController
     {
-        public class InputParams {
-            public string MemberID;
-            public Int64 Page; 
-            public Int64 PageSize; 
-        }
-
-        public class Model
+        public HttpResponseMessage Post(SelMemberItemsInputParams p)
         {
-            public string ROWNUM { get; set; }
-            public string ItemListsItemName { get; set; }
-            public string ItemListsItemDescription { get; set; }
-            public string ItemListsItemPrice { get; set; }
-            public string ItemListsItemSellPrice { get; set; }
-            public string ItemListsItemCategory1 { get; set; }
-            public string ItemListsItemCategory2 { get; set; }
-            public string ItemListsItemCategory3 { get; set; }
-            public string ItemListssCol1 { get; set; }
-            public string ItemListssCol2 { get; set; }
-            public string ItemListssCol3 { get; set; }
-            public string ItemListssCol4 { get; set; }
-            public string ItemListssCol5 { get; set; }
-            public string ItemListssCol6 { get; set; }
-            public string ItemListssCol7 { get; set; }
-            public string ItemListssCol8 { get; set; }
-            public string ItemListssCol9 { get; set; }
-            public string ItemListssCol10 { get; set; }
-            public string MemberItemsMemberItemID { get; set; }
-            public string MemberItemsMemberID { get; set; }
-            public string MemberItemsItemListID { get; set; }
-            public string MemberItemsItemCount { get; set; }
-            public string MemberItemsItemStatus { get; set; }
-            public string MemberItemssCol1 { get; set; }
-            public string MemberItemssCol2 { get; set; }
-            public string MemberItemssCol3 { get; set; }
-            public string MemberItemssCol4 { get; set; }
-            public string MemberItemssCol5 { get; set; }
-            public string MemberItemssCol6 { get; set; }
-            public string MemberItemssCol7 { get; set; }
-            public string MemberItemssCol8 { get; set; }
-            public string MemberItemssCol9 { get; set; }
-            public string MemberItemssCol10 { get; set; }
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<SelMemberItemsInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
-        }
-
-        public List<Model> Post(InputParams p)
-        {
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.MemberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.MemberID, this.User as ClaimsPrincipal);
             p.MemberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
-            List<Model> result = new List<Model>();
+            List<SelMemberItemsModel> result = new List<SelMemberItemsModel>();
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
 
             try
             {
@@ -112,7 +85,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                Model workItem = new Model()
+                                SelMemberItemsModel workItem = new SelMemberItemsModel()
                                 {
                                     ROWNUM = dreader[0].ToString(),
                                     ItemListsItemName = dreader[1].ToString(),
@@ -147,7 +120,6 @@ namespace CloudBread.Controllers
                                     MemberItemssCol8 = dreader[30].ToString(),
                                     MemberItemssCol9 = dreader[31].ToString(),
                                     MemberItemssCol10 = dreader[32].ToString()
-
                                 };
                                 result.Add(workItem);
                             }
@@ -155,7 +127,25 @@ namespace CloudBread.Controllers
                         }
                         connection.Close();
                     }
-                    return result;
+
+                    /// Encrypt the result response
+                    if (globalVal.CloudBreadCryptSetting == "AES256")
+                    {
+                        try
+                        {
+                            encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(result), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                            response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                            throw ex;
+                        }
+                    }
+
+                    response = Request.CreateResponse(HttpStatusCode.OK, result);
+                    return response;
                 }
             }
 
@@ -172,6 +162,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }

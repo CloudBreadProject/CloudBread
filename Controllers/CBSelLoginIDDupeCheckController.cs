@@ -31,31 +31,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBSelLoginIDDupeCheckController : ApiController
     {
-
-        public class InputParams { public string memberID;}
-
-        //return json
-        public class Result { public string result; }
-
-        public Result Post(InputParams p)      // //return json
+        public HttpResponseMessage Post(SelLoginIDDupeCheckInputParams p)
         {
-            //return json
-            //string result = "";
-            Result r = new Result();
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<SelLoginIDDupeCheckInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.memberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.memberID, this.User as ClaimsPrincipal);
             p.memberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
+
+            SelLoginIDDupeCheckResult result = new SelLoginIDDupeCheckResult();
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
 
             try 
 	        {
@@ -72,16 +81,30 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                // change
-                                r.result = dreader[0].ToString();
+                                result.result = dreader[0].ToString();
                             }
                             dreader.Close();
                         }
                         connection.Close();
 
-                        // return json
-                        //return result;
-                        return r;
+                        /// Encrypt the result response
+                        if (globalVal.CloudBreadCryptSetting == "AES256")
+                        {
+                            try
+                            {
+                                encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(result), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                                response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                                return response;
+                            }
+                            catch (Exception ex)
+                            {
+                                ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                                throw ex;
+                            }
+                        }
+
+                        response = Request.CreateResponse(HttpStatusCode.OK, result);
+                        return response;
                     }
 	            }
             }

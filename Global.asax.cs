@@ -39,6 +39,8 @@ namespace CloudBread
                     tableClient.DefaultRequestOptions.RetryPolicy = retryPolicy;
                     var cloudTable = tableClient.GetTableReference("CloudBreadLog");
                     cloudTable.CreateIfNotExists();
+                    cloudTable = tableClient.GetTableReference("CloudBreadErrorLog");
+                    cloudTable.CreateIfNotExists();
 
                     /// this queue is used for CloudBread queue method game log saving
                     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();

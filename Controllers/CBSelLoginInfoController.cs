@@ -30,76 +30,40 @@ using CloudBreadAuth;
 using System.Security.Claims;
 using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.SqlAzure;
+using CloudBread.Models;
 
 namespace CloudBread.Controllers
 {
     [MobileAppController]
     public class CBSelLoginInfoController : ApiController
     {
-        
-        public class InputParams { 
-            public string memberID; 
-            public string memberPWD;        // Consider using 3rd party authentication. If using own autehtication, at least SHA512 from client device.
-            public string LastDeviceID = "";
-            public string LastIPaddress = ""; 
-            public string LastMACAddress="";
-        }
-
-        public class Model
+        public HttpResponseMessage Post(SelLoginInfoInputParams p)
         {
-            public string MemberID { get; set; }
-            public string MemberPWD { get; set; }
-            public string EmailAddress { get; set; }
-            public string EmailConfirmedYN { get; set; }
-            public string PhoneNumber1 { get; set; }
-            public string PhoneNumber2 { get; set; }
-            public string PINumber { get; set; }
-            public string Name1 { get; set; }
-            public string Name2 { get; set; }
-            public string Name3 { get; set; }
-            public string DOB { get; set; }
-            public string RecommenderID { get; set; }
-            public string MemberGroup { get; set; }
-            public string LastDeviceID { get; set; }
-            public string LastIPaddress { get; set; }
-            public string LastLoginDT { get; set; }
-            public string LastLogoutDT { get; set; }
-            public string LastMACAddress { get; set; }
-            public string AccountBlockYN { get; set; }
-            public string AccountBlockEndDT { get; set; }
-            public string AnonymousYN { get; set; }
+            // try decrypt data
+            if (!string.IsNullOrEmpty(p.token) && globalVal.CloudBreadCryptSetting == "AES256")
+            {
+                try
+                {
+                    string decrypted = Crypto.AES_decrypt(p.token, globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                    p = JsonConvert.DeserializeObject<SelLoginInfoInputParams>(decrypted);
+                }
+                catch (Exception ex)
+                {
+                    ex = (Exception)Activator.CreateInstance(ex.GetType(), "Decrypt Error", ex);
+                    throw ex;
+                }
+            }
 
-            public string _3rdAuthProvider { get; set; }
-            public string _3rdAuthID { get; set; }
-            public string _3rdAuthParam { get; set; }
-            public string PushNotificationID { get; set; }
-            public string PushNotificationProvider { get; set; }
-            public string PushNotificationGroup { get; set; }
-
-            public string sCol1 { get; set; }
-            public string sCol2 { get; set; }
-            public string sCol3 { get; set; }
-            public string sCol4 { get; set; }
-            public string sCol5 { get; set; }
-            public string sCol6 { get; set; }
-            public string sCol7 { get; set; }
-            public string sCol8 { get; set; }
-            public string sCol9 { get; set; }
-            public string sCol10 { get; set; }
-
-        }
-
-        public List<Model> Post(InputParams p)
-        {
             // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.memberID, claimsPrincipal);
+            string sid = CBAuth.getMemberID(p.memberID, this.User as ClaimsPrincipal);
             p.memberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
 
-            List<Model> result = new List<Model>();
+            List<SelLoginInfoModel> result = new List<SelLoginInfoModel>();
+            HttpResponseMessage response = new HttpResponseMessage();
+            EncryptedData encryptedResult = new EncryptedData();
 
             try
             {
@@ -129,7 +93,7 @@ namespace CloudBread.Controllers
                         {
                             while (dreader.Read())
                             {
-                                Model workItem = new Model()
+                                SelLoginInfoModel workItem = new SelLoginInfoModel()
                                 {
                                     MemberID = dreader[0].ToString(),
                                     MemberPWD = dreader[1].ToString(),
@@ -149,18 +113,15 @@ namespace CloudBread.Controllers
                                     LastLoginDT = dreader[15].ToString(),
                                     LastLogoutDT = dreader[16].ToString(),
                                     LastMACAddress = dreader[17].ToString(),
-
                                     AccountBlockYN = dreader[18].ToString(),
                                     AccountBlockEndDT = dreader[19].ToString(),
                                     AnonymousYN = dreader[20].ToString(),
-
                                     _3rdAuthProvider = dreader[21].ToString(),
                                     _3rdAuthID = dreader[22].ToString(),
                                     _3rdAuthParam = dreader[23].ToString(),
                                     PushNotificationID = dreader[24].ToString(),
                                     PushNotificationProvider = dreader[25].ToString(),
                                     PushNotificationGroup = dreader[26].ToString(),
-
                                     sCol1 = dreader[27].ToString(),
                                     sCol2 = dreader[28].ToString(),
                                     sCol3 = dreader[29].ToString(),
@@ -186,7 +147,24 @@ namespace CloudBread.Controllers
                         Logging.RunLog(logMessage);
 
                     }
-                    return result;
+                    /// Encrypt the result response
+                    if (globalVal.CloudBreadCryptSetting == "AES256")
+                    {
+                        try
+                        {
+                            encryptedResult.token = Crypto.AES_encrypt(JsonConvert.SerializeObject(result), globalVal.CloudBreadCryptKey, globalVal.CloudBreadCryptIV);
+                            response = Request.CreateResponse(HttpStatusCode.OK, encryptedResult);
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            ex = (Exception)Activator.CreateInstance(ex.GetType(), "Encrypt Error", ex);
+                            throw ex;
+                        }
+                    }
+
+                    response = Request.CreateResponse(HttpStatusCode.OK, result);
+                    return response;
                 }
             }
 
@@ -203,6 +181,5 @@ namespace CloudBread.Controllers
                 throw;
             }
         }
-
     }
 }

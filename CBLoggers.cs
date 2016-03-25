@@ -80,6 +80,41 @@ namespace Logger.Logging
                     message.memberID = "";      /// in case of non-member triggered job
                 }
 
+                /// critical error case, save in ATS CloudBreadErrorLog 
+                if (message.Level.ToUpper() == "ERROR")
+                {
+                    try
+                    {
+                        /// Save error log on Azure Table Storage
+                        {
+                            /// Azure Table Storage connection retry policy
+                            var tableStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
+                            CloudStorageAccount storageAccountT = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
+                            CloudTableClient tableClient = storageAccountT.CreateCloudTableClient();
+                            tableClient.DefaultRequestOptions.RetryPolicy = tableStorageRetryPolicy;
+                            CloudTable table = tableClient.GetTableReference("CloudBreadErrorLog");
+                            CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       
+                            Message.jobID = message.jobID;
+                            Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                            Message.Thread = message.Thread;
+                            Message.Level = message.Level;
+                            Message.Logger = message.Logger;
+                            Message.Message = message.Message;
+                            Message.Exception = message.Exception;
+                            TableOperation insertOperation = TableOperation.Insert(Message);
+                            table.Execute(insertOperation);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        /// Catch fail to log on database. Most case database connection or login fail issue.  
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                /// Regarding to web.config logger settting, save logs on specific storage
                 try
                 {
                     switch (globalVal.CloudBreadLoggerSetting)
@@ -116,7 +151,7 @@ namespace Logger.Logging
                                 CloudTableClient tableClient = storageAccountT.CreateCloudTableClient();
                                 tableClient.DefaultRequestOptions.RetryPolicy = tableStorageRetryPolicy;
                                 CloudTable table = tableClient.GetTableReference("CloudBreadLog");
-                                CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       //memberid를 파티션키로 쓴다.
+                                CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       
                                 Message.jobID = message.jobID;
                                 Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
                                 //Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
