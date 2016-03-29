@@ -31,7 +31,7 @@ CloudBread team is hosting various offline activities for mobile game & app deve
 The contributor team meet-up is hosted offline every week in Korean Seoul city. Also, CloudBread team is hosting hands on *Developer camp* biweekly in Seoul city. Do you want to join the various developer activities? Please, join Facebook discussion group.
 
 ###Contributors
-[![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook) [![Suseon Lee](https://avatars2.githubusercontent.com/u/17489065?v=3&s=60)](https://github.com/finesunday)
+[![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook) [![Suseon Lee](https://avatars2.githubusercontent.com/u/17489065?v=3&s=60)](https://github.com/finesunday)[![JuYeol Yoon](https://avatars3.githubusercontent.com/u/7009850?v=3&s=60)](https://github.com/style0912)
 
 ###License
 - This project released under the **MIT license**.
@@ -72,7 +72,7 @@ CloudBread는 오픈소스 프로젝트로, 누구나 참여 가능합니다. �
 CloudBread 프로젝트 팀은 다양한 오프라인 행사를 모바일 게임 개발자 대상으로 주최하고 있습니다. 현재, Contributor 팀은 주 1회 정기 모임을 진행해 프로젝트 확장과 안정성 제공을 상의하고 프로젝트에 공헌 하고 있으며, 2주에 한번 간격으로 개발자 대상 오프라인 캠프를 진행하고 있습니다. 다양한 오프라인 행사에 참여를 원하시면 페이스북 그룹을 방문해 주세요.
 
 ###Contributors
-[![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook) [![Suseon Lee](https://avatars2.githubusercontent.com/u/17489065?v=3&s=60)](https://github.com/finesunday) 
+[![Dae Woo Kim](https://avatars1.githubusercontent.com/u/1704759?v=3&s=60)](https://github.com/CloudBreadPaPa) [![YoonSeok Hong](https://avatars2.githubusercontent.com/u/8370682?v=3&s=60)](https://github.com/yshong93) [![JungHyun Kim](https://avatars1.githubusercontent.com/u/13347602?v=3&s=60)](https://github.com/junghyun4425) [![BaHwan Han](https://avatars0.githubusercontent.com/u/2682865?v=3&s=60)](https://github.com/Beingbook) [![Suseon Lee](https://avatars2.githubusercontent.com/u/17489065?v=3&s=60)](https://github.com/finesunday) [![JuYeol Yoon](https://avatars3.githubusercontent.com/u/7009850?v=3&s=60)](https://github.com/style0912)
 
 ###License
 - This project released under the **MIT license**.
