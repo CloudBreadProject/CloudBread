@@ -185,7 +185,7 @@ namespace CloudBreadRedis
                 RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
                 SqlConnection conn = new SqlConnection(globalVal.DBConnectionString);
                 conn.Open();
-                string strQuery = "SELECT MemberID, Points FROM MemberGameInfoes";
+                string strQuery = "SELECT Members.Name1, MemberGameInfoes.Points FROM Members inner join MemberGameInfoes on Members.MemberID = MemberGameInfoes.MemberID";
 
                 SqlCommand command = new SqlCommand(strQuery, conn);
 
