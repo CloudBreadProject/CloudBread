@@ -111,116 +111,113 @@ namespace Logger.Logging
                         throw;
                     }
                 }
-            }
-            else
-            {
-                /// Regarding to web.config logger settting, save logs on specific storage
-                try
+                else
                 {
-                    switch (globalVal.CloudBreadLoggerSetting)
+                    /// Regarding to web.config logger settting, save logs on specific storage
+                    try
                     {
-                        case "SQL":
-                            /// Save log on SQL
-                            string strQuery = string.Format("insert into dbo.CloudBreadLog(memberid, jobID, [Thread], [Level], [Logger], [Message], [Exception]) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                            message.memberID,
-                            message.jobID,
-                            message.Thread,
-                            message.Level,
-                            message.Logger,
-                            message.Message,
-                            message.Exception
-                            );
+                        switch (globalVal.CloudBreadLoggerSetting)
+                        {
+                            case "SQL":
+                                /// Save log on SQL
+                                string strQuery = string.Format("insert into dbo.CloudBreadLog(memberid, jobID, [Thread], [Level], [Logger], [Message], [Exception]) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                                message.memberID,
+                                message.jobID,
+                                message.Thread,
+                                message.Level,
+                                message.Logger,
+                                message.Message,
+                                message.Exception
+                                );
 
-                            /// Database connection retry policy
-                            RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
-                            SqlConnection connection = new SqlConnection(globalVal.DBConnectionString);
-                            {
-                                connection.OpenWithRetry(retryPolicy);
-                                SqlCommand command = new SqlCommand(strQuery, connection);
-                                int rowcount = command.ExecuteNonQueryWithRetry(retryPolicy);
-                                connection.Close();
+                                /// Database connection retry policy
+                                RetryPolicy retryPolicy = new RetryPolicy<SqlAzureTransientErrorDetectionStrategy>(globalVal.conRetryCount, TimeSpan.FromSeconds(globalVal.conRetryFromSeconds));
+                                SqlConnection connection = new SqlConnection(globalVal.DBConnectionString);
+                                {
+                                    connection.OpenWithRetry(retryPolicy);
+                                    SqlCommand command = new SqlCommand(strQuery, connection);
+                                    int rowcount = command.ExecuteNonQueryWithRetry(retryPolicy);
+                                    connection.Close();
+                                    break;
+                                }
+
+                            case "ATS":
+                                /// Save log on Azure Table Storage
+                                {
+                                    /// Azure Table Storage connection retry policy
+                                    var tableStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
+                                    CloudStorageAccount storageAccountT = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
+                                    CloudTableClient tableClient = storageAccountT.CreateCloudTableClient();
+                                    tableClient.DefaultRequestOptions.RetryPolicy = tableStorageRetryPolicy;
+                                    CloudTable table = tableClient.GetTableReference("CloudBreadLog");
+                                    CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
+                                    Message.jobID = message.jobID;
+                                    Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                                    //Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+                                    Message.Thread = message.Thread;
+                                    Message.Level = message.Level;
+                                    Message.Logger = message.Logger;
+                                    Message.Message = message.Message;
+                                    Message.Exception = message.Exception;
+                                    TableOperation insertOperation = TableOperation.Insert(Message);
+                                    table.Execute(insertOperation);
+                                    break;
+                                }
+
+                            case "AQS":
+                                /// Save log on Azure Queue Storage
+                                {
+                                    /// Azure Queue Storage connection retry policy
+                                    var queueStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
+                                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
+                                    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+                                    queueClient.DefaultRequestOptions.RetryPolicy = queueStorageRetryPolicy;
+                                    CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lower case
+                                    CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
+                                    Message.jobID = message.jobID;
+                                    Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
+                                    Message.Thread = message.Thread;
+                                    Message.Level = message.Level;
+                                    Message.Logger = message.Logger;
+                                    Message.Message = message.Message;
+                                    Message.Exception = message.Exception;
+                                    CloudQueueMessage Qmessage = new CloudQueueMessage(JsonConvert.SerializeObject(Message));
+                                    queue.AddMessage(Qmessage);
+                                    break;
+                                }
+
+                            case "redis":
+                                /// todolist - save log on Azure Redis Cache
+                                /// yyyymmdd:memberid:Controller:GUID
+                                {
+                                    string redisKey = "";
+                                    string redisVal = "";
+                                    message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"); ;
+                                    redisKey = DateTime.Now.ToUniversalTime().ToString("yyyyMMddHHmm") + ":" + message.memberID + ":" + message.Logger + ":" + Guid.NewGuid().ToString();   // guid - too long key size
+                                    redisVal = JsonConvert.SerializeObject(message);
+                                    CBRedis.saveRedisLog(redisKey, redisVal, globalVal.CloudBreadGameLogExpTimeDays);
+                                }
                                 break;
-                            }
 
-                        case "ATS":
-                            /// Save log on Azure Table Storage
-                            {
-                                /// Azure Table Storage connection retry policy
-                                var tableStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
-                                CloudStorageAccount storageAccountT = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
-                                CloudTableClient tableClient = storageAccountT.CreateCloudTableClient();
-                                tableClient.DefaultRequestOptions.RetryPolicy = tableStorageRetryPolicy;
-                                CloudTable table = tableClient.GetTableReference("CloudBreadLog");
-                                CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());       
-                                Message.jobID = message.jobID;
-                                Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
-                                //Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
-                                Message.Thread = message.Thread;
-                                Message.Level = message.Level;
-                                Message.Logger = message.Logger;
-                                Message.Message = message.Message;
-                                Message.Exception = message.Exception;
-                                TableOperation insertOperation = TableOperation.Insert(Message);
-                                table.Execute(insertOperation);
+                            //case "DocDB":
+                            //    /// @todo save log data on Azure DocumentDB
+                            //    break;
+
+                            default:
+                                /// case do nothing
                                 break;
-                            }
-
-                        case "AQS":
-                            /// Save log on Azure Queue Storage
-                            {
-                                /// Azure Queue Storage connection retry policy
-                                var queueStorageRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
-                                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(globalVal.StorageConnectionString);
-                                CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-                                queueClient.DefaultRequestOptions.RetryPolicy = queueStorageRetryPolicy;
-                                CloudQueue queue = queueClient.GetQueueReference("messagestolog");      /// must be lower case
-                                CBATSMessageEntity Message = new CBATSMessageEntity(message.memberID, Guid.NewGuid().ToString());
-                                Message.jobID = message.jobID;
-                                Message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
-                                Message.Thread = message.Thread;
-                                Message.Level = message.Level;
-                                Message.Logger = message.Logger;
-                                Message.Message = message.Message;
-                                Message.Exception = message.Exception;
-                                CloudQueueMessage Qmessage = new CloudQueueMessage(JsonConvert.SerializeObject(Message));
-                                queue.AddMessage(Qmessage);
-                                break;
-                            }
-
-                        case "redis":
-                            /// todolist - save log on Azure Redis Cache
-                            /// yyyymmdd:memberid:Controller:GUID
-                            {
-                                string redisKey = "";
-                                string redisVal = "";
-                                message.Date = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"); ;
-                                redisKey = DateTime.Now.ToUniversalTime().ToString("yyyyMMddHHmm") + ":" + message.memberID + ":" + message.Logger + ":" + Guid.NewGuid().ToString();   // guid - too long key size
-                                redisVal = JsonConvert.SerializeObject(message);
-                                CBRedis.saveRedisLog(redisKey, redisVal, globalVal.CloudBreadGameLogExpTimeDays);
-                            }
-                            break;
-
-                        //case "DocDB":
-                        //    /// @todo save log data on Azure DocumentDB
-                        //    break;
-
-                        default:
-                            /// case do nothing
-                            break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        /// catch save log error here.
+                        throw;
                     }
                 }
-                catch (Exception)
-                {
-                    /// catch save log error here.
-                    throw;
-                }
-
             }
+           
             return true;
         }
-
-
     }
-    
 }
 
