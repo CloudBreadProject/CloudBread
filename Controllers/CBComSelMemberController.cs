@@ -54,9 +54,9 @@ namespace CloudBread.Controllers
                 }
             }
 
-            // Get the sid or memberID of the current user.
-            string sid = CBAuth.getMemberID(p.memberID, this.User as ClaimsPrincipal);
-            p.memberID = sid;
+            //// Get the sid or memberID of the current user.
+            //string sid = CBAuth.getMemberID(p.memberID, this.User as ClaimsPrincipal);
+            //p.memberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
