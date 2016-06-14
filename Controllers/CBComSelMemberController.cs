@@ -84,10 +84,10 @@ namespace CloudBread.Controllers
 
         public List<Model> Post(InputParams p)
         {
-            // Get the sid or memberID of the current user.
-            var claimsPrincipal = this.User as ClaimsPrincipal;
-            string sid = CBAuth.getMemberID(p.memberID, claimsPrincipal);
-            p.memberID = sid;
+            //// Get the sid or memberID of the current user.
+            //var claimsPrincipal = this.User as ClaimsPrincipal;
+            //string sid = CBAuth.getMemberID(p.memberID, claimsPrincipal);
+            //p.memberID = sid;
 
             Logging.CBLoggers logMessage = new Logging.CBLoggers();
             string jsonParam = JsonConvert.SerializeObject(p);
