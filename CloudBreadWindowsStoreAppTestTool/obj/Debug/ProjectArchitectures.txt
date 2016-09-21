@@ -1,1 +1,0 @@
-C:\Users\dwkim\documents\visual studio 2013\Projects\CloudBread\CloudBreadWindowsStoreAppTestTool\CloudBreadWindowsStoreAppTestTool.csproj;neutral
