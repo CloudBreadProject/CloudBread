@@ -25,6 +25,16 @@ namespace CloudBread
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
             try
             {
                 /// On start up, CreateIfNotExists CloudBreadLog table on Azure Table Storage
@@ -68,16 +78,6 @@ namespace CloudBread
 
                 throw ex;
             }
-        }
-
-        protected void Session_Start(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
